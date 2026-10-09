@@ -1,0 +1,27 @@
+# Runtime and local configuration
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+.env.*
+!.env.example
+*.log
+
+# Do not commit original privately held research data or archives
+*.zip
+*.7z
+*.rar
+*.parquet
+*.h5
+*.hdf5
+*.npy
+*.npz
+data/private/
+inputs/
+outputs/
+results/private/
+
+# Intermediate notebooks or scratch exports
+.ipynb_checkpoints/
+.DS_Store
