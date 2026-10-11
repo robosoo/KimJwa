@@ -66,3 +66,22 @@ Google·OpenAI·Claude 공식 공개 문서에서 개념을 확인했다. 회사
 - C14 공정한 판단에는 목적과 추가 근거가 필요하다 — 관련 R1-017, R1-044
 - C15 읽어도 되는 자료와 실행 권한은 다르다 — 관련 R1-019, R1-020, R1-034, R1-048
 - C16 읽기 쉬운 요약과 검토 가능한 표 — 관련 R1-008, R1-035, R1-043, R1-045, R1-047, R1-050, R1-052, R1-053, R1-056
+
+## 2026-10-11 보강: AI 기초 개념 C17~C26 (GitHub 본문 저장)
+
+각 개념은 정의·제약·업무 상황·적절한 판단·이유·프롬프트 예시·독립 검증 순서·공식 출처·연결 문항으로 구성한다. 이전 C01~C16은 변경하지 않았다.
+
+| 단원 | 개념 | 기존 문제와 연결 | 공식 참고 |
+|---|---|---|---|
+| C17 | Token/Tokenizer/사용량 | R1-032, R1-029 | [Google Tokens](https://ai.google.dev/gemini-api/docs/tokens) |
+| C18 | Context window/장기 기억과의 차이 | R1-029, R1-006, R1-050 | [Claude Models](https://platform.claude.com/docs/en/models/overview) |
+| C19 | System/Developer/User/외부자료 경계 | R1-019, R1-020, R1-048 | [OpenAI Prompt Engineering](https://developers.openai.com/api/docs/guides/prompt-engineering) |
+| C20 | Temperature/샘플링/정확도 | R1-031, R1-062, R1-028 | [Google Prompting](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ko) |
+| C21 | Zero-shot/Few-shot 예시 | R1-005, R1-047, R1-058 | [Anthropic Prompting](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) |
+| C22 | XML 태그·입력 구분자 | R1-004, R1-058, R1-019 | [Anthropic Prompting](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) |
+| C23 | 모델 선택: 성능/비용/지연/입력 한도 | R1-021, R1-040, R1-054 | [OpenAI Models](https://developers.openai.com/api/docs/models) |
+| C24 | 멀티모달: 이미지/표/그래프 한계 | R1-003, R1-056, R1-057 | [Google Image Understanding](https://ai.google.dev/gemini-api/docs/image-understanding) |
+| C25 | 복잡한 업무 분해·중간 검산 | R1-022, R1-061, R1-054 | [OpenAI Prompt Engineering](https://developers.openai.com/api/docs/guides/prompt-engineering) |
+| C26 | RAG·Fine-tuning·검색 선택 | R1-006, R1-007, R1-030 | [OpenAI Retrieval](https://developers.openai.com/api/docs/guides/retrieval) |
+
+주의: 모델별 지원 컨텍스트·Temperature·모델 가격은 계속 달라지는 값이므로 단원에는 특정 숫자를 영구 사실로 박아넣지 않았다. 공식 문서의 작성과 실무 사례는 구분한다. 자동 QA 통과와 실제 운영 배포·Safari 실기기 테스트는 별도이다.
