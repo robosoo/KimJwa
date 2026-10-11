@@ -15,9 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - name: Build and validate 90 questions, 12 tasks
+      - name: Build and validate first-round bank and tasks
         working-directory: 민좌/ai-hackathon-mock-lab
-        run: node scripts/build.mjs
+        run: |
+          node scripts/build.mjs
+          python3 scripts/check-numbers.py
       - name: Check HTML JavaScript and API function syntax
         working-directory: 민좌/ai-hackathon-mock-lab
         run: |

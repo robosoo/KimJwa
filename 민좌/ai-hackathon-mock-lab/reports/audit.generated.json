@@ -1,0 +1,19 @@
+{
+  "version": "round1-20261011-v1",
+  "questions": 44,
+  "practiceTasks": 8,
+  "answerDistribution": [
+    11,
+    10,
+    11,
+    11,
+    1
+  ],
+  "automatedStructure": "pass",
+  "decimalPreservation": "pass",
+  "semanticReview": "all items reviewed by author; independent expert review not performed",
+  "numericReview": "separate Python report",
+  "browserReview": "separate browser report",
+  "originalArchive": "90 questions + 12 tasks + AISCORE 8/4 preserved",
+  "issues": []
+}

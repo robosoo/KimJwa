@@ -1,0 +1,160 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "id": "R1-002",
+      "actual": 0.8,
+      "expected": 0.8,
+      "status": "pass"
+    },
+    {
+      "id": "R1-010:accuracy",
+      "actual": 99.0,
+      "expected": 99,
+      "status": "pass"
+    },
+    {
+      "id": "R1-010:recall",
+      "actual": 0.0,
+      "expected": 0,
+      "status": "pass"
+    },
+    {
+      "id": "R1-011:precision",
+      "actual": 80.0,
+      "expected": 80,
+      "status": "pass"
+    },
+    {
+      "id": "R1-011:recall",
+      "actual": 66.66666666666666,
+      "expected": 66.66666666666667,
+      "status": "pass"
+    },
+    {
+      "id": "R1-021",
+      "actual": 7,
+      "expected": 7,
+      "status": "pass"
+    },
+    {
+      "id": "R1-022",
+      "actual": 3.0,
+      "expected": 3,
+      "status": "pass"
+    },
+    {
+      "id": "R1-023:count",
+      "actual": 3,
+      "expected": 3,
+      "status": "pass"
+    },
+    {
+      "id": "R1-023:rate",
+      "actual": 0.6666666666666666,
+      "expected": 0.6666666666666666,
+      "status": "pass"
+    },
+    {
+      "id": "R1-024",
+      "actual": 1.9,
+      "expected": 1.9,
+      "status": "pass"
+    },
+    {
+      "id": "R1-025",
+      "actual": 0.3,
+      "expected": 0.3,
+      "status": "pass"
+    },
+    {
+      "id": "R1-026",
+      "actual": "2026-10-01T00:30:00+09:00",
+      "status": "pass"
+    },
+    {
+      "id": "R1-027:pp",
+      "actual": 1,
+      "expected": 1,
+      "status": "pass"
+    },
+    {
+      "id": "R1-027:relative",
+      "actual": 20.0,
+      "expected": 20,
+      "status": "pass"
+    },
+    {
+      "id": "P1:nominal",
+      "actual": 2.5,
+      "expected": 2.5,
+      "status": "pass"
+    },
+    {
+      "id": "P1:valid",
+      "actual": 2.5445292620865136,
+      "expected": 2.544529262086514,
+      "status": "pass"
+    },
+    {
+      "id": "P3:accuracy",
+      "actual": 98.2,
+      "expected": 98.2,
+      "status": "pass"
+    },
+    {
+      "id": "P3:precision",
+      "actual": 30.0,
+      "expected": 30,
+      "status": "pass"
+    },
+    {
+      "id": "P3:recall",
+      "actual": 60.0,
+      "expected": 60,
+      "status": "pass"
+    },
+    {
+      "id": "P3:f1",
+      "actual": 40.0,
+      "expected": 40,
+      "status": "pass"
+    },
+    {
+      "id": "P3:cost",
+      "actual": 1740,
+      "expected": 1740,
+      "status": "pass"
+    },
+    {
+      "id": "refund:user-example",
+      "actual": 14038000,
+      "expected": 14038000,
+      "status": "pass"
+    },
+    {
+      "id": "R1-U01:eligible-count",
+      "actual": 4,
+      "expected": 4,
+      "status": "pass"
+    },
+    {
+      "id": "R1-U01:total",
+      "actual": 191000,
+      "expected": 191000,
+      "status": "pass"
+    },
+    {
+      "id": "R1-U02:eligible-count",
+      "actual": 2,
+      "expected": 2,
+      "status": "pass"
+    },
+    {
+      "id": "R1-U02:min-cost",
+      "actual": 205000,
+      "expected": 205000,
+      "status": "pass"
+    }
+  ]
+}
