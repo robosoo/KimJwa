@@ -1,0 +1,51 @@
+name: Sync SK hynix Study Web Preview
+on:
+  push:
+    branches: [main]
+    paths:
+      - '민좌/ai-hackathon-mock-lab/src/**'
+      - '민좌/ai-hackathon-mock-lab/data/**'
+      - '민좌/ai-hackathon-mock-lab/scripts/build.mjs'
+      - '민좌/ai-hackathon-mock-lab/scripts/validate.mjs'
+      - '.github/workflows/sync-hackathon-static-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: skhynix-preview-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site source
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Rebuild and validate website
+        working-directory: 민좌/ai-hackathon-mock-lab
+        run: |
+          node scripts/build.mjs
+          python3 scripts/check-numbers.py
+      - name: Synchronize portable site and public HTML preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          source="민좌/ai-hackathon-mock-lab/dist/index.html"
+          test -s "$source"
+          mkdir -p skhynix-ai-study
+          cp "$source" "민좌/ai-hackathon-mock-lab/release/index.html"
+          cp "$source" "skhynix-ai-study/index.html"
+          git add -- "민좌/ai-hackathon-mock-lab/release/index.html" "skhynix-ai-study/index.html"
+          if git diff --cached --quiet; then
+            echo "Public preview is already up to date."
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'chore(hackathon): refresh public 64-question study preview'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo "Preview source updated. Cached public URL may take a few minutes to refresh."
