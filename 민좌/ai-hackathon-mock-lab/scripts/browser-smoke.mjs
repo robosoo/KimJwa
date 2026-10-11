@@ -38,6 +38,9 @@ try{
     await page.locator('nav button[data-view="fourp"]').click();
     assert.equal(await page.locator('#fourp').isVisible(),true);
     assert.equal(await page.locator('#fourTheory .four-card').count(),4);
+    assert.equal(await page.locator('#fourQuick .four-quick-item').count(),8);
+    await page.locator('[data-quick="QC01"][data-quickchoice="Plan"]').click();
+    assert.match(await page.locator('#fourQuick').innerText(),/맞았어요/);
     assert.equal(await page.locator('#fourCases [data-fourcase]').count(),6);
     await page.locator('#fourAnswer0').fill('목표는 행 기준의 명목 불량 비율과 웨이퍼 단위 확정 불량률을 구분하는 것이다.');
     await page.locator('[data-fourreview="0"]').click();
@@ -46,6 +49,7 @@ try{
     await page.locator('nav button[data-view="fourp"]').click();
     assert.ok((await page.locator('#fourAnswer0').inputValue()).length>=20);
     assert.equal(await page.locator('#fourReview0').isVisible(),true);
+    assert.match(await page.locator('#fourQuick').innerText(),/맞았어요/);
     await page.locator('#fourCases [data-fourcase="FP02"]').click();
     assert.match(await page.locator('#fourExercise').innerText(),/VDDQ/);
     await page.locator('nav button[data-view="concepts"]').click();
