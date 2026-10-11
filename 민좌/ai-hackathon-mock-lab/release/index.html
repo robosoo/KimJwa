@@ -66,13 +66,18 @@ function fourGuide(){
 }
 function fourExercise(){
  const c=P4.cases.find(x=>x.id===fourCaseId);if(!c)return;
- const v=fourRec(c);$('fourExercise').innerHTML=`<div class="row between"><span class="pill">${e(c.topic)}</span><span class="muted">학습 ${v.reviewed.filter(Boolean).length}/4 · ${e(c.id)}</span></div><h2 style="margin-top:10px">${e(c.title)}</h2><div class="scenario">${e(c.scenario)}</div><p><strong>최종 제출 목표</strong> ${e(c.task)}</p><p class="muted">각 단계에서 '내가 해야 할 판단'을 직접 적습니다. 예시는 답을 적은 뒤에 열리므로 먼저 읽지 않는 연습이 됩니다.</p>
- ${c.steps.map((step,i)=>`<section class="four-step"><div class="row between"><h3>${i+1}. ${e(P4.dimensions[i].key)} · ${e(P4.dimensions[i].ko)}</h3><span class="pill">${v.reviewed[i]?'비교 완료':'직접 작성'}</span></div><p><strong>${e(step.question)}</strong></p><p class="muted">${e(P4.dimensions[i].memory)}</p><label for="fourAnswer${i}" class="small">내 판단 / 실제 AI 질문 / 검증 근거 (${i+1}단계)</label><textarea id="fourAnswer${i}" data-fouranswer="${i}" placeholder="핵심 조건과 판단 이유를 20자 이상 적어보세요.">${e(v.answers[i])}</textarea><div class="row"><button class="btn primary" data-fourreview="${i}" ${v.answers[i].trim().length<20?'disabled':''}>내 답과 예시 비교</button><button class="btn small" data-fourcopy="${i}">내 답 복사</button></div><div class="four-review" id="fourReview${i}" ${v.reviewed[i]?'':'hidden'}><p class="wrong"><strong>피해야 할 접근</strong> ${e(step.bad)}</p><p class="good-example"><strong>좋은 판단의 예시</strong> ${e(step.good)}</p><p><strong>자기 점검:</strong> ${e(step.hint)}</p><p class="muted">비교 완료는 예시 확인 기록이며 답안의 정확성 자동 채점이 아닙니다. 내 답을 다시 수정하면 비교 기록이 초기화됩니다.</p></div></section>`).join('')}
- <div class="row"><button class="btn" id="fourNext">다음 반도체 사례 →</button><button class="btn primary" data-view="practice">AI 활용 실습으로 이동 →</button></div>`;
+ const v=fourRec(c);$('fourExercise').innerHTML=`<div class="row between"><span class="pill">${e(c.topic)}</span><span class="muted">학습 ${v.reviewed.filter(Boolean).length}/4 · ${e(c.id)}</span></div><h2 style="margin-top:10px">${e(c.title)}</h2><div class="scenario">${e(c.scenario)}</div><p><strong>최종 제출 목표</strong> ${e(c.task)}</p><p class="muted">Plan을 작성하고 예시를 비교하면 Prompt가 열립니다. Prompt → Probe → Protect까지 차례로 내 판단을 적어야 다음 사례로 진행할 수 있습니다.</p>
+ ${c.steps.map((step,i)=>`<section class="four-step" data-fourstage="${i}" ${i>0&&!v.reviewed.slice(0,i).every(Boolean)?'hidden':''}><div class="row between"><h3>${i+1}. ${e(P4.dimensions[i].key)} · ${e(P4.dimensions[i].ko)}</h3><span class="pill">${v.reviewed[i]?'비교 완료':'직접 작성'}</span></div><p><strong>${e(step.question)}</strong></p><p class="muted">${e(P4.dimensions[i].memory)}</p><label for="fourAnswer${i}" class="small">내 판단 / 실제 AI 질문 / 검증 근거 (${i+1}단계)</label><textarea id="fourAnswer${i}" data-fouranswer="${i}" placeholder="핵심 조건과 판단 이유를 20자 이상 적어보세요.">${e(v.answers[i])}</textarea><div class="row"><button class="btn primary" data-fourreview="${i}" ${v.answers[i].trim().length<20?'disabled':''}>내 답과 예시 비교</button><button class="btn small" data-fourcopy="${i}">내 답 복사</button></div><div class="four-review" id="fourReview${i}" ${v.reviewed[i]?'':'hidden'}><p class="wrong"><strong>피해야 할 접근</strong> ${e(step.bad)}</p><p class="good-example"><strong>좋은 판단의 예시</strong> ${e(step.good)}</p><p><strong>자기 점검:</strong> ${e(step.hint)}</p><p class="muted">비교 완료는 예시 확인 기록이며 답안의 정확성 자동 채점이 아닙니다. 내 답을 다시 수정하면 비교 기록이 초기화됩니다.</p></div></section>`).join('')}
+ <div class="row"><button class="btn" id="fourNext" ${v.reviewed.every(Boolean)?'':'disabled'}>다음 반도체 사례 →</button><button class="btn primary" data-view="practice">AI 활용 실습으로 이동 →</button></div>`;
  document.querySelectorAll('[data-fouranswer]').forEach(el=>el.oninput=()=>{
    const i=Number(el.dataset.fouranswer),v=fourRec(c);
    v.answers[i]=el.value.slice(0,12000);v.reviewed[i]=false;
+   for(let j=i+1;j<4;j++){v.reviewed[j]=false;const later=document.querySelector('#fourExercise [data-fourstage="'+j+'"]');if(later){later.hidden=true;later.querySelector('.pill').textContent='직접 작성';}const review=$('fourReview'+j);if(review)review.hidden=true;}
    p().fourp[c.id]=v;save();
+   $('fourNext').disabled=true;
+   el.closest('.four-step').querySelector('.pill').textContent='직접 작성';
+   $('fourProgress').textContent='내 4P 복습 진행: '+P4.cases.reduce((sum,z)=>sum+fourRec(z).reviewed.filter(Boolean).length,0)+'/'+(P4.cases.length*4)+'단계 비교 학습 · 공식 평가 점수가 아닙니다.';
+   $('fourCases').querySelector('[data-fourcase="'+c.id+'"] .muted').textContent=c.topic+' · 복습 '+v.reviewed.filter(Boolean).length+'/4';
    $('fourReview'+i).hidden=true;
    const btn=document.querySelector('[data-fourreview="'+i+'"]');
    btn.disabled=v.answers[i].trim().length<20;
@@ -80,9 +85,12 @@ function fourExercise(){
  document.querySelectorAll('[data-fourreview]').forEach(btn=>btn.onclick=()=>{
    const i=Number(btn.dataset.fourreview),v=fourRec(c);
    if(v.answers[i].trim().length<20)return toast('20자 이상 직접 작성한 뒤 비교하세요.');
+   if(!v.reviewed.slice(0,i).every(Boolean))return toast('앞 단계부터 먼저 완료하세요.');
    v.reviewed[i]=true;p().fourp[c.id]=v;save();
    $('fourReview'+i).hidden=false;
    btn.closest('.four-step').querySelector('.pill').textContent='비교 완료';
+   const next=document.querySelector('#fourExercise [data-fourstage="'+(i+1)+'"]');if(next)next.hidden=false;
+   if(v.reviewed.every(Boolean))$('fourNext').disabled=false;
    $('fourProgress').textContent='내 4P 복습 진행: '+P4.cases.reduce((sum,z)=>sum+fourRec(z).reviewed.filter(Boolean).length,0)+'/'+(P4.cases.length*4)+'단계 비교 학습 · 공식 평가 점수가 아닙니다.';
    $('fourCases').querySelector('[data-fourcase="'+c.id+'"] .muted').textContent=c.topic+' · 복습 '+v.reviewed.filter(Boolean).length+'/4';
  });
