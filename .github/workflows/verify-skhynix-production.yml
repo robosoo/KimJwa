@@ -1,0 +1,41 @@
+name: Verify SK hynix Quiz Production
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '민좌/ai-hackathon-mock-lab/reports/production-deployment.json'
+      - '.github/workflows/verify-skhynix-production.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch production URL and check real served content
+        run: |
+          python3 - <<'PY'
+          import json, time, urllib.request
+          root='https://skhynix-ai-hackathon-quiz.vercel.app'
+          last=None
+          for attempt in range(8):
+              try:
+                  with urllib.request.urlopen(root+'/bank-version.json?check=20261011', timeout=20) as f:
+                      info=json.load(f)
+                  with urllib.request.urlopen(root+'/?check=20261011', timeout=20) as f:
+                      page=f.read().decode('utf-8')
+                  assert info['questions']==64, info
+                  assert info['conceptLessons']==26, info
+                  assert info['practiceTasks']==8, info
+                  assert '"id":"R1-064"' in page, 'Question 64 not embedded in served HTML'
+                  assert '"id":"C26"' in page, 'Concept C26 not embedded in served HTML'
+                  print('Production LIVE PASS:', root, info, 'HTML bytes',len(page.encode('utf-8')))
+                  break
+              except Exception as exc:
+                  last=repr(exc)
+                  print('Attempt',attempt+1,'failed:',last)
+                  time.sleep(5)
+          else:
+              raise RuntimeError('Production serving 64/26/8 verification failed: '+str(last))
+          PY
