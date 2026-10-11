@@ -7,6 +7,15 @@
 - **GitHub Pages 대체 경로:** `.github/workflows/hackathon-pages.yml`를 추가했으나 최초 실행은 Pages 비활성으로 Configure Pages 실패. GitHub 저장소 Settings → Pages → Build and deployment → Source: GitHub Actions를 선택한 후 Actions에서 `Publish AI Hackathon Study Site` 재실행 필요.
 - **새로 만든 결과의 완료 판단:** 소스 저장·정적 빌드·자동 검증 완료, Vercel 운영 업데이트 및 GitHub Pages 공개 주소와 iPad 실사용 확인은 미완료.
 
+## 브라우저에서 바로 열 수 있는 임시 공개 미리보기
+
+- URL(개발·가변 캐시): https://raw.githack.com/robosoo/KimJwa/main/skhynix-ai-study/index.html
+- URL(2026-10-11 HTML 고정본): https://rawcdn.githack.com/robosoo/KimJwa/17880932fbead058592f1eaba8b4c2e53d578470/skhynix-ai-study/index.html
+- 원본 GitHub: `skhynix-ai-study/index.html` (한 파일에 객관식 64문항, 개념 26단원, AI 활용 실습 8개 포함).
+- raw.githack은 외부 HTML 중계 서비스이므로 GitHub에 파일이 있다고 링크의 실제 iPad Safari 작동을 보증하지 않는다. 안정적인 운영 주소는 원래 Vercel 도메인으로 유지할 계획.
+- 공개 중계 도메인에서는 민감한 실제 업무 문서·개인정보를 입력하지 않는다. 사이트 로컬 학습 기록도 동일 도메인에서 제공하는 다른 HTML과 분리 보장되지 않는다. 공식 운영 도메인 복구 후 사용자별 학습 기록을 JSON으로 내보내고 가져올 것.
+
+
 ---
 
 # v3 · 64문항 및 공식 AI 기초 개념 26단원
