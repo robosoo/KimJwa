@@ -12,6 +12,8 @@ assert.equal(version.conceptLessons,26);
 assert.equal(version.wikiArticles,26);
 assert.equal(version.fourPDrills,6);
 assert.equal(version.fourPTransferChecks,6);
+assert.equal(version.fourPIndependentChecks,12);
+assert.equal(version.fourPDeepTheory,4);
 
 const server=createServer((req,res)=>{
   const target=(req.url||'/').split('?')[0]==='/bank-version.json'?'bank-version.json':'index.html';
@@ -41,6 +43,8 @@ try{
     await page.locator('nav button[data-view="fourp"]').click();
     assert.equal(await page.locator('#fourp').isVisible(),true);
     assert.equal(await page.locator('#fourTheory .four-card').count(),4);
+    assert.equal(await page.locator('#fourTheoryDeep details').count(),4,'deep 4P concept theory should render');
+    assert.match(await page.locator('#fourTheoryDeep').innerText(),/심화 학습/);
     assert.match(await page.locator('#fourTheory .four-card').first().innerText(),/정의/);
     assert.match(await page.locator('#fourTheory .four-card').first().innerText(),/일상 예시/);
     assert.equal(await page.locator('#fourQuick .four-quick-item').count(),8);
@@ -78,9 +82,20 @@ try{
     await page.locator('#fourTransferSubmit').click();
     assert.match(await page.locator('#fourDrill').innerText(),/변형 과제 정답/);
     assert.equal(await page.locator('#fourNext').isEnabled(),true);
+    assert.equal(await page.locator('#fourDiagnostics .four-diagnostic').count(),2,'two separate independent challenges');
+    await page.locator('input[name="drill-FP01-D1"][value="0"]').check();
+    await page.locator('[data-drill-reason="FP01-D1"]').fill('웨이퍼별 최종 불량 개수는 주어지지 않았으니 로그 행과 고유 웨이퍼를 구분하여 다시 계산하라.');
+    await page.locator('[data-check-drill="FP01-D1"]').click();
+    assert.match(await page.locator('#fourDiagnostics').innerText(),/판정 일치/);
+    await page.locator('input[name="drill-FP01-D2"][value="1"]').check();
+    await page.locator('[data-drill-reason="FP01-D2"]').fill('25를 결측 50을 제외한 950으로 나눠 비결측 로그행 기준 비율을 계산하라.');
+    await page.locator('[data-check-drill="FP01-D2"]').click();
+    assert.match(await page.locator('#fourProgress').innerText(),/2\/12 제출/);
     await page.reload();
     await page.locator('nav button[data-view="fourp"]').click();
-    assert.match(await page.locator('#fourProgress').innerText(),/1\/6사례/);
+    assert.match(await page.locator('#fourProgress').innerText(),/2\/12 제출/);
+    assert.equal(await page.locator('#fourDiagnostics .four-diagnostic').count(),2);
+    assert.match(await page.locator('#fourDiagnostics').innerText(),/최초 독립 시도: 정답/);
     await page.locator('#fourCases [data-fourcase="FP02"]').click();
     assert.match(await page.locator('#fourExercise').innerText(),/VDDQ/);
     await page.locator('nav button[data-view="concepts"]').click();
@@ -90,6 +105,7 @@ try{
     await page.locator('#conceptList button').filter({hasText:'Temperature'}).first().click();
     assert.match(await page.locator('#conceptPanel').innerText(),/Temperature/);
     assert.match(await page.locator('#conceptPanel').innerText(),/작동 원리/);
+    assert.match(await page.locator('#conceptPanel').innerText(),/정의/);
     assert.match(await page.locator('#conceptPanel').innerText(),/개념의 경계와 한계/);
     await page.locator('#conceptSearch').fill('토큰');
     assert.ok(await page.locator('#conceptList button').count()>=1);
