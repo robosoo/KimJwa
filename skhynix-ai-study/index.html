@@ -80,7 +80,7 @@ function fourGuide(){
  $('fourValues').innerHTML='<div class="four-theory">'+P4.philosophy.map(v=>`<section class="four-card"><h3>${e(v.title)}</h3><p>${e(v.reason)}</p><p><strong>그래서 연습할 것</strong> ${e(v.how)}</p></section>`).join('')+'</div>';
  $('fourCases').innerHTML=P4.cases.map(c=>`<button class="btn ${c.id===fourCaseId?'active':''}" data-fourcase="${e(c.id)}" aria-pressed="${c.id===fourCaseId}"><span>${e(c.title)}<br><span class="muted">${e(c.topic)} · 복습 ${fourRec(c).reviewed.filter(Boolean).length}/4</span></span></button>`).join('');
  $('fourSources').innerHTML=P4.references.map(x=>`<p><a href="${e(x.url)}" rel="noopener noreferrer" target="_blank">${e(x.title)} ↗</a> <span class="muted">${e(x.date)} · ${e(x.kind)}</span><br><span class="small">${e(x.finding)}</span></p>`).join('')+'<p class="muted">'+e(P4.disclaimer)+'</p>';
- renderAdvancedFourTheory();fourExercise();
+ renderAdvancedFourTheory();fourExercise();renderFourDiagnostics();
 }
 function fourExercise(){
  const c=P4.cases.find(x=>x.id===fourCaseId);if(!c)return;
@@ -108,7 +108,7 @@ function fourExercise(){
    $('fourReview'+i).hidden=false;
    btn.closest('.four-step').querySelector('.pill').textContent='비교 완료';
    const next=document.querySelector('#fourExercise [data-fourstage="'+(i+1)+'"]');if(next)next.hidden=false;
-   if(v.reviewed.every(Boolean)){$('fourNext').disabled=!v.drill?.transferSubmitted;fourDrill(c);}
+   if(v.reviewed.every(Boolean)){$('fourNext').disabled=!v.drill?.transferSubmitted;fourDrill(c);renderFourDiagnostics();}
    $('fourProgress').textContent='내 4P 복습 진행: '+P4.cases.reduce((sum,z)=>sum+fourRec(z).reviewed.filter(Boolean).length,0)+'/'+(P4.cases.length*4)+'단계 비교 학습 · 공식 평가 점수가 아닙니다.';
    $('fourCases').querySelector('[data-fourcase="'+c.id+'"] .muted').textContent=c.topic+' · 복습 '+v.reviewed.filter(Boolean).length+'/4';
  });
