@@ -43,12 +43,31 @@ jobs:
           assert 'C26' in (root/'index.html').read_text()
           print('64 questions, 26 concepts, 8 practice tasks verified')
           PY
+      - name: Check whether Pages is enabled
+        id: pages-ready
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          http_code=$(curl -sS -o /dev/null -w '%{http_code}' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/pages")
+          if [ "$http_code" = "200" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "GitHub Pages is enabled."
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::GitHub Pages not enabled (HTTP $http_code). Set Repository Settings > Pages > Source to GitHub Actions. Skipping publish, build and QA remain valid."
+          fi
       - name: Configure Pages
+        if: steps.pages-ready.outputs.enabled == 'true'
         uses: actions/configure-pages@v5
       - name: Upload web app
+        if: steps.pages-ready.outputs.enabled == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: 민좌/ai-hackathon-mock-lab/dist
       - name: Deploy to GitHub Pages
+        if: steps.pages-ready.outputs.enabled == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
