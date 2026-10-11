@@ -38,8 +38,8 @@
         {
           "name": "AISCORE",
           "url": "https://aiscore.kr/",
-          "desc": "AI 역량 진단",
-          "status": "접속 재확인 필요"
+          "desc": "생성형 AI 실무 과제 · 첫 과제/첫 채점 무료, 추가 과제는 채점권 필요",
+          "status": "무료 체험 확인"
         },
         {
           "name": "AI Wins 퀴즈",
@@ -65,6 +65,12 @@
       "title": "유료·기타 연습 자료",
       "note": "가격·무료 제공 범위는 방문 시 재확인",
       "items": [
+        {
+          "name": "AISCORE CJ올리브네트웍스 대비",
+          "url": "https://aiscore.kr/prep/cj-olivenetworks",
+          "desc": "개발 직무 바이브 코딩·비개발 AI 활용, 4개 영역 총 100개 창작 과제 안내(유료 접근). 공식 기출 아님",
+          "status": "유료·일부 무료"
+        },
         {
           "name": "CareerXP 실전 모의고사",
           "url": "https://careerxp.work/ax/assessment",
