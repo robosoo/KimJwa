@@ -1,3 +1,7 @@
+# 2026-10-11 v2 추가 자료
+
+64문항·16개 개념 단원의 공식 문서 목록과 신규 20문항 유형은 [OFFICIAL_DOCS_STUDY_V2.md](OFFICIAL_DOCS_STUDY_V2.md)에 기록했다. 사용자 제공 5개 예시의 본래 출제처·실제 기출 여부는 확인하지 않았으며 문장·보기의 스타일 기준으로 사용한다.
+
 # SOURCE LEDGER: 2026 SK hynix AI Hackathon First Qualifier
 Recorded 2026-10-11. Scope: 1차, AI 기초 지식 및 활용 역량. Avoid making up actual exam questions, scoring weights or time limits.
 

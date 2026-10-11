@@ -1,3 +1,9 @@
+# 2026-10-11 v2 개편 추가 기준
+
+현재 작업 기준은 work/WORK_PROMPT.md, work/QUESTION_SPEC_AND_QA.md, work/OFFICIAL_DOCS_STUDY_V2.md이다. 기존 44문항을 친절한 지문·보기로 재편집하고 신규 20문항을 추가해 64문항으로 만들었다. data/concept-lessons.json의 16개 개념 단원이 src/index.html에 포함된다. 빌드 및 배포 상태는 reports의 해당 버전 검증 기록을 확인한다. 공식 문서 참고와 독립 창작 문제를 구분하고 기존 정답·기록 호환성을 유지한다.
+
+---
+
 # WORK HANDOFF — SK하이닉스 AI 해커톤 **1차 예선 전용** 문제집 (2026-10-11)
 
 > **이 파일이 유일한 작업 지시서(Single Source of Truth)**. Work에 이 문서를 열어 그대로 수행하라고 지시한다. 기존 사이트의 내용이 이 문서와 충돌하면 이 문서가 우선한다. 단, 기존 문제·답안 원본은 삭제하지 않고 GitHub 스냅샷에 보존한다.

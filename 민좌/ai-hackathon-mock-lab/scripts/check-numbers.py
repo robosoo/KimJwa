@@ -20,6 +20,14 @@ for q in qs:
  elif f['kind']=='timezone':
   v=datetime.datetime.fromisoformat(f['utc']).astimezone(datetime.timezone(datetime.timedelta(hours=9)));assert v.date().isoformat()==f['expectedDate'];results.append(dict(id=i,actual=v.isoformat(),status='pass'))
  elif f['kind']=='percent':check(i+':pp',f['before']-f['after'],f['expectedPP']);check(i+':relative',(f['before']-f['after'])/f['before']*100,f['expectedRelative'])
+ elif f['kind']=='line-total':check(i,f['quantity']*f['unitPrice'],f['expected'])
+ elif f['kind']=='sum':check(i,sum(f['values']),f['expected'])
+ elif f['kind']=='growth':check(i,(f['after']-f['before'])/f['before']*100,f['expected'])
+ elif f['kind']=='threshold':
+  actual=[x<=f['limit'] for x in f['values']];assert actual==f['expected'];results.append(dict(id=i,actual=actual,status='pass'))
+ elif f['kind']=='supplier-choice':
+  candidates=sorted((cost,name) for name,days,cost in f['rows'] if days<=f['maxDays'] and cost<=f['maxCost']);assert candidates[0][1]==f['expected'];results.append(dict(id=i,actual=candidates[0][1],status='pass'))
+ else:raise AssertionError('unsupported numeric fixture '+i)
 for i,a,b in [('P1:nominal',200/8000*100,2.5),('P1:valid',200/7860*100,2.544529262086514),('P3:accuracy',9820/10000*100,98.2),('P3:precision',60/200*100,30),('P3:recall',60/100*100,60),('P3:f1',120/300*100,40),('P3:cost',40*40+140,1740),('refund:user-example',14377000-113*3000,14038000)]:check(i,a,b)
 import csv,io
 practices=json.loads((P/'data/round1-practice.json').read_text())

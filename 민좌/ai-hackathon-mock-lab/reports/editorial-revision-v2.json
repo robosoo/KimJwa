@@ -650,5 +650,9 @@
       "answerCriterionReviewed": true,
       "provider": "openai"
     }
-  ]
+  ],
+  "conceptLessons": 16,
+  "averageChoiceCharactersExcludingOX": 85,
+  "choicesHaveActionAndRationale": true,
+  "officialSourceLedger": "work/OFFICIAL_DOCS_STUDY_V2.md"
 }

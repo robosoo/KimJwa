@@ -1,3 +1,20 @@
+# 2026-10-11 추가 편집 기준 — 사람이 읽고 풀 수 있는 문제
+
+사용자가 제공한 합병·사진 표·보고서 책임·통화 요약·AI 탐지 5개 예시가 문장과 보기의 기준이다. 지문뿐 아니라 각 보기가 제안하는 행동과 판단 이유까지 읽고 비교할 수 있어야 한다.
+
+- 모든 문항: 업무 상황 / 주어진 자료와 조건 / 판단할 사항의 세 단락. 단락을 위해 같은 일반 문장을 반복하지 않는다.
+- 생소한 용어는 상황에 필요한 범위에서 풀이한다. 프로그램 구현이나 API 메뉴를 알아야 답할 수 있는 문항은 제외한다.
+- 정답은 지문과 기본 개념에서 하나로 결정된다. 필요한 분모·단위·포함 경계·날짜 기준을 명시한다.
+- 숫자 보기도 계산 대상과 가정을 설명한다. 보기 길이나 어처구니없는 표현만으로 정답을 알 수 있게 만들지 않는다.
+- 개념 공부 탭에는 쉬운 뜻, 업무 예시, 요청 예시, 검증 순서, 함정, 관련 문항, 공식 문서가 필요하다.
+- 공식 문서는 개념의 근거다. 독립 창작한 회사·정책·수치가 공식 문항이나 기출이라고 표시하지 않는다.
+- 기존 44문항 ID와 정답 위치를 유지했다. v1 기록을 v2로 가져올 수 있고 신규 문항은 45~64번에 추가한다.
+- 현재 검증: 자동 구조·수치 검산과 작성자 논리 검토를 수행한다. 독립 전문가와 실제 iPad Safari 검증은 별도다.
+
+아래 최초 명세에서 충돌하는 문항 길이·보기 수는 이 추가 기준이 우선한다.
+
+---
+
 # SK hynix First Qualifier — Programmers-style Exam Specification
 Version 2026-10-11, authority: user instruction. This supersedes the old mixed 1차/2차/Claude Docs exam plan.
 
@@ -15,9 +32,9 @@ Version 2026-10-11, authority: user instruction. This supersedes the old mixed 1
 - Do not force 90 live questions. Archive 90 originals and count how many are kept, rewritten, or removed. Quality outweighs count.
 
 ## Programmers-inspired question shape
-- 120–400 Korean characters of realistically coherent situation; occasionally longer where meaningful. Role can be factory quality, HR, finance, procurement, logistics, compliance, education or customer service; semiconductors are one of several contexts.
+- Readable workplace context with role, goal, provided evidence and the decision to make. Normally 300–700 Korean characters, more where useful; current structural gate is 280–1,000. Length is an editorial guide, never permission to pad. Role can be factory quality, HR, finance, procurement, logistics, compliance, education or customer service; semiconductors are one of several contexts.
 - 1 unambiguous question: what is the safest, most accurate, best next step or root cause?
-- 4 equally plausible options; one defensibly best answer based on GIVEN evidence, optionally O/X judgment when suitable. No giveaways via length, absurd assertions, obvious '항상/무조건/전부' distractors, position patterns, or developer jargon.
+- 4 or 5 equally plausible full-sentence options; each states an action and its rationale. Normally 50–130 Korean characters per option; avoid bare keyword/number answers except deliberate O/X. User-provided 5-option examples remain supported. Use one defensibly best answer based on GIVEN evidence, optionally O/X judgment when suitable. No giveaways via length, absurd assertions, obvious '항상/무조건/전부' distractors, position patterns, or developer jargon.
 - Wrong choices should tempt a reasonable candidate via 3 distinct misconceptions.
 - Explanation AFTER answer: (A) correct answer; (B) situation-specific reasoning citing evidence; (C) core concept lesson as in a textbook; (D) why each other option fails; (E) checks a real worker should perform; (F) source/reference and certainty; (G) common trap; optional worked math.
 - Avoid creating made-up numerical tables or claiming statistical significance without calculating; create deterministic answer keys and independent verification.

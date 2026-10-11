@@ -85,6 +85,53 @@
       "status": "pass"
     },
     {
+      "id": "R1-045",
+      "actual": 36000,
+      "expected": 36000,
+      "status": "pass"
+    },
+    {
+      "id": "R1-051",
+      "actual": 200,
+      "expected": 200,
+      "status": "pass"
+    },
+    {
+      "id": "R1-057",
+      "actual": 10.0,
+      "expected": 10,
+      "status": "pass"
+    },
+    {
+      "id": "R1-058",
+      "actual": [
+        true,
+        true,
+        false
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "R1-059",
+      "actual": "A",
+      "status": "pass"
+    },
+    {
+      "id": "R1-061",
+      "actual": 88000,
+      "expected": 88000,
+      "status": "pass"
+    },
+    {
+      "id": "R1-064",
+      "actual": [
+        true,
+        true,
+        false
+      ],
+      "status": "pass"
+    },
+    {
       "id": "P1:nominal",
       "actual": 2.5,
       "expected": 2.5,
