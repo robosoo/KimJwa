@@ -1,3 +1,11 @@
+# 2026-10-11 이어하기 체크포인트 (64문항·26개념)
+
+최신 기준: 64문항 / 개념 공부 26단원(C01–C26) / AI 활용 실습 8개. C17–C26은 토큰·문맥 창·메시지 역할·Temperature·Zero/Few-shot·XML 구조·모델 선택·멀티모달·작업 분해·RAG/Fine-tuning이다. 신규 단원 및 관련 문항 연결은 `data/concept-lessons.json`에 커밋됨. 실행 가능한 하나의 HTML은 `release/index.html`에 보존됨.
+
+GitHub Actions `Publish AI Hackathon Study Site`에서 Node 빌드/데이터 구조 검사 및 Python 수치 검산 33개가 통과함. 26개 단원 표시와 64개 문항의 운영 사이트 배포는 아직 불완전함: 원래 Vercel 운영 배포는 44개 자료의 `dc6b0695` 커밋, 최신 64개 preview는 `7563bc4e`. Vercel 생성·승격 시 `ctpmfd42hf-8757` scope 403이 발생해 배포 불가. GitHub Pages 워크플로는 만들어 두었지만 Pages 기능이 설정되지 않아 첫 실행 실패. GitHub repo Settings → Pages → Source: GitHub Actions를 설정하고 Actions `Publish AI Hackathon Study Site` 재실행 또는 Vercel 계정을 해당 scope로 재연결해야 공개 사이트 업데이트 가능. **권한 복구 전에는 배포 완료로 표기하지 말 것.** 상세 상태는 `README.md` 확인.
+
+---
+
 # 2026-10-11 작업 연속성 업데이트: 64문항·26개념, 배포 권한 복구 필요
 
 원본 64문항 및 8실습과 기존 16개념은 보존했다. C17~C26 10개념을 `data/concept-lessons.json`에 추가했으며 `src/index.html` 첫 화면 개념 진입과 설명 본문 검색을 개선했다. `npm test`는 GitHub Actions에서도 실행한다. 운영 사이트는 이전 프로덕션 배포가 유지되며 Vercel 배포 API가 팀 접근 권한 부족 403으로 거절됐다. `VERCEL_TOKEN`이 GitHub Actions에 없어 `.github/workflows/deploy-skhynix-quiz.yml` 배포 단계는 건너뛰었다. **운영 사이트 64/26 반영 완료로 주장하지 않는다.** GitHub secret 연결 및 Actions 재실행 또는 Vercel 권한 재연결이 남았다. 상세 사항은 README와 `reports/release-20261011-v3.md`.
@@ -6,7 +14,7 @@
 
 # 2026-10-11 v2 개편 추가 기준
 
-현재 작업 기준은 work/WORK_PROMPT.md, work/QUESTION_SPEC_AND_QA.md, work/OFFICIAL_DOCS_STUDY_V2.md이다. 기존 44문항을 친절한 지문·보기로 재편집하고 신규 20문항을 추가해 64문항으로 만들었다. data/concept-lessons.json의 16개 개념 단원이 src/index.html에 포함된다. 빌드 및 배포 상태는 reports의 해당 버전 검증 기록을 확인한다. 공식 문서 참고와 독립 창작 문제를 구분하고 기존 정답·기록 호환성을 유지한다.
+현재 작업 기준은 work/WORK_PROMPT.md, work/QUESTION_SPEC_AND_QA.md, work/OFFICIAL_DOCS_STUDY_V2.md이다. 기존 44문항을 친절한 지문·보기로 재편집하고 신규 20문항을 추가해 64문항으로 만들었다. data/concept-lessons.json의 26개 개념 단원이 src/index.html에 포함된다. 빌드 및 배포 상태는 reports의 해당 버전 검증 기록을 확인한다. 공식 문서 참고와 독립 창작 문제를 구분하고 기존 정답·기록 호환성을 유지한다.
 
 ---
 
