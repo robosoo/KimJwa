@@ -1,0 +1,13 @@
+{
+  "status": "READY",
+  "productionUrl": "https://skhynix-ai-hackathon-quiz.vercel.app/",
+  "deploymentId": "dpl_Hg2puibitzQqWM6C73iaTm18hFju",
+  "sourceCommit": "dc6b0695af004c26e6c49b18f3864fca596cb5c4",
+  "questions": 44,
+  "practiceTasks": 8,
+  "htmlSHA256": "45ecf7b3f1d3ba3e9dc4ac9ec8e2a917778c55887e62180161b2bcfa17c8207a",
+  "browserSmoke": "production initial load, 5-choice answer and explanation pass",
+  "previewPromotion": "422 rejected; deployed identical tested artifact with production target instead",
+  "aiConnection": "manual copy to personal ChatGPT; in-site inference not connected",
+  "safariRealDevice": "not tested"
+}
