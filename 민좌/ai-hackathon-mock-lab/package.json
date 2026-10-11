@@ -4,6 +4,6 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node scripts/build.mjs && python3 scripts/check-numbers.py"
+    "test": "node scripts/build.mjs && node scripts/check-editorial.mjs && python3 scripts/check-numbers.py"
   }
 }
