@@ -7,9 +7,18 @@ export async function handle(req,res,mode){
   const provider=b.provider==='anthropic'?'anthropic':'openai';
   const supplied=clean(b.apiKey,300).trim();
   const apiKey=supplied||(provider==='anthropic'?process.env.ANTHROPIC_API_KEY:process.env.OPENAI_API_KEY);
-  if(!apiKey)return err(res,503,'연결된 AI 키가 없습니다. 상단에서 API 키를 입력하거나 ChatGPT 앱 모드를 사용하세요.');
+  
+  // Vercel provides a deployment-scoped OIDC token to AI Gateway automatically.
+  const gatewayToken=!apiKey&&(process.env.AI_GATEWAY_API_KEY||process.env.VERCEL_OIDC_TOKEN);
+  if(!apiKey&&!gatewayToken)return err(res,503,'AI 인증이 준비되지 않았습니다. 개인 API 키 또는 Vercel AI Gateway 연결을 확인하세요.');
+  const useGateway=Boolean(gatewayToken);
+
   const defaultModel=provider==='anthropic'?'claude-sonnet-4-5':'gpt-5-mini';
-  const model=/^[a-zA-Z0-9_.:-]{3,80}$/.test(b.model||'')?b.model:defaultModel;
+  
+  // Never let a public, shared gateway select arbitrary expensive models.
+  const gatewayModel=provider==='anthropic'?'anthropic/claude-haiku-4.5':'openai/gpt-4o-mini';
+  const model=useGateway?gatewayModel:(/^[a-zA-Z0-9_.:-]{3,80}$/.test(b.model||'')?b.model:defaultModel);
+
   const task=b.task&&typeof b.task==='object'?b.task:{};
   const title=clean(task.title,250),scenario=clean(task.scenario,12000),objective=clean(task.objective,5000);
   if(!scenario&&!objective)return err(res,400,'유효한 과제를 먼저 선택하세요.');
@@ -27,16 +36,20 @@ export async function handle(req,res,mode){
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),55000);
   try{
     let response,body;
-    if(provider==='anthropic'){
+    if(provider==='anthropic'&&!useGateway){
       const messages=[...history.map(h=>({role:h.role,content:h.content})),{role:'user',content:context+'\n'+user}];
       response=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01'},body:JSON.stringify({model,system,max_tokens:1800,messages}),signal:controller.signal});
       body=await response.json();if(!response.ok)throw Error('Claude API 오류 '+response.status+': '+clean(body.error?.message,180));
       return res.status(200).json({reply:body.content?.filter(x=>x.type==='text').map(x=>x.text).join('\n')||'응답이 비어 있습니다.',provider,model});
     }
     const messages=[{role:'system',content:system},{role:'user',content:context},...history,{role:'user',content:user}];
-    response=await fetch('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{'content-type':'application/json','authorization':'Bearer '+apiKey},body:JSON.stringify({model,messages,max_completion_tokens:1800}),signal:controller.signal});
-    body=await response.json();if(!response.ok)throw Error('OpenAI API 오류 '+response.status+': '+clean(body.error?.message,180));
-    return res.status(200).json({reply:body.choices?.[0]?.message?.content||'응답이 비어 있습니다.',provider,model});
+    
+    response=await fetch(useGateway?'https://ai-gateway.vercel.sh/v1/chat/completions':'https://api.openai.com/v1/chat/completions',{
+      method:'POST',headers:{'content-type':'application/json','authorization':'Bearer '+(useGateway?gatewayToken:apiKey)},
+      body:JSON.stringify({model,messages,max_tokens:useGateway?900:1800,stream:false}),signal:controller.signal
+    });
+    body=await response.json();if(!response.ok)throw Error((useGateway?'AI Gateway':'OpenAI API')+' 오류 '+response.status+': '+clean(body.error?.message,180));
+    return res.status(200).json({reply:body.choices?.[0]?.message?.content||'응답이 비어 있습니다.',provider,model,route:useGateway?'gateway':'direct'});
   }catch(e){return err(res,502,clean(e.message,250));}
   finally{clearTimeout(timer);}
 }
