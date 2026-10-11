@@ -18,8 +18,7 @@ jobs:
       - name: Build and validate first-round bank and tasks
         working-directory: 민좌/ai-hackathon-mock-lab
         run: |
-          node scripts/build.mjs
-          python3 scripts/check-numbers.py
+          npm test
       - name: Check HTML JavaScript and API function syntax
         working-directory: 민좌/ai-hackathon-mock-lab
         run: |
