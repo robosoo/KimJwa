@@ -66,6 +66,12 @@
       "note": "가격·무료 제공 범위는 방문 시 재확인",
       "items": [
         {
+          "name": "AISCORE CJ올리브네트웍스 AI 역량평가 연습",
+          "url": "https://aiscore.kr/prep/cj-olivenetworks",
+          "desc": "공개된 유형 안내 · 첫 실무 과제 무료 · 이후 유료 채점권 · CJ 공식 기출 아님",
+          "status": "첫 과제 무료 / 유료"
+        },
+        {
           "name": "AISCORE CJ올리브네트웍스 대비",
           "url": "https://aiscore.kr/prep/cj-olivenetworks",
           "desc": "개발 직무 바이브 코딩·비개발 AI 활용, 4개 영역 총 100개 창작 과제 안내(유료 접근). 공식 기출 아님",
