@@ -21,13 +21,20 @@ jobs:
           last=None
           for attempt in range(8):
               try:
-                  with urllib.request.urlopen(root+'/bank-version.json?check=20261011', timeout=20) as f:
+                  with urllib.request.urlopen(root+'/bank-version.json?check=20261012', timeout=20) as f:
                       info=json.load(f)
-                  with urllib.request.urlopen(root+'/?check=20261011', timeout=20) as f:
+                  with urllib.request.urlopen(root+'/?check=20261012', timeout=20) as f:
                       page=f.read().decode('utf-8')
                   assert info['questions']==64, info
                   assert info['conceptLessons']==26, info
                   assert info['practiceTasks']==8, info
+                  assert info['fourPCases']==6, info
+                  assert info['fourPStages']==24, info
+                  assert info['fourPChecks']==8, info
+                  assert 'id="fourp"' in page, '4P study menu not served'
+                  assert '"id":"FP06"' in page, 'Semiconductor case FP06 not embedded'
+                  assert '"id":"QC08"' in page, '4P quick check QC08 not embedded'
+                  assert 'Plan' in page and 'Prompt' in page and 'Probe' in page and 'Protect' in page
                   assert '"id":"R1-064"' in page, 'Question 64 not embedded in served HTML'
                   assert '"id":"C26"' in page, 'Concept C26 not embedded in served HTML'
                   print('Production LIVE PASS:', root, info, 'HTML bytes',len(page.encode('utf-8')))
@@ -37,5 +44,5 @@ jobs:
                   print('Attempt',attempt+1,'failed:',last)
                   time.sleep(5)
           else:
-              raise RuntimeError('Production serving 64/26/8 verification failed: '+str(last))
+              raise RuntimeError('Production serving 64/26/8 + 4P verification failed: '+str(last))
           PY
