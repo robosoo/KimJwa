@@ -1,3 +1,10 @@
+### 2026-10-11 최신 실행 결과
+
+- 정적 공개 미리보기: https://raw.githack.com/robosoo/KimJwa/main/skhynix-ai-study/index.html (GitHub Actions HTTPS GET 검증 통과)
+- 라이브 검증 실행: https://github.com/robosoo/KimJwa/actions/runs/38141432537 (HTML MIME, 64문항, 26단원, 8실습 PASS)
+- Chromium+WebKit 검증 실행: https://github.com/robosoo/KimJwa/actions/runs/38141208116 (두 엔진 × iPad/폰 화면, 개념 검색·즉시 해설·풀이 기록 유지 PASS)
+- Pages 공개 배포는 저장소 설정에서 Pages를 활성화하기 전까지 건너뛰며(실패가 아님), Vercel production은 계정 쓰기 권한이 없어 여전히 44문항 버전임.
+
 # 2026-10-11 추가 배포 현황
 
 - **GitHub 최신:** 64문항 / 개념 공부 26단원 / 실습 8개. C17–C26 신규 단원을 `data/concept-lessons.json`에 반영했다.
@@ -12,7 +19,7 @@
 - URL(개발·가변 캐시): https://raw.githack.com/robosoo/KimJwa/main/skhynix-ai-study/index.html
 - URL(2026-10-11 HTML 고정본): https://rawcdn.githack.com/robosoo/KimJwa/17880932fbead058592f1eaba8b4c2e53d578470/skhynix-ai-study/index.html
 - 원본 GitHub: `skhynix-ai-study/index.html` (한 파일에 객관식 64문항, 개념 26단원, AI 활용 실습 8개 포함).
-- raw.githack은 외부 HTML 중계 서비스이므로 GitHub에 파일이 있다고 링크의 실제 iPad Safari 작동을 보증하지 않는다. 안정적인 운영 주소는 원래 Vercel 도메인으로 유지할 계획.
+- **2026-10-11 공개 검증:** GitHub Actions `Verify Public HTML Preview` 실행 38141432537에서 해당 live URL을 HTTPS로 요청해 `Content-Type: text/html; charset=utf-8`와 64문항·26개념·8실습 내장을 확인했다. 동일 데이터의 브라우저 QA는 Chromium·WebKit 각 2개 화면 크기에서 통과했다. 이는 실제 iPad Safari 실기기에서 직접 테스트했다는 뜻은 아니다. 안정적인 운영 주소는 기존 Vercel 도메인으로 유지할 계획.
 - 공개 중계 도메인에서는 민감한 실제 업무 문서·개인정보를 입력하지 않는다. 사이트 로컬 학습 기록도 동일 도메인에서 제공하는 다른 HTML과 분리 보장되지 않는다. 공식 운영 도메인 복구 후 사용자별 학습 기록을 JSON으로 내보내고 가져올 것.
 
 
