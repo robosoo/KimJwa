@@ -54,7 +54,7 @@ jobs:
           retention-days: 14
       - name: Explain skipped deployment
         if: ${{ env.VERCEL_TOKEN == '' }}
-        run: echo "::warning::Vercel deploy skipped. Add VERCEL_TOKEN to repository Actions secrets, then rerun this workflow. The source and QA checks are still valid."
+        run: echo "::notice::Vercel CLI auto-deploy is not configured in GitHub Actions. Existing connected Vercel plugin can still deploy directly; verify production separately after source changes."
       - name: Install and link Vercel CLI
         if: ${{ env.VERCEL_TOKEN != '' }}
         working-directory: 민좌/ai-hackathon-mock-lab
