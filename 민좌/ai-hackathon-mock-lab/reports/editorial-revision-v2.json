@@ -1,0 +1,654 @@
+{
+  "status": "author-reviewed",
+  "questions": 64,
+  "rewritten": 44,
+  "new": 20,
+  "previousVersion": "round1-20261011-v1",
+  "version": "round1-20261011-v2",
+  "oldAnswerPositionsPreserved": true,
+  "beforeAverageCharacters": 171,
+  "afterAverageCharacters": 389,
+  "independentExpertReview": false,
+  "items": [
+    {
+      "id": "R1-001",
+      "change": "context-rewrite",
+      "beforeCharacters": 163,
+      "afterCharacters": 436,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-002",
+      "change": "context-rewrite",
+      "beforeCharacters": 202,
+      "afterCharacters": 392,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-003",
+      "change": "context-rewrite",
+      "beforeCharacters": 54,
+      "afterCharacters": 411,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-004",
+      "change": "context-rewrite",
+      "beforeCharacters": 205,
+      "afterCharacters": 392,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-005",
+      "change": "context-rewrite",
+      "beforeCharacters": 202,
+      "afterCharacters": 394,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-006",
+      "change": "context-rewrite",
+      "beforeCharacters": 150,
+      "afterCharacters": 429,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-007",
+      "change": "context-rewrite",
+      "beforeCharacters": 208,
+      "afterCharacters": 385,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-008",
+      "change": "context-rewrite",
+      "beforeCharacters": 170,
+      "afterCharacters": 434,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-009",
+      "change": "context-rewrite",
+      "beforeCharacters": 218,
+      "afterCharacters": 392,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-010",
+      "change": "context-rewrite",
+      "beforeCharacters": 207,
+      "afterCharacters": 394,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-011",
+      "change": "context-rewrite",
+      "beforeCharacters": 202,
+      "afterCharacters": 390,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-012",
+      "change": "context-rewrite",
+      "beforeCharacters": 192,
+      "afterCharacters": 373,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-013",
+      "change": "context-rewrite",
+      "beforeCharacters": 208,
+      "afterCharacters": 383,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-014",
+      "change": "context-rewrite",
+      "beforeCharacters": 216,
+      "afterCharacters": 420,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-015",
+      "change": "context-rewrite",
+      "beforeCharacters": 202,
+      "afterCharacters": 390,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-016",
+      "change": "context-rewrite",
+      "beforeCharacters": 215,
+      "afterCharacters": 382,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-017",
+      "change": "context-rewrite",
+      "beforeCharacters": 199,
+      "afterCharacters": 392,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-018",
+      "change": "context-rewrite",
+      "beforeCharacters": 219,
+      "afterCharacters": 404,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-019",
+      "change": "context-rewrite",
+      "beforeCharacters": 204,
+      "afterCharacters": 399,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-020",
+      "change": "context-rewrite",
+      "beforeCharacters": 204,
+      "afterCharacters": 377,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-021",
+      "change": "context-rewrite",
+      "beforeCharacters": 153,
+      "afterCharacters": 409,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-022",
+      "change": "context-rewrite",
+      "beforeCharacters": 171,
+      "afterCharacters": 412,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-023",
+      "change": "context-rewrite",
+      "beforeCharacters": 160,
+      "afterCharacters": 414,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-024",
+      "change": "context-rewrite",
+      "beforeCharacters": 177,
+      "afterCharacters": 413,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-025",
+      "change": "context-rewrite",
+      "beforeCharacters": 177,
+      "afterCharacters": 424,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-026",
+      "change": "context-rewrite",
+      "beforeCharacters": 166,
+      "afterCharacters": 417,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-027",
+      "change": "context-rewrite",
+      "beforeCharacters": 219,
+      "afterCharacters": 387,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-028",
+      "change": "context-rewrite",
+      "beforeCharacters": 162,
+      "afterCharacters": 408,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-029",
+      "change": "context-rewrite",
+      "beforeCharacters": 155,
+      "afterCharacters": 407,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-030",
+      "change": "context-rewrite",
+      "beforeCharacters": 176,
+      "afterCharacters": 442,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-031",
+      "change": "context-rewrite",
+      "beforeCharacters": 152,
+      "afterCharacters": 411,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-032",
+      "change": "context-rewrite",
+      "beforeCharacters": 158,
+      "afterCharacters": 407,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-033",
+      "change": "context-rewrite",
+      "beforeCharacters": 156,
+      "afterCharacters": 413,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-034",
+      "change": "context-rewrite",
+      "beforeCharacters": 163,
+      "afterCharacters": 411,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-035",
+      "change": "context-rewrite",
+      "beforeCharacters": 158,
+      "afterCharacters": 400,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-036",
+      "change": "context-rewrite",
+      "beforeCharacters": 172,
+      "afterCharacters": 429,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-037",
+      "change": "context-rewrite",
+      "beforeCharacters": 161,
+      "afterCharacters": 404,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-038",
+      "change": "context-rewrite",
+      "beforeCharacters": 222,
+      "afterCharacters": 387,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-039",
+      "change": "context-rewrite",
+      "beforeCharacters": 162,
+      "afterCharacters": 403,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-040",
+      "change": "context-rewrite",
+      "beforeCharacters": 159,
+      "afterCharacters": 411,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-041",
+      "change": "context-rewrite",
+      "beforeCharacters": 81,
+      "afterCharacters": 329,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-042",
+      "change": "context-rewrite",
+      "beforeCharacters": 71,
+      "afterCharacters": 341,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-043",
+      "change": "context-rewrite",
+      "beforeCharacters": 105,
+      "afterCharacters": 357,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-044",
+      "change": "context-rewrite",
+      "beforeCharacters": 43,
+      "afterCharacters": 292,
+      "sections": 3,
+      "answerCompatible": true,
+      "answerCriterionReviewed": true,
+      "provider": null
+    },
+    {
+      "id": "R1-045",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 370,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "google"
+    },
+    {
+      "id": "R1-046",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 375,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "google"
+    },
+    {
+      "id": "R1-047",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 399,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "claude"
+    },
+    {
+      "id": "R1-048",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 357,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "openai"
+    },
+    {
+      "id": "R1-049",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 378,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "google"
+    },
+    {
+      "id": "R1-050",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 367,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "claude"
+    },
+    {
+      "id": "R1-051",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 372,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "google"
+    },
+    {
+      "id": "R1-052",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 386,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "claude"
+    },
+    {
+      "id": "R1-053",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 363,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "claude"
+    },
+    {
+      "id": "R1-054",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 342,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "openai"
+    },
+    {
+      "id": "R1-055",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 370,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "google"
+    },
+    {
+      "id": "R1-056",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 395,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "google"
+    },
+    {
+      "id": "R1-057",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 345,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "google"
+    },
+    {
+      "id": "R1-058",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 378,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "claude"
+    },
+    {
+      "id": "R1-059",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 380,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "google"
+    },
+    {
+      "id": "R1-060",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 370,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "openai"
+    },
+    {
+      "id": "R1-061",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 376,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "openai"
+    },
+    {
+      "id": "R1-062",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 396,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "openai"
+    },
+    {
+      "id": "R1-063",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 353,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "claude"
+    },
+    {
+      "id": "R1-064",
+      "change": "new-original",
+      "beforeCharacters": null,
+      "afterCharacters": 355,
+      "sections": 3,
+      "answerCompatible": null,
+      "answerCriterionReviewed": true,
+      "provider": "openai"
+    }
+  ]
+}
