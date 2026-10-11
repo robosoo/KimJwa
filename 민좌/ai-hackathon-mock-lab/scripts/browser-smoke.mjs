@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, mkdirSync } from 'node:fs';
 import { createServer } from 'node:http';
 import { resolve, join, extname } from 'node:path';
-import { chromium } from 'playwright';
+import { chromium, webkit } from 'playwright';
 
 const root=resolve(import.meta.dirname,'..');
 const version=JSON.parse(readFileSync(join(root,'dist/bank-version.json'),'utf8'));
@@ -17,9 +17,11 @@ const server=createServer((req,res)=>{
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const url='http://127.0.0.1:'+server.address().port+'/';
-const browser=await chromium.launch({headless:true});
 const out=[];
 try{
+ for(const [engineName,engine] of [['chromium',chromium],['webkit',webkit]]){
+  const browser=await engine.launch({headless:true});
+  try{
   for(const viewport of [{width:768,height:1024},{width:390,height:844}]){
     const page=await browser.newPage({viewport,deviceScaleFactor:1});
     const errors=[];
@@ -46,12 +48,22 @@ try{
     await page.locator('nav button[data-view="quiz"]').click();
     assert.equal(await page.locator('#quiz').isVisible(),true);
     assert.ok(await page.locator('#numbers button').count()>=64);
+    await page.locator('#reveal').click();
+    assert.equal(await page.locator('#questionPanel .review').count(),await page.locator('#questionPanel [data-choice]').count());
+    assert.match(await page.locator('#questionPanel').innerText(),/보기별 해설/);
+    await page.locator('#reveal').click();
+    await page.locator('#questionPanel [data-choice="0"]').click();
+    assert.ok(await page.locator('#questionPanel .answerbox').count()===1);
+    await page.reload();
+    await page.locator('nav button[data-view="quiz"]').click();
+    assert.ok((await page.locator('#answerStatus').innerText()).length>0,'answer state should survive reload');
     assert.deepEqual(errors,[]);
-    out.push({viewport,...sizes,conceptSearch:'PASS',quizNavigation:'PASS',runtimeErrors:errors.length});
+    out.push({engineName,viewport,...sizes,conceptSearch:'PASS',quizNavigation:'PASS',instantExplanation:'PASS',answerPersistence:'PASS',runtimeErrors:errors.length});
     await page.close();
   }
+  }finally{await browser.close();}
+ }
   console.log('Browser smoke PASS',JSON.stringify(out));
 }finally{
-  await browser.close();
   await new Promise(resolve=>server.close(resolve));
 }
