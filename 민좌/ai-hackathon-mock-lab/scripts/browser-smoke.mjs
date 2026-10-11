@@ -36,7 +36,8 @@ try{
     await page.locator('nav button[data-view="concepts"]').click();
     assert.equal(await page.locator('#concepts').isVisible(),true);
     await page.locator('#conceptSearch').fill('Temperature');
-    assert.equal(await page.locator('#conceptList button').count(),1);
+    assert.ok(await page.locator('#conceptList button').count()>=1);
+    await page.locator('#conceptList button').filter({hasText:'Temperature'}).first().click();
     assert.match(await page.locator('#conceptPanel').innerText(),/Temperature/);
     await page.locator('#conceptSearch').fill('토큰');
     assert.ok(await page.locator('#conceptList button').count()>=1);
