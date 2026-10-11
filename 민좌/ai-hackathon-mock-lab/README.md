@@ -1,3 +1,15 @@
+# 2026-10-12 · AI 개념 위키 + 4P 이론 중심 학습/독립 검증 개선 완료
+
+- **사이트:** https://skhynix-ai-hackathon-quiz.vercel.app/ (Vercel 실제 배포 READY / 운영 HTTP LIVE PASS)
+- **개념 메뉴:** 26개 AI 개념을 반도체 사례 없이 정의·작동 원리·한계·보편적 예시·공식 출처의 위키식 항목으로 확장.
+- **4P 메뉴:** 반도체 사례 전에 Plan/Prompt/Probe/Protect의 충분한 이론·일상 예시·오해·실천 절차를 학습 → 8개 구별 퀴즈 → 반도체 실전 사례 6개(24단계).
+- **가상 전문가 피드백 반영:** 가상 AI 오답 6건의 비판적 탐지, 오류 수정 프롬프트 직접 작성, 새 조건의 변형 문제 6건, 4P 열람 완료와 객관식 검증 성공을 서로 다른 학습 기록으로 분리.
+- **검증 근거:** 운영 HTTP [Live PASS](https://github.com/robosoo/KimJwa/actions/runs/38155155987) · 구조/숫자 검사 GitHub Actions 정상. 자동 브라우저 QA와 실물 iPad 검사는 별도 상태로 구분.
+- **상세 변경 기록:** [work/WIKI_4P_IMPROVEMENT_RELEASE_20261012.md](work/WIKI_4P_IMPROVEMENT_RELEASE_20261012.md)
+- **연구 성격:** 교육용 독립 창작, SK 공식 문항·평가 배점 아님. 100인 심사 의견은 실제 전문가 설문이 아닌 가상 리뷰. 서술형 자동 의미 채점/사이트 내부 AI API 호출은 없음. 회사/고객 기밀 입력 금지.
+
+---
+
 # 2026-10-12 · 가상 AI 전문가 100인 피드백 리뷰
 
 - **가상 패널 100개 관점:** 10개 분과 × 10개 리뷰. 실제 전문가 자문/독립 설문이 아님. 보고서: [`reports/SIMULATED_AI_EXPERT_PANEL_100_20261012.md`](reports/SIMULATED_AI_EXPERT_PANEL_100_20261012.md).
