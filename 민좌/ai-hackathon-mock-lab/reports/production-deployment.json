@@ -1,21 +1,21 @@
 {
   "status": "READY",
   "productionUrl": "https://skhynix-ai-hackathon-quiz.vercel.app/",
-  "deploymentId": "dpl_7ycQotoBTvDbp3fjHC49yzBYjTii",
-  "sourceCommit": "48abb9c59f1f8ec5319fb57348929f82b1f43375",
+  "deploymentId": "dpl_FHMYqLmVmE2GrdLpgqEbfaKPr7oj",
+  "sourceCommit": "a5cf36f446fc44985a861a6d9d5b4afe6cac4ee1",
   "questions": 64,
   "conceptLessons": 26,
   "practiceTasks": 8,
   "fourPCases": 6,
   "fourPStages": 24,
   "fourPChecks": 8,
-  "liveHTMLBytes": 523973,
-  "liveVerified": "https://github.com/robosoo/KimJwa/actions/runs/38153288571",
-  "method": "Vercel plugin scoped to existing project without teamId, direct validated HTML+JSON dist upload",
-  "webCheck": "GitHub Actions HTTP GET production root and /bank-version.json; embedded FP06/QC08 menu and last original question/concept found",
-  "researchLedger": "work/PRACTICAL_SOLVING_RESEARCH_20261012.md",
-  "QA": "GitHub Mock Lab Quality Gate PASS; Chromium and WebKit each verified iPad 768x1024 and phone 390x844 4P stage gating, quick quiz persistence, 64Q, 26C and 8 tasks in run 38153229517; zero browser runtime errors. Actual physical iPad Safari not tested.",
-  "aiConnection": "Personal ChatGPT copy/open only; real in-page AI calls not connected",
+  "liveHTMLBytes": 600323,
+  "liveVerified": "https://github.com/robosoo/KimJwa/actions/runs/38155155987",
+  "method": "Connected Vercel plugin production deployment using GitHub Action built static HTML; no explicit teamId",
+  "webCheck": "GitHub Actions fetched real public production root and /bank-version.json, verified wiki/4P HTML and bank counts",
+  "researchLedger": "work/WIKI_4P_IMPROVEMENT_RELEASE_20261012.md",
+  "QA": "Source build syntax and bank numeric validation PASS; expanded Chromium/WebKit browser smoke on GitHub Actions job re-run; physical iPad Safari device not tested. Production HTTP LIVE PASS.",
+  "aiConnection": "Personal ChatGPT copy/open only; static deliberately incorrect AI drafts are training fixtures, not live AI API calls.",
   "security": "All six semiconductor scenarios use invented, nonproduction values; do not paste actual confidential company logs/specs into external tools.",
   "previousDeployment": {
     "status": "READY",
@@ -60,5 +60,13 @@
     "deploymentId": "dpl_7UWQUpcwmCqzcQjjbVtuMmnDUTdT",
     "sourceCommit": "f5c7dc4034dd3aef370c010ed893e149bce0042f",
     "liveVerified": "https://github.com/robosoo/KimJwa/actions/runs/38152978573"
+  },
+  "wikiArticles": 26,
+  "fourPDrills": 6,
+  "fourPTransferChecks": 6,
+  "previousPublished": {
+    "deploymentId": "dpl_7ycQotoBTvDbp3fjHC49yzBYjTii",
+    "verified": "https://github.com/robosoo/KimJwa/actions/runs/38153288571",
+    "version": "2026-10-12-4p-original"
   }
 }
