@@ -1,18 +1,27 @@
+### 2026-10-11 최종 운영 배포 상태 — Production 검증 성공
+
+- **기존 운영 사이트:** https://skhynix-ai-hackathon-quiz.vercel.app/ — 64문항 / 개념 26단원 / 실습 8개 정상 제공을 외부 GitHub Actions가 HTTP GET으로 검증.
+- **공개 웹 라이브 검증:** https://github.com/robosoo/KimJwa/actions/runs/38144076803 (성공; 실제 제공 HTML의 R1-064 및 C26 확인, 488,542바이트).
+- **운영 배포 ID:** `dpl_DDyN6gvb16BBVcE9p25pPZv9v4gf`, 상태 READY, 공식 운영 도메인 alias 연결 완료. 세부 기록 `reports/production-deployment.json`.
+- **Vercel 플러그인 해결책:** 기존 계정 인증은 유효했고, 호출에 명시적으로 `teamId`를 넣으면 403이 발생하지만 **`teamId` 없이 기존 `project` ID를 지정하면 운영 배포가 성공**했다. 새 계정 연결이나 `VERCEL_TOKEN` 등록은 **현재 수동 플러그인 배포의 필수 조건이 아님**.
+- GitHub `gitSource` 재배포 시 `git_info_fail`가 발생해, 검증된 정적 HTML과 `bank-version.json`을 **같은 프로젝트**에 직접 업로드하는 경로로 해결. 향후 GitHub Actions 자동 배포에는 별도 CI 인증 구성이 필요할 수 있다.
+- 검증 범위에 실제 iPad Safari 실기기 테스트, 사이트 내부 AI 실시간 호출은 포함되지 않는다.
+
 ### 2026-10-11 최신 실행 결과
 
 - 정적 공개 미리보기: https://raw.githack.com/robosoo/KimJwa/main/skhynix-ai-study/index.html (GitHub Actions HTTPS GET 검증 통과)
 - 라이브 검증 실행: https://github.com/robosoo/KimJwa/actions/runs/38141432537 (HTML MIME, 64문항, 26단원, 8실습 PASS)
 - Chromium+WebKit 검증 실행: https://github.com/robosoo/KimJwa/actions/runs/38141208116 (두 엔진 × iPad/폰 화면, 개념 검색·즉시 해설·풀이 기록 유지 PASS)
-- Pages 공개 배포는 저장소 설정에서 Pages를 활성화하기 전까지 건너뛰며(실패가 아님), Vercel production은 계정 쓰기 권한이 없어 여전히 44문항 버전임.
+- GitHub Pages 공개 배포는 저장소 설정에 따라 별도 활성화가 필요하지만, **Vercel production은 64문항·26개념 최신판으로 운영 배포 성공**.
 
 # 2026-10-11 추가 배포 현황
 
 - **GitHub 최신:** 64문항 / 개념 공부 26단원 / 실습 8개. C17–C26 신규 단원을 `data/concept-lessons.json`에 반영했다.
 - **실행형 독립 HTML:** `release/index.html` (문항·해설·개념 데이터를 파일 안에 포함). 실제 사용 시 공개된 정적 호스팅에 올리거나, 파일을 지원하는 브라우저 환경에서 연다.
 - **GitHub Actions 검증:** 64문항·26단원·8실습 구조 검사 및 별도 Python 수치 검산 33개 통과. 이는 사람의 의미 검수 또는 iPad Safari 실기기 검증을 대체하지 않는다.
-- **Vercel 운영 사이트:** 마지막으로 확인한 production은 44문항 커밋 `dc6b0695`에 고정. 64문항 preview는 `7563bc4e` 커밋으로 READY 기록이 있으나 production 자동 반영 안 됨. 현재 Vercel 앱 배포/승격 403 (기존 `ctpmfd42hf-8757` 스코프 권한). 연결 계정 권한 회복 후 preview/production 재배포가 필요하다.
+- **Vercel 운영 사이트 변경 이력:** 초기 44문항 커밋 `dc6b0695`에 고정되어 있었지만, 2026-10-11 최신 64문항·26개념 운영 배포 `dpl_DDyN6gvb16BBVcE9p25pPZv9v4gf` READY. 기존 프로젝트를 그대로 사용했고 외부 HTTP 검증을 통과했다.
 - **GitHub Pages 대체 경로:** `.github/workflows/hackathon-pages.yml`를 추가했으나 최초 실행은 Pages 비활성으로 Configure Pages 실패. GitHub 저장소 Settings → Pages → Build and deployment → Source: GitHub Actions를 선택한 후 Actions에서 `Publish AI Hackathon Study Site` 재실행 필요.
-- **새로 만든 결과의 완료 판단:** 소스 저장·정적 빌드·자동 검증 완료, Vercel 운영 업데이트 및 GitHub Pages 공개 주소와 iPad 실사용 확인은 미완료.
+- **현재 완료 판단:** 소스 저장·정적 빌드·자동 검증·Vercel 운영 배포·외부 HTTP 실서비스 검증 완료. 별도 GitHub Pages 주소와 iPad 실기기 테스트는 미완료.
 
 ## 브라우저에서 바로 열 수 있는 임시 공개 미리보기
 
@@ -42,9 +51,9 @@
 - **GitHub 소스 확정:** `data/round1-question-bank.json` 64문항, `data/concept-lessons.json` 26개념 단원, `data/round1-practice.json` 8실습. 기존 16개념 유지 + C17~C26(토큰/컨텍스트/역할/Temperature/Zero-shot/Few-shot/XML/모델선택/멀티모달/작업분해/RAG·Fine-tuning) 추가.
 - **UI:** 기본 화면에 64문항·26개념 표시, 개념 진입 버튼을 강조하고 참고 링크를 아래로 이동, 개념 설명 본문까지 검색할 수 있도록 수정.
 - **자동 QA:** GitHub Actions Mock Lab Quality Gate가 추가 개념 빌드에 대해 통과함. 이후 UI 변경 커밋도 해당 워크플로에서 재검사. 이 검사는 iPad 실기기 및 독립 전문가 감수를 의미하지 않음.
-- **운영 미반영:** Vercel 연결의 소유 팀 `team_ZwgEf7FsZRct85EGrHTd1KHe`에 대한 배포 API 권한 403. GitHub의 최신 커밋을 `https://skhynix-ai-hackathon-quiz.vercel.app/` 에 배포했다는 증거 없음. **운영 완료 선언 금지.**
-- **대체 배포 경로:** `.github/workflows/deploy-skhynix-quiz.yml` 는 커밋마다 `npm test` 후 Vercel 배포를 시도하나 현재 `VERCEL_TOKEN` GitHub Actions secret이 없어 배포 단계가 건너뛰어진 것을 확인. 사용자가 GitHub 저장소 Settings → Secrets and variables → Actions에 프로젝트 팀 권한이 있는 `VERCEL_TOKEN`을 등록하고 Actions의 `Deploy SK hynix AI Study Site` 워크플로를 재실행하면 실제 배포 및 운영 버전(64/26) 검사를 수행함. **토큰 자체는 소스에 입력하지 않는다.**
-- **인증 대안:** Vercel 플러그인을 해당 프로젝트 소유 팀에 재연결해 쓰기 권한을 복구한 후 직접 배포.
+- **운영 반영 — 오류 해결:** Vercel API 호출에 `teamId`를 명시할 때 403이 발생한 것은 맞으나, 동일 플러그인에서 팀 ID를 생략해 기존 프로젝트에 배포하면 성공. 운영 결과는 2026-10-11 GitHub Actions 라이브 HTTP 검사 성공으로 확인했다.
+- **선택적 자동 배포:** `.github/workflows/deploy-skhynix-quiz.yml`는 향후 완전 자동 CI 배포를 위한 워크플로이며 CI에 별도 인증이 필요하다. 이번 운영 배포는 Vercel 플러그인 자체 인증으로 이미 완료했으므로 **사용자가 별도 토큰을 지금 설정할 필요가 없다.** 비밀 토큰은 소스에 기록하지 않는다.
+- **플러그인 배포:** 기존 계정이 정상 연결되어 있었으며 `teamId`를 생략하는 방식으로 운영 배포를 성공시켰다. 재연결은 요구하지 않는다.
 
 
 ---
