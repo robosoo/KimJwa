@@ -1,0 +1,119 @@
+{
+  "updated": "2026-10-11",
+  "groups": [
+    {
+      "title": "무료·체험형 AI 평가",
+      "note": "우선 추천 · 일부 서비스는 회원가입/제한이 있을 수 있음",
+      "items": [
+        {
+          "name": "프로그래머스 AI 역량평가 체험",
+          "url": "https://programmers.co.kr/ai-assessment/preview",
+          "desc": "응시 환경 체험 · 최우선",
+          "status": "확인"
+        },
+        {
+          "name": "인크루트 무료 AI 역량진단",
+          "url": "https://event.incruit.com/selfcheck/aiexam/",
+          "desc": "실무형 AI 리터러시 10문항",
+          "status": "확인"
+        },
+        {
+          "name": "JobCannon AI Literacy",
+          "url": "https://jobcannon.io/ko/tests/ai-literacy",
+          "desc": "무료 AI 리터러시 8문항",
+          "status": "확인"
+        },
+        {
+          "name": "KPC AI 모의테스트",
+          "url": "https://license.kpc.or.kr/html/aiexam/",
+          "desc": "AI 활용 자격 평가 연습",
+          "status": "확인"
+        },
+        {
+          "name": "IBTCC AI 리터러시",
+          "url": "https://ibtcc.kr/works/ai-quiz.html",
+          "desc": "AI 리터러시 문제",
+          "status": "접속 재확인 필요"
+        },
+        {
+          "name": "AISCORE",
+          "url": "https://aiscore.kr/",
+          "desc": "AI 역량 진단",
+          "status": "접속 재확인 필요"
+        },
+        {
+          "name": "AI Wins 퀴즈",
+          "url": "https://www.aiwins.news/tools/ai-literacy-quiz",
+          "desc": "AI 리터러시 퀴즈",
+          "status": "접속 재확인 필요"
+        },
+        {
+          "name": "AI Practice",
+          "url": "https://www.getaipractice.site/",
+          "desc": "AI 활용 실습",
+          "status": "접속 재확인 필요"
+        },
+        {
+          "name": "SlayTheBots",
+          "url": "https://www.slaythebots.com/",
+          "desc": "AI 프롬프트 게임형 학습",
+          "status": "확인"
+        }
+      ]
+    },
+    {
+      "title": "유료·기타 연습 자료",
+      "note": "가격·무료 제공 범위는 방문 시 재확인",
+      "items": [
+        {
+          "name": "CareerXP 실전 모의고사",
+          "url": "https://careerxp.work/ax/assessment",
+          "desc": "SK하이닉스 대비 자체 모의시험 · 79,000원 안내",
+          "status": "유료"
+        },
+        {
+          "name": "인크루트 AI 리터러시 예상문제",
+          "url": "https://people.incruit.com/jobsuppsvc/ailiteracy.asp",
+          "desc": "예상문제·추가 학습",
+          "status": "확인"
+        },
+        {
+          "name": "KDCA AI 평가",
+          "url": "https://kdca.io/exam?ct=ai",
+          "desc": "AI 시험 자료",
+          "status": "접속 재확인 필요"
+        },
+        {
+          "name": "우리 모의시험 (현재 사이트)",
+          "url": "https://skhynix-ai-hackathon-quiz.vercel.app/",
+          "desc": "90문항·12과제 · 무료",
+          "status": "현재 사이트"
+        }
+      ]
+    },
+    {
+      "title": "공식 대회·평가 참고",
+      "note": "공식 기출 공개 사이트라는 뜻은 아님",
+      "items": [
+        {
+          "name": "SK하이닉스 AI 해커톤 2026",
+          "url": "https://skhynix-hackathon.com/ai-2026",
+          "desc": "대회 일정과 평가 취지",
+          "status": "공식"
+        },
+        {
+          "name": "프로그래머스 AI 역량평가",
+          "url": "https://programmers.co.kr/ai-assessment",
+          "desc": "평가 방식·응시 체험 안내",
+          "status": "공식"
+        },
+        {
+          "name": "Cofa-Probe",
+          "url": "https://www.getcofa.com/ko/probe",
+          "desc": "AI 활용 과정 평가 솔루션",
+          "status": "공식"
+        }
+      ]
+    }
+  ]
+}
