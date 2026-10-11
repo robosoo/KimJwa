@@ -1,0 +1,9 @@
+{
+  "name": "skhynix-ai-hackathon-mock-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/build.mjs"
+  }
+}
