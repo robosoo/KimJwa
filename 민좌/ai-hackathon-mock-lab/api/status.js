@@ -1,0 +1,1 @@
+export default function handler(_req,res){res.status(200).json({ready:Boolean(process.env.OPENAI_API_KEY||process.env.ANTHROPIC_API_KEY),providers:[...(process.env.OPENAI_API_KEY?['openai']:[]),...(process.env.ANTHROPIC_API_KEY?['anthropic']:[])]});}
