@@ -42,9 +42,12 @@ try{
     await page.locator('[data-quick="QC01"][data-quickchoice="Plan"]').click();
     assert.match(await page.locator('#fourQuick').innerText(),/맞았어요/);
     assert.equal(await page.locator('#fourCases [data-fourcase]').count(),6);
+    assert.equal(await page.locator('[data-fourstage="1"]').isVisible(),false,'Prompt must unlock after Plan review');
     await page.locator('#fourAnswer0').fill('목표는 행 기준의 명목 불량 비율과 웨이퍼 단위 확정 불량률을 구분하는 것이다.');
     await page.locator('[data-fourreview="0"]').click();
     assert.equal(await page.locator('#fourReview0').isVisible(),true);
+    assert.equal(await page.locator('[data-fourstage="1"]').isVisible(),true,'Prompt must unlock after Plan');
+    assert.equal(await page.locator('#fourNext').isDisabled(),true,'next case blocked until all four stages');
     await page.reload();
     await page.locator('nav button[data-view="fourp"]').click();
     assert.ok((await page.locator('#fourAnswer0').inputValue()).length>=20);
