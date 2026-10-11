@@ -32,12 +32,17 @@ jobs:
                   assert info['fourPCases']==6, info
                   assert info.get('fourPDrills')==6, info
                   assert info.get('fourPTransferChecks')==6, info
+                  assert info.get('fourPIndependentChecks')==12, info
+                  assert info.get('fourPDeepTheory')==4, info
                   assert info['fourPStages']==24, info
                   assert info['fourPChecks']==8, info
                   assert 'id="fourp"' in page, '4P study menu not served'
                   assert 'AI 개념 위키 · 26개 항목' in page, 'domain-neutral concept wiki not served'
                   assert '4P 개념 사전 → 이해 확인 → 반도체 적용' in page, '4P theory-first menu not served'
                   assert 'function fourDrill(c)' in page, 'AI wrong-answer probe not served'
+                  assert 'function renderFourDiagnostics()' in page, 'independent 12-diagnostic practice not served'
+                  assert 'id="fourTheoryDeep"' in page, 'deep 4P neutral theory missing'
+                  assert '"id":"FP06-D2"' in page, 'last diagnostic missing'
                   assert 'wiki?.definition' in page, 'AI encyclopedia rendering missing'
                   assert '"id":"FP06"' in page, 'Semiconductor case FP06 not embedded'
                   assert '"id":"QC08"' in page, '4P quick check QC08 not embedded'
