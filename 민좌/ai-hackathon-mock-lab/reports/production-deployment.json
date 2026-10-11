@@ -1,13 +1,37 @@
 {
   "status": "READY",
   "productionUrl": "https://skhynix-ai-hackathon-quiz.vercel.app/",
-  "deploymentId": "dpl_Hg2puibitzQqWM6C73iaTm18hFju",
-  "sourceCommit": "dc6b0695af004c26e6c49b18f3864fca596cb5c4",
-  "questions": 44,
+  "deploymentId": "dpl_DDyN6gvb16BBVcE9p25pPZv9v4gf",
+  "sourceCommit": "3ab2d871a90aa7799a9543e2ec38010ba97e5473",
+  "questions": 64,
+  "conceptLessons": 26,
   "practiceTasks": 8,
-  "htmlSHA256": "45ecf7b3f1d3ba3e9dc4ac9ec8e2a917778c55887e62180161b2bcfa17c8207a",
-  "browserSmoke": "production initial load, 5-choice answer and explanation pass",
-  "previewPromotion": "422 rejected; deployed identical tested artifact with production target instead",
+  "deploymentMethod": "Existing Vercel project, production target, pre-built standalone HTML + bank-version.json as dist source files; Vercel MCP called with no explicit teamId",
+  "accountVerification": "Plugin get_auth_user UID y9dI6vhOyrsnfCOjNTDI56GQ matches original deployment creator",
+  "scopeDiagnostics": "Supplying explicit teamId team_ZwgEf7FsZRct85EGrHTd1KHe caused 403, while omitted teamId permitted deployment",
+  "gitSourceAttempt": "Vercel git-source deployment dpl_97F1arTNATFAHPZg6qZ3xLcvAQ5X failed git_info_fail; recovered by deploying validated static HTML",
+  "publicVerification": {
+    "githubActionsRun": "https://github.com/robosoo/KimJwa/actions/runs/38144076803",
+    "result": "success",
+    "technique": "GitHub Actions HTTP GET checks production /bank-version.json and /index.html, including last embedded question R1-064 and concept C26",
+    "questions": 64,
+    "conceptLessons": 26,
+    "practiceTasks": 8,
+    "htmlBytesServed": 488542
+  },
+  "initialDeployment": {
+    "status": "READY",
+    "productionUrl": "https://skhynix-ai-hackathon-quiz.vercel.app/",
+    "deploymentId": "dpl_Hg2puibitzQqWM6C73iaTm18hFju",
+    "sourceCommit": "dc6b0695af004c26e6c49b18f3864fca596cb5c4",
+    "questions": 44,
+    "practiceTasks": 8,
+    "htmlSHA256": "45ecf7b3f1d3ba3e9dc4ac9ec8e2a917778c55887e62180161b2bcfa17c8207a",
+    "browserSmoke": "production initial load, 5-choice answer and explanation pass",
+    "previewPromotion": "422 rejected; deployed identical tested artifact with production target instead",
+    "aiConnection": "manual copy to personal ChatGPT; in-site inference not connected",
+    "safariRealDevice": "not tested"
+  },
   "aiConnection": "manual copy to personal ChatGPT; in-site inference not connected",
   "safariRealDevice": "not tested"
 }
