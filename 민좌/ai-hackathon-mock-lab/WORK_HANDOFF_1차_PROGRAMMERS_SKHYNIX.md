@@ -1,3 +1,9 @@
+# 2026-10-11 작업 연속성 업데이트: 64문항·26개념, 배포 권한 복구 필요
+
+원본 64문항 및 8실습과 기존 16개념은 보존했다. C17~C26 10개념을 `data/concept-lessons.json`에 추가했으며 `src/index.html` 첫 화면 개념 진입과 설명 본문 검색을 개선했다. `npm test`는 GitHub Actions에서도 실행한다. 운영 사이트는 이전 프로덕션 배포가 유지되며 Vercel 배포 API가 팀 접근 권한 부족 403으로 거절됐다. `VERCEL_TOKEN`이 GitHub Actions에 없어 `.github/workflows/deploy-skhynix-quiz.yml` 배포 단계는 건너뛰었다. **운영 사이트 64/26 반영 완료로 주장하지 않는다.** GitHub secret 연결 및 Actions 재실행 또는 Vercel 권한 재연결이 남았다. 상세 사항은 README와 `reports/release-20261011-v3.md`.
+
+---
+
 # 2026-10-11 v2 개편 추가 기준
 
 현재 작업 기준은 work/WORK_PROMPT.md, work/QUESTION_SPEC_AND_QA.md, work/OFFICIAL_DOCS_STUDY_V2.md이다. 기존 44문항을 친절한 지문·보기로 재편집하고 신규 20문항을 추가해 64문항으로 만들었다. data/concept-lessons.json의 16개 개념 단원이 src/index.html에 포함된다. 빌드 및 배포 상태는 reports의 해당 버전 검증 기록을 확인한다. 공식 문서 참고와 독립 창작 문제를 구분하고 기존 정답·기록 호환성을 유지한다.
