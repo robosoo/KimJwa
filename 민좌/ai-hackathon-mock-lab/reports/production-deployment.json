@@ -14,7 +14,7 @@
   "method": "Connected Vercel plugin production deployment using GitHub Action built static HTML; no explicit teamId",
   "webCheck": "GitHub Actions fetched real public production root and /bank-version.json, verified wiki/4P HTML and bank counts",
   "researchLedger": "work/WIKI_4P_IMPROVEMENT_RELEASE_20261012.md",
-  "QA": "Source build syntax and bank numeric validation PASS; expanded Chromium/WebKit browser smoke on GitHub Actions job re-run; physical iPad Safari device not tested. Production HTTP LIVE PASS.",
+  "QA": "PASS: build and independent numeric verification, browser smoke in Chromium and WebKit at 768×1024 iPad-size and 390×844 phone-size; 4P theory, 4P stage navigation, simulated AI wrong-answer classification, revision prompt entry, changed-condition transfer check, browser storage persistence, original 64Q/26C/8 tasks verified. Browser run https://github.com/robosoo/KimJwa/actions/runs/38155103159 attempt 2. Physical iPad Safari/VoiceOver testing not performed.",
   "aiConnection": "Personal ChatGPT copy/open only; static deliberately incorrect AI drafts are training fixtures, not live AI API calls.",
   "security": "All six semiconductor scenarios use invented, nonproduction values; do not paste actual confidential company logs/specs into external tools.",
   "previousDeployment": {
@@ -68,5 +68,7 @@
     "deploymentId": "dpl_7ycQotoBTvDbp3fjHC49yzBYjTii",
     "verified": "https://github.com/robosoo/KimJwa/actions/runs/38153288571",
     "version": "2026-10-12-4p-original"
-  }
+  },
+  "browserQA": "https://github.com/robosoo/KimJwa/actions/runs/38155103159",
+  "verifiedProduction": "https://github.com/robosoo/KimJwa/actions/runs/38155337825"
 }
