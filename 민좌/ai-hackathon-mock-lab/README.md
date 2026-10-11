@@ -68,3 +68,13 @@ npm run build
 - 외부 접속 또는 무료 이용 범위가 확인되지 않은 링크는 `접속 재확인 필요` 표시
 - 기존 90문항, 12과제, 로그인 없는 무료 ChatGPT 이동 흐름 유지
 - GitHub 소스 변경 후 수동 Vercel 배포 완료, 운영 도메인 실접속 확인
+
+
+## 2026-10-11 AISCORE 유형 참고 과제 추가 (GitHub 저장)
+- 확인한 공개 URL: https://aiscore.kr/prep/cj-olivenetworks 및 https://aiscore.kr/exam?company=cj-olivenetworks
+- 외부 100문항(4영역×25)의 **유료 지문을 취득한 사실 없음**. 공개된 산출물 형식/문제 설명만 참조함.
+- 학습 링크: `data/learning-links.json`의 AISCORE 상태를 무료 첫 과제 확인으로 갱신하고 CJ올리브네트웍스 전용 링크 추가.
+- 신규 연습 문제: `data/aiscore-inspired.json`, 8개 신규 객관식 + 4개 실무 과제(보고서·데이터표·코드·다이어그램), 모두 독립 창작. 기존 90문항/12과제는 유지.
+- `scripts/build.mjs`에서 홈 화면의 접이식 AISCORE 연습 영역 생성, 정답 선택 후 즉시 해설 제공. 실무 문제는 프롬프트 복사/ChatGPT 새 탭 열기 및 루브릭 확인 지원.
+- 정답·입력 수치 수작업 검토, 신규 JSON 구조 확인 및 `build.mjs` 자바스크립트 구문 검사까지 실시.
+- **배포 현황: GitHub 커밋만 완료**. 운영 Vercel 프로젝트는 파일 직접 배포 구조로 파악됨. 새 GitHub 커밋이 운영 사이트로 자동 반영되지 않음. Node 전체 빌드 및 iPad Safari 실기기 테스트는 미실시.
