@@ -1,0 +1,74 @@
+name: Deploy SK hynix AI Study Site
+on:
+  push:
+    paths:
+      - '민좌/ai-hackathon-mock-lab/**'
+      - '.github/workflows/deploy-skhynix-quiz.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: skhynix-quiz-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: team_ZwgEf7FsZRct85EGrHTd1KHe
+      VERCEL_PROJECT_ID: prj_2IicaK0JvSaIim21fdP9VU49Yze8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify questions and concepts
+        working-directory: 민좌/ai-hackathon-mock-lab
+        run: |
+          npm test
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('dist/bank-version.json')
+          data=json.loads(p.read_text())
+          assert data['questions']==64, data
+          assert data['conceptLessons']==26, data
+          assert data['practiceTasks']==8, data
+          print('Release verified:',data)
+          PY
+      - name: Explain skipped deployment
+        if: ${{ env.VERCEL_TOKEN == '' }}
+        run: echo "::warning::Vercel deploy skipped. Add VERCEL_TOKEN to repository Actions secrets, then rerun this workflow. The source and QA checks are still valid."
+      - name: Install and link Vercel CLI
+        if: ${{ env.VERCEL_TOKEN != '' }}
+        working-directory: 민좌/ai-hackathon-mock-lab
+        run: |
+          npm install --no-save --no-package-lock vercel@latest
+          mkdir -p .vercel
+          printf '{"orgId":"%s","projectId":"%s"}\n' "$VERCEL_ORG_ID" "$VERCEL_PROJECT_ID" > .vercel/project.json
+          ./node_modules/.bin/vercel pull --yes --environment=production --token "$VERCEL_TOKEN"
+      - name: Build and deploy production
+        if: ${{ env.VERCEL_TOKEN != '' }}
+        working-directory: 민좌/ai-hackathon-mock-lab
+        run: |
+          ./node_modules/.bin/vercel build --prod --token "$VERCEL_TOKEN"
+          ./node_modules/.bin/vercel deploy --prebuilt --prod --token "$VERCEL_TOKEN"
+      - name: Smoke-check production version
+        if: ${{ env.VERCEL_TOKEN != '' }}
+        run: |
+          python3 - <<'PY'
+          import json,urllib.request,time
+          u='https://skhynix-ai-hackathon-quiz.vercel.app/bank-version.json'
+          for attempt in range(8):
+              try:
+                  with urllib.request.urlopen(u+'?release=26',timeout=15) as r:
+                      x=json.load(r)
+                  if x.get('questions')==64 and x.get('conceptLessons')==26:
+                      print('Production verified',x)
+                      break
+              except Exception as e:
+                  print('Retry',attempt+1,type(e).__name__,str(e)[:100])
+              time.sleep(10)
+          else:
+              raise RuntimeError('Production version did not reach 64 questions / 26 concepts')
+          PY
