@@ -1,0 +1,77 @@
+# WORK TASK: 2026 SK hynix 1차 × Programmers study site rebuild
+Saved 2026-10-11. This is the full execution prompt for ChatGPT Work, NOT evidence that the rebuild has been completed.
+
+당신은 제품 개발자, AI 평가 연구자, 문제집 편집자, QA 엔지니어 역할을 동시에 수행한다. 사용자는 2026년 SK하이닉스 AI 해커톤 1차 예선을 대비한다. **1차만**, **프로그래머스 AI 역량평가 응시자 체험 스타일**을 절대적 우선순위로 삼아 iPad Safari에서 운영되는 비공식 모의시험 사이트를 재구축·검증·배포하라. 개발자 채용 코딩테스트 대비가 아니다.
+
+## 프로젝트 위치와 보존
+- GitHub connector: https://github.com/robosoo/KimJwa
+- 프로젝트 루트: 민좌/ai-hackathon-mock-lab
+- 현재 운영 주소: https://skhynix-ai-hackathon-quiz.vercel.app/
+- 현재 Vercel project ID: prj_2IicaK0JvSaIim21fdP9VU49Yze8
+- 기존 코드: scripts/build.mjs, snapshots/parts/part-01.b64 ~ part-05.b64, data/learning-links.json, data/aiscore-inspired.json, lib/provider.js, api/*.js, README.md.
+- 이 Work 프로젝트에서 가장 먼저 work/SOURCE_LEDGER.md 와 work/QUESTION_SPEC_AND_QA.md 를 전부 읽어라. 아래 링크는 모두 그 안에 정리되어 있다.
+- 기존 문제 원본(90문항+12과제)을 파괴하거나 덮어쓰지 말고 백업·스냅샷부터 검증하라. 기존 운영 사이트를 건드리기 전에 별도 브랜치 또는 새 디렉터리에서 빌드와 브라우저 QA를 실시하라.
+- README나 이전 대화의 "완료" 기록은 사실로 가정하지 말고 파일·배포·브라우저 실측값으로 확인하라.
+- 예전 GitHub 직접 파일 업로드 방식 Vercel 배포는 커밋만으로 자동 재배포되지 않을 수 있다. 실제 연동 상태 확인 후 배포할 것.
+
+## 가장 높은 우선순위: 1차 시험 대상 고정
+1차: 10월 17~18일 중 하루; AI 기초 지식 및 활용 역량. SK하이닉스 공식 홈페이지를 확인하라. 2차 AI Native 또는 본선 코딩 과제는 범위 밖이다. 프로그래머스의 일반 AI 지식평가/활용평가를 기준으로 하되, 외부 사설 판매업체의 문항 수·질문 제한 등을 1차의 공식 규칙이라고 주장하지 말라.
+
+## 출처에서 수집·분류할 것
+- SK하이닉스 공식 event: https://skhynix-hackathon.com/ai-2026
+- SK하이닉스 공식 보도자료: https://talent.skhynix.com/hub/ko/company/story/237
+- 프로그래머스 공식 소개: https://www.programmers.co.kr/ai-assessment
+- 프로그래머스 응시자 체험: https://programmers.co.kr/ai-assessment/preview
+- 프로그래머스 4P 평가 설명: https://community.programmers.co.kr/post/14224
+- 인크루트 무료 AI 진단: https://event.incruit.com/selfcheck/aiexam/
+- AISCORE 공개 안내: https://aiscore.kr/prep/cj-olivenetworks
+- AISCORE 공개 첫 과제: https://aiscore.kr/exam?company=cj-olivenetworks
+- CareerXP: https://careerxp.work/ax/assessment
+- AI Practice: https://www.getaipractice.site/
+- 추가 URL은 data/learning-links.json 참고.
+공개·허가된 페이지의 문제 유형만 연구하라. 로그인 뒤 유료 문제, 결제벽, 숨겨진 API, 서버 취약점 우회는 시도하지 말 것. 독립적으로 만든 새 문제만 사이트에 수록.
+
+## 실제 참조문항 / 파일
+- 사용자가 대화에 제공한 프로그래머스 응시자 체험 예제 1~10번의 주제 인덱스는 work/SOURCE_LEDGER.md에 저장되어 있다.
+- 사용자는 AI 프롬프트 활용능력 1·2급, AI 비즈니스 활용능력 1·2급 모의시험 PDF 4개를 업로드했다. 이 파일의 정확한 일시적 경로와 요약은 SOURCE_LEDGER에 있다. **새 Work 대화에서 파일에 접근이 안 되면 사용자에게 4개 PDF 재첨부를 요청하고, 우선 이미 정리한 인덱스로 진행**. 텍스트가 손상된 부분은 짐작하지 말라.
+- 특히 프로그래머스 예제 3(생산 결측), 4(채용 편향), 6(로고 저작권), 7(RAG 버전), 8(메타데이터 매핑), 9(XAI), 10(GDPR)을 중요한 품질 기준으로 사용하되 문항 문구를 베끼지 말고 도메인을 바꿔 신규 제작.
+- 자료에서 RAG가 환각을 "완전 차단"한다는 부정확한 전제를 발견하면 수정하거나 배제할 것.
+
+## 기존 90문항을 다음 4등급으로 판정
+KEEP: 1차 AI 기초/활용에 맞고 보기·해설도 명확한 경우.
+REWRITE: 핵심 스킬은 유용하지만 개발자 API·구현 지식이나 단답 암기형으로 출제된 경우. 현실적인 일터 지문+판단문제로 완전 재작성.
+REMOVE: 사용자가 AI 개발자가 아닌데 API status, client-side tool loops, caching internals, 코딩 최적화 등 좁은 개발 지식을 요구하는 문항, 시대 지난 제품 사용법, 문맥 부족, 오류 정답.
+REVIEW: 근거 부족/문제 이미지 누락/선택지 중복/하나의 정답 불분명.
+각 문항 ID별 판단과 이유를 reports/round1-migration-audit.csv로 기록하라. 사용자 승인이 있다면 **원본 보존한 상태에서** 학습 화면에서 REMOVE를 숨길 수 있다. 90문항 수를 억지로 맞추지 말고 품질 우선.
+
+## 산출 문제 형태
+- 20개 이상의 완성도 높은 1차 핵심 세트를 먼저 만들고, QA를 통과한 추가 문항을 순차 확대. 목표 범위는 품질 수준에 따라 유동적이고, 단순한 문항 개수 채우기 금지.
+- 매 문항은 실제 업무 상황(생산·품질·구매·물류·HR·금융·고객서비스·사내문서), 주어진 자료 및 실수/제약, 정확히 하나의 최적 답을 고르는 질문, 설득력 있는 4개 보기(또는 일부분 O/X)로 구성한다.
+- 기초도 "RAG가 무엇인가?" 대신 충돌하는 최신 문서와 구버전 때문에 AI가 잘못 답하는 상황을 주고, 적절한 검색/검증 조치를 묻는다.
+- 선택지 3개는 단순 허수아비가 아니라 왜 잘못 고르기 쉬운지 분명해야 한다. "무조건/언제나" 같은 노골적 오답을 반복하지 말 것.
+- 정답 확인 직후 **문제집 해설**: 정답과 근거, AI 개념 원리, 오답 3개 각각 틀린 이유, 독립 검증 및 근거 확인 절차, 한 줄 암기 포인트, 참고 문서 링크. 설명이 너무 짧거나 출처 없이 그럴듯하면 불합격.
+- 사용자에게 코드 작성/AI 모델 재학습/서버 세팅 능력을 전제로 하지 말 것.
+- 데이터/수식 문제의 수치와 정답은 독립 계산으로 확인하고, 숨겨진 가정이 있다면 지문에 밝혀라.
+- 소스·생성시점·정답 검증 상태를 JSON에 저장하라.
+
+## 디자인 및 사용성
+- 첫 화면 명칭을 SK하이닉스 1차 예선 × 프로그래머스 스타일로 통일.
+- 기존 무료 외부 연습 사이트 URL 디렉터리는 홈페이지 최상단 유지.
+- 1차 학습모드, 1차 실전모드, 즉시 정답·문제집 해설, 틀린 문제만 다시 풀기, 실력 영역별 현황.
+- 문제별 긴 지문을 모바일에서도 쾌적하게, 선택지 터치 영역 넓게, 글자 수 충분하게.
+- 여자친구도 본인 iPad에서 독립적으로 풀 수 있도록 사용자별 로컬 저장·시험 이어풀기·학습 기록 유지.
+- 무료 ChatGPT 개인 계정 사용 방식: 프롬프트 복사+새 ChatGPT 탭 로그인/붙여넣기. ChatGPT 개인 계정 자체를 우리 사이트의 유료 API키로 오인하지 말 것.
+- 이전 2차 프로젝트형 실전 과제는 별도 보관/숨김; 1차 메인에 혼입 금지.
+
+## 개발/검증/배포 완료 조건
+1. 현재 GitHub와 운영 Vercel 일치/차이 분석 및 원본 백업.
+2. 90문항 전체 KEEP/REWRITE/REMOVE/REVIEW 판정표.
+3. 1차 완성 문항은행·개념 학습용 해설, 정답 독립 검산.
+4. 자동 검사(중복, 정답 쏠림, 보기 중복, 필수 해설 필드, 소스 URL, 수식 경계 테스트)와 전 문항 사람이 읽는 검수.
+5. 사이트 실제 작동 확인: iPad Safari 또는 동등한 모바일 브라우저, 즉시 정답, 세트 선택, 결과, 복구, 오답 복습, 링크.
+6. GitHub 커밋(민좌 디렉터리), 상태 장부, 변경 파일, 실험 로그, 테스트 요약, 필요 시 소스 아카이브.
+7. Vercel 프리뷰 → 기능 확인 → 운영 배포 및 운영 URL GET 검증. 실패하면 배포 성공인 척하지 말고 원인 기록.
+8. 최종 보고: 기존 N / KEEP n / REWRITE n / REMOVE n / REVIEW n, 최종 활성 문제 수, 테스트 패스 수, 남은 미검증 점, 프리뷰/운영 URL, 커밋 SHA.
+9. 작업이 길어도 단계마다 **중간 커밋**하고 재실행 가능한 상태 장부를 남겨라. 기존의 유용한 데이터나 실습을 아무 설명 없이 삭제하지 말라.
+
+초기 실행부터 자료 수집·검사·실제 수정까지 수행하라. 계획만 내놓지 말 것. 무엇이 공식 사실인지, 사용자 제공 참조인지, 독립 창작인지, 아직 미확인인지 매 단계 분리한다.
