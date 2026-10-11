@@ -1,14 +1,24 @@
-# v2 · 사람에게 친절한 지문·보기와 개념 공부
+# v3 · 64문항 및 공식 AI 기초 개념 26단원
 
 운영: https://skhynix-ai-hackathon-quiz.vercel.app/
 
 - 기존 44문항의 역할·목표·자료·판단 조건과 선택지 설명을 보완했다.
 - Google·OpenAI·Claude 공식 문서 개념을 참고한 신규 20문항(45~64번)을 추가했다. 전체 64문항, 실습 8개.
-- `개념 공부` 탭에 16단원: 쉬운 뜻, 업무 예시, 요청 예시, 점검 순서, 관련 문제, 공식 문서. 검색·읽음 표시·관련 문항 이동을 지원한다.
+- `개념 공부` 탭에 26단원: 쉬운 뜻, 업무 예시, 요청 예시, 점검 순서, 관련 문제, 공식 문서. 검색·읽음 표시·관련 문항 이동을 지원한다.
 - v1 학습 기록을 가져올 수 있다. 기존 44개 ID와 정답 위치를 유지했고 보존한 원본 자료는 삭제하지 않았다.
 - 출제 기준: `work/WORK_PROMPT.md`, `work/QUESTION_SPEC_AND_QA.md`, `work/OFFICIAL_DOCS_STUDY_V2.md`.
 - `npm test`: 구조·중복·단원 연결·인라인 JavaScript 구문 + 독립 Python 수치 검산. 배포/브라우저 결과는 `reports`에서 확인한다.
 - AI 직접 연결은 아직 구현되지 않았으며 질문 복사 후 외부 ChatGPT를 사용하는 흐름이다.
+
+## 2026-10-11 추가 검증 및 배포 상태
+
+- **GitHub 소스 확정:** `data/round1-question-bank.json` 64문항, `data/concept-lessons.json` 26개념 단원, `data/round1-practice.json` 8실습. 기존 16개념 유지 + C17~C26(토큰/컨텍스트/역할/Temperature/Zero-shot/Few-shot/XML/모델선택/멀티모달/작업분해/RAG·Fine-tuning) 추가.
+- **UI:** 기본 화면에 64문항·26개념 표시, 개념 진입 버튼을 강조하고 참고 링크를 아래로 이동, 개념 설명 본문까지 검색할 수 있도록 수정.
+- **자동 QA:** GitHub Actions Mock Lab Quality Gate가 추가 개념 빌드에 대해 통과함. 이후 UI 변경 커밋도 해당 워크플로에서 재검사. 이 검사는 iPad 실기기 및 독립 전문가 감수를 의미하지 않음.
+- **운영 미반영:** Vercel 연결의 소유 팀 `team_ZwgEf7FsZRct85EGrHTd1KHe`에 대한 배포 API 권한 403. GitHub의 최신 커밋을 `https://skhynix-ai-hackathon-quiz.vercel.app/` 에 배포했다는 증거 없음. **운영 완료 선언 금지.**
+- **대체 배포 경로:** `.github/workflows/deploy-skhynix-quiz.yml` 는 커밋마다 `npm test` 후 Vercel 배포를 시도하나 현재 `VERCEL_TOKEN` GitHub Actions secret이 없어 배포 단계가 건너뛰어진 것을 확인. 사용자가 GitHub 저장소 Settings → Secrets and variables → Actions에 프로젝트 팀 권한이 있는 `VERCEL_TOKEN`을 등록하고 Actions의 `Deploy SK hynix AI Study Site` 워크플로를 재실행하면 실제 배포 및 운영 버전(64/26) 검사를 수행함. **토큰 자체는 소스에 입력하지 않는다.**
+- **인증 대안:** Vercel 플러그인을 해당 프로젝트 소유 팀에 재연결해 쓰기 권한을 복구한 후 직접 배포.
+
 
 ---
 
