@@ -36,6 +36,18 @@ jobs:
           assert data['practiceTasks']==8, data
           print('Release verified:',data)
           PY
+      - name: Browser QA (iPad and phone viewport)
+        working-directory: 민좌/ai-hackathon-mock-lab
+        run: |
+          npm install --no-save --no-package-lock playwright@latest
+          npx playwright install --with-deps chromium
+          node scripts/browser-smoke.mjs
+      - name: Upload verified website artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: skhynix-quiz-64q-26concepts
+          path: 민좌/ai-hackathon-mock-lab/dist/
+          retention-days: 14
       - name: Explain skipped deployment
         if: ${{ env.VERCEL_TOKEN == '' }}
         run: echo "::warning::Vercel deploy skipped. Add VERCEL_TOKEN to repository Actions secrets, then rerun this workflow. The source and QA checks are still valid."
