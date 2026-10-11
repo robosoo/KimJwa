@@ -1,3 +1,16 @@
+# ⚑ CURRENT PRIORITY (2026-10-11): 1차 × 프로그래머스
+
+사용자 확정 방향: **SK하이닉스 AI 해커톤 2026 1차 예선의 AI 기초지식·활용 역량만**. 프로그래머스 응시자 체험처럼 **현업 상황→판단→근거 검증**형 문제. 2차 AI Native, 개발자 전용 API·코딩 구현 지식, 낡은 도구 조작 암기 문제는 메인 화면에서 배제하는 것이 목표입니다.
+
+**새 Work에서 여기부터 읽기**:
+- [Work 실행 지시서](work/WORK_PROMPT.md)
+- [소스 URL과 사용자 PDF·프로그래머스 10문항 유형 장부](work/SOURCE_LEDGER.md)
+- [문항별 해설·품질·삭제/재작성 기준](work/QUESTION_SPEC_AND_QA.md)
+
+**중요한 상태 구분**: Work 지시서·소스 장부·검증 기준은 GitHub에 저장됨. 현재 운영 사이트의 구형 90문항과 12개 과제는 **아직 전체적으로 1차 프로그래머스형으로 개편되지 않았음**. 기존 서비스가 READY라고 해서 새 작업이 완료된 것이 아닙니다. 백업 스냅샷 보존 후 QA를 거쳐 Vercel에 배포할 것.
+
+---
+
 # AI Hackathon Mock Lab — 공동 개발 장부
 
 - 운영 사이트: https://skhynix-ai-hackathon-quiz.vercel.app/
