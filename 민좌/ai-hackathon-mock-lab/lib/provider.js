@@ -9,7 +9,7 @@ export async function handle(req,res,mode){
   const apiKey=supplied||(provider==='anthropic'?process.env.ANTHROPIC_API_KEY:process.env.OPENAI_API_KEY);
   
   // Vercel provides a deployment-scoped OIDC token to AI Gateway automatically.
-  const gatewayToken=!apiKey&&(process.env.AI_GATEWAY_API_KEY||process.env.VERCEL_OIDC_TOKEN);
+  const gatewayToken=null; // Shared gateway intentionally disabled to prevent unbounded public costs.
   if(!apiKey&&!gatewayToken)return err(res,503,'AI 인증이 준비되지 않았습니다. 개인 API 키 또는 Vercel AI Gateway 연결을 확인하세요.');
   const useGateway=Boolean(gatewayToken);
 
