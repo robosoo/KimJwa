@@ -1,0 +1,54 @@
+name: Publish AI Hackathon Study Site
+on:
+  push:
+    branches: [main]
+    paths:
+      - '민좌/ai-hackathon-mock-lab/data/**'
+      - '민좌/ai-hackathon-mock-lab/src/**'
+      - '민좌/ai-hackathon-mock-lab/scripts/**'
+      - '민좌/ai-hackathon-mock-lab/release/**'
+      - '.github/workflows/hackathon-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: hackathon-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Build and validate 64 questions, 26 concepts and practice tasks
+        working-directory: 민좌/ai-hackathon-mock-lab
+        run: |
+          node scripts/build.mjs
+          python3 scripts/check-numbers.py
+          python3 - <<'PY'
+          import json,pathlib
+          root=pathlib.Path('dist')
+          info=json.loads((root/'bank-version.json').read_text())
+          assert info['questions']==64, info
+          assert info['conceptLessons']==26, info
+          assert info['practiceTasks']==8, info
+          assert 'C26' in (root/'index.html').read_text()
+          print('64 questions, 26 concepts, 8 practice tasks verified')
+          PY
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload web app
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 민좌/ai-hackathon-mock-lab/dist
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
