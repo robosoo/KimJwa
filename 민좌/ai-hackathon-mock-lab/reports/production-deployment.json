@@ -152,5 +152,8 @@
     },
     "QA": "PASS: GitHub Actions job https://github.com/robosoo/KimJwa/actions/runs/38155248373 attempt 2. Chromium and WebKit automated browser tests at 768×1024 iPad and 390×844 phone sizes, four conceptual stages, simulated-AI error drill, 12 independent diagnostics, answer persistence and original 64Q/26 wiki/8 practice, zero runtime errors. Physical iPad Safari/VoiceOver not tested.",
     "browserQA": "https://github.com/robosoo/KimJwa/actions/runs/38155248373"
-  }
+  },
+  "liveVerified": "https://github.com/robosoo/KimJwa/actions/runs/38156522614",
+  "liveHTMLBytes": 519149,
+  "lastCheck": "GitHub Actions external HTTP GET verified 64Q/26 wiki/8 practical/4P/12 diagnostics, English terminology, no internal QA/sourceScope/editorialReview in shipped HTML."
 }
