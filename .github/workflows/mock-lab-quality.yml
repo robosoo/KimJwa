@@ -1,0 +1,37 @@
+name: Mock Lab Quality Gate
+on:
+  push:
+    paths:
+      - '민좌/ai-hackathon-mock-lab/**'
+      - '.github/workflows/mock-lab-quality.yml'
+  pull_request:
+    paths:
+      - '민좌/ai-hackathon-mock-lab/**'
+      - '.github/workflows/mock-lab-quality.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Build and validate 90 questions, 12 tasks
+        working-directory: 민좌/ai-hackathon-mock-lab
+        run: node scripts/build.mjs
+      - name: Check HTML JavaScript and API function syntax
+        working-directory: 민좌/ai-hackathon-mock-lab
+        run: |
+          node --check api/chat.js
+          node --check api/grade.js
+          node --check api/status.js
+          node --check lib/provider.js
+          python3 - <<'PY'
+          import re, subprocess, pathlib
+          text=pathlib.Path('dist/index.html').read_text()
+          scripts=re.findall(r'<script>(.*?)</script>',text,re.S)
+          for script in scripts:
+              p=subprocess.run(['node','--check','-'],input=script,text=True,capture_output=True)
+              if p.returncode:
+                  raise SystemExit(p.stderr)
+          print('Inline scripts validated:',len(scripts))
+          PY
