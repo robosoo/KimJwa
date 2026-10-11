@@ -1,0 +1,39 @@
+name: Verify Public HTML Preview
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skhynix-ai-study/**'
+      - '.github/workflows/hackathon-preview-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check public browser-serving endpoint
+        run: |
+          set -euo pipefail
+          URL="https://raw.githack.com/robosoo/KimJwa/main/skhynix-ai-study/index.html"
+          curl --fail --location --retry 4 --retry-delay 3 --max-time 40 --silent --show-error --output /tmp/study.html --dump-header /tmp/study.headers "$URL"
+          echo "Content-Type and response:"
+          grep -i '^content-type:' /tmp/study.headers | tail -1
+          head -c 80 /tmp/study.html; echo
+          python3 - <<'PY'
+          import re,json,pathlib
+          body=pathlib.Path('/tmp/study.html').read_text()
+          def extract(id):
+              m=re.search(r'<script id="'+id+r'" type="application/json">(.+?)</script>',body,re.S)
+              assert m, 'Missing '+id
+              return json.loads(m.group(1))
+          questions=extract('bankData')['questions']
+          concepts=extract('conceptData')
+          tasks=extract('tasksData')
+          assert len(questions)==64,(len(questions),'questions')
+          assert len(concepts)==26,(len(concepts),'concepts')
+          assert len(tasks)==8,(len(tasks),'tasks')
+          print('HTTP preview verified:',len(questions),'questions,',len(concepts),'concepts,',len(tasks),'practice tasks')
+          PY
