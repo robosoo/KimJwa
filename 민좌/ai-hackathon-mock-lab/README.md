@@ -1,3 +1,14 @@
+# 2026-10-11 추가 배포 현황
+
+- **GitHub 최신:** 64문항 / 개념 공부 26단원 / 실습 8개. C17–C26 신규 단원을 `data/concept-lessons.json`에 반영했다.
+- **실행형 독립 HTML:** `release/index.html` (문항·해설·개념 데이터를 파일 안에 포함). 실제 사용 시 공개된 정적 호스팅에 올리거나, 파일을 지원하는 브라우저 환경에서 연다.
+- **GitHub Actions 검증:** 64문항·26단원·8실습 구조 검사 및 별도 Python 수치 검산 33개 통과. 이는 사람의 의미 검수 또는 iPad Safari 실기기 검증을 대체하지 않는다.
+- **Vercel 운영 사이트:** 마지막으로 확인한 production은 44문항 커밋 `dc6b0695`에 고정. 64문항 preview는 `7563bc4e` 커밋으로 READY 기록이 있으나 production 자동 반영 안 됨. 현재 Vercel 앱 배포/승격 403 (기존 `ctpmfd42hf-8757` 스코프 권한). 연결 계정 권한 회복 후 preview/production 재배포가 필요하다.
+- **GitHub Pages 대체 경로:** `.github/workflows/hackathon-pages.yml`를 추가했으나 최초 실행은 Pages 비활성으로 Configure Pages 실패. GitHub 저장소 Settings → Pages → Build and deployment → Source: GitHub Actions를 선택한 후 Actions에서 `Publish AI Hackathon Study Site` 재실행 필요.
+- **새로 만든 결과의 완료 판단:** 소스 저장·정적 빌드·자동 검증 완료, Vercel 운영 업데이트 및 GitHub Pages 공개 주소와 iPad 실사용 확인은 미완료.
+
+---
+
 # v3 · 64문항 및 공식 AI 기초 개념 26단원
 
 운영: https://skhynix-ai-hackathon-quiz.vercel.app/
