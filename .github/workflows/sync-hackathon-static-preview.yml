@@ -45,6 +45,8 @@ jobs:
             echo "Public preview is already up to date."
             exit 0
           fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'chore(hackathon): refresh public 64-question study preview'
           # Rebuild updates tracked audit files too; discard only uncommitted runner outputs before rebase.
           git reset --hard HEAD
