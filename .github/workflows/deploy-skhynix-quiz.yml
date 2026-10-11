@@ -2,7 +2,11 @@ name: Deploy SK hynix AI Study Site
 on:
   push:
     paths:
-      - '민좌/ai-hackathon-mock-lab/**'
+      - '민좌/ai-hackathon-mock-lab/src/**'
+      - '민좌/ai-hackathon-mock-lab/data/**'
+      - '민좌/ai-hackathon-mock-lab/scripts/**'
+      - '민좌/ai-hackathon-mock-lab/package.json'
+      - '민좌/ai-hackathon-mock-lab/vercel.json'
       - '.github/workflows/deploy-skhynix-quiz.yml'
   workflow_dispatch:
 
