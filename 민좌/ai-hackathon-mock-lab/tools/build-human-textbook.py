@@ -28,6 +28,8 @@ cfg=args.parse_args()
 ROOT=Path(__file__).resolve().parents[1]
 data=json.loads((ROOT/'data/practical-sessions.json').read_text())
 arith=json.loads((ROOT/'data/literacy-arithmetic-check.json').read_text())
+approaches=json.loads((ROOT/'data/problem-approach-lessons.json').read_text())
+food_session=json.loads((ROOT/'data/food-cosmetics-session.json').read_text())
 for name,file in [('KR','NotoSansKR-Regular.ttf'),('KR-Bold','NotoSansKR-Bold.ttf')]:
     pdfmetrics.registerFont(TTFont(name,str(Path(cfg.font_dir)/file)))
 pdfmetrics.registerFontFamily('KR',normal='KR',bold='KR-Bold')
@@ -100,6 +102,29 @@ def rich_answer(text):
         elif line.startswith('## '):add(line[3:],'h3')
         else:add(line.replace('**',''))
 
+def approach_lesson(slug):
+    a=approaches[slug]
+    c=next((c for c in data['cases'] if c['id']==slug),None)
+    files=food_session['files'] if slug=='food' else c['files']
+    first=food_session['logs'][0] if slug=='food' else c['logs'][0]
+    for title,key in [('먼저 문제를 살펴봅시다.','problem'),('첨부된 자료는 다음과 같습니다.','materials')]:
+        add(title,'h2')
+        for line in a[key]:prose(line)
+    rows=[]
+    for members,label,role in a['groups']:
+        chosen=[f for f in files if f.get('kind')==members] if isinstance(members,str) else [f for f in files if f['number'] in members]
+        rows.append([label,role,f"{len(chosen)}개 / {sum(f['tokens'] for f in chosen):,}토큰"])
+    story.append(tab(['자료','확인할 내용','개수·용량'],rows,[110,255,WIDTH-365]))
+    for title,key in [('그러면 우리는 어디서부터 시작할까요?','plan'),('질문 수와 토큰은 이렇게 배분합니다.','budget'),('첫 질문에는 무엇을 맡길까요?','firstGoal')]:
+        add(title,'h2')
+        for line in a[key]:prose(line)
+    add(f"실제 첫 첨부: {first['tokens']:,}토큰 / 질문 {len(first['prompt'])}자",'h3')
+    story.append(note(a['promptCaution']))
+    story.append(p(first['prompt'],'prompt'))
+    add('AI 답변을 받으면, 여기부터 확인합니다.','h2')
+    for line in a['probe']:prose(line)
+    add('이제 실제 풀이를 따라가봅시다.','h2');prose(a['bridge'])
+
 story.extend([Spacer(1,45),p('실제 기록을 따라 배우는 5과제 통합 강의서','tag'),
  p('사람이 푸는\nAI 활용평가','cover'),
  p('AI에게 맡길 일과\n내가 확인할 일을 나눠봅시다.','h2'),Spacer(1,22)])
@@ -134,6 +159,8 @@ prose(data['common']['submission'])
 for ci,c in enumerate(data['cases'],2):
     l=c['lesson'];slug=c['id']
     chapter(f'{ci}. {l["short"]} 실전 수업',slug)
+    approach_lesson(slug)
+    story.append(PageBreak());story.append(Heading('실제 문항과 풀이 기록',slug+'-record',1))
     add(l['subtitle'],'h2');prose(l['opening'])
     story.append(tab(['질문·섹션','무엇을 구하는가','확인할 근거'],l['mapping'],[75,180,WIDTH-255]))
     if l.get('questions'):
@@ -197,7 +224,9 @@ for q in ['지금 답한 번호가 실제 시험 문항 번호와 같은가?','�
     add('- '+q)
 add('맞는 답과 설명의 정확성을 함께 확인합니다. 질문 수를 줄이는 일도 중요하지만, 잘못된 근거를 확신 있게 제출하지 않는 것이 먼저입니다.')
 
-chapter('7. 식품·화장품 실전 해설 이어 읽기','food-appendix')
+chapter('7. 식품·화장품 문제부터 살펴보기','food-appendix')
+approach_lesson('food')
+add('기존 상세 해설로 이어집니다.','h2')
 add('다음부터는 앞서 완성한40쪽 식품·화장품 강의서를 원래 레이아웃으로 이어 붙였습니다.47개 PDF114,857토큰을9회 질문으로 나눈 실제 파일 조합, 기준문 압축, 기억 검증, 예외 조건과400점 채점 결과를 담고 있습니다.')
 add('뒤에 이어지는 해설의 쪽수는 원래40쪽 기준으로 표시됩니다. PDF 책갈피로 각 과제와 실제 질문 회차를 바로 찾을 수 있습니다.','small')
 add('출처와 확인 범위','h2')

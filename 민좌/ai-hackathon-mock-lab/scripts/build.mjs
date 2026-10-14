@@ -46,7 +46,17 @@ function embeddedMarkup(input,human=false){
  const overrides=':host{display:block;min-width:0}.embedded-guide{background:transparent}.wrap{max-width:none;padding:0 0 30px;margin:0}#caseButtons{display:none}.embed-font{margin:0 0 14px}.tabs,.casebar{top:var(--preview-toolbar-height,100px);z-index:4}.round-nav,.token-cart{top:calc(var(--preview-toolbar-height,100px) + 95px)}section[id],article[id],.guide-view,#roundContent,.round-part{scroll-margin-top:calc(var(--preview-toolbar-height,100px) + 160px)}';
  return '<style>'+styles+'\n'+overrides+'</style><div class="embedded-guide">'+body+'</div>';
 }
-const previewBundle={food:embeddedMarkup(guideHTML),human:embeddedMarkup(practicalHTML,true)};
+const approaches=JSON.parse(readFileSync(join(root,'data/problem-approach-lessons.json'),'utf8'));
+for(const [id,lesson] of Object.entries(approaches)){
+ const c=practicalData.cases.find(c=>c.id===id);
+ const files=id==='food'?session.files.map((f,i)=>({...f,number:i+1,name:f.filename,format:'PDF'})):c.files;
+ lesson.files=files;
+ lesson.materialGroups=lesson.groups.map(([members,label,role])=>{const selected=typeof members==='string'?files.filter(f=>f.kind===members):files.filter(f=>members.includes(f.number));return {label,role,count:selected.length,tokens:selected.reduce((sum,f)=>sum+f.tokens,0)};});
+ if(lesson.materialGroups.reduce((sum,g)=>sum+g.count,0)!==files.length)throw Error('Approach file grouping mismatch: '+id);
+ const first=id==='food'?session.logs[0]:c.logs[0];
+ lesson.first={prompt:first.prompt,tokens:first.tokens,names:id==='food'?first.attachments.map(f=>f.label):first.fileNumbers.map(n=>files.find(f=>f.number===n).label)};
+}
+const previewBundle={food:embeddedMarkup(guideHTML),human:embeddedMarkup(practicalHTML,true),approaches};
 const embeddedFoodScript=guideScript.replace("window.addEventListener('hashchange',readHash);",'').replace('initializeAnswers();readHash();',"initializeAnswers();setTab('start',false);");
 const embeddedHumanScript=practicalScript.replace(/const initial=[\s\S]*?renderCase\(initial\);\s*$/,"renderCase('snack');");
 const publicScript=readFileSync(join(root,'src/public-preview.js'),'utf8').replace('__EMBED_FOOD_JS__',embeddedFoodScript).replace('__EMBED_HUMAN_JS__',embeddedHumanScript);
