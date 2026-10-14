@@ -124,6 +124,28 @@
     else if (scroll) document.getElementById('previewCaseTitle').scrollIntoView({block: 'start'});
   }
   choose.addEventListener('change', () => openCase(choose.value, '', true));
+  document.getElementById('readProblemFirst').onclick = () => {
+    writeLocation('#problemApproach');
+    document.getElementById('problemApproach').scrollIntoView({block:'start'});
+  };
+  document.getElementById('readExistingWalkthrough').onclick = () => {
+    if (current === 'food') {
+      foodController.setTab('start');
+      foodHost.shadowRoot.getElementById('tab-start').scrollIntoView({block:'start'});
+    } else {
+      const root = humanHost.shadowRoot;
+      const target = root.getElementById('question-walkthrough') || root.getElementById('case-start');
+      writeLocation('#'+target.id);
+      target.scrollIntoView({block:'start'});
+    }
+  };
+  document.getElementById('readActualDialogue').onclick = () => {
+    if (current === 'food') foodController.goRound(1);
+    else {
+      writeLocation('#actual-round-1');
+      humanHost.shadowRoot.getElementById('actual-round-1').scrollIntoView({block:'start'});
+    }
+  };
   document.getElementById('previewOverview').addEventListener('click', () => {
     writeLocation('');
     document.getElementById('publicPreview').scrollIntoView({block: 'start'});
