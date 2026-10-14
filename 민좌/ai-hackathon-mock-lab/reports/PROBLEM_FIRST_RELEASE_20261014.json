@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-14",
+  "project": "skhynix-ai-hackathon-quiz",
+  "environment": "production",
+  "deploymentId": "dpl_Fpj14Aie1XfvczGMV5fS9zULtaA1",
+  "readyState": "READY",
+  "sourceCommit": "f72cd200a19ec466519a3de767375d2435a60014",
+  "url": "https://skhynix-ai-hackathon-quiz.vercel.app/",
+  "rollbackDeploymentId": "dpl_2tYRQQe5n3QsNvxb8MBwfrXvR2YM",
+  "change": "Add problem-first narrative teaching chapters before every existing walkthrough.",
+  "preserved": {
+    "questions": 64,
+    "conceptLessons": 26,
+    "practiceTasks": 8,
+    "officialWalkthroughs": 5,
+    "foodOriginalFiles": 47,
+    "otherOriginalFiles": [
+      2,
+      17,
+      12,
+      12
+    ],
+    "actualSessionsAndGuideSources": "all present"
+  },
+  "validation": [
+    "npm test passed: structure, editorial checks, 33 numeric checks",
+    "5 approach chapter scopes and disjoint attachment-group coverage checked",
+    "First prompt text copied directly from retained session data",
+    "111-page PDF: new 71 pages visually reviewed; original food guide 40 pages appended",
+    "Built index parsed independently to verify original catalog and five walkthrough bundles remain present"
+  ],
+  "pdfPages": 111,
+  "browserVerification": "NOT COMPLETED for this release. Browser auto-review denied the inspection because of the usage limit. No workaround attempted.",
+  "httpVerification": "NOT COMPLETED for this release. Previously started production GET verification was blocked by network policy. No retry attempted.",
+  "limitations": [
+    "READY is deployment state, not a claim that interactive UI QA passed",
+    "Prior-release UI checks are recorded separately and do not validate these new controls",
+    "No physical iPad/Safari test",
+    "Existing grading and experiment limitations remain unchanged"
+  ]
+}
