@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-14",
+  "project": "skhynix-ai-hackathon-quiz",
+  "environment": "production",
+  "deploymentId": "dpl_2tYRQQe5n3QsNvxb8MBwfrXvR2YM",
+  "readyState": "READY",
+  "sourceCommit": "71ffff9eb70b71d3895290a38ae67f0f6d158479",
+  "url": "https://skhynix-ai-hackathon-quiz.vercel.app/",
+  "rollbackDeploymentId": "dpl_725C8Bop4jwkDWeHQnQpTAFfSoiv",
+  "change": "One main-home menu for all five official practice walkthroughs; inline content; legacy bookmarks redirect to the matching task.",
+  "http": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 875084,
+      "matchesBuild": true,
+      "sha256": "15fcea7d5161ad1ca09cce88dbed2ac76ba29bc2d9dc075e36e779ade6470c90"
+    },
+    {
+      "path": "food-cosmetics-guide.html",
+      "status": 200,
+      "bytes": 576,
+      "matchesBuild": true,
+      "sha256": "07433e200cb04e4543ab342923ca62c9a7c06ca80fb0a73b277cd35ff9db7558"
+    },
+    {
+      "path": "human-practice-guide.html",
+      "status": 200,
+      "bytes": 579,
+      "matchesBuild": true,
+      "sha256": "9fb76bf556c24fd0580c4dc25d89323e4fbae8747dda5553ccf3c0672e9043b5"
+    },
+    {
+      "path": "bank-version.json",
+      "status": 200,
+      "bytes": 240,
+      "matchesBuild": true,
+      "sha256": "e66509715e35d6294e37015f8ae0119169eecc040629fa8029595f2e2d16a728"
+    },
+    {
+      "path": "resources/Programmers_AI_Assessment_Practical_Textbook_KR.pdf",
+      "status": 200,
+      "bytes": 416663,
+      "matchesBuild": true,
+      "sha256": "885bc7c4a0608db6bcc1d3131ea675bad368032594caac721074332cdbcd51ad"
+    }
+  ],
+  "browserChecks": [
+    "Main navigation has one public-practice menu instead of two external guide links",
+    "Home shows shortcuts to all five tasks",
+    "Same document retains main learning navigation while displaying walkthroughs",
+    "Food original 9 rounds, 47 files, 400/400 still visible",
+    "Food round-1 navigation and 478-character actual prompt copy",
+    "Food final 4-question answers disclosure",
+    "Select all five tasks without separate document navigation",
+    "Subscription full 43,720 tokens over limit by 23,720; preset 19,751 leaves 249",
+    "Individual question fragment and selected task restore after reload",
+    "Literacy noncharged service error remains visible",
+    "Legacy API URL redirects to root preview=api with actual-round-3 fragment",
+    "API actual round-3 copy remains 970 characters",
+    "Legacy food URL redirects to root preview=food",
+    "Home API shortcut opens correct task",
+    "Existing concept wiki 26 entries verified; leaving preview clears query",
+    "Return to original main home works"
+  ],
+  "verification": "npm test: structure, editorial rules, 33 independent numeric checks passed",
+  "limitations": [
+    "No physical iPad/Safari or mobile viewport UI test in this release",
+    "Practice grading facts and previous experiment limitations unchanged"
+  ]
+}
