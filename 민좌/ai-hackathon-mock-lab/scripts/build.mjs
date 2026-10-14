@@ -36,3 +36,25 @@ const practicalCheck=spawnSync(process.execPath,['--check','-'],{input:practical
 if(practicalCheck.status!==0)throw Error(practicalCheck.stderr);
 const practicalHTML=readFileSync(join(root,'src/human-practice-guide.html'),'utf8').replace('__PRACTICAL_DATA__',safeJSON(practicalData)).replace('__PRACTICAL_JS__',practicalScript);
 writeFileSync(join(root,'dist/human-practice-guide.html'),practicalHTML);
+
+// Bundle both walkthroughs into the main page, preserving isolated styles/IDs.
+function embeddedMarkup(input,human=false){
+ const styles=[...input.matchAll(/<style>([\s\S]*?)<\/style>/g)].map(m=>m[1]).join('\n').replace(/:root/g,':host').replace(/\bbody\b/g,'.embedded-guide');
+ let body=input.match(/<body[^>]*>([\s\S]*?)<\/body>/)[1];
+ body=body.replace(/<header[\s\S]*?<\/header>/,human?'<div class="row embed-font"><button class="btn" id="fontToggle" aria-pressed="false">글자 크게</button></div>':'');
+ body=body.replace(/<footer[\s\S]*?<\/footer>/,'').replace(/<script(?![^>]*type="application\/json")[^>]*>[\s\S]*?<\/script>/g,'').replace(/<main\b/g,'<div').replace(/<\/main>/g,'</div>');
+ const overrides=':host{display:block;min-width:0}.embedded-guide{background:transparent}.wrap{max-width:none;padding:0 0 30px;margin:0}#caseButtons{display:none}.embed-font{margin:0 0 14px}.tabs,.casebar{top:var(--preview-toolbar-height,100px);z-index:4}.round-nav,.token-cart{top:calc(var(--preview-toolbar-height,100px) + 95px)}section[id],article[id],.guide-view,#roundContent,.round-part{scroll-margin-top:calc(var(--preview-toolbar-height,100px) + 160px)}';
+ return '<style>'+styles+'\n'+overrides+'</style><div class="embedded-guide">'+body+'</div>';
+}
+const previewBundle={food:embeddedMarkup(guideHTML),human:embeddedMarkup(practicalHTML,true)};
+const embeddedFoodScript=guideScript.replace("window.addEventListener('hashchange',readHash);",'').replace('initializeAnswers();readHash();',"initializeAnswers();setTab('start',false);");
+const embeddedHumanScript=practicalScript.replace(/const initial=[\s\S]*?renderCase\(initial\);\s*$/,"renderCase('snack');");
+const publicScript=readFileSync(join(root,'src/public-preview.js'),'utf8').replace('__EMBED_FOOD_JS__',embeddedFoodScript).replace('__EMBED_HUMAN_JS__',embeddedHumanScript);
+const publicCheck=spawnSync(process.execPath,['--check','-'],{input:publicScript,encoding:'utf8'});
+if(publicCheck.status!==0)throw Error(publicCheck.stderr);
+html=html.replace('__PUBLIC_PREVIEW_DATA__',safeJSON(previewBundle)).replace('__PUBLIC_PREVIEW_JS__',publicScript);
+writeFileSync(join(root,'dist/index.html'),html);
+// Old bookmarks resolve to the unified learning menu on the same home page.
+function legacyRedirect(defaultCase){return '<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>공개체험 풀이로 이동</title><meta http-equiv="refresh" content="0;url=/?preview='+defaultCase+'"></head><body><p><a href="/?preview='+defaultCase+'">학습홈의 공개체험 풀이 열기</a></p><script>const allowed=["snack","subscription","literacy","api"];const requested=new URLSearchParams(location.search).get("task");const task='+JSON.stringify(defaultCase)+';location.replace("/?preview="+(allowed.includes(requested)?requested:task)+location.hash);</script></body></html>';}
+writeFileSync(join(root,'dist/food-cosmetics-guide.html'),legacyRedirect('food'));
+writeFileSync(join(root,'dist/human-practice-guide.html'),legacyRedirect('snack'));
