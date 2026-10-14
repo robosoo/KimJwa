@@ -1,4 +1,4 @@
-import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import {readFileSync,writeFileSync,mkdirSync,copyFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {validateBank} from './validate.mjs';
@@ -20,3 +20,13 @@ for(const [,script] of html.matchAll(/<script>([\s\S]*?)<\/script>/g)){const che
 mkdirSync(join(root,'dist'),{recursive:true});mkdirSync(join(root,'reports'),{recursive:true});
 writeFileSync(join(root,'dist/index.html'),html);writeFileSync(join(root,'dist/bank-version.json'),JSON.stringify({version:report.version,questions:report.questions,practiceTasks:report.practiceTasks,conceptLessons:report.conceptLessons,wikiArticles:report.wikiArticles,fourPCases:report.fourPCases,fourPDrills:report.fourPDrills,fourPTransferChecks:report.fourPTransferChecks,fourPIndependentChecks:report.fourPIndependentChecks,fourPDeepTheory:report.fourPDeepTheory,fourPStages:report.fourPStages,fourPChecks:report.fourPChecks})+'\n');
 writeFileSync(join(root,'reports/audit.generated.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));
+const safeJSON=value=>JSON.stringify(value).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
+const session=JSON.parse(readFileSync(join(root,'data/food-cosmetics-session.json'),'utf8'));
+const guideLessons=JSON.parse(readFileSync(join(root,'data/food-cosmetics-lessons.json'),'utf8'));
+const guideScript=readFileSync(join(root,'src/food-cosmetics-guide.js'),'utf8').replace('__GUIDE_LESSONS__',safeJSON(guideLessons));
+const guideCheck=spawnSync(process.execPath,['--check','-'],{input:guideScript,encoding:'utf8'});
+if(guideCheck.status!==0)throw Error(guideCheck.stderr);
+const guideHTML=readFileSync(join(root,'src/food-cosmetics-guide.html'),'utf8').replace('__SESSION__',safeJSON(session)).replace('__GUIDE_JS__',guideScript);
+writeFileSync(join(root,'dist/food-cosmetics-guide.html'),guideHTML);
+mkdirSync(join(root,'dist/resources'),{recursive:true});
+copyFileSync(join(root,'resources/Programmers_AI_Assessment_Practical_Textbook_KR.pdf'),join(root,'dist/resources/Programmers_AI_Assessment_Practical_Textbook_KR.pdf'));
