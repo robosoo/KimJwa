@@ -136,6 +136,14 @@ for ci,c in enumerate(data['cases'],2):
     chapter(f'{ci}. {l["short"]} 실전 수업',slug)
     add(l['subtitle'],'h2');prose(l['opening'])
     story.append(tab(['질문·섹션','무엇을 구하는가','확인할 근거'],l['mapping'],[75,180,WIDTH-255]))
+    if l.get('questions'):
+        story.append(PageBreak());story.append(Heading('문항을 하나씩 따라 풀기',slug+'-questions',1))
+        for q in l['questions']:
+            add(f"{q['number']}번. {q['title']}",'h2')
+            add('먼저 읽을 조건과 자료','h3');prose(q['read'])
+            add('AI에 맡길 작업','h3');prose(q['delegate'])
+            add('사람이 확인할 원문과 계산','h3');prose(q['verify'])
+            story.append(note('실제 제출 답: '+q['answer']+'\n'+q['why']))
     add('파일은 왜 이렇게 골랐을까요?','h2');prose(l['selection'])
     add('시험 화면에서 찾을 파일','h2')
     add('사람이 읽기 쉬운 이름을 먼저 표시했습니다. 바로 아래 실제 파일명으로 시험 화면의 파일과 대조할 수 있습니다. 토큰은 화면 표시값입니다.','small')

@@ -25,7 +25,7 @@
 - src/human-practice-guide.html 및 .js: 네 과제 수업, 실제 대화, 토큰 선택, 검증 체크, 제출 결과.
 - data/practical-sessions.json: 실제 실행 기록의 정규화. 개별 session.json도 보존.
 - data/practical-human-lessons.json: 사람이 읽는 설명과 미실험 개선안.
-- resources/Programmers_AI_Assessment_Practical_Textbook_KR.pdf: 92쪽(새 수업52+기존40). 새 52쪽 전체 축소 이미지 및 표/코드/프롬프트 상세 페이지 시각 검수.
+- resources/Programmers_AI_Assessment_Practical_Textbook_KR.pdf: 97쪽(새 수업57+기존40). 새 57쪽 전체 축소 이미지 및 표/코드/프롬프트 상세 페이지 시각 검수.
 
 ## 검증
 
