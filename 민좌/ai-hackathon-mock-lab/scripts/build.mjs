@@ -30,3 +30,9 @@ const guideHTML=readFileSync(join(root,'src/food-cosmetics-guide.html'),'utf8').
 writeFileSync(join(root,'dist/food-cosmetics-guide.html'),guideHTML);
 mkdirSync(join(root,'dist/resources'),{recursive:true});
 copyFileSync(join(root,'resources/Programmers_AI_Assessment_Practical_Textbook_KR.pdf'),join(root,'dist/resources/Programmers_AI_Assessment_Practical_Textbook_KR.pdf'));
+const practicalData=JSON.parse(readFileSync(join(root,'data/practical-sessions.json'),'utf8'));
+const practicalScript=readFileSync(join(root,'src/human-practice-guide.js'),'utf8');
+const practicalCheck=spawnSync(process.execPath,['--check','-'],{input:practicalScript,encoding:'utf8'});
+if(practicalCheck.status!==0)throw Error(practicalCheck.stderr);
+const practicalHTML=readFileSync(join(root,'src/human-practice-guide.html'),'utf8').replace('__PRACTICAL_DATA__',safeJSON(practicalData)).replace('__PRACTICAL_JS__',practicalScript);
+writeFileSync(join(root,'dist/human-practice-guide.html'),practicalHTML);
