@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-14",
+  "project": "skhynix-ai-hackathon-quiz",
+  "projectId": "prj_2IicaK0JvSaIim21fdP9VU49Yze8",
+  "environment": "production",
+  "deploymentId": "dpl_725C8Bop4jwkDWeHQnQpTAFfSoiv",
+  "readyState": "READY",
+  "sourceCommit": "07687346cf9e313380656f5860c238d5b395467c",
+  "guideUrl": "https://skhynix-ai-hackathon-quiz.vercel.app/human-practice-guide.html",
+  "rollbackDeploymentId": "dpl_7AsAMyeohyxYBVDmcnqRetr866Yo",
+  "pdfPages": 97,
+  "http": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 520016,
+      "sha256": "c0352ad7f5ec5acdf9c981337bef3e64446f489542051ae70328f51efc60e843",
+      "matchesBuild": true
+    },
+    {
+      "path": "food-cosmetics-guide.html",
+      "status": 200,
+      "bytes": 105627,
+      "sha256": "9492864ff1af56fe50f39f1d051ea4f605fb456014d6a01e72ea91132fba5c1f",
+      "matchesBuild": true
+    },
+    {
+      "path": "human-practice-guide.html",
+      "status": 200,
+      "bytes": 230894,
+      "sha256": "6b09b417196dda6461070ba28eb6c1a5b7062b99764d2dc3055942903bf31567",
+      "matchesBuild": true
+    },
+    {
+      "path": "bank-version.json",
+      "status": 200,
+      "bytes": 240,
+      "sha256": "e66509715e35d6294e37015f8ae0119169eecc040629fa8029595f2e2d16a728",
+      "matchesBuild": true
+    },
+    {
+      "path": "resources/Programmers_AI_Assessment_Practical_Textbook_KR.pdf",
+      "status": 200,
+      "bytes": 416663,
+      "sha256": "885bc7c4a0608db6bcc1d3131ea675bad368032594caac721074332cdbcd51ad",
+      "matchesBuild": true
+    }
+  ],
+  "browserChecks": [
+    "home entry and preserved food guide link",
+    "four case switches and query persistence after reload",
+    "subscription all files 43,720; over 23,720",
+    "subscription round 3 preset 19,751; spare 249",
+    "clear selection and actual filename disclosure",
+    "objective final-answer table",
+    "literacy 4 charged / 5 attempts / 6 remaining and noncharged error",
+    "API actual round 3 copy 970 characters",
+    "actual AI response disclosure and close",
+    "checkbox save/reload/restore then test check cleared",
+    "font size toggle and restore",
+    "8 individual question walkthroughs and direct section links",
+    "API prose readability and objective-only question nav hiding",
+    "desktop 1348px viewport has no page horizontal overflow",
+    "97-page PDF and all 5 production responses match build"
+  ],
+  "limitations": [
+    "No physical iPad/Safari or mobile browser test in this release",
+    "Essay pass does not establish a numeric quality score",
+    "API code and load tests were not run",
+    "Library provenance metadata was applied before final production PDF bytes were uploaded"
+  ],
+  "browserConsole": "Observed extension metadata errors belong to chrome-extension URL. No app error was among inspected entries; not a full console audit."
+}
