@@ -1,3 +1,16 @@
+# 2026-10-14 · 식품·화장품 실전 풀이 해설
+
+- 운영: https://skhynix-ai-hackathon-quiz.vercel.app/food-cosmetics-guide.html
+- 첫 화면과 상단 메뉴에 **실전 풀이 해설** 진입 추가.
+- 폴더별 파일 선택 카드, 실제 질문·응답 9회, 자세한 사람의 풀이·검증 설명, 토큰 합계 선택 연습.
+- 40쪽 개정 강의서: 큰 글자, 회차별 첨부 안내, 장별 책갈피 37개.
+- 원래 공개 체험 채점 결과 400/400, 9회 사용·1회 잔여. 개선안 8회와 실제 실행을 구별한다.
+- Vercel production READY: `dpl_5vhXLJUrkXUFiBhhy5Pyvub9t3RW`. 운영 홈·해설·PDF HTTP 200, 배포 PDF와 검수본의 바이트 일치.
+- 실제 브라우저에서 회차 이동, 파일 토큰 초과·해제, 검색, 질문 복사, 최종 답안 펼치기, 체크 저장·복원, 홈 메뉴 진입 확인. 실물 iPad Safari 검사는 미실시.
+- 검수 기록: [reports/FOOD_COSMETICS_READABLE_GUIDE_20261014.md](reports/FOOD_COSMETICS_READABLE_GUIDE_20261014.md).
+
+---
+
 # 2026-10-12 · AI 위키 26개 + 4P 원리 우선 학습 + 독립 검증 훈련
 
 - **AI 개념 공부**: 범용 위키 26개(정의, 작동 원리, 한계, 일반 예시, 연관 개념, 공식 출처)로 개편. 반도체 응용은 여기서 분리.
