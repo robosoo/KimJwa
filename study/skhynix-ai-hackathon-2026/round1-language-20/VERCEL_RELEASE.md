@@ -46,3 +46,12 @@
 - LEET 원본 다운로드 방식 개선 시 Safari/iPad 동작을 먼저 확인.
 - PDF 임베드가 차단되면 원문 열기를 제공하고 미리보기 성공인 것처럼 표시하지 않는다.
 - 배포는 Preview→브라우저 테스트→Production 순서이며, 반드시 준비 완료/READY 및 도메인 alias 확인.
+
+
+## 2026-10-18 · 실전 독해·마스터플랜 운영 반영
+
+- **Vercel production**: `dpl_49SUDBqjDxR35sB7SsV1qMXNWNvz` (READY, alias `skhynix-ai-hackathon-quiz.vercel.app`).
+- 공개: `/advanced-practice.html` (창작 모의 지문 4개·20문항, 30분 타이머, 선지별 해설, localStorage, 한글 자모/모드 자판 시뮬레이터, 4단계 마스터플랜), `/reading-mock.html` (독해 실전 20문항), `/masterplan-lab.html` (별도 심화 학습).
+- **Source basis**: Programmers '대충 만든 자판', Codeforces 831B, LeetCode 2810. 실제 SK하이닉스 출제 원문 및 자판 표로 가장하지 않음.
+- **Browser QA**: Chromium, width 390/768/1280px, 4 URLs × 3 widths, HTTP 200, zero horizontal overflow, zero runtime errors. `advanced-practice.html`의 문제 선택, 답안 유지, 채점, 자모 및 자판 변환, 4단계 학습을 모두 검증.
+- **Preservation**: 기존 사이트 파일 및 신규 병행 페이지 등 운영 파일 21개를 유지한 상태에서 버그 수정된 실전 페이지를 병합함.
