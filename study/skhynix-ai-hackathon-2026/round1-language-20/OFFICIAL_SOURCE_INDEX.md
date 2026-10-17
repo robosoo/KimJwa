@@ -8,8 +8,8 @@
 |---|---:|---|---|---|---|---|
 | OFFICIAL-001 | 1 | 2026학년도 9월 모의평가 국어 — 생성형 AI를 활용한 정보 탐색·읽기와 생성 자료의 오류·편향·출처 검증 | 1·2·3번 (3) | AI 직접 | [원본 열기](https://wdown.ebsi.co.kr/W61001/01exam/20250903/go3/kor_main_mun_O973Z9C5.pdf#page=1) | [정답·해설](https://wdown.ebsi.co.kr/W61001/01exam/20250903/go3/korA_1_hsj_K962J13R_3.pdf) |
 | OFFICIAL-002 | 2 | 2022학년도 LEET 언어이해 — 알파고와 인공지능의 도덕적 지위, 인간 중심적 윤리의 논증 | 25·26·27번 (3) | AI 직접 | [원본 열기](https://www.lawschooltimes.com/news/articleView.html?idxno=4907) | [정답·해설](https://leet.uwayapply.com/) |
-| OFFICIAL-003 | 3 | 2017학년도 6월 모의평가 국어 — 인공 신경망·퍼셉트론·가중치·학습과 판정 단계 | 16·17·18·19번 (4) | AI 직접 | [원본 열기](https://mogozip.com/exam/2016-06-g3/korean) | [정답·해설](https://wdown.ebsi.co.kr/W61001/01exam/20160602/go3/kor_hsj_X3cf3edn.pdf) |
-| OFFICIAL-004 | 4 | 2025학년도 대학수학능력시험 국어 — 이미지 확산 모델의 노이즈 생성·복원·학습 구조 | 10·11·12·13번 (4) | AI 직접 | [원본 열기](https://www.donga.com/news/Society/article/all/20241114/130425711/1) | [정답·해설](https://wdown.ebsi.co.kr/W61001/01exam/20241114/go3/korA_1_hsj_SK51UK16_3.pdf) |
+| OFFICIAL-003 | 3 | 2017학년도 6월 모의평가 국어 — 인공 신경망·퍼셉트론·가중치·학습과 판정 단계 | 16·17·18·19번 (4) | AI 직접 | [원본 열기](https://mogozip.com/downloads/ebsi/%EA%B3%A03-N%EC%88%98/2016/06/%EA%B3%A03_6%EC%9B%94_%EB%AA%A8%ED%8F%89(%ED%8F%89%EA%B0%80%EC%9B%90)_%EA%B5%AD%EC%96%B4/question-71ff2c6347.pdf#page=6) | [정답·해설](https://wdown.ebsi.co.kr/W61001/01exam/20160602/go3/kor_hsj_X3cf3edn.pdf) |
+| OFFICIAL-004 | 4 | 2025학년도 대학수학능력시험 국어 — 이미지 확산 모델의 노이즈 생성·복원·학습 구조 | 10·11·12·13번 (4) | AI 직접 | [원본 열기](https://wdown.ebsi.co.kr/W61001/01exam/20241114/go3/korA_1_mun_F2IKMTXY.pdf#page=4) | [정답·해설](https://wdown.ebsi.co.kr/W61001/01exam/20241114/go3/korA_1_hsj_SK51UK16_3.pdf) |
 | OFFICIAL-005 | 5 | 2022년 7월 고3 전국연합학력평가 국어 — YOLO 객체 탐지, 경계 상자, IoU·NMS의 판단 조건 | 10·11·12·13번 (4) | AI 직접 | [원본 열기](https://wdown.ebsi.co.kr/W61001/01exam/20220706/go3/korA_mun_K2E11Y52.pdf#page=3) | 원문 출처에서 확인 |
 | OFFICIAL-006 | 6 | 2018년 3월 고2 전국연합학력평가 국어 — 합성곱 신경망(CNN)과 시각 신호 처리 | 24·25·26·27·28번 (5) | AI 직접 | [원본 열기](https://wdown.ebsi.co.kr/W61001/01exam/20180308/go2/kor_mun_qVvPdLFY_03_10.pdf#page=8) | [정답·해설](https://wdown.ebsi.co.kr/W61001/01exam/20180308/go2/kor_hsj_xc9NUpua_01_11_1.pdf) |
 | OFFICIAL-007 | 7 | 2023학년도 LEET 추리논증 — 컴퓨터 프로그램의 언어 이해와 인간적 의미 이해를 둘러싼 논증 | 35번 (1) | AI 직접 | [원본 열기](https://www.lawschooltimes.com/news/articleView.html?idxno=761) | [정답·해설](https://leet.uwayapply.com/) |
@@ -142,8 +142,14 @@
 ## Vercel 원문 PDF 뷰어
 
 - 사용자 목표: GitHub 소스 관리 → Vercel 사이트에 원본 PDF를 읽기 쉽게 표시.
-- 실제 문제의 **지문·선지·그림·표를 추출/축약/변환/복사하지 않음**. 공식 PDF 직접 표시는 3개 지문이며, 나머지는 출처 안내·원본 확인 중으로 분류.
+- 실제 문제의 **지문·선지·그림·표를 추출/축약/변환/복사하지 않음**. 원문 PDF 직접 표시는 5개 지문(20문항)이며, 나머지는 출처 안내·원본 확인 중으로 분류.
 - 현재 개별 PDF 주소 검증: OFFICIAL-001 (2026학년도 9월 국어 1~3번), OFFICIAL-005 (2022년 7월 국어 YOLO 10~13번), OFFICIAL-006 (2018년 3월 고2 CNN 24~28번).
 - 원본 문제지 주소가 차단된 OFFICIAL-008은 EBSi 공식 기출 검색으로 연결하며 완전한 원문 표시로 표시하지 않음.
 - 화면: [AI 관련 실제 기출](https://skhynix-ai-hackathon-quiz.vercel.app/official-exams.html) (배포 검증 필요).
 - 원문 문제지 저작권은 각 출제기관에 있다. [KICE 수능 기출 공지](https://suneung.re.kr/boardCnts/list.do?boardID=1500234&m=0403&s=suneung&searchStr=)에서 무단 전부/일부 복제·배포 등을 금지하고 있으므로, 제3자 저작권 본문을 독립 HTML/JSON으로 복제하지 않는다.
+
+### PDF 직접 보기 연결 확대 · v2
+
+- OFFICIAL-003: 2017학년도 6월 국어 신경망·퍼셉트론 16~19번, 시험지 6~7쪽. [원본 시험지 PDF(제3자 보관)](https://mogozip.com/downloads/ebsi/%EA%B3%A03-N%EC%88%98/2016/06/%EA%B3%A03_6%EC%9B%94_%EB%AA%A8%ED%8F%89(%ED%8F%89%EA%B0%80%EC%9B%90)_%EA%B5%AD%EC%96%B4/question-71ff2c6347.pdf#page=6) — PDF 파일 자체 및 페이지 확인, 16쪽.
+- OFFICIAL-004: 2025학년도 수능 국어 확산 모델 10~13번, 시험지 4~5쪽. [EBSi 원본 문제지 PDF](https://wdown.ebsi.co.kr/W61001/01exam/20241114/go3/korA_1_mun_F2IKMTXY.pdf#page=4).
+- 원문 PDF 직접 보기 **5개 지문 / 20문항**. 나머지 5개 지문 15문항은 출처 페이지로 연결되거나 원문 직접 링크 확인 중.
