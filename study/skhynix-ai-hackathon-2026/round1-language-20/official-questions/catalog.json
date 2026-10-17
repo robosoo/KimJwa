@@ -80,16 +80,17 @@
         "과정 추론",
         "수치 적용"
       ],
-      "url": "https://mogozip.com/exam/2016-06-g3/korean",
-      "linkType": "원본 문제·정답·해설로 연결하는 기출 목록",
+      "url": "https://mogozip.com/downloads/ebsi/%EA%B3%A03-N%EC%88%98/2016/06/%EA%B3%A03_6%EC%9B%94_%EB%AA%A8%ED%8F%89(%ED%8F%89%EA%B0%80%EC%9B%90)_%EA%B5%AD%EC%96%B4/question-71ff2c6347.pdf#page=6",
+      "linkType": "제3자 보관 원본 시험지 PDF (2016년 6월 평가원 문제지)",
       "alternative": "https://orbi.kr/download/united/74893079/1#page=3",
       "answer": "https://wdown.ebsi.co.kr/W61001/01exam/20160602/go3/kor_hsj_X3cf3edn.pdf",
-      "verification": "한국교육과정평가원 평가자료 및 EBSi 해설, 지문 재확인",
+      "verification": "PDF 파일 다운로드 확인(16쪽), 신경망/퍼셉트론 지문 6~7쪽 확인",
       "priority": 3,
       "question_count": 4,
       "redistribution_authorized": false,
       "text_reproduced": false,
-      "viewType": "landing"
+      "viewType": "pdf",
+      "startPage": 6
     },
     {
       "id": "OFFICIAL-004",
@@ -109,16 +110,17 @@
         "조건 비교",
         "사례 적용"
       ],
-      "url": "https://www.donga.com/news/Society/article/all/20241114/130425711/1",
-      "linkType": "원본 수능 문제지 PDF 링크를 제공하는 안내",
+      "url": "https://wdown.ebsi.co.kr/W61001/01exam/20241114/go3/korA_1_mun_F2IKMTXY.pdf#page=4",
+      "linkType": "공식 EBSi 수능 원본 문제 PDF",
       "alternative": "https://orbi.kr/download/united/74893079/1#page=8",
       "answer": "https://wdown.ebsi.co.kr/W61001/01exam/20241114/go3/korA_1_hsj_SK51UK16_3.pdf",
-      "verification": "2025 수능 10~13번 원문 지문 주제·문항 범위 확인",
+      "verification": "공식 EBSi 원본 문제 PDF 10~13번, 4~5쪽 확인",
       "priority": 4,
       "question_count": 4,
       "redistribution_authorized": false,
       "text_reproduced": false,
-      "viewType": "landing"
+      "viewType": "pdf",
+      "startPage": 4
     },
     {
       "id": "OFFICIAL-005",
@@ -289,6 +291,6 @@
       "viewType": "landing"
     }
   ],
-  "viewerVersion": "2026-10-17-v1",
-  "pdfOriginalsVerified": 3
+  "viewerVersion": "2026-10-17-v2",
+  "pdfOriginalsVerified": 5
 }
