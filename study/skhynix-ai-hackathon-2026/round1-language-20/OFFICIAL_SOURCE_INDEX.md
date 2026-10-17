@@ -153,3 +153,15 @@
 - OFFICIAL-003: 2017학년도 6월 국어 신경망·퍼셉트론 16~19번, 시험지 6~7쪽. [원본 시험지 PDF(제3자 보관)](https://mogozip.com/downloads/ebsi/%EA%B3%A03-N%EC%88%98/2016/06/%EA%B3%A03_6%EC%9B%94_%EB%AA%A8%ED%8F%89(%ED%8F%89%EA%B0%80%EC%9B%90)_%EA%B5%AD%EC%96%B4/question-71ff2c6347.pdf#page=6) — PDF 파일 자체 및 페이지 확인, 16쪽.
 - OFFICIAL-004: 2025학년도 수능 국어 확산 모델 10~13번, 시험지 4~5쪽. [EBSi 원본 문제지 PDF](https://wdown.ebsi.co.kr/W61001/01exam/20241114/go3/korA_1_mun_F2IKMTXY.pdf#page=4).
 - 원문 PDF 직접 보기 **5개 지문 / 20문항**. 나머지 5개 지문 15문항은 출처 페이지로 연결되거나 원문 직접 링크 확인 중.
+
+## Vercel 기출 PDF 확인 및 페이지 이동 개선 · 2026-10-17 v3
+
+- **총 10개 지문·35문항:** PDF 인라인 6개 지문(24문항), PDF 원본 다운로드 3개 지문(7문항), 공식 ZIP(언어영역 PDF 포함) 1개 지문(4문항).
+- **PDF가 원본 그대로라는 의미:** 지문·선지·도표를 텍스트로 변환하거나 웹에서 새로 작성하지 않고 원 출처 PDF의 전체 바이트를 브라우저에 요청. 공식·제3자 보관본의 저작권은 그대로 존중. 두 PDF 사이의 완전한 비트 동일성을 출제기관과 비교하여 인증한 것은 아님.
+- LEET 2022 언어이해 25~27: [시험지 PDF](https://horaeng.com/wp-content/uploads/2022년-리트-언어이해홀수형-1.pdf), [정답](https://horaeng.com/wp-content/uploads/2022년-리트-언어이해-정답-1.pdf). 15쪽 스캔 PDF, 서버가 attachment로 제공.
+- LEET 2023 추리논증 35: [시험지 PDF](https://horaeng.com/wp-content/uploads/2023년-리트-추리논증홀수형-1.pdf), [정답](https://horaeng.com/wp-content/uploads/2023년-리트-추리논증-정답-1.pdf). 20쪽 스캔 PDF, attachment.
+- LEET 2024 언어이해 4~6: [시험지 PDF](https://horaeng.com/wp-content/uploads/2024학년도-법학적성시험-언어이해-홀수형.pdf), [정답](https://horaeng.com/wp-content/uploads/2024학년도-법학적성시험-언어이해-정답표.pdf). 15쪽 스캔 PDF, attachment.
+- 2027학년도 6월 국어 10~13: [EBSi 공식 원문 PDF](https://wdown.ebsi.co.kr/W61001/01exam/20260604/go3/korA_1_mun_2TTU3K8V.pdf#page=4) · 13번 생성형 AI 광고 사례, 4~5쪽.
+- 2010학년도 9월 언어 36~39: [2010학년도 9월 언어영역 공식 ZIP 다운로드](https://www.haksi.kr/api/mock-exams/file?id=2010-09-g3-korean-exam). 평가원 `suneung.re.kr`로 리디렉션하여 반환한 ZIP 속 `언어영역.pdf` 확인. ZIP은 브라우저 내 PDF 렌더링 불가.
+- 문항 이동은 `questionPages`, 지문 시작은 `passageStartPage` 필드를 별도 사용. LEET의 페이지 번호는 PDF가 이미지 형식이라 본문 번호를 확인하지 못해 임의 지정하지 않았음.
+- [구조화 원천 목록](./official-questions/catalog.json)에 각 기출 파일의 전체 SHA-256(재현성용), PDF 페이지 수, 출처 형식, 각 문항 위치를 기록함. 재배포 권한을 뜻하지 않음.
