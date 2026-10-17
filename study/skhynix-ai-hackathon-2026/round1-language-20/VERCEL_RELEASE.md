@@ -55,3 +55,18 @@
 - **Source basis**: Programmers '대충 만든 자판', Codeforces 831B, LeetCode 2810. 실제 SK하이닉스 출제 원문 및 자판 표로 가장하지 않음.
 - **Browser QA**: Chromium, width 390/768/1280px, 4 URLs × 3 widths, HTTP 200, zero horizontal overflow, zero runtime errors. `advanced-practice.html`의 문제 선택, 답안 유지, 채점, 자모 및 자판 변환, 4단계 학습을 모두 검증.
 - **Preservation**: 기존 사이트 파일 및 신규 병행 페이지 등 운영 파일 21개를 유지한 상태에서 버그 수정된 실전 페이지를 병합함.
+
+
+## 2026-10-18 — 1교시 독해·마스터플랜 학습 확장
+
+정식 사이트: https://skhynix-ai-hackathon-quiz.vercel.app/
+
+- 30분 독립 모의시험: https://skhynix-ai-hackathon-quiz.vercel.app/reading-mock.html — 창작 4지문·20문항, 30분 타이머, 선택 답안 저장·채점·선지 근거 설명
+- 통합 심화훈련: https://skhynix-ai-hackathon-quiz.vercel.app/advanced-practice.html — 페르소나·프롬프트 장문 독해, 한글 자모·변경 자판 문제, 키 입력 시뮬레이터, 상태 추출 검증
+- 마스터플랜 전용: https://skhynix-ai-hackathon-quiz.vercel.app/masterplan-lab.html — 계획→추출→풀이→검증 4단계 및 3문항 단위 실습, 상태 장부·JSON·프롬프트 복사
+
+검증 기록: 최종 정식 도메인을 직접 브라우저로 열어 390px·1024px 뷰포트에서 ① 통합 페이지의 null/conflict/경계값 3문항 채점 ② `소숲` 자모→AD/ABC ③ `13!45^2` 모드 전환·누적 뒤집기 결과 ④ 선택·새로고침 후 답안 복원·채점 ⑤ 독립 모의시험 객관식 제출·채점 ⑥ 전용 마스터플랜 4단계 이동·채점·상태 메모 ⑦ 학습 홈의 메뉴 진입점을 확인함. 모두 통과했으며 콘솔의 페이지 오류 0, 가로 넘침 0.
+
+출처 구분: 10월 17일 참가자들의 키보드/문자 변환 경험담은 규칙 자체의 증거가 아님. 창작 연습 지문과 실제 문제를 혼동하지 말 것. 학습 사이트의 창작 문제는 [프로그래머스 대충 만든 자판](https://school.programmers.co.kr/learn/courses/30/lessons/160586), [Codeforces 831B](https://codeforces.com/problemset/problem/831/B), [LeetCode 2810](https://leetcode.com/problems/faulty-keyboard/)에서 문제 구조만 참고함. 종이·엑셀·외부 AI 제한은 실제 시험 응시 규정 우선.
+
+배포 원칙: 기존 index.html, site-content.gz, original bank files, original exam reader and all original course assets preserved. Code source under `site/` in this folder.
