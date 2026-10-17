@@ -1,0 +1,279 @@
+{
+  "name": "실제 공개 기출 기반 AI 관련 언어이해·언어논리 문제 출처 목록",
+  "created_at": "2026-10-17",
+  "total_passages": 10,
+  "total_questions": 35,
+  "copyright_notice": "공개 열람은 원문 재배포 허락과 다름. 원문 지문/선지를 GitHub에 복제하지 않음.",
+  "original_verbatim_copied_count": 0,
+  "user_created_questions_included": 0,
+  "sources": [
+    {
+      "id": "OFFICIAL-001",
+      "category": "AI 직접",
+      "exam": "2026학년도 9월 모의평가 국어",
+      "organizer": "한국교육과정평가원",
+      "administered": "2025-09-03",
+      "questions": [
+        1,
+        2,
+        3
+      ],
+      "topic": "생성형 AI를 활용한 정보 탐색·읽기와 생성 자료의 오류·편향·출처 검증",
+      "skills": [
+        "내용 불일치",
+        "추론",
+        "원리 적용"
+      ],
+      "url": "https://wdown.ebsi.co.kr/W61001/01exam/20250903/go3/kor_main_mun_O973Z9C5.pdf#page=1",
+      "linkType": "공식 EBSi 문제지 1쪽",
+      "answer": "https://wdown.ebsi.co.kr/W61001/01exam/20250903/go3/korA_1_hsj_K962J13R_3.pdf",
+      "verification": "원문 PDF 지문·문항 확인",
+      "priority": 1,
+      "question_count": 3,
+      "redistribution_authorized": false,
+      "text_reproduced": false
+    },
+    {
+      "id": "OFFICIAL-002",
+      "category": "AI 직접",
+      "exam": "2022학년도 LEET 언어이해",
+      "organizer": "법학전문대학원협의회",
+      "administered": "2021",
+      "questions": [
+        25,
+        26,
+        27
+      ],
+      "topic": "알파고와 인공지능의 도덕적 지위, 인간 중심적 윤리의 논증",
+      "skills": [
+        "견해 비교",
+        "논증 파악",
+        "비판적 추론"
+      ],
+      "url": "https://www.lawschooltimes.com/news/articleView.html?idxno=4907",
+      "linkType": "시험명·문항번호 수록 페이지(제3자)",
+      "answer": "https://leet.uwayapply.com/",
+      "verification": "기출 출처·문항 범위 확인; 공식 시험 원문은 기출 포털 참조",
+      "priority": 2,
+      "question_count": 3,
+      "redistribution_authorized": false,
+      "text_reproduced": false
+    },
+    {
+      "id": "OFFICIAL-003",
+      "category": "AI 직접",
+      "exam": "2017학년도 6월 모의평가 국어",
+      "organizer": "한국교육과정평가원",
+      "administered": "2016-06-02",
+      "questions": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "topic": "인공 신경망·퍼셉트론·가중치·학습과 판정 단계",
+      "skills": [
+        "내용 이해",
+        "과정 추론",
+        "수치 적용"
+      ],
+      "url": "https://mogozip.com/exam/2016-06-g3/korean",
+      "linkType": "원본 문제·정답·해설로 연결하는 기출 목록",
+      "alternative": "https://orbi.kr/download/united/74893079/1#page=3",
+      "answer": "https://wdown.ebsi.co.kr/W61001/01exam/20160602/go3/kor_hsj_X3cf3edn.pdf",
+      "verification": "한국교육과정평가원 평가자료 및 EBSi 해설, 지문 재확인",
+      "priority": 3,
+      "question_count": 4,
+      "redistribution_authorized": false,
+      "text_reproduced": false
+    },
+    {
+      "id": "OFFICIAL-004",
+      "category": "AI 직접",
+      "exam": "2025학년도 대학수학능력시험 국어",
+      "organizer": "한국교육과정평가원",
+      "administered": "2024-11-14",
+      "questions": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "topic": "이미지 확산 모델의 노이즈 생성·복원·학습 구조",
+      "skills": [
+        "기술 과정 해석",
+        "조건 비교",
+        "사례 적용"
+      ],
+      "url": "https://www.donga.com/news/Society/article/all/20241114/130425711/1",
+      "linkType": "원본 수능 문제지 PDF 링크를 제공하는 안내",
+      "alternative": "https://orbi.kr/download/united/74893079/1#page=8",
+      "answer": "https://wdown.ebsi.co.kr/W61001/01exam/20241114/go3/korA_1_hsj_SK51UK16_3.pdf",
+      "verification": "2025 수능 10~13번 원문 지문 주제·문항 범위 확인",
+      "priority": 4,
+      "question_count": 4,
+      "redistribution_authorized": false,
+      "text_reproduced": false
+    },
+    {
+      "id": "OFFICIAL-005",
+      "category": "AI 직접",
+      "exam": "2022년 7월 고3 전국연합학력평가 국어",
+      "organizer": "시도교육청",
+      "administered": "2022-07-06",
+      "questions": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "topic": "YOLO 객체 탐지, 경계 상자, IoU·NMS의 판단 조건",
+      "skills": [
+        "기술 지문 구조",
+        "조건 적용",
+        "절차 추론"
+      ],
+      "url": "https://wdown.ebsi.co.kr/W61001/01exam/20220706/go3/korA_mun_K2E11Y52.pdf#page=3",
+      "linkType": "EBSi 원본 문제지 3쪽",
+      "alternative": "https://www.ice.go.kr/upload/board/530/2022/07/1657064490597.pdf#page=3",
+      "answer": null,
+      "verification": "원문 문제 PDF와 문항 범위 확인",
+      "priority": 5,
+      "question_count": 4,
+      "redistribution_authorized": false,
+      "text_reproduced": false
+    },
+    {
+      "id": "OFFICIAL-006",
+      "category": "AI 직접",
+      "exam": "2018년 3월 고2 전국연합학력평가 국어",
+      "organizer": "시도교육청",
+      "administered": "2018-03-08",
+      "questions": [
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "topic": "합성곱 신경망(CNN)과 시각 신호 처리",
+      "skills": [
+        "개념 간 관계",
+        "과정 추적",
+        "사례 적용"
+      ],
+      "url": "https://orbi.kr/download/united/74893079/1#page=10",
+      "linkType": "기출 묶음에서 해당 문제 위치(제3자)",
+      "answer": "https://wdown.ebsi.co.kr/W61001/01exam/20180308/go2/kor_hsj_xc9NUpua_01_11_1.pdf",
+      "verification": "2018.3 고2 24~28 범위 및 EBSi 해설 교차 확인",
+      "priority": 6,
+      "question_count": 5,
+      "redistribution_authorized": false,
+      "text_reproduced": false
+    },
+    {
+      "id": "OFFICIAL-007",
+      "category": "AI 직접",
+      "exam": "2023학년도 LEET 추리논증",
+      "organizer": "법학전문대학원협의회",
+      "administered": "2022",
+      "questions": [
+        35
+      ],
+      "topic": "컴퓨터 프로그램의 언어 이해와 인간적 의미 이해를 둘러싼 논증",
+      "skills": [
+        "논증 구조",
+        "전제 판단",
+        "반론"
+      ],
+      "url": "https://www.lawschooltimes.com/news/articleView.html?idxno=761",
+      "linkType": "해당 문항의 기출 소개 페이지(제3자)",
+      "answer": "https://leet.uwayapply.com/",
+      "verification": "LEET 문항번호와 소재 확인; 공식 포털에서 재확인 권장",
+      "priority": 7,
+      "question_count": 1,
+      "redistribution_authorized": false,
+      "text_reproduced": false
+    },
+    {
+      "id": "OFFICIAL-008",
+      "category": "AI 직접",
+      "exam": "2010학년도 9월 모의평가 국어",
+      "organizer": "한국교육과정평가원",
+      "administered": "2009-09",
+      "questions": [
+        36,
+        37,
+        38,
+        39
+      ],
+      "topic": "우편번호 자동분류기의 머신러닝·학습 사례",
+      "skills": [
+        "학습 원리",
+        "조건 비교",
+        "정보 적용"
+      ],
+      "url": "https://orbi.kr/download/united/74893079/1#page=1",
+      "linkType": "원문 문제 수록 기출 묶음(제3자)",
+      "answer": null,
+      "verification": "원래 시험명·36~39 범위 외부 자료 교차 확인; 평가원 직접 링크 미확인",
+      "priority": 8,
+      "question_count": 4,
+      "redistribution_authorized": false,
+      "text_reproduced": false
+    },
+    {
+      "id": "OFFICIAL-009",
+      "category": "AI 응용·인접",
+      "exam": "2027학년도 6월 모의평가 국어",
+      "organizer": "한국교육과정평가원",
+      "administered": "2026-06-04",
+      "questions": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "topic": "정보 비대칭·사상의 자유시장론, 생성형 AI 광고 규제·표현의 자유 적용",
+      "skills": [
+        "견해 비교",
+        "사례 적용",
+        "법·사회 논증"
+      ],
+      "url": "https://www.ebsi.co.kr/ebs/xip/xipc/previousPaperList.ebs",
+      "linkType": "공식 EBSi 과거 시험지 검색(2026년 6월·고3·국어)",
+      "answer": "https://wdown.ebsi.co.kr/W61001/01exam/20260604/go3/kor_main_hsj_2V29RZV3.pdf",
+      "verification": "AI 관련 응용 지문 주제·10~13번 범위 확인; 문제지 직접 링크 미확보",
+      "priority": 9,
+      "question_count": 4,
+      "redistribution_authorized": false,
+      "text_reproduced": false
+    },
+    {
+      "id": "OFFICIAL-010",
+      "category": "AI 응용·인접",
+      "exam": "2024학년도 LEET 언어이해",
+      "organizer": "법학전문대학원협의회",
+      "administered": "2023",
+      "questions": [
+        4,
+        5,
+        6
+      ],
+      "topic": "빅데이터·개인정보 비식별화와 재식별 위험",
+      "skills": [
+        "조건 적용",
+        "정보 추론",
+        "관점 비교"
+      ],
+      "url": "https://leet.uwayapply.com/",
+      "linkType": "공식 LEET 공개 기출 포털(2024학년도 언어이해)",
+      "answer": null,
+      "verification": "문항 범위·주제 교차 확인; AI 자체 지문은 아닌 인접 소재",
+      "priority": 10,
+      "question_count": 3,
+      "redistribution_authorized": false,
+      "text_reproduced": false
+    }
+  ]
+}
