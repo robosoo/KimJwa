@@ -75,3 +75,7 @@ runtime 16개만 배포한다: index.html, app.js, style.css, brand.css, content
 주요 경로: #start, #learn/probe-basics, #learn/creator-guide, #learn/luka-depth, #learn/kit-review, #practice/cases, #practice/preparation, #quiz. 기존 query 주소와 cofa-*.html 이동을 유지한다. 상태는 해당 브라우저 localStorage에만 저장된다.
 
 Git CLI push 자격증명이 없어 연결된 GitHub API의 tree→commit→expected-head ref 갱신을 사용한다. Vercel은 기본 연결로 해당 프로젝트만 배포한다. 명시적 teamId는 이전 403을 반환했으므로 넣지 않는다. 복구는 위 원본 커밋 또는 직전 배포를 사용하며 이전 소스는 삭제하지 않는다.
+
+## 검토 중인 다음 후보 · 아직 운영 전
+
+제3자 학습 관점의 품질 기준과 10개 가상 경로를 정의했다. 새 후보는 인과·정합성 심층 교재(15주제/6층), 8단계 풀이 따라하기, 읽음/이해 구분, 오답 필터·단일 문항 재시도를 추가한다. 읽기 항목은 39개이며 원본 4개 JSON은 보존한다. 원문 대조로 경력 귀속·Haiku 표기·시연/행사 시간과 정보량·부채 개념의 범위를 보완했다. UNESCO·NIST·Storey·IES는 보조 개념/학습 설계 근거이며 시험 규정이나 Cofa 평가 효과의 독립 인증이 아니다. 로컬 기능 36개와 데이터 59개 PASS. Preview·운영 검증 후 릴리스 상태를 갱신해야 한다.

@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "passed": 54,
+  "passed": 59,
   "checks": [
     {
       "name": "14 core chapters",
@@ -200,6 +200,26 @@
     },
     {
       "name": "Effective quiz keys and related IDs",
+      "status": "PASS"
+    },
+    {
+      "name": "Eight guided decisions each with per-choice feedback",
+      "status": "PASS"
+    },
+    {
+      "name": "Worked example 11/300 differs from unweighted mean",
+      "status": "PASS"
+    },
+    {
+      "name": "Transfer example 30/500 equals 6%",
+      "status": "PASS"
+    },
+    {
+      "name": "All fifteen supplied topics retain reasoning/action/counterexample",
+      "status": "PASS"
+    },
+    {
+      "name": "Six layers and source correction ledger",
       "status": "PASS"
     },
     {

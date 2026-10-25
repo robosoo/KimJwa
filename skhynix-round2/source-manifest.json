@@ -592,7 +592,7 @@
   "caseCount": 8,
   "quizCount": 12,
   "legacyRound1": "Preserved separately in earlier study directory; removed from Round2 navigation.",
-  "activeArticleCount": 36,
+  "activeArticleCount": 39,
   "originalDataFilesUnmodified": true,
   "metadataPolicy": "원문 제목·작성일 미확인은 null. 기존 요약의 모든 문장을 새로 검증했다고 주장하지 않는다. confirmed_facts는 출처의 기록이며 독립 검증된 실험 결과가 아니다.",
   "strategyComparisonCount": 5,
@@ -723,6 +723,69 @@
         "실제 앱 구현과 인수 검증",
         "공식 시험의 파일·도구 반입 허용"
       ]
+    }
+  ],
+  "learningDesignReferences": [
+    {
+      "title": "Organizing Instruction and Study to Improve Student Learning",
+      "publisher": "Institute of Education Sciences / What Works Clearinghouse",
+      "published_at": "2007-09",
+      "url": "https://ies.ed.gov/ncee/wwc/PracticeGuide/1",
+      "use": "완성 예시와 독립 문제를 연결하고, 답을 떠올려 확인하고, 이유를 설명하도록 설계했다. 이 사이트의 학습 효과를 직접 검증한 연구는 아니다."
+    }
+  ],
+  "analysisReferences": [
+    {
+      "title": "From Technical Debt to Cognitive and Intent Debt",
+      "url": "https://arxiv.org/abs/2603.22106v4",
+      "kind": "연구자 개념 제안 · arXiv v4",
+      "scope": "이해·의도의 제안 모델. 점수식 실증 아님.",
+      "checked_at": "2026-10-25",
+      "author_or_publisher": "Margaret-Anne Storey",
+      "published_at": "2026-04-06",
+      "event_date": "2026-03-23"
+    },
+    {
+      "title": "UNESCO AI competency framework for students",
+      "url": "https://www.unesco.org/en/articles/ai-competency-framework-students",
+      "kind": "국제기구 교육 프레임워크",
+      "scope": "일반 역량의 비교 관점. 해커톤 채점표 아님.",
+      "checked_at": "2026-10-25",
+      "author_or_publisher": "UNESCO",
+      "published_at": "2024-08-08",
+      "event_date": null
+    },
+    {
+      "title": "NIST AI RMF 1.0 · 신뢰 특성",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/3-sec-characteristics/",
+      "kind": "공적 위험 관리 프레임워크",
+      "scope": "측정의 여러 성질 구분. Cofa 인증 아님.",
+      "checked_at": "2026-10-25",
+      "author_or_publisher": "NIST",
+      "published_at": "2023-01-26",
+      "event_date": null
+    }
+  ],
+  "contentCorrections": [
+    {
+      "topic": "출연자 경력 귀속",
+      "note": "제공 정리의 구한모 ML 경력은 뉴스레터에서 조정석 발언이다. 경력 암기를 정답으로 사용하지 않는다.",
+      "source": "https://maily.so/josh/posts/x1zg69d3rqg"
+    },
+    {
+      "topic": "모델 표기와 점수",
+      "note": "원문 표기는 Haiku다. 당시 점수 예시를 현재 모델 순위나 시험 점수로 사용하지 않는다.",
+      "source": "https://maily.so/josh/posts/x1zg69d3rqg"
+    },
+    {
+      "topic": "시간과 정보량",
+      "note": "시연과 7월 참가자 기록을 한 규칙으로 합치지 않는다. 참가자는 225분 빌드와 상세 README를 기록했다.",
+      "source": "https://brunch.co.kr/@luma/5"
+    },
+    {
+      "topic": "부채 개념의 범위",
+      "note": "Storey 원문에서 인지 부채의 팀/시간 차원과 의도 부채의 목표·이유 기록을 확인했다. 개념 제안과 점수 실증을 구분한다.",
+      "source": "https://arxiv.org/abs/2603.22106v4"
     }
   ]
 }

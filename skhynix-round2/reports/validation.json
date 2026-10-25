@@ -1,7 +1,7 @@
 {
   "date": "2026-10-25",
   "kind": "Node VM functional checks; not a visual-browser test",
-  "passed": 25,
+  "passed": 36,
   "checks": [
     {
       "name": "Byte-exact original backup: cofa-chapters.json",
@@ -16,7 +16,7 @@
       "status": "PASS"
     },
     {
-      "name": "Complete live inventory: 38 distinct articles",
+      "name": "Complete live inventory: 39 distinct articles",
       "status": "PASS"
     },
     {
@@ -101,6 +101,50 @@
     },
     {
       "name": "Legacy pages route into the unified center",
+      "status": "PASS"
+    },
+    {
+      "name": "Guided route and original source rows are readable without coding",
+      "status": "PASS"
+    },
+    {
+      "name": "Wrong guided choice cannot unlock later steps",
+      "status": "PASS"
+    },
+    {
+      "name": "Eight decisions complete, preserve proof and transfer to another problem",
+      "status": "PASS"
+    },
+    {
+      "name": "Guided restart preserves unrelated read and quiz state",
+      "status": "PASS"
+    },
+    {
+      "name": "Quiz supports isolated retry and unresolved-wrong filtering",
+      "status": "PASS"
+    },
+    {
+      "name": "Invalid answer or guided navigation does not corrupt learning records",
+      "status": "PASS"
+    },
+    {
+      "name": "Deep analysis maps every supplied section to reasoning and counterexamples",
+      "status": "PASS"
+    },
+    {
+      "name": "Reading labels do not claim mastery",
+      "status": "PASS"
+    },
+    {
+      "name": "Manifest counts and source references agree with rendered inventory",
+      "status": "PASS"
+    },
+    {
+      "name": "Fresh page restores guided progress including a wrong choice",
+      "status": "PASS"
+    },
+    {
+      "name": "Corrupt stored progression cannot unlock unlearned steps",
       "status": "PASS"
     }
   ]

@@ -20,7 +20,7 @@ try{
   await page.locator(`${nav} [data-nav="${tab}"]`).click();
   const geometry=await page.evaluate(()=>({client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));assert.equal(geometry.client,geometry.scroll);
  }
- await page.locator(`${nav} [data-nav="library"]`).click();assert.equal(await page.locator('.source-option').count(),38);
+ await page.locator(`${nav} [data-nav="library"]`).click();assert.equal(await page.locator('.source-option').count(),39);
  await page.locator('.source-option[data-id="creator-guide"]').click();assert.ok(await page.locator('.library-main').evaluate(x=>x.getBoundingClientRect().top)<30);
  await page.screenshot({path:path.join(root,`reports/screenshots/library-${width}.png`),fullPage:false});
  await page.locator(`${nav} [data-nav="practice"]`).click();await page.getByRole('button',{name:'전략 비교',exact:true}).click();assert.equal(await page.locator('[data-action="choose-comparison"]').count(),5);

@@ -10,7 +10,7 @@ function readLocal(name,def){try{const x=localStorage.getItem(key+':'+name);retu
 function setLocal(name,value){try{localStorage.setItem(key+':'+name,JSON.stringify(value))}catch(_){}}
 const safeDone=readLocal('done',[]);
 const safeAnswers=readLocal('answers',{});
-const state={tab:'learn',selected:'probe-basics',sourceFilter:'all',search:'',done:new Set(Array.isArray(safeDone)?safeDone:[]),answers:safeAnswers&&typeof safeAnswers==='object'&&!Array.isArray(safeAnswers)?safeAnswers:{},practiceMode:'cases',caseId:'lot',reveal:false,persona:'work',questions:new Set(),expandedLuka:new Set(),threeMinutes:180,clockActive:false,clockUntil:0,clockHandle:null,content:null,legacy:null,portal:null,luka:null,items:[],manifest:null,guide:null,beginner:null,compareId:'harness',sessionRemain:14400,sessionUntil:0,sessionHandle:null,loading:true};
+const state={tab:'learn',selected:'probe-basics',sourceFilter:'all',search:'',done:new Set(Array.isArray(safeDone)?safeDone:[]),answers:safeAnswers&&typeof safeAnswers==='object'&&!Array.isArray(safeAnswers)?safeAnswers:{},practiceMode:'cases',caseId:'lot',reveal:false,persona:'work',questions:new Set(),expandedLuka:new Set(),threeMinutes:180,clockActive:false,clockUntil:0,clockHandle:null,content:null,legacy:null,portal:null,luka:null,items:[],manifest:null,guide:null,beginner:null,path:null,deep:null,guided:{step:0,answers:{}},reviewFilter:'all',reviewWrong:new Set(),compareId:'harness',sessionRemain:14400,sessionUntil:0,sessionHandle:null,loading:true};
 function toast(msg){const el=$('#toast');if(!el)return;el.textContent=msg;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),2000)}
 function saveDone(){setLocal('done',[...state.done]);renderProgress()}
 function renderProgress(){const all=state.items.length||1,pct=Math.round(state.done.size/all*100);const side=$('#sideProgress'),fill=$('#sideProgressFill');if(side)side.textContent=pct+'%';if(fill)fill.style.width=Math.max(0,Math.min(100,pct))+'%'}
@@ -24,7 +24,7 @@ function routeFromUrl(){
  const raw=parts[1]||q.get('id')||readLocal('selected','probe-basics');
  const aliases={luka:'luka-depth',official:'old-official',video:'old-video',josh:'old-josh'};
  state.selected=aliases[raw]||raw;
- if(state.tab==='practice'&&['compare','cases','stakeholders','explain','preparation'].includes(parts[1]))state.practiceMode=parts[1];
+ if(state.tab==='practice'&&['compare','cases','stakeholders','explain','preparation','guided'].includes(parts[1]))state.practiceMode=parts[1];
 }
 function syncUrl(push=false){
  const detail=state.tab==='library'?'/'+state.selected:state.tab==='practice'?'/'+state.practiceMode:'';
@@ -46,7 +46,7 @@ function cardStat(num,label){return '<div class="metric"><strong>'+E(num)+'</str
 function faq(qa){return (qa||[]).map((x,i)=>{const q=Array.isArray(x)?x[0]:x.question,a=Array.isArray(x)?x[1]:x.answer;return '<details class="quiz-disclosure"><summary>'+E(String(i+1)+'. '+q)+'</summary><div class="answer">'+E(a)+'</div></details>'}).join('')}
 function factsHtml(arr){return (arr||[]).map((x,i)=>'<div class="article-fact"><b>근거 '+String(i+1).padStart(2,'0')+'</b>'+E(x)+'</div>').join('')}
 function logicHtml(arr){return (arr||[]).map((x,i)=>'<div class="article-logic"><div class="number-chip">'+(i+1)+'</div><div><strong>'+E(Array.isArray(x)?x[0]:x.title)+'</strong><p>'+E(Array.isArray(x)?x[1]:x.body)+'</p></div></div>').join('')}
-function getGroup(item){if(item.kind==='basics')return 'official';if(item.kind==='kit')return 'reference';if(item.kind==='video'||item.kind==='synthesis')return 'video';if(['old-gist','old-junho'].includes(item.id))return 'reference';if(item.kind==='luka')return 'people';if(item.kind==='extra')return item.data?.kind==='official'?'official':'people';if(/공식|채용|행사|콘솔|출처/.test(item.data?.source||'')||/A ·|공식/.test(item.data?.tier||''))return 'official';return 'people'}
+function getGroup(item){if(item.kind==='basics')return 'official';if(item.kind==='analysis')return 'video';if(item.kind==='kit')return 'reference';if(item.kind==='video'||item.kind==='synthesis')return 'video';if(['old-gist','old-junho'].includes(item.id))return 'reference';if(item.kind==='luka')return 'people';if(item.kind==='extra')return item.data?.kind==='official'?'official':'people';if(/공식|채용|행사|콘솔|출처/.test(item.data?.source||'')||/A ·|공식/.test(item.data?.tier||''))return 'official';return 'people'}
 function buildItems(){
   const a=(state.content?.sections||[]).map(c=>({id:'video-'+c.n,kind:'video',title:String(c.n).padStart(2,'0')+' · '+c.title,subtitle:c.deck,data:c,source:state.content.video.url,category:'개발자 인터뷰',minutes:12}));
   a.unshift({id:'creator-guide',kind:'synthesis',title:state.guide.creatorGuide.title,subtitle:'제품 설계자의 평가 의도와 참가자 경험 연결',data:state.guide.creatorGuide,source:state.content.video.url,category:'개발자 대담 · 핵심 교재',minutes:25});
@@ -57,6 +57,7 @@ function buildItems(){
   const topicTitles={'luka-depth':'요구 확인부터 검증·설명까지: 참가자의 실제 수행','old-luka':'상세한 과제 안내를 받은 뒤 무엇을 했을까?','old-seo':'질문하고 작게 완성하며 검증한 접근','old-johnny':'AI 오류가 생긴 단계를 나누어 확인하기','old-choi':'현업 경험을 검증 규칙으로 바꾸기','old-junho':'완성한 범위와 미구현 범위를 구분하기','more-giran':'준비한 도구가 오히려 시간을 소모한 경우','more-honam':'문제 정의와 결과물 이해가 엇갈린 경우','more-jiypark':'환경 오류 뒤 범위를 줄여 회복한 경우','more-junho-post':'실제 구현과 미구현을 정직하게 설명하기'};
   a.forEach(x=>{if(topicTitles[x.id]){x.originalTitle=x.title;x.title=topicTitles[x.id]}});
   a.push({id:'kit-review',kind:'kit',title:state.beginner.kitReview.title,subtitle:'사용자 제공 13개 파일 · 샘플 검사와 실제 제품 구분',data:state.beginner.kitReview,source:state.beginner.kitReview.url,category:'학습용 문서 · 준비물 점검',minutes:10});
+  a.splice(2,0,{id:'reasoning-foundations',kind:'analysis',title:state.deep.title,subtitle:'대담 15주제 · 인과관계·정합성·가정·반례',data:state.deep,source:'https://maily.so/josh/posts/x1zg69d3rqg',category:'핵심 개념 · 근거 대조',minutes:35});
   state.items=a;
   if(!a.some(x=>x.id===state.selected))state.selected=a[0]?.id||'video-1';
   renderProgress();
@@ -74,6 +75,7 @@ return '<div class="section-margin">'+hero('AI와 만든 결과,\n내 판단으�
 '<section class="surface content-card section-margin"><h2>처음 오셨나요?</h2><p>Cofa Probe는 AI와 실무 과제를 해결하는 역량을 평가하는 제품입니다. 비개발자는 문서·AI 도구·업무 서비스를 사용하는 환경이 소개돼 있습니다.</p><p class="small muted">이곳에서는 자료·해설과 가상 문제로 판단을 연습합니다. 실제 AI 대화·파일 편집·공식 평가는 제공하지 않습니다.</p><button class="button primary" data-action="open-source" data-id="probe-basics">Probe와 공부 방법부터 알아보기 →</button></section>'+
 '<section class="resume-line section-margin"><div><span class="eyebrow">이어서 읽을 자료</span><p>'+E(next.title)+'</p></div><button class="button" data-action="open-source" data-id="'+E(next.id)+'">이어서 공부하기 →</button></section>'+renderStudyPlan()+
 '<details class="surface content-card section-margin"><summary>더 깊게 읽기 · 필요한 주제만 선택</summary><div class="roadmap">'+[
+{title:'인과관계·정합성·반례로 깊게 이해',desc:'대담 15주제의 주장·한계·필요 개념',id:'reasoning-foundations'},
 {title:'평가 설계자의 세 가지 역량',desc:'목표·결과 품질·자기 이해를 각각 증명',id:'creator-guide'},
 {title:'공식 제품 설명과 평가 근거',desc:'산출물·작업 기록·사후 설명의 관계',id:'old-official'},
 {title:'실제 참가자의 수행 과정',desc:'과제 문서·필요한 질문·합의·검증·인수인계',id:'luka-depth'},
@@ -87,22 +89,22 @@ return '<div class="subhead-row"><h2>가장 적게 읽고, 직접 확인하는 �
 }
 function displayItems(){return state.items.filter(x=>{let group=getGroup(x);if(state.sourceFilter!=='all'&&state.sourceFilter!==group)return false;const q=state.search.trim().toLowerCase();return !q||[x.title,x.subtitle,x.category,x.data?.thesis||'',x.data?.title||'',x.data?.author||'',x.originalTitle||'',x.source||''].join(' ').toLowerCase().includes(q)})}
 function renderLibrary(){
-const sources=[...state.manifest.sourceRecords,...(state.manifest.officialHackathonReferences||[]),...(state.manifest.officialResearchReferences||[]),...(state.manifest.supplementalSourceRecords||[])];
+const sources=[...state.manifest.sourceRecords,...(state.manifest.officialHackathonReferences||[]),...(state.manifest.officialResearchReferences||[]),...(state.manifest.supplementalSourceRecords||[]),...(state.manifest.analysisReferences||[]),...(state.manifest.learningDesignReferences||[])];
 const count=state.items.length,selected=state.items.find(x=>x.id===state.selected)||state.items[0],filtered=displayItems();
 return '<div class="section-margin">'+hero('읽고 이해하는 자료실','원문 근거 · 깊이 읽기','공식 자료와 실제 후기를 읽고, 관찰·해석·가상 사례를 구분합니다. 모바일에서는 자료를 선택하면 본문으로 이동합니다.')+'</div>'+
-'<div class="library-shell"><div class="library-nav surface"><h3>자료 목차 <span class="pill">'+count+'개</span></h3><input class="search" id="librarySearch" aria-label="자료 검색" type="search" placeholder="자료·사람·개념 검색" value="'+E(state.search)+'"><div class="filter-row">'+[['all','전체'],['video','개발자 인터뷰'],['people','참가자 후기'],['official','공식·보도'],['reference','보조·미확인']].map(a=>'<button class="filter-btn '+(state.sourceFilter===a[0]?'active':'')+'" data-action="source-filter" data-filter="'+a[0]+'">'+a[1]+'</button>').join('')+'</div><div class="source-items">'+(filtered.length?filtered.map(x=>'<button class="source-option '+(selected?.id===x.id?'active':'')+'" data-action="open-source" data-id="'+E(x.id)+'"><strong>'+E(x.title)+'</strong><span>'+E(x.category)+' · 약 '+E(x.minutes)+'분'+(state.done.has(x.id)?' · 학습 완료':'')+'</span></button>').join(''):'<p class="muted small">일치하는 자료가 없어요.</p>')+'</div></div>'+
-'<article class="library-main surface" tabindex="-1" aria-label="학습 본문">'+(selected?renderArticle(selected):'<div class="content-card">불러온 자료가 없습니다.</div>')+'</article></div><details class="source-catalog surface"><summary>전체 원문 출처 · '+sources.length+'개</summary><div class="catalog-grid">'+sources.map(x=>'<div><strong>'+E(x.title)+'</strong><p>'+E(x.study_summary)+'</p>'+sourceLink(x.url)+'</div>').join('')+'</div></details>';
+'<div class="library-shell"><div class="library-nav surface"><h3>자료 목차 <span class="pill">'+count+'개</span></h3><input class="search" id="librarySearch" aria-label="자료 검색" type="search" placeholder="자료·사람·개념 검색" value="'+E(state.search)+'"><div class="filter-row">'+[['all','전체'],['video','평가 제품 대담'],['people','참가자 후기'],['official','공식·보도'],['reference','보조·학습 예시']].map(a=>'<button class="filter-btn '+(state.sourceFilter===a[0]?'active':'')+'" data-action="source-filter" data-filter="'+a[0]+'">'+a[1]+'</button>').join('')+'</div><div class="source-items">'+(filtered.length?filtered.map(x=>'<button class="source-option '+(selected?.id===x.id?'active':'')+'" data-action="open-source" data-id="'+E(x.id)+'"><strong>'+E(x.title)+'</strong><span>'+E(x.category)+' · 약 '+E(x.minutes)+'분'+(state.done.has(x.id)?' · 읽음':'')+'</span></button>').join(''):'<p class="muted small">일치하는 자료가 없어요.</p>')+'</div></div>'+
+'<article class="library-main surface" tabindex="-1" aria-label="학습 본문">'+(selected?renderArticle(selected):'<div class="content-card">불러온 자료가 없습니다.</div>')+'</article></div><details class="source-catalog surface"><summary>전체 원문 출처 · '+sources.length+'개</summary><div class="catalog-grid">'+sources.map(x=>'<div><strong>'+E(x.title)+'</strong><p>'+E(x.study_summary||x.scope||x.use)+'</p>'+sourceLink(x.url)+'</div>').join('')+'</div></details>';
 }
 function articleHeader(item,summary,kind,caution){
  const record=[...state.manifest.sourceRecords,...(state.manifest.supplementalSourceRecords||[])].find(x=>x.url===item.source);
  const types={official:'공식 발표',firsthand:'참가자 직접 후기','reported-interview':'언론 인터뷰','first-party-interview':'개발자 직접 설명','reported-first-party':'기업 발표 기반 보도','official-access-point':'공식 접속 주소',unverified:'공식성 미확인',profile:'보조 프로필','educational-sample':'학습용 가상 자료'};
- const badge=item.kind==='basics'?'공식 근거 · 비개발자 학습 해석':item.kind==='synthesis'?'사용자 분석 · 학습 해석':item.kind==='video'?'사용자 제공 영상 정리':types[record?.evidence_type]||'출처 확인 필요';
+ const badge=item.kind==='analysis'?'원문·공식·연구 대조 · 학습 해석':item.kind==='basics'?'공식 근거 · 비개발자 학습 해석':item.kind==='synthesis'?'인터뷰를 바탕으로 한 학습 해설':item.kind==='video'?'영상 정리 · 직접 조회 제한':types[record?.evidence_type]||'출처 확인 필요';
  const metadata=record?'<details class="source-metadata"><summary>출처와 확인 범위</summary><dl><dt>원문 제목</dt><dd>'+E(record.original_title||'정확한 제목 미확인 · 학습 목차 제목과 구분')+'</dd><dt>작성자·기관</dt><dd>'+E(record.author_or_publisher)+'</dd><dt>작성일 / 사건일</dt><dd>'+E(record.published_at||'미확인')+' / '+E(record.event_date||'미확인')+'</dd><dt>확인 상태</dt><dd>'+E(record.verification.status)+' · '+E(record.verification.note)+'</dd></dl></details>':'';
- return '<div class="library-header"><div class="row">'+badges([badge,'약 '+item.minutes+'분'])+(state.done.has(item.id)?'<span class="pill teal">학습 완료 ✓</span>':'')+'</div><h2>'+E(item.title)+'</h2><p>'+E(summary||item.subtitle)+'</p>'+(caution?'<div class="source-note warn">'+E(caution)+'</div>':'')+metadata+(record?.editorial_note&&item.kind==='legacy'?'<div class="source-note warn">'+E(record.editorial_note)+'</div>':'')+'<div class="inline-actions">'+sourceLink(item.source,'원문 확인 ↗')+'</div></div>';
+ return '<div class="library-header"><div class="row">'+badges([badge,'약 '+item.minutes+'분'])+(state.done.has(item.id)?'<span class="pill teal">읽음 ✓</span>':'')+'</div><h2>'+E(item.title)+'</h2><p>'+E(summary||item.subtitle)+'</p>'+(caution?'<div class="source-note warn">'+E(caution)+'</div>':'')+metadata+(record?.editorial_note&&item.kind==='legacy'?'<div class="source-note warn">'+E(record.editorial_note)+'</div>':'')+'<div class="inline-actions">'+sourceLink(item.source,'원문 확인 ↗')+'</div></div>';
 }
 function articleFooter(item){
  const i=state.items.findIndex(x=>x.id===item.id),prev=state.items[i-1],next=state.items[i+1];
- return '<div class="related-lessons"><h3>연결해서 읽기</h3><div class="inline-actions">'+[['creator-guide','평가 설계자의 관점'],['luka-depth','참가자의 수행 과정'],['video-7','세 평가축 해설']].filter(x=>x[0]!==item.id).map(x=>'<button class="button" data-action="open-source" data-id="'+x[0]+'">'+x[1]+'</button>').join('')+'</div></div><div class="article-footer"><button class="button '+(state.done.has(item.id)?'soft':'primary')+'" data-action="toggle-done" data-id="'+E(item.id)+'">'+(state.done.has(item.id)?'완료 취소':'이 장 학습 완료 ✓')+'</button><div class="buttons">'+(prev?'<button class="button" data-action="open-source" data-id="'+E(prev.id)+'">‹ 이전</button>':'')+(next?'<button class="button" data-action="open-source" data-id="'+E(next.id)+'">다음 ›</button>':'')+'</div></div>';
+ return '<div class="related-lessons"><h3>직접 판단에 적용하기</h3><p class="small muted">읽음 표시는 자료를 읽었다는 기록입니다. 이해 여부는 직접 설명하고 다른 조건에 적용해 확인합니다.</p><button class="button primary" data-action="navigate" data-tab="practice" data-mode="guided">풀이 따라하기 →</button><h3>연결해서 읽기</h3><div class="inline-actions">'+[['reasoning-foundations','개념과 근거의 심층 분석'],['creator-guide','평가 설계자의 관점'],['luka-depth','참가자의 수행 과정'],['video-7','세 평가축 해설']].filter(x=>x[0]!==item.id).map(x=>'<button class="button" data-action="open-source" data-id="'+x[0]+'">'+x[1]+'</button>').join('')+'</div></div><div class="article-footer"><button class="button '+(state.done.has(item.id)?'soft':'primary')+'" data-action="toggle-done" data-id="'+E(item.id)+'">'+(state.done.has(item.id)?'읽음 취소':'이 글 읽음으로 표시')+'</button><div class="buttons">'+(prev?'<button class="button" data-action="open-source" data-id="'+E(prev.id)+'">‹ 이전</button>':'')+(next?'<button class="button" data-action="open-source" data-id="'+E(next.id)+'">다음 ›</button>':'')+'</div></div>';
 }
 function articleSection(title,html){return '<h3>'+E(title)+'</h3>'+html}
 function renderArticle(item){
@@ -112,6 +114,7 @@ function renderArticle(item){
  return html.replace('<div class="article-body">','<div class="article-body">'+outline);
 }
 function renderArticleRaw(item){
+if(item.kind==='analysis')return renderDeep(item);
 if(item.kind==='kit')return renderKit(item);
 if(item.kind==='basics')return renderBasics(item);
 if(item.kind==='synthesis')return renderCreator(item);
@@ -120,6 +123,18 @@ if(item.kind==='luka')return renderLuka(item);
 if(item.kind==='extra')return renderExtra(item);
 return renderLegacy(item);
 }
+function renderDeep(item){
+const d=state.deep;
+return articleHeader(item,d.summary,'analysis',d.boundary)+'<div class="article-body">'+
+articleSection('먼저 볼 본질 · 여섯 층의 질문','<p>아래는 대담을 바탕으로 정리한 학습용 분석 틀입니다. 위에서 아래로 한 번 쓰고 끝내는 양식이 아니라, 자료와 실행 결과가 바뀔 때 앞선 판단도 다시 확인하는 기준입니다.</p><div class="depth-grid">'+d.layers.map((x,i)=>'<section class="lesson"><span class="eyebrow">LAYER '+(i+1)+'</span><h4>'+E(x[0])+'</h4><p><strong>'+E(x[1])+'</strong></p><p>'+E(x[2])+'</p></section>').join('')+'</div>')+
+articleSection('지켜야 할 가치와 판단 원칙',d.values.map(x=>'<details class="quiz-disclosure"><summary>'+E(x[0])+'</summary><div class="answer">'+E(x[1])+'</div></details>').join(''))+
+articleSection('15개 주제를 주장·이유·반례로 읽기','<p>관찰에서 준비 전략으로 넘어가는 논리를 확인하세요. “왜 필요한가?”와 함께 “어떤 조건이면 이 결론이 틀릴까?”를 묻습니다.</p>'+d.claims.map(c=>'<details class="quiz-disclosure" '+(c.n===7?'open':'')+'><summary>'+String(c.n).padStart(2,'0')+'. '+E(c.title)+'</summary><div class="answer"><span class="eyebrow">'+E(c.topic)+'</span><p><strong>출처의 설명 · 관찰</strong><br>'+E(c.claim)+'</p><p><strong>내층의 논리 · 학습 해석</strong><br>'+E(c.reasoning)+'</p><p><strong>해결할 문제와 행동</strong><br>'+E(c.action)+'</p><p><strong>필요 개념</strong><br>'+E(c.concepts)+'</p><div class="source-note"><strong>반례·한계·정정</strong><p>'+E(c.limit)+'</p></div><p><strong>설명할 수 있어야 할 질문</strong><br>'+E(c.question)+'</p><div class="inline-actions">'+c.sources.map(u=>sourceLink(u,'근거 원문 ↗')).join('')+'<button class="button" data-action="open-source" data-id="video-'+c.n+'">기존 대담 정리 읽기 →</button></div></div></details>').join(''))+
+articleSection('원문 대조에서 확인한 정정',d.corrections.map(x=>'<section class="axis-study"><h4>'+E(x[0])+'</h4><p>'+E(x[1])+'</p>'+sourceLink(x[2])+'</section>').join(''))+
+articleSection('개념과 용어의 최소 정의',d.concepts.map(x=>'<details class="quiz-disclosure"><summary>'+E(x[0])+'</summary><div class="answer">'+E(x[1])+'</div></details>').join(''))+
+articleSection('근거의 성격과 적용 범위','<div class="table-scroll"><table><thead><tr><th>자료</th><th>성격</th><th>한계</th></tr></thead><tbody>'+d.sources.map(x=>'<tr><th scope="row">'+sourceLink(x.url,x.title+' ↗')+'</th><td>'+E(x.kind)+'</td><td>'+E(x.scope)+'</td></tr>').join('')+'</tbody></table></div>')+
+articleSection('이제 한 문제에 적용하기','<p>용어를 외우는 대신, 같은 자료에서 목표·계산·검증·결론이 어떻게 연결되는지 판단합니다. 다른 숫자에서도 원칙이 유지되는지 확인합니다.</p><button class="button primary" data-action="navigate" data-tab="practice" data-mode="guided">풀이 따라하기 →</button>')+articleFooter(item)+'</div>';
+}
+
 function renderBasics(item){
 const b=state.beginner;
 return articleHeader(item,'무엇을 하는 평가인지부터 이해하고, 자료·AI·검증·설명을 연결하는 공부 방법을 익힙니다.','official','')+'<div class="article-body">'+
@@ -142,14 +157,14 @@ return articleHeader(item,k.summary,'educational',k.position)+'<div class="artic
 }
 function renderPreparation(){
 const b=state.beginner;
-return '<span class="eyebrow">현재 브랜치 점검 · 실행은 별도</span><h2 class="subheading">준비물과 두 번의 리허설</h2><p>아래는 이 저장소에서 확인한 상태입니다. 개인 PC에 있는 준비물까지 조사한 것은 아닙니다. 사이트를 읽는 것과 실제 도구로 업무를 끝내는 연습은 구분합니다.</p><button class="button" data-action="open-source" data-id="kit-review">추가 제공된 13개 준비 파일 분석 →</button>'+b.readiness.map(x=>'<section class="axis-study"><h3>'+E(x.item)+'</h3><span class="pill">'+E(x.status)+'</span><p><strong>확인 근거</strong> '+E(x.evidence)+'</p><p><strong>다음 행동</strong> '+E(x.next)+'</p></section>').join('')+'<div class="source-note warn">'+E(b.preparationBoundary)+'</div><h3>비개발자에게 맞춘 준비 순서</h3>'+logicHtml(b.preparationPhases.map(x=>[x[0]+'. '+x[1],x[2]]))+'<h3>리허설 종료 때 확인할 것</h3><ul class="check-list"><li>원자료·지시·가정이 구분된 결과 파일이 실제로 열리는가?</li><li>숫자와 결론을 검증한 기록, 실패·미확인 항목이 있는가?</li><li>AI 없이 약점·영향·다음 검증을 설명할 수 있는가?</li><li>준비물의 설정 시간과 절약 시간을 비교했는가?</li></ul><p class="muted small">이 화면은 계획과 점검 기준을 제공합니다. 실행하지 않은 키트나 리허설을 완료했다고 표시하지 않습니다. 4시간 타이머는 자율 연습용이며 시험 규정이 아닙니다.</p>';
+return '<span class="eyebrow">제공 준비물 · 실행은 별도</span><h2 class="subheading">준비물과 두 번의 리허설</h2><p>아래는 이 사이트와 연결 자료에서 확인한 준비 상태입니다. 학습자 개인의 준비물을 조사한 것은 아닙니다. 사이트를 읽는 것과 실제 도구로 업무를 끝내는 연습은 구분합니다.</p><button class="button" data-action="open-source" data-id="kit-review">추가 제공된 13개 준비 파일 분석 →</button>'+b.readiness.map(x=>'<section class="axis-study"><h3>'+E(x.item)+'</h3><span class="pill">'+E(x.status)+'</span><p><strong>확인 근거</strong> '+E(x.evidence)+'</p><p><strong>다음 행동</strong> '+E(x.next)+'</p></section>').join('')+'<div class="source-note warn">'+E(b.preparationBoundary)+'</div><h3>비개발자에게 맞춘 준비 순서</h3>'+logicHtml(b.preparationPhases.map(x=>[x[1],x[2]]))+'<h3>리허설 종료 때 확인할 것</h3><ul class="check-list"><li>원자료·지시·가정이 구분된 결과 파일이 실제로 열리는가?</li><li>숫자와 결론을 검증한 기록, 실패·미확인 항목이 있는가?</li><li>AI 없이 약점·영향·다음 검증을 설명할 수 있는가?</li><li>준비물의 설정 시간과 절약 시간을 비교했는가?</li></ul><p class="muted small">이 화면은 계획과 점검 기준을 제공합니다. 실행하지 않은 키트나 리허설을 완료했다고 표시하지 않습니다. 4시간 타이머는 자율 연습용이며 시험 규정이 아닙니다.</p>';
 }
 function renderVideo(item){
 const s=item.data,items=s.points||[],idx=s.n;
 const header=articleHeader(item,s.deck,'interview',state.content.video.notice);
 const facts=items.map((p,i)=>'<div class="article-fact"><b>'+String(i+1).padStart(2,'0')+'</b><strong>'+E(p[0])+'</strong><p>'+E(p[1])+'</p></div>').join('');
 return header+'<div class="article-body"><div class="eyebrow">원문 학습 · '+String(idx).padStart(2,'0')+' / 15</div>'+
-articleSection('영상 정리문에 담긴 설명',facts)+articleSection('학습 해석 · 적용할 판단','<div class="callout">'+E(s.logic)+'</div>')+
+([2,6,8,9,10,12,14].includes(idx)?'<div class="source-note">이 주장의 정의·인과관계·적용 범위는 심층 분석에서 원문과 대조했습니다. <button class="button" data-action="open-source" data-id="reasoning-foundations">반례와 정정 함께 읽기 →</button></div>':'')+articleSection('영상 정리문에 담긴 설명',facts)+articleSection('학습 해석 · 적용할 판단','<div class="callout">'+E(s.logic)+'</div>')+
 articleSection('스스로 설명해보기','<div class="source-note"><strong>이해 질문</strong><br>'+E(s.check)+'</div>')+
 (idx===5?articleSection('실전 참가자의 반례','<p>실제 코파톤 후기에서는 README에 실무 문제와 솔루션이 이미 자세히 서술되어 있어 추가 인터뷰의 한계가 있었다고 회고합니다. 잘 질문하기와 무조건 많이 질문하기는 다릅니다.</p>'):'')+
 (idx===7?articleSection('세 평가축을 한 번에 확인','<div class="grid2"><div class="lesson"><h4>Technique</h4><p>작동하는 결과와 테스트</p></div><div class="lesson"><h4>Intent</h4><p>목표·위임·검증 통제</p></div><div class="lesson"><h4>Cognition</h4><p>자기 결과물의 이해·설명</p></div><div class="lesson"><h4>공통</h4><p>주장을 실제 파일·근거에 연결</p></div></div>'):'')+
@@ -244,16 +259,36 @@ function renderCreator(item){
  articleSection('같은 가상 Lot 분석에서 세 축을 따로 확인','<p>아래 연결은 학습용 가상 사례입니다. 세 축의 공식 점수식이 아닙니다.</p>'+g.axes.map(x=>'<section class="axis-study"><h4>'+x.name+' · '+E(x.question)+'</h4><p><strong>남길 증거</strong> '+E(x.evidence)+'</p><p><strong>실패 조건</strong> '+E(x.failure)+'</p></section>').join(''))+
  articleSection('평가자의 의도와 참가자의 경험을 나란히 읽기',g.connections.map(x=>'<section class="axis-study"><h4>'+E(x[0])+'</h4><p>'+E(x[1])+'</p><p>'+E(x[2])+'</p><div class="callout">학습 판단 · '+E(x[3])+'</div></section>').join(''))+
  articleSection('Cost Engineering · 단위부터 구분','<p>'+E(g.cost.principle)+'</p><p>'+E(g.cost.example)+'</p><div class="source-note">'+E(g.cost.unit)+'</div>')+
- articleSection('목표와 이해의 간극을 관리하는 메모','<p>다음 두 부채 용어는 사용자 제공 분석을 반영한 학습 설명어입니다.</p>'+g.debts.map(x=>'<details class="quiz-disclosure"><summary>'+E(x[0])+' · '+E(x[1])+'</summary><div class="answer"><p>가상 상황 · '+E(x[2])+'</p><p>대응 · '+E(x[3])+'</p></div></details>').join(''))+
+ articleSection('목표와 이해의 간극을 관리하는 메모','<p>인지·의도 부채는 Storey의 소프트웨어 건강 모델에서도 다룹니다. 아래는 개인 훈련을 위한 예이며, 팀의 공유 이해와 목표·선택 이유의 기록이라는 원문의 범위는 심층 분석에서 함께 확인합니다.</p>'+g.debts.map(x=>'<details class="quiz-disclosure"><summary>'+E(x[0])+' · '+E(x[1])+'</summary><div class="answer"><p>가상 상황 · '+E(x[2])+'</p><p>대응 · '+E(x[3])+'</p></div></details>').join(''))+
  articleSection('이 자료에서 확정할 수 없는 것','<ul>'+g.cautions.map(x=>'<li>'+E(x)+'</li>').join('')+'</ul>')+
  articleSection('확인문제와 해설',faq(g.checks))+
  '<div class="inline-actions">'+['josh','official','luka','giran','jiypark'].map(id=>{const r=state.manifest.sourceRecords.find(x=>x.id===id);return sourceLink(r.url,r.author_or_publisher+' 원문 ↗')}).join('')+'</div>'+articleFooter(item)+'</div>';
 }
+function guidedCorrect(i){return !!state.path.steps[i]&&state.guided.answers[i]===state.path.steps[i].correct}
+function guidedLimit(){let i=0;while(i<state.path.steps.length&&guidedCorrect(i))i++;return Math.min(i,state.path.steps.length-1)}
+function saveGuided(){setLocal('guided-v1',state.guided)}
+function moveGuided(i){if(!Number.isInteger(i)||i<0||i>guidedLimit())return;state.guided.step=i;saveGuided();render();const el=$('#guidedQuestion');if(el){el.focus({preventScroll:true});el.scrollIntoView({block:'start',behavior:'instant'})}}
+function guidedTable(){
+ const lines=caseSourceById('lot').files[0][1].split('\n'),headers=lines[0].split(','),rows=lines.slice(1).map(x=>x.split(','));
+ return '<div class="table-scroll"><table><caption>가상 검사 자료 · 원본 행</caption><thead><tr>'+headers.map(x=>'<th scope="col">'+E(({lot:'Lot',equipment:'장비',recipe:'Recipe',inspected:'검사 수',reject:'불량 수'})[x]||x)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(x=>'<tr>'+x.map(v=>'<td>'+E(v||'미기재')+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+}
+function caseSourceById(id){return state.portal.cases.find(x=>x.id===id)}
+function renderGuided(){
+ const p=state.path,s=state.guided.step,q=p.steps[s],selected=state.guided.answers[s],answered=Number.isInteger(selected),correct=guidedCorrect(s),count=p.steps.filter((_,i)=>guidedCorrect(i)).length,complete=count===p.steps.length,w=p.workedExample;
+ return '<div class="guided-intro"><span class="eyebrow">개념 → 예시 → 직접 판단 → 다른 문제</span><h2 class="subheading">'+E(p.title)+'</h2><p>기본 용어와 완성 예시를 본 뒤, 한 번에 한 가지 판단을 연습합니다. 해설을 확인한 단계는 저장돼 다음에 이어갈 수 있습니다.</p><p class="small muted">'+E(p.boundary)+'</p><details class="quiz-disclosure"><summary>배울 목표와 기본 용어</summary><div class="answer"><ul>'+p.objectives.map(x=>'<li>'+E(x)+'</li>').join('')+'</ul>'+p.terms.map(x=>'<p><strong>'+E(x[0])+'</strong> · '+E(x[1])+'</p>').join('')+'</div></details><details class="quiz-disclosure" '+(s===0?'open':'')+'><summary>'+E(w.title)+'</summary><div class="answer"><p>'+E(w.input)+'</p><p><strong>계산</strong> '+E(w.calculation)+'</p><p><strong>이유</strong> '+E(w.reason)+'</p><p><strong>한계</strong> '+E(w.limit)+'</p></div></details></div>'+
+ '<details class="source-file" '+([0,1,2,3].includes(s)?'open':'')+'><summary>이번 연습의 원자료 · 6행과 집계 정책</summary>'+guidedTable()+'<p class="small">열 이름: Lot=생산 묶음, 장비=검사 자료의 장치 구분, Recipe=공정 조건 이름, 검사 수=분모, 불량 수=분자.</p><p class="source-note">'+E(caseSourceById('lot').files[1][1])+'</p></details>'+
+ '<div class="guided-status" role="status">해설을 확인한 판단 '+count+' / '+p.steps.length+' · 읽음 기록 및 실제 업무 검증과 별도로 저장</div><nav class="guided-steps" aria-label="풀이 단계">'+p.steps.map((x,i)=>'<button class="button '+(i===s?'primary':'')+'" data-action="guided-jump" data-index="'+i+'" '+(i>guidedLimit()?'disabled':'')+(i===s?' aria-current="step"':'')+'>'+String(i+1)+'. '+E(x.title)+(guidedCorrect(i)?' ✓':'')+'</button>').join('')+'</nav>'+
+ '<section id="guidedQuestion" class="guided-question" tabindex="-1"><span class="eyebrow">STEP '+(s+1)+' / '+p.steps.length+' · '+E(q.axis)+'</span><h3>'+E(q.title)+'</h3><p>'+E(q.lesson)+'</p><h4>'+E(q.question)+'</h4><div class="options">'+q.options.map((x,i)=>'<button class="option '+(answered?(i===selected?(correct?'correct':'wrong'):''):'')+'" data-action="guided-answer" data-option="'+i+'" '+(answered?'disabled':'')+'>'+String.fromCharCode(65+i)+'. '+E(x)+'</button>').join('')+'</div>'+
+ (answered?'<div class="feedback" role="status"><strong>'+(correct?'이 판단을 확인했습니다.':'다시 확인할 지점')+'</strong><p>'+E(q.feedback[selected])+'</p>'+(correct?'<p><strong>남길 근거</strong> '+E(q.proof)+'</p>':'')+'<div class="inline-actions">'+(!correct?'<button class="button primary" data-action="guided-retry">같은 단계 다시 판단하기</button>':'')+'<button class="button" data-action="open-source" data-id="'+E(q.related)+'">관련 개념 읽기 →</button></div></div>':'')+'<div class="guided-actions">'+(s>0?'<button class="button" data-action="guided-jump" data-index="'+(s-1)+'">이전 단계</button>':'<span></span>')+(s<p.steps.length-1?'<button class="button primary" data-action="guided-next" '+(!correct?'disabled':'')+'>다음 단계 →</button>':'')+'</div></section>'+
+ (complete?'<section class="guided-summary"><h3>같은 자료로 작성한 보고 예시</h3><p>8개 선택과 해설을 확인했습니다. 아래는 고정된 해설 예시이며, 사용자가 직접 작성한 보고서나 실제 AI 작업 기록은 아닙니다.</p><dl>'+p.report.map(x=>'<dt>'+E(x[0])+'</dt><dd>'+E(x[1])+'</dd>').join('')+'</dl><p><strong>다음 연습</strong> 예시를 보지 않고 계산 기준·약점·다음 확인을 말한 뒤, 일정·품질 승인처럼 다른 가상 과제에도 적용해 보세요.</p><div class="inline-actions"><button class="button primary" data-action="navigate" data-tab="practice" data-mode="cases">스스로 풀 다른 과제 →</button><button class="button" data-action="navigate" data-tab="review">핵심 개념 점검 →</button></div></section>':'')+
+ '<details class="quiz-disclosure"><summary>이 풀이의 학습 설계 근거</summary><div class="answer"><p>'+E(p.designEvidence.use)+'</p>'+sourceLink(p.designEvidence.url,'IES 학습 가이드 ↗')+'</div></details><button class="button" data-action="guided-reset">이 풀이 처음부터 다시</button>';
+}
+
 function renderPractice(){
 const caseData=caseSource();
-let body=state.practiceMode==='preparation'?renderPreparation():state.practiceMode==='compare'?renderComparisons():state.practiceMode==='cases'?renderCasePractice(caseData):state.practiceMode==='stakeholders'?renderStakeholders():renderExplain();
+let body=state.practiceMode==='guided'?renderGuided():state.practiceMode==='preparation'?renderPreparation():state.practiceMode==='compare'?renderComparisons():state.practiceMode==='cases'?renderCasePractice(caseData):state.practiceMode==='stakeholders'?renderStakeholders():renderExplain();
 return '<div class="practice-header">'+hero('실전에서 판단하는 힘','가상 과제 · 근거 중심 검증','가상 자료로 업무 판단을 연습합니다. 비개발자는 계산표·조사 메모·승인 판단을 결과물로 삼고, 코드 구현은 필요한 경우에만 선택합니다.')+'</div>'+
-'<div class="surface pad"><div class="segmented">'+[['compare','전략 비교'],['cases','자료 분석'],['stakeholders','실무자 질문'],['explain','사후 Q&A'],['preparation','준비 점검']].map(a=>'<button class="segment '+(state.practiceMode===a[0]?'active':'')+'" data-action="practice-mode" data-mode="'+a[0]+'">'+a[1]+'</button>').join('')+'</div><div class="plain-divider"></div>'+body+sessionPanel()+'</div>';
+'<div class="surface pad"><div class="segmented">'+[['guided','풀이 따라하기'],['compare','전략 비교'],['cases','자료 분석'],['stakeholders','실무자 질문'],['explain','사후 Q&A'],['preparation','준비 점검']].map(a=>'<button class="segment '+(state.practiceMode===a[0]?'active':'')+'" data-action="practice-mode" data-mode="'+a[0]+'">'+a[1]+'</button>').join('')+'</div><div class="plain-divider"></div>'+body+sessionPanel()+'</div>';
 }
 function renderCasePractice(c){
 if(!c)return '<p>기존 과제 자료를 불러오지 못했습니다.</p>';
@@ -277,11 +312,12 @@ explainCases.map((q,i)=>'<details class="quiz-disclosure"><summary>Q'+(i+1)+'. '
 function quizQuestions(){return (state.portal?.drill||[]).map((q,i)=>state.beginner.quizOverrides[i]||q)}
 function renderReview(){
 const quiz=quizQuestions(),answered=Object.keys(state.answers).length,correct=Object.entries(state.answers).filter(([k,v])=>quiz[Number(k)]&&quiz[Number(k)][2]===v).length;
-return '<div class="section-margin">'+hero('실수하는 지점을 찾아내다','확인문제 · 즉시 해설','선택하면 정답과 근거가 바로 나타납니다. 실제 시험 점수가 아닌 학습용 자기 점검입니다.')+'</div>'+
-'<div class="review-layout"><div><div class="surface content-card"><div class="row split"><div><span class="eyebrow">검증 드릴</span><h2 class="subheading" style="margin:6px 0">12개 핵심 판단문제</h2></div><div class="row">'+badges([answered+' / '+quiz.length+' 응답',correct+'개 정답'])+'</div></div><p class="muted small">정답을 선택한 후에는 문항별 해설을 읽고, 원문과 다른 행사의 사실이 섞였는지 확인하세요.</p></div>'+
-quiz.map((x,i)=>{const choice=state.answers[i],answered=choice!==undefined;return '<div class="quiz-question" id="question-'+i+'"><div class="eyebrow">문항 '+String(i+1).padStart(2,'0')+' / '+quiz.length+'</div><h3>'+E(x[0])+'</h3><div class="options">'+x[1].map((label,j)=>'<button class="option '+(answered?(j===x[2]?'correct':choice===j?'wrong':''):'')+'" data-action="answer" data-index="'+i+'" data-option="'+j+'" '+(answered?'disabled':'')+'>'+String.fromCharCode(65+j)+'. '+E(label)+'</button>').join('')+'</div>'+(answered?'<div class="feedback"><strong>'+(choice===x[2]?'정답입니다.':'정답 확인')+'</strong><p>'+E(x[3])+'</p><button class="button" data-action="open-source" data-id="'+(state.beginner.quizRelatedOverrides[i]||state.guide.quizRelated[i])+'">관련 학습 읽기 →</button></div>':'')+'</div>'}).join('')+
+const questions=quiz.map((x,i)=>({x,i})).filter(({i})=>state.reviewFilter==='wrong'?state.reviewWrong.has(i):state.reviewFilter==='unanswered'?state.answers[i]===undefined:true);
+return '<div class="section-margin">'+hero('실수하는 지점을 찾아내다','확인문제 · 즉시 해설','개념을 떠올려 선택한 뒤 이유를 확인합니다. 오답만 골라 문항별로 다시 풀 수 있습니다. 공식 시험 점수나 숙련도 인증은 아닙니다.')+'</div>'+
+'<div class="review-layout"><div><div class="surface content-card"><div class="row split"><div><span class="eyebrow">학습용 자기 점검</span><h2 class="subheading" style="margin:6px 0">12개 핵심 판단문제</h2></div><div class="row">'+badges([answered+' / '+quiz.length+' 응답',correct+'개 정답'])+'</div></div><p class="muted small">틀린 이유를 읽은 뒤 관련 개념으로 돌아가거나 같은 문항을 다시 풀어 보세요. 읽음 기록은 이해 여부와 다릅니다.</p><div class="filter-row" aria-label="복습할 문항">'+[['all','전체 문항'],['wrong','오답 복습'],['unanswered','아직 안 푼 문항']].map(x=>'<button class="filter-btn '+(state.reviewFilter===x[0]?'active':'')+'" data-action="review-filter" data-filter="'+x[0]+'" aria-pressed="'+(state.reviewFilter===x[0])+'">'+x[1]+'</button>').join('')+'</div></div>'+
+(questions.length?questions.map(({x,i})=>{const choice=state.answers[i],answered=choice!==undefined;return '<div class="quiz-question" id="question-'+i+'"><div class="eyebrow">문항 '+String(i+1).padStart(2,'0')+' / '+quiz.length+'</div><h3>'+E(x[0])+'</h3><div class="options">'+x[1].map((label,j)=>'<button class="option '+(answered?(j===x[2]?'correct':choice===j?'wrong':''):'')+'" data-action="answer" data-index="'+i+'" data-option="'+j+'" '+(answered?'disabled':'')+'>'+String.fromCharCode(65+j)+'. '+E(label)+'</button>').join('')+'</div>'+(answered?'<div class="feedback" role="status"><strong>'+(choice===x[2]?'정답입니다.':'정답과 이유 확인')+'</strong><p>'+E(x[3])+'</p><div class="inline-actions"><button class="button" data-action="open-source" data-id="'+(state.beginner.quizRelatedOverrides[i]||state.guide.quizRelated[i])+'">관련 학습 읽기 →</button><button class="button" data-action="retry-answer" data-index="'+i+'">이 문항 다시 풀기</button></div></div>':'')+'</div>'}).join(''):'<section class="surface content-card"><h3>'+(state.reviewFilter==='wrong'?'남아 있는 오답이 없습니다.':'이 목록의 문항을 모두 확인했습니다.')+'</h3><p>다른 문항을 보거나 풀이에서 원칙을 적용해 보세요. 정답 선택만으로 실제 업무 수행이 검증된 것은 아닙니다.</p><div class="inline-actions"><button class="button" data-action="review-filter" data-filter="all">전체 문항 보기</button><button class="button" data-action="navigate" data-tab="practice" data-mode="guided">풀이에 적용하기 →</button></div></section>')+
 '<div class="row section-margin"><button class="button" data-action="reset-quiz">전체 다시 풀기</button><button class="button primary" data-action="navigate" data-tab="learn">시작하기로</button></div></div>'+
-'<aside class="review-help surface pad"><span class="eyebrow">검증 사고 순서</span><h3 style="font-size:16px;margin:7px 0">틀리는 이유를 기록하세요.</h3><p class="small muted">숫자를 잘못 계산했나요? 예외조건을 놓쳤나요? 공식 정보와 참가자 후기를 혼동했나요?</p><hr class="thin-rule"><span class="pill teal">직접 확인할 근거</span><p class="small muted">답변의 근거를 찾기 어렵다면 관련 글로 돌아가세요. 풀이 설명과 실제 출처가 같은 주장을 뒷받침하는지 비교합니다.</p></aside></div>';
+'<aside class="review-help surface pad"><span class="eyebrow">복습 방법</span><h3 style="font-size:16px;margin:7px 0">이유를 설명하며 다시 풀기</h3><p class="small muted">해설을 읽고 바로 정답을 누르는 데 그치지 말고, 잠시 뒤 관련 개념을 가린 채 이유를 떠올려 보세요. 숫자를 잘못 계산했는지, 조건을 놓쳤는지, 출처의 범위를 혼동했는지 구분합니다.</p><hr class="thin-rule"><p class="small muted">오답 복습에는 틀린 문항과 다시 풀기 대기 문항이 남습니다. 정답으로 다시 확인하면 목록에서 빠집니다. 전체 초기화는 이 퀴즈의 답안과 오답 목록만 지웁니다.</p></aside></div>';
 }
 function timeFormat(t){let m=Math.floor(t/60),s=t%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
 function timerDisplay(){const el=$('#practiceTimer');if(el)el.textContent=timeFormat(state.threeMinutes)}
@@ -290,14 +326,19 @@ function tick(){if(!state.clockActive)return;state.threeMinutes=Math.max(0,Math.
 async function init(){
  routeFromUrl();
  try{
- const urls=['/content.json','/luka-deep.json','/cofa-chapters.json','/portal-content.json','/source-manifest.json','/learning-guide.json','/beginner-guide.json'];
+ const urls=['/content.json','/luka-deep.json','/cofa-chapters.json','/portal-content.json','/source-manifest.json','/learning-guide.json','/beginner-guide.json','/learning-path.json','/deep-analysis.json'];
  const data=await Promise.all(urls.map(async url=>{const r=await fetch(url);if(!r.ok)throw Error(url+' · HTTP '+r.status);return r.json()}));
- [state.content,state.luka,state.legacy,state.portal,state.manifest,state.guide,state.beginner]=data;
+ [state.content,state.luka,state.legacy,state.portal,state.manifest,state.guide,state.beginner,state.path,state.deep]=data;
  if(state.content.sections.length!==15||state.legacy.chapters.length!==14||state.portal.newChapters.length!==5||state.portal.compare.length!==3||state.portal.cases.length!==8||state.portal.drill.length!==12)throw Error('학습 자료 구조가 예상과 다릅니다.');
  buildItems();
  state.done=new Set([...state.done].filter(id=>state.items.some(x=>x.id===id)));
  state.answers=Object.fromEntries(Object.entries(state.answers).filter(([i,v])=>state.portal.drill[i]&&Number.isInteger(v)&&v>=0&&v<state.portal.drill[i][1].length));
  if(!readLocal('nondev-quiz-v1',false)){for(const i of Object.keys(state.beginner.quizOverrides))delete state.answers[i];setLocal('answers',state.answers);setLocal('nondev-quiz-v1',true)}
+ const saved=readLocal('guided-v1',{}),n=state.path.steps.length;
+ state.guided={step:0,answers:{}};
+ if(saved&&typeof saved==='object'&&saved.answers&&typeof saved.answers==='object'){for(let i=0;i<n;i++){const v=saved.answers[i];if(Number.isInteger(v)&&v>=0&&v<state.path.steps[i].options.length){state.guided.answers[i]=v;if(v!==state.path.steps[i].correct)break}else break}state.guided.step=Number.isInteger(saved.step)?Math.max(0,Math.min(saved.step,guidedLimit())):0}
+ const wrong=readLocal('review-wrong',[]);state.reviewWrong=new Set((Array.isArray(wrong)?wrong:[]).filter(i=>Number.isInteger(i)&&quizQuestions()[i]));
+ for(const [i,v]of Object.entries(state.answers)){if(v!==quizQuestions()[i][2])state.reviewWrong.add(Number(i));else state.reviewWrong.delete(Number(i))}
  const oldKey='skh_round2_unified_20261025_';
  try{
  const old=JSON.parse(localStorage.getItem(oldKey+'done')||'[]');if(Array.isArray(old))old.forEach(id=>{if(state.items.some(x=>x.id==='old-'+id))state.done.add('old-'+id)});
@@ -318,9 +359,16 @@ if(ac==='skip-main'){ev.preventDefault();const main=$('#screen');main.focus();ma
 if(ac==='jump-heading'){const heading=document.getElementById(btn.dataset.id);if(heading){heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});heading.scrollIntoView({block:'start',behavior:'instant'})}return}
 if(ac==='reload'){location.reload();return}
 if(ac==='open-source'){if(!displayItems().some(x=>x.id===btn.dataset.id)){state.search='';state.sourceFilter='all'}route('library',btn.dataset.id,false);const article=$('.library-main');if(article)article.scrollIntoView({behavior:'instant',block:'start'});return}
-if(ac==='toggle-done'){state.done.has(btn.dataset.id)?state.done.delete(btn.dataset.id):state.done.add(btn.dataset.id);saveDone();const marked=state.done.has(btn.dataset.id);btn.textContent=marked?'완료 취소':'이 장 학습 완료 ✓';btn.classList.toggle('primary',!marked);btn.classList.toggle('soft',marked);toast(marked?'학습 완료로 표시했습니다.':'완료 표시를 취소했어요.');return}
+if(ac==='toggle-done'){state.done.has(btn.dataset.id)?state.done.delete(btn.dataset.id):state.done.add(btn.dataset.id);saveDone();const marked=state.done.has(btn.dataset.id);btn.textContent=marked?'읽음 취소':'이 글 읽음으로 표시';btn.classList.toggle('primary',!marked);btn.classList.toggle('soft',marked);toast(marked?'읽음으로 표시했습니다. 이해 여부는 별도로 확인하세요.':'읽음 표시를 취소했어요.');return}
 if(ac==='source-filter'){state.sourceFilter=btn.dataset.filter;const visible=displayItems();if(visible.length&&!visible.some(x=>x.id===state.selected))state.selected=visible[0].id;syncUrl();render();return}
 if(ac==='practice-mode'){state.practiceMode=btn.dataset.mode;syncUrl(true);render();return}
+if(ac==='guided-answer'){const q=state.path.steps[state.guided.step],j=Number(btn.dataset.option);if(state.guided.answers[state.guided.step]!==undefined||!Number.isInteger(j)||j<0||j>=q.options.length)return;state.guided.answers[state.guided.step]=j;saveGuided();render();const el=$('#guidedQuestion');if(el)el.focus({preventScroll:true});return}
+if(ac==='guided-retry'){if(!guidedCorrect(state.guided.step)){delete state.guided.answers[state.guided.step];saveGuided();render();const el=$('#guidedQuestion');if(el)el.focus({preventScroll:true})}return}
+if(ac==='guided-next'){if(guidedCorrect(state.guided.step))moveGuided(state.guided.step+1);return}
+if(ac==='guided-jump'){moveGuided(Number(btn.dataset.index));return}
+if(ac==='guided-reset'){state.guided={step:0,answers:{}};saveGuided();render();return}
+if(ac==='review-filter'){if(['all','wrong','unanswered'].includes(btn.dataset.filter)){state.reviewFilter=btn.dataset.filter;render()}return}
+if(ac==='retry-answer'){const i=Number(btn.dataset.index);if(!quizQuestions()[i]||state.answers[i]===undefined)return;delete state.answers[i];setLocal('answers',state.answers);render();return}
 if(ac==='session-start'){if(!state.sessionUntil&&state.sessionRemain){state.sessionUntil=Date.now()+state.sessionRemain*1000;state.sessionHandle=setInterval(sessionTick,500);saveSession();sessionTick()}return}
 if(ac==='session-pause'){sessionTick();state.sessionUntil=0;clearInterval(state.sessionHandle);state.sessionHandle=null;saveSession();return}
 if(ac==='session-reset'){state.sessionUntil=0;state.sessionRemain=14400;clearInterval(state.sessionHandle);state.sessionHandle=null;saveSession();sessionTick();return}
@@ -329,8 +377,8 @@ if(ac==='choose-case'){state.caseId=btn.dataset.id;state.reveal=false;render();r
 if(ac==='reveal-solution'){state.reveal=!state.reveal;render();return}
 if(ac==='choose-persona'){state.persona=btn.dataset.id;state.questions.clear();render();return}
 if(ac==='toggle-question'){const i=Number(btn.dataset.index);state.questions.has(i)?state.questions.delete(i):state.questions.add(i);render();return}
-if(ac==='answer'){const i=Number(btn.dataset.index),j=Number(btn.dataset.option);if(state.answers[i]!==undefined)return;state.answers[i]=j;setLocal('answers',state.answers);render();const node=$('#question-'+i);if(node)node.scrollIntoView({block:'nearest',behavior:'instant'});return}
-if(ac==='reset-quiz'){state.answers={};setLocal('answers',state.answers);render();return}
+if(ac==='answer'){const i=Number(btn.dataset.index),j=Number(btn.dataset.option),q=quizQuestions()[i];if(!q||!Number.isInteger(i)||!Number.isInteger(j)||j<0||j>=q[1].length||state.answers[i]!==undefined)return;state.answers[i]=j;if(j===q[2])state.reviewWrong.delete(i);else state.reviewWrong.add(i);setLocal('review-wrong',[...state.reviewWrong]);setLocal('answers',state.answers);render();const node=$('#question-'+i);if(node)node.scrollIntoView({block:'nearest',behavior:'instant'});return}
+if(ac==='reset-quiz'){state.answers={};state.reviewWrong.clear();state.reviewFilter='all';setLocal('review-wrong',[]);setLocal('answers',state.answers);render();return}
 if(ac==='timer-start'){if(state.clockActive||state.threeMinutes===0)return;state.clockActive=true;state.clockUntil=Date.now()+state.threeMinutes*1000;state.clockHandle=setInterval(tick,400);tick();return}
 if(ac==='timer-pause'){tick();stopTimer();return}
 if(ac==='timer-reset'){stopTimer();state.threeMinutes=180;timerDisplay();return}
@@ -340,7 +388,7 @@ if(ev.target.id!=='librarySearch')return;
 const el=ev.target;const cursor=el.selectionStart;state.search=el.value;
 const list=$('.source-items');if(!list)return;
 const filtered=displayItems(),selected=state.selected;
-list.innerHTML=filtered.length?filtered.map(x=>'<button class="source-option '+(selected===x.id?'active':'')+'" data-action="open-source" data-id="'+E(x.id)+'"><strong>'+E(x.title)+'</strong><span>'+E(x.category)+' · 약 '+E(x.minutes)+'분'+(state.done.has(x.id)?' · 학습 완료':'')+'</span></button>').join(''):'<p class="muted small">일치하는 자료가 없어요.</p>';
+list.innerHTML=filtered.length?filtered.map(x=>'<button class="source-option '+(selected===x.id?'active':'')+'" data-action="open-source" data-id="'+E(x.id)+'"><strong>'+E(x.title)+'</strong><span>'+E(x.category)+' · 약 '+E(x.minutes)+'분'+(state.done.has(x.id)?' · 읽음':'')+'</span></button>').join(''):'<p class="muted small">일치하는 자료가 없어요.</p>';
 if(typeof cursor==='number'&&document.activeElement===el)el.setSelectionRange(cursor,cursor);
 });
 window.addEventListener('popstate',()=>{routeFromUrl();render()});
