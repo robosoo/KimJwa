@@ -1,0 +1,48 @@
+{
+  "retrieved": "2026-10-25",
+  "origin": "https://skhynix-ai-hackathon-round2-lab.vercel.app/",
+  "files": {
+    "index.html": {
+      "bytes": 3308,
+      "sha1": "a413807ad7915a95e39889c6b8bccce494365585",
+      "sha256": "ff1a4316801f963124a7a5c0d78cd23ab27862271a34b2620109a75b8f8100e8"
+    },
+    "app.js": {
+      "bytes": 34085,
+      "sha1": "31f65f96cf3d8be51f7a29575c2080a16abcc22d",
+      "sha256": "aeb4d60127fcc96d2eeb94e8e6bd6b284a3f4782bb45020dd86439f8d9a04edd"
+    },
+    "style.css": {
+      "bytes": 19504,
+      "sha1": "444c6595682b281a663c9768b50e4caa37761005",
+      "sha256": "1eab378ef2bcb2851b505cbffd6df205f44e819007a643997984ac8f60990b06"
+    },
+    "content.json": {
+      "bytes": 26888,
+      "sha1": "6c7dce71239c80f3f57693c0a8dcdc787d792093",
+      "sha256": "69a8ec29cb94cb3f7ad3867d0c51eea03c0860feca513304b4806d0198644fda"
+    },
+    "luka-deep.json": {
+      "bytes": 9623,
+      "sha1": "813c0396cfa7cacee60eba50b5106bd05c31b52e",
+      "sha256": "a1acc170259761598f077dfe915917c6404f6c4cf795cb136b1ba29dfc6987f8"
+    },
+    "cofa-chapters.json": {
+      "bytes": 34427,
+      "sha1": "a35a50f9efa83e515ca9c21b33b45b762036b3a0",
+      "sha256": "86f19d85f433f42e65108c0570b669f019f66601ec3b7efce377f76f6277b4fd"
+    },
+    "portal-content.json": {
+      "bytes": 27614,
+      "sha1": "ff4c79003ca3564b037b77ac52728b0c3234fedc",
+      "sha256": "58e529cb339246f85705f7680f471a425abde83f7097a88622f6891e50dd1546"
+    },
+    "vercel.json": {
+      "bytes": 928,
+      "sha1": "09fdd40850961aa8c6a13b753f778b7c773f4c44",
+      "sha256": "daf3b17f190954c124d5f7dd552f9a4a7031cdc1a4729ba47310b8e42e623b6c"
+    }
+  },
+  "deploymentId": "dpl_7h9HuP4wmmjiXK8ikCkUMkNipawR",
+  "fileListVerified": true
+}

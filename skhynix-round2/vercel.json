@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/cofa-probe.html",
+      "destination": "/?tab=library",
+      "permanent": false
+    },
+    {
+      "source": "/cofa-luka.html",
+      "destination": "/?tab=library&id=luka-depth",
+      "permanent": false
+    },
+    {
+      "source": "/cofa-luka-deep.html",
+      "destination": "/?tab=library&id=luka-depth",
+      "permanent": false
+    },
+    {
+      "source": "/cofa-sim.html",
+      "destination": "/?tab=practice",
+      "permanent": false
+    },
+    {
+      "source": "/old-round2-data.html",
+      "destination": "/?tab=practice",
+      "permanent": false
+    },
+    {
+      "source": "/old-cofa-case.html",
+      "destination": "/?tab=practice",
+      "permanent": false
+    },
+    {
+      "source": "/old-cofa-luka.html",
+      "destination": "/?tab=library&id=luka-depth",
+      "permanent": false
+    }
+  ]
+}
