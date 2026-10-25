@@ -13,7 +13,7 @@ function saveDone(){setLocal('done',[...state.done]);renderProgress()}
 function renderProgress(){const all=state.items.length||1,pct=Math.round(state.done.size/all*100);const side=$('#sideProgress'),fill=$('#sideProgressFill');if(side)side.textContent=pct+'%';if(fill)fill.style.width=Math.max(0,Math.min(100,pct))+'%'}
 function labelFor(tab){return {learn:'학습 로드맵',library:'심층 자료실',practice:'실전 연습',review:'이해도 점검'}[tab]||'학습'}
 function syncUrl(){try{const q=new URLSearchParams(location.search);q.set('tab',state.tab);if(state.tab==='library')q.set('id',state.selected);else q.delete('id');history.replaceState(null,'',location.pathname+'?'+q.toString())}catch(_){}}
-function route(tab,id,scroll=true){if(!routes.includes(tab))return;state.tab=tab;if(id)state.selected=id;state.search='';state.sourceFilter='all';syncUrl();render();if(scroll)window.scrollTo({top:0,behavior:'instant'})}
+function route(tab,id,scroll=true){if(!routes.includes(tab))return;state.tab=tab;if(id)state.selected=id;state.search='';state.sourceFilter='all';syncUrl();render();if(scroll)window.scrollTo({top:0,behavior:'auto'})}
 function sanitizeUrl(url){try{const u=new URL(String(url));return (u.protocol==='https:'||u.protocol==='http:')?u.href:''}catch(_){return ''}}
 function sourceLink(url,label='원문 열기 ↗'){const safe=sanitizeUrl(url);return safe?'<a href="'+E(safe)+'" class="button" target="_blank" rel="noopener noreferrer">'+E(label)+'</a>':''}
 function badges(list){return list.filter(Boolean).map(x=>'<span class="pill">'+E(x)+'</span>').join('')}
@@ -197,9 +197,9 @@ if(btn.dataset.nav){route(btn.dataset.nav);return}
 const ac=btn.dataset.action;
 if(ac==='navigate'){route(btn.dataset.tab);return}
 if(ac==='reload'){location.reload();return}
-if(ac==='open-source'){route('library',btn.dataset.id);return}
+if(ac==='open-source'){const same=state.tab==='library';route('library',btn.dataset.id,!same);if(typeof window.matchMedia==='function'&&window.matchMedia('(max-width:930px)').matches){const article=$('.library-main');if(article)article.scrollIntoView({behavior:same?'smooth':'auto',block:'start'})}return}
 if(ac==='toggle-done'){state.done.has(btn.dataset.id)?state.done.delete(btn.dataset.id):state.done.add(btn.dataset.id);saveDone();toast(state.done.has(btn.dataset.id)?'학습 완료로 표시했습니다.':'완료 표시를 취소했어요.');render();return}
-if(ac==='source-filter'){state.sourceFilter=btn.dataset.filter;render();return}
+if(ac==='source-filter'){state.sourceFilter=btn.dataset.filter;const visible=displayItems();if(visible.length&&!visible.some(x=>x.id===state.selected))state.selected=visible[0].id;render();return}
 if(ac==='practice-mode'){state.practiceMode=btn.dataset.mode;render();return}
 if(ac==='choose-case'){state.caseId=btn.dataset.id;state.reveal=false;render();return}
 if(ac==='reveal-solution'){state.reveal=!state.reveal;render();return}
