@@ -1,0 +1,236 @@
+{
+  "date": "2026-10-25",
+  "passed": 51,
+  "checks": [
+    {
+      "name": "14 core chapters",
+      "status": "PASS"
+    },
+    {
+      "name": "5 additional chapters",
+      "status": "PASS"
+    },
+    {
+      "name": "8 cases and 12 quizzes",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: official",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: video",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: josh",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: luka",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: seo",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: johnny",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: choi",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: junho",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: dongje",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: cjofficial",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: cofathon",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: usecase",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: console",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: gist",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: giran",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: honam",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: jiypark",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: junho-post",
+      "status": "PASS"
+    },
+    {
+      "name": "title/question/facts: meta",
+      "status": "PASS"
+    },
+    {
+      "name": "Lot source row correction",
+      "status": "PASS"
+    },
+    {
+      "name": "Lot weighted rate",
+      "status": "PASS"
+    },
+    {
+      "name": "R2 weighted rate",
+      "status": "PASS"
+    },
+    {
+      "name": "Crossed E1/E2, R1/R2 observations",
+      "status": "PASS"
+    },
+    {
+      "name": "AB total and percentage-point delta",
+      "status": "PASS"
+    },
+    {
+      "name": "Spec normal/operating mismatch",
+      "status": "PASS"
+    },
+    {
+      "name": "Inventory capacity",
+      "status": "PASS"
+    },
+    {
+      "name": "Urgent B shortage remains explicit",
+      "status": "PASS"
+    },
+    {
+      "name": "Supplier percentages and sample",
+      "status": "PASS"
+    },
+    {
+      "name": "Schedule hours and approval separated",
+      "status": "PASS"
+    },
+    {
+      "name": "All four decision explanations for every case",
+      "status": "PASS"
+    },
+    {
+      "name": "Five comparison sections with sources",
+      "status": "PASS"
+    },
+    {
+      "name": "Every quiz has valid key and explanation",
+      "status": "PASS"
+    },
+    {
+      "name": "Luka required topic: 225",
+      "status": "PASS"
+    },
+    {
+      "name": "Luka required topic: README",
+      "status": "PASS"
+    },
+    {
+      "name": "Luka required topic: INTERVIEW.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Luka required topic: CLAUDE.md",
+      "status": "PASS"
+    },
+    {
+      "name": "Luka required topic: STATE",
+      "status": "PASS"
+    },
+    {
+      "name": "Luka required topic: Codex",
+      "status": "PASS"
+    },
+    {
+      "name": "Luka required topic: Compact",
+      "status": "PASS"
+    },
+    {
+      "name": "Luka required topic: Handoff",
+      "status": "PASS"
+    },
+    {
+      "name": "Luka required topic: Technique",
+      "status": "PASS"
+    },
+    {
+      "name": "Luka required topic: Intent",
+      "status": "PASS"
+    },
+    {
+      "name": "Luka required topic: Cognition",
+      "status": "PASS"
+    },
+    {
+      "name": "Luka required topic: Communication",
+      "status": "PASS"
+    },
+    {
+      "name": "Brand normal-text contrast #111111/#F47725",
+      "status": "PASS"
+    },
+    {
+      "name": "Brand normal-text contrast #913b00/#ffffff",
+      "status": "PASS"
+    },
+    {
+      "name": "Brand normal-text contrast #626262/#f7f6f4",
+      "status": "PASS"
+    },
+    {
+      "name": "Brand normal-text contrast #d1d1d1/#171717",
+      "status": "PASS"
+    }
+  ],
+  "contrast": [
+    {
+      "foreground": "#111111",
+      "background": "#F47725",
+      "ratio": 6.75
+    },
+    {
+      "foreground": "#913b00",
+      "background": "#ffffff",
+      "ratio": 7.42
+    },
+    {
+      "foreground": "#626262",
+      "background": "#f7f6f4",
+      "ratio": 5.65
+    },
+    {
+      "foreground": "#d1d1d1",
+      "background": "#171717",
+      "ratio": 11.74
+    }
+  ],
+  "limitations": [
+    "No semiconductor process causal effects or device damage thresholds are inferred.",
+    "Raw files remain unchanged; source-row and confounding corrections appear in the application."
+  ]
+}

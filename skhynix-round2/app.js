@@ -34,7 +34,7 @@ function syncUrl(push=false){
 }
 function route(tab,id,scroll=true){
  if(!routes.includes(tab))return;state.tab=tab;if(id)state.selected=id;
- syncUrl(true);render();if(scroll)window.scrollTo({top:0,behavior:'instant'});
+ syncUrl(true);render();const selectedOption=$('.source-option.active');if(selectedOption)selectedOption.scrollIntoView({block:'nearest',behavior:'instant'});if(scroll)window.scrollTo({top:0,behavior:'instant'});
  const target=state.tab==='library'?$('.library-main'):$('#screen');
  if(target){target.setAttribute('tabindex','-1');target.focus({preventScroll:true})}
 }
@@ -80,14 +80,15 @@ return '<div class="section-margin">'+hero('선택의 이유까지,\n직접 설�
 {num:'06',title:'개념과 함정 12문항 점검',desc:'틀리기 쉬운 경계조건 위주로 회귀 연습',tab:'review'}
 ].map(c=>'<button class="roadmap-step" data-action="'+(c.tab?'navigate':'open-source')+'" '+(c.tab?'data-tab="'+c.tab+'"'+(c.mode?' data-mode="'+c.mode+'"':''):'data-id="'+c.id+'"')+'"><span class="num">'+c.num+'</span><span><strong>'+E(c.title)+'</strong><small>'+E(c.desc)+'</small></span><span class="go">›</span></button>').join('')+'</div>'+
 '<div class="subhead-row"><h2>읽기 전에 기억할 두 가지</h2></div><div class="insight-grid"><div class="surface insight-card"><span class="icon-circle">◎</span><h3>과정과 결과를 함께 확인</h3><p>AI가 ‘완료’라고 말해도 실제 코드를 실행한 증거는 아닙니다. 먼저 입력·기대 결과·실행 로그를 확인합니다.</p></div><div class="surface insight-card"><span class="icon-circle">⌘</span><h3>다른 행사의 규칙은 구분</h3><p>7월 코파톤에서 사용한 모델·배점·질문 수를 10월 SK하이닉스 2차의 확정 규정으로 옮기지 않습니다.</p></div></div>'+
-'<p class="footer-meta">자료: KRAFTON Cofa 공식 소개, 개발자 인터뷰 영상, 코파톤 공개 참가자 회고, 사용자 제공 정리문. 실제 출제문항과 무관한 학습용 사례는 별도로 표시합니다.</p>';
+'<div class="source-note"><strong>SK하이닉스 공식 2차 안내</strong><p>2차 예선은 10월 31일~11월 1일 중 1일, 온라인 AI Native 역량 검증으로 안내되어 있습니다. 개인별 응시시간과 허용 도구는 주최측 개별 안내를 확인하세요.</p><div class="inline-actions">'+sourceLink('https://skhynix-hackathon.com/ai-2026','대회 공식 안내 ↗')+sourceLink('https://talent.skhynix.com/hub/ko/company/story/237','SK하이닉스 공식 설명 ↗')+'</div></div><p class="footer-meta">자료: KRAFTON Cofa 공식 소개, 개발자 인터뷰 영상, 코파톤 공개 참가자 회고, 사용자 제공 정리문. 실제 출제문항과 무관한 학습용 사례는 별도로 표시합니다.</p>';
 }
 function displayItems(){return state.items.filter(x=>{let group=getGroup(x);if(state.sourceFilter!=='all'&&state.sourceFilter!==group)return false;const q=state.search.trim().toLowerCase();return !q||[x.title,x.subtitle,x.category,x.data?.thesis||'',x.data?.title||''].join(' ').toLowerCase().includes(q)})}
 function renderLibrary(){
+const sources=[...state.manifest.sourceRecords,...(state.manifest.officialHackathonReferences||[])];
 const count=state.items.length,selected=state.items.find(x=>x.id===state.selected)||state.items[0],filtered=displayItems();
 return '<div class="section-margin">'+hero('읽고 이해하는 자료실','원문 근거 · 깊이 읽기','공식 자료와 실제 후기를 읽고, 관찰·해석·가상 사례를 구분합니다. 모바일에서는 자료를 선택하면 본문으로 이동합니다.')+'</div>'+
 '<div class="library-shell"><div class="library-nav surface"><h3>자료 목차 <span class="pill">'+count+'개</span></h3><input class="search" id="librarySearch" aria-label="자료 검색" type="search" placeholder="자료·사람·개념 검색" value="'+E(state.search)+'"><div class="filter-row">'+[['all','전체'],['video','개발자 인터뷰'],['people','참가자 후기'],['official','공식·보도'],['reference','보조·미확인']].map(a=>'<button class="filter-btn '+(state.sourceFilter===a[0]?'active':'')+'" data-action="source-filter" data-filter="'+a[0]+'">'+a[1]+'</button>').join('')+'</div><div class="source-items">'+(filtered.length?filtered.map(x=>'<button class="source-option '+(selected?.id===x.id?'active':'')+'" data-action="open-source" data-id="'+E(x.id)+'"><strong>'+E(x.title)+'</strong><span>'+E(x.category)+' · 약 '+E(x.minutes)+'분'+(state.done.has(x.id)?' · 학습 완료':'')+'</span></button>').join(''):'<p class="muted small">일치하는 자료가 없어요.</p>')+'</div></div>'+
-'<article class="library-main surface" tabindex="-1" aria-label="학습 본문">'+(selected?renderArticle(selected):'<div class="content-card">불러온 자료가 없습니다.</div>')+'</article></div><details class="source-catalog surface"><summary>전체 원문 출처 · '+state.manifest.sourceRecords.length+'개</summary><div class="catalog-grid">'+state.manifest.sourceRecords.map(x=>'<div><strong>'+E(x.title)+'</strong><p>'+E(x.study_summary)+'</p>'+sourceLink(x.url)+'</div>').join('')+'</div></details>';
+'<article class="library-main surface" tabindex="-1" aria-label="학습 본문">'+(selected?renderArticle(selected):'<div class="content-card">불러온 자료가 없습니다.</div>')+'</article></div><details class="source-catalog surface"><summary>전체 원문 출처 · '+sources.length+'개</summary><div class="catalog-grid">'+sources.map(x=>'<div><strong>'+E(x.title)+'</strong><p>'+E(x.study_summary)+'</p>'+sourceLink(x.url)+'</div>').join('')+'</div></details>';
 }
 function articleHeader(item,summary,kind,caution){
  const record=state.manifest.sourceRecords.find(x=>x.url===item.source);
@@ -276,7 +277,7 @@ if(ac==='navigate'){if(btn.dataset.mode)state.practiceMode=btn.dataset.mode;rout
 if(ac==='skip-main'){ev.preventDefault();const main=$('#screen');main.focus();main.scrollIntoView({block:'start',behavior:'instant'});return}
 if(ac==='jump-heading'){const heading=document.getElementById(btn.dataset.id);if(heading){heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});heading.scrollIntoView({block:'start',behavior:'instant'})}return}
 if(ac==='reload'){location.reload();return}
-if(ac==='open-source'){if(!displayItems().some(x=>x.id===btn.dataset.id)){state.search='';state.sourceFilter='all'}const same=state.tab==='library';route('library',btn.dataset.id,!same);if(typeof window.matchMedia==='function'&&window.matchMedia('(max-width:700px)').matches){const article=$('.library-main');if(article)article.scrollIntoView({behavior:'instant',block:'start'})}return}
+if(ac==='open-source'){if(!displayItems().some(x=>x.id===btn.dataset.id)){state.search='';state.sourceFilter='all'}route('library',btn.dataset.id,false);const article=$('.library-main');if(article)article.scrollIntoView({behavior:'instant',block:'start'});return}
 if(ac==='toggle-done'){state.done.has(btn.dataset.id)?state.done.delete(btn.dataset.id):state.done.add(btn.dataset.id);saveDone();const marked=state.done.has(btn.dataset.id);btn.textContent=marked?'완료 취소':'이 장 학습 완료 ✓';btn.classList.toggle('primary',!marked);btn.classList.toggle('soft',marked);toast(marked?'학습 완료로 표시했습니다.':'완료 표시를 취소했어요.');return}
 if(ac==='source-filter'){state.sourceFilter=btn.dataset.filter;const visible=displayItems();if(visible.length&&!visible.some(x=>x.id===state.selected))state.selected=visible[0].id;syncUrl();render();return}
 if(ac==='practice-mode'){state.practiceMode=btn.dataset.mode;syncUrl(true);render();return}

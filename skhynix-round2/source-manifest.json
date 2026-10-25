@@ -593,5 +593,49 @@
   "activeArticleCount": 36,
   "originalDataFilesUnmodified": true,
   "metadataPolicy": "원문 제목·작성일 미확인은 null. 기존 요약의 모든 문장을 새로 검증했다고 주장하지 않는다. confirmed_facts는 출처의 기록이며 독립 검증된 실험 결과가 아니다.",
-  "strategyComparisonCount": 5
+  "strategyComparisonCount": 5,
+  "designReferences": [
+    {
+      "url": "https://www.skhynix.com/company/UI-FR-CP0402/",
+      "purpose": "SK Orange HEX #F47725 및 Black #000000 참고",
+      "checked_at": "2026-10-25"
+    },
+    {
+      "url": "https://skhynix-hackathon.com/ai-2026",
+      "purpose": "검은색·주황색 대비와 강한 정보 위계 참고. 이미지·로고·문구 디자인 자산 복제 없음.",
+      "checked_at": "2026-10-25"
+    }
+  ],
+  "officialHackathonReferences": [
+    {
+      "id": "hynix-event",
+      "title": "SK하이닉스 AI 해커톤 2026",
+      "original_title": "SK하이닉스 AI 해커톤 2026 | 총상금 1억원, 채용 연계",
+      "author_or_publisher": "SK하이닉스 / 멋쟁이사자처럼",
+      "published_at": null,
+      "event_date": "2026-10-31~2026-11-01",
+      "url": "https://skhynix-hackathon.com/ai-2026",
+      "evidence_type": "official",
+      "study_summary": "2차 예선은 10월 31일~11월 1일 중 1일, 온라인 AI Native 역량 검증으로 안내한다.",
+      "verification": {
+        "status": "원문 확인",
+        "note": "공식 이벤트 페이지의 2차 날짜와 평가 단계 설명을 확인. 시간·모델·반입 허용·세부 배점은 이 페이지로 확정할 수 없음."
+      }
+    },
+    {
+      "id": "hynix-talent",
+      "title": "SK하이닉스 AI 실전 역량 해커톤 개최",
+      "original_title": "SK하이닉스, AI 실전 역량 겨루는 해커톤 개최",
+      "author_or_publisher": "SK하이닉스 Talent Hub",
+      "published_at": null,
+      "event_date": "2026-11-11",
+      "url": "https://talent.skhynix.com/hub/ko/company/story/237",
+      "evidence_type": "official",
+      "study_summary": "문제 정의·AI 활용·결과 검증과 과정·결과를 평가한다는 공식 설명.",
+      "verification": {
+        "status": "원문 확인",
+        "note": "해당 글에서 확인한 범위로 제한. SK하이닉스가 언급한 평가 원칙과 Cofa 개발자 설명을 연결하는 공식 자료."
+      }
+    }
+  ]
 }

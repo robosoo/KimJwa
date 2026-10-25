@@ -1,94 +1,62 @@
-# Round 2 Cofa Probe — HANDOFF / 운영 인수인계
+# 2차 학습센터 인수인계
 
-Updated: 2026-10-25 · Asia/Seoul
-GitHub repo: https://github.com/robosoo/KimJwa
-Active working branch: `skhynix-round2-unified-20261025`
-Source directory: `skhynix-round2/`
-Vercel project: `skhynix-ai-hackathon-round2-lab`
-Production URL: https://skhynix-ai-hackathon-round2-lab.vercel.app/
+갱신: 2026-10-25 · Asia/Seoul
+저장소: robosoo/KimJwa
+브랜치: skhynix-round2-unified-20261025
+작업 범위: skhynix-round2/
+운영 URL: https://skhynix-ai-hackathon-round2-lab.vercel.app/
 
-## Required user experience
+## 현재 릴리스 상태
 
-- One calm responsive application, no more scattered content pages or repeated navigation into new tabs.
-- Four fixed sections: 시작하기 / 후기·근거 / 전략·실습 / 이해도 확인.
-- On desktop/iPad, selecting a source swaps the adjacent article; on small mobile screens, it scrolls to the article.
-- On mobile, a compact four-tab sticky bottom navigation.
-- Original source links are explicitly marked and can open separately. In-app study, article choice, comparison, quiz and case selection do not open another page.
-- No fake AI chat or text-entry response boxes. Search bar remains for finding articles.
-- Personal read status, quiz answers, and local 4-hour countdown are stored in localStorage on the device; do not claim cross-device sync.
-- No older Round 1 content in the active Round 2 menu. Keep old project material in historical GitHub folders rather than deleting valuable originals.
-- External source evidence, participant interpretation, and fictional educational cases must remain visibly distinct.
+- 시작 시 Production: dpl_7h9HuP4wmmjiXK8ikCkUMkNipawR, READY 확인.
+- 최종 검증 Preview: dpl_AM95xt5xug4KLG2jgjbHdjKRu2kf, 동일 프로젝트의 정적 앱.
+- Preview: https://skhynix-ai-hackathon-round2-1qihf2yg3-ctpmfd42hf-8757.vercel.app/
+- Production 교체 전 점검 완료. 아래 Production 결과 절은 배포 후 갱신한다.
 
-## Actual implemented source structure
+## 완료한 작업
 
-`index.html`: responsive shell and typography design, four navigation tabs.
-`study-app.js`: live client navigation, 19 articles, source filters/search, Luka expanded historical analysis, 3 strategy comparisons, 8 case scenarios, 12 self-check questions, responsive article focus, timer, local progress.
-`source-manifest.json`: verified/collected source inventory with evidence types and original URL.
-`cofa-probe.html`, `cofa-sim.html`, `cofa-luka.html`, `cofa-luka-deep.html`: backward-compatible redirect shims into the unified app.
-`README.md`: architecture overview and source-boundary rules.
+1. Production 원본 8개 파일을 파일 목록·UID와 대조하여 복구했다. 원본 복구 커밋은 6d17af15cdbd11e5cbaef5bb9ca9522fe422cfd6다.
+2. 두 기존 JSON의 raw SHA-1은 각각 a35a50f9efa83e515ca9c21b33b45b762036b3a0 / ff4c79003ca3564b037b77ac52728b0c3234fedc와 일치한다. JSON 키·원본 내용은 변경하지 않았다.
+3. 14개 핵심 장, 추가 5장, 실습 8개, 퀴즈 12개, 영상 15단원, Luka 심화 11단원을 보존했다. 기존 Production이 목록에서 제외한 Luka 핵심 장도 다시 접근 가능하게 했다.
+4. 개발자 대담을 학습의 중심에 두는 핵심 교재를 추가했다. 8개 우선순위, 세 축의 서로 다른 증거, 관찰·해석·규정의 경계, Cost Engineering과 단위, 의도·인지 부채를 설명한다.
+5. 기존 비교 3개에 E2E 및 테스트/사후설명 비교를 보태 5개를 제공한다. 원문 링크와 적용 조건·반례를 연결했다.
+6. 실습 8개마다 요구 이해 → 선택·기각 → 검증 증거 → 취약점 설명의 해설을 연결했다. Lot의 잘못된 행 수와 완전 교란 주장을 화면에서 정정했다. 원본 데이터는 그대로 보존했다.
+7. 최상위 메뉴를 시작하기 / 후기·근거 / 전략·실습 / 이해도 확인으로 통일했다. 작동하지 않는 AI 입력창·답안 작성칸은 없다.
+8. 읽기 글자·행간·본문 폭, 검색·필터, 출처 메타데이터, 글 목차, 내부 관련 글, 읽음·퀴즈 저장, 타이머와 공유 URL 호환성을 점검했다.
+9. 주황·검정 테마를 사용자의 마지막 요청에 따라 반영했다. 공식 CI의 HEX 및 공식 해커톤의 시각 위계를 참고했으며 자산을 복제하지 않았다. brand.css에 분리했다.
 
-## Vercel data files referenced by the application
+## 실제 검증
 
-The page fetches:
-- `/cofa-chapters.json` — 14 original in-depth articles (deployed file SHA `a35a50f9efa83e515ca9c21b33b45b762036b3a0`)
-- `/portal-content.json` — 5 additional detailed firsthand/official stories, 3 participant strategy comparisons, 8 fictional practical assignments, 12 verification questions (deployed file SHA `ff4c79003ca3564b037b77ac52728b0c3234fedc`)
+- Node VM 기능 검사 22개 PASS: reports/validation.json.
+- 데이터·계산·필수 주제·주요 색 대비 검사 51개 PASS: reports/data-audit.json.
+- Cloud Chrome Playwright locator API로 390/844/768/1024/1440 CSS px에서 네 메뉴, 가로 넘침과 스크린샷을 확인했다. 각 화면의 앱 scrollWidth와 clientWidth가 같았다.
+- 실제 브라우저에서 5개 전략 비교, 8개 문제·첨부·해설 토글·판단 해설, 두 가상 실무자, 12개 정답·오답·초기화·관련 글 이동, 읽음·퀴즈·4시간 타이머의 직접 페이지 새로고침 유지, 3분 타이머를 확인했다.
+- 390px 본문 top 약 11.72px, 768/1024px 약 20px로 선택 후 이동했다. 선택 목차도 목록 안에 보이도록 유지한다.
+- HTTP 링크 검사 19개 중 18개 reachable, 프로필 1개 접근 제한(999). 404로 오분류하지 않았다. HTTP 성공은 원문 주장의 검증과 다르다.
+- Cloud Chrome의 확장 프로그램 metadata 오류가 관찰됐다. 앱 원인으로 오분류하지 않는다. 무제한·전수 운영 로그 모니터링을 했다는 의미는 아니다.
 
-**Important:** At this milestone, the complete two full-size JSON data file bodies are preserved and served by Vercel deployments and referenced by SHA. `source-manifest.json` in GitHub contains the 19 original source pointers, but is not a byte-for-byte mirror of those two JSON files. A future task should ensure the long-form data JSON files are also mirrored into GitHub if access to their full bodies is available. Do not falsely claim they are already mirrored there.
+## 검증 한계와 다음 우선순위
 
-## Central firsthand Cofathon case
+- 실물 iPhone/iPad, Safari/VoiceOver, 실제 기기 safe-area는 미검증이다. 다섯 화면 검사는 실제 Chrome iframe viewport이며 실물 기기 검사가 아니다.
+- 로컬 Chromium 설치는 다운로드 실패. standalone browser-smoke.mjs는 재현용 코드이며 이번 검증은 Cloud Chrome에서 수행했다. 설치 실패를 테스트 성공으로 표시하지 않는다.
+- 스크린샷은 대화의 브라우저 검증 세션에서 생성·검토했다. 바이너리 파일은 저장소로 내보내지 못했다.
+- 일부 LinkedIn 정확한 작성일과 영상 게시일은 미확인으로 남겼다. source-manifest의 null을 임의로 채우지 않는다.
+- 개발자 설명은 제품이 측정하려는 역량의 핵심 근거다. 특정 행동의 점수와 SK하이닉스의 시간·모델·파일 반입 규정까지 확정하는 자료는 아니다.
+- 향후 우선순위: 실제 기기 Safari 확인 → 주최측 개별 2차 안내가 새로 제공될 때 범위 갱신 → 원문 접근 제한 자료의 세부 문장 재대조.
 
-Luka, `https://brunch.co.kr/@luma/5`, Aug 2 2026, describes the Jul 30 Krafton FDE Top 6 experience:
-- 11:15 start, ~15:00 finish of 225-min build; five follow-up questions reported in 15:00–15:20 period, 3 minutes per question.
-- Original README supplied more detail than expected, limiting autonomous problem discovery.
-- `INTERVIEW.md` inquiry, written agreement, `CLAUDE.md` judgement principles, 7-step STATE tracking, independent Codex review, Handoff gaps.
-- Observed Technique, Intent, Cognition each 100-point axis and FDE-specific Communication with unknown point value.
-- Q&A answer logic: locate real code weakness → explain failure impact → propose same-condition test and improvement.
-- The participant criticizes scoring opacity, over-detailed README, similar deliverables and possible excess overhead for reusable harnesses.
-- **NOT** a source for specific SK hynix Oct 31 scoring, allowed model/tool or fixed Q&A count.
+## 운영과 복구
 
-Other contrasting firsthand cases:
-- O Giran: prepared harness had more setup overhead than value for already specified Olive Young task.
-- jiypark: Top6 participant lost 20–30min on harness environment then focused MVP.
-- Kang Ho-nam: good product intent did not translate automatically into correct code-level Q&A.
-- JunWon Seo: FDE winner's Ask → Build Small → Verify workflow.
-- CJ Olive Young cases: marketing safety rules, SKU validation, publication authorization, feedback-loop incompleteness.
+- Runtime 배포 파일: index.html, app.js, style.css, brand.css, content.json, luka-deep.json, cofa-chapters.json, portal-content.json, source-manifest.json, learning-guide.json, vercel.json, cofa-probe.html, cofa-luka.html, cofa-luka-deep.html, cofa-sim.html.
+- Preview 전용 tests/viewport.html 및 archive·보고서·테스트 코드는 Production 패키지에서 제외한다.
+- hash routes: #start, #learn/creator-guide, #learn/luka-depth, #practice/compare, #practice/cases, #quiz. 기존 ?tab=library&id=..., #learn/luka 및 cofa-*.html 이동을 지원한다.
+- 로컬 데이터는 해당 브라우저에만 저장된다. 기기 간 동기화는 없다.
+- 기존 1차 폴더·main은 변경하지 않았다. 복구는 위 원본 커밋의 8개 소스를 동일 프로젝트에 배포한다.
+- Git CLI push 자격증명은 없으므로 연결된 GitHub API의 tree→commit→expected-head ref 갱신을 사용했다. 다른 브랜치나 저장소를 변경하지 않는다.
 
-## Quality and verification
+## 주요 커밋
 
-- JavaScript source compiled with `new Function(source)`: PASS.
-- Mocked runtime exercise of four routes: PASS.
-- Mocked switch to 8 practical cases: PASS.
-- Mocked reveal solutions, quiz grading, marking read: PASS.
-- Small-screen article selection scrolls into content: PASS.
-- Test checking whether a fake title contained 'Top' was a **test fixture mismatch**, not an application route failure; validate URL `#learn/luka` directly if repeated.
-- Vercel preview builds reached READY and the expected source files appeared in deployment file listings.
-- External browser screenshot/click-through tests are **not** completed. Do not claim pixel-perfect Apple-level quality as empirically established.
-
-## Production deployment checklist
-
-1. Check the latest preview deployment state is READY.
-2. Include `index.html`, `study-app.js`, `cofa-chapters.json`, `portal-content.json` and the four redirect pages.
-3. Deploy with `target:"production"`.
-4. Verify READY, expected file names and project alias after deployment.
-5. Test visible main URL and previously shared legacy links if browser access permits.
-6. Preserve source and handoff notes; never mix 1st and 2nd round regulations.
-
-## User preference
-
-Extensive logical, textbook-level prose. Human reasoning before AI output. Preserve English technical terms where natural. Link original public sources instead of long verbatim copyrighted copies. Expose what is uncertain rather than inventing exact grading.
-
-
-## 2026-10-25 PRODUCTION RELEASE VERIFIED
-
-- Deployment: `dpl_5YgvHsU5DBrUJQj9CJKFR3JuAdVs`.
-- Status verified via Vercel API: `READY`, target `production`.
-- Production alias verified: `skhynix-ai-hackathon-round2-lab.vercel.app`.
-- No password or SSO protection configured on the project.
-- Production has 8 source files: index.html, study-app.js, cofa-chapters.json, portal-content.json, and 4 backward-compatibility redirect HTML files.
-- Deployed application JS SHA1: `f229b318a30f18048b2b8fa21ff831b4768b28ad`.
-- Deployed index HTML SHA1: `03a49abbe3e88487f13a41d37f0f2e695aeb9c80`.
-- Latest GitHub code change: `5e426b24bc729390d8dbc2e5dbc3e4ee88b7000b`; includes mobile source selection scrolling into article and explicit home lesson headings.
-- Mocked runtime smoke test passed: menu rendering, mobile focus, reading completion state, next-article routing, cross-source comparisons, eight case tiles, solution reveal, twelve quiz items, quiz grading, timer reset. One older assertion tested for the word "Top" inside a fake fixture named "Source luka" and was an invalid test assertion rather than a production application defect.
-- No genuine third-party interactive browser or screenshot QA was possible here; UX may still need manual device verification. Do not call it pixel-perfect without actually checking.
-- Direct legacy paths were converted to quick redirects to hash-routed locations of the unified app.
-- GitHub `source-manifest.json` stores 19 public source URLs with evidence categories, while the two long-form JSON data bodies remain stored in Vercel by SHA rather than mirrored byte-for-byte into GitHub.
+- 61239a7: 원본 두 JSON 백업
+- 6d17af1: 원본 Production 8개 파일 복구 및 정합성 감사
+- 8b24ca5: 출처 메타데이터·개발자 핵심 교재·판단 훈련
+- b9177a1: 네 메뉴·읽기 체계·전략 복구·기능 회귀 검사
+- 이후 수정·테마 및 배포 결과는 현재 브랜치 log와 release.json에 기록한다.

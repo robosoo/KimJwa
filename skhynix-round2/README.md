@@ -1,39 +1,67 @@
-# SK hynix AI Hackathon — Round 2 Cofa Probe Study Center
+# SK하이닉스 AI 해커톤 2차 학습센터
 
-**Goal:** One-screen Korean study experience, not many independent microsites.
+개발자 구한모·조정석이 설명한 평가 의도를 읽고, 참가자의 실제 경험과 비교하며, 스스로 선택·검증·설명하는 연습을 하는 비공식 학습 서비스입니다.
 
-## Live links
-- Vercel: https://skhynix-ai-hackathon-round2-lab.vercel.app/
-- Cofa official: https://www.getcofa.com/ko/probe
-- Luka first-hand review: https://brunch.co.kr/@luma/5
-- Builder Josh original Cofa developer video: https://www.youtube.com/watch?v=CLpN3zl8noQ
+- 운영: https://skhynix-ai-hackathon-round2-lab.vercel.app/
+- 브랜치: `skhynix-round2-unified-20261025`
+- 범위: `skhynix-round2/`만 변경. 기존 1차 자료와 main은 보존합니다.
 
-## Four fixed navigation sections
-1. 시작하기 — direct learning sequence
-2. 근거·실제 후기 — all articles read in same panel; filters and detailed source provenance
-3. 전략·실전 문제 — cross-participant reasoning and eight simulated assignments
-4. 이해도 확인 — 12 QA questions with answer explanations
+## 네 메뉴와 학습 순서
 
-**Remove Round 1 from the active Round 2 navigation.** Preserve first-round files as historical material rather than destroying unrelated work. Retire separate pages `cofa-probe.html`, `cofa-luka.html`, `cofa-sim.html` as navigational destinations; support redirects into the unified app.
+| 메뉴 | 학습 내용 |
+|---|---|
+| 시작하기 | 평가 설계자의 관점 → 공식 설명 → 실제 후기 → 전략 비교 → 실습 → 확인문제 |
+| 후기·근거 | 36개 읽기 항목, 검색·유형 필터, 출처 메타데이터, 글 목차, 관련 글, 읽음 저장 |
+| 전략·실습 | 출처가 연결된 5개 전략 비교, 8개 실습, 문제 이해·선택과 기각·검증 증거·취약점 설명, 가상 실무자 문답, 4시간·3분 타이머 |
+| 이해도 확인 | 12문항 즉시 판정·해설, 관련 글, 진행률, 다시 풀기 |
 
-## Content accuracy boundaries
-- Separate original firsthand event observation, first-party corporate claim, participant interpretation, and hypothetical educational exercises.
-- Luka was Top 6 in July 30 Cofathon FDE. He recorded 225 minutes of build, then five post-deliverable questions, 3 minutes each, and observed three 100-point axes (Technique/Intent/Cognition) plus FDE-specific Communication of unknown point value. **These details do not establish SK hynix Round 2 regulations.**
-- Do not copy arbitrary personal posts in full; link original and paraphrase with rigorous analytical commentary.
-- The publicly accessible Probe login console does not prove a free unaffiliated trial is available.
-- No pretend AI chat. No write-a-response boxes that have no AI backend. Keep source links, case documents, answer explanations and timer.
+개발자 인터뷰는 평가 목적을 이해하는 핵심 자료입니다. 특정 행동의 배점, 허용 도구, 실제 시험시간은 별도 주최측 안내가 필요합니다. 7월 Cofathon의 관찰을 10월 SK하이닉스 규정으로 바꾸지 않습니다.
 
-## Source data currently served by Vercel
-- `/cofa-chapters.json`: original 14 textbook chapters (core).
-- `/portal-content.json`: 5 follow-up firsthand case analyses, 3 side-by-side strategy comparisons, 8 hypothetical practical tasks and 12 verification questions.
-- The application fetches these files at runtime. Their originally deployed file hashes are recorded in the handoff for future restoration.
+## 소스와 보존 정책
 
-## Workflow and quality gates
-- Work on GitHub branch `skhynix-round2-unified-20261025` under `skhynix-round2/` to avoid editing the old first-round study files.
-- Verify JavaScript parses before deployment and that the data contains all expected sections.
-- Deploy Vercel preview, check READY and file listing, then promote/create production only after passing validation.
-- Prefer stable URL fragment routing `#start`, `#learn/luka`, `#practice/cases`, `#quiz`; internal route changes should not launch extra tabs.
-- Content and changes documented in `HANDOFF.md`.
+| 파일 | 역할 |
+|---|---|
+| index.html / app.js | 단일 화면 구조, hash routing, 로컬 진행 상태 |
+| style.css / brand.css | 반응형 읽기 체계 / 공식 색상을 참고한 주황·검정 테마 |
+| content.json | 기존 Production의 사용자 제공 영상 정리 15단원, 접근 전략, 출처 목록 |
+| luka-deep.json | 기존 Luka 심화 복기 11단원 |
+| cofa-chapters.json / portal-content.json | 원본 14+5장, 비교 3개, 실습 8개, 문항 12개. 원본 바이트 유지 |
+| learning-guide.json | 사용자 분석을 반영한 평가 관점 핵심 교재, 추가 비교 2개, 실습 판단 해설 |
+| source-manifest.json | 기존 19개 원문과 별도 SK 공식 안내·디자인 참고, 신뢰 유형, 날짜 미확인 표시 |
+| vercel.json / cofa-*.html | 기존 공유 주소의 호환 이동 |
+| backup-manifest.json / reports/production-audit.md | 시작 시 운영본 파일 8개 SHA·크기 및 차이 |
 
-## Known limitations
-The app is a study resource, not the official Cofa test client. Quiz and example solutions are educational only. The exact user/model context window is fixed by the model configuration and cannot be increased via GitHub; this repository is the durable external handoff and context source.
+36개 읽기 항목은 영상 15단원 + Luka 심화 1항목 + 핵심 14장 + 추가 5장 + 핵심 교재 1장입니다. 같은 출처의 핵심·심화 글을 삭제하지 않고 함께 보존했습니다. 원문 URL은 중복 출처를 묶어 별도 관리합니다.
+
+원본 복구 커밋: `6d17af15cdbd11e5cbaef5bb9ca9522fe422cfd6`. 이 커밋의 원본 8개 파일로 시작 시 Production을 재현할 수 있습니다. 브랜치의 이전 UI는 `archive/pre-ui-20261025/`에도 보존했습니다.
+
+## 실행과 검증
+
+서버·AI 백엔드 없이 정적 파일로 동작합니다. 검색 외 작성칸이나 가짜 AI 채팅은 없습니다.
+
+```sh
+python -m http.server 8765 --directory skhynix-round2
+node skhynix-round2/tests/validate.mjs
+python skhynix-round2/tests/data-audit.py
+python skhynix-round2/tests/check-links.py
+```
+
+브라우저 자동화가 설치된 환경의 재현용 runner:
+
+```sh
+BASE_URL=http://127.0.0.1:8765 node skhynix-round2/tests/browser-smoke.mjs
+```
+
+2026-10-25 실제 검증은 Cloud Chrome의 Playwright locator API로 수행했습니다. 로컬 Chromium 다운로드는 실패했으므로 standalone runner를 실행해 통과했다고 주장하지 않습니다. `reports/browser-checks.json`에 실제 실행 범위를 기록합니다. 테스트용 `tests/viewport.html`은 Preview에서만 사용하며 Production 패키지에서 제외합니다.
+
+읽음·퀴즈·4시간 타이머는 해당 브라우저 localStorage에 저장됩니다. 기기 간 동기화는 제공하지 않습니다. 읽기 시간은 추정치입니다.
+
+## 운영
+
+1. 소스·데이터·수치 테스트를 실행합니다.
+2. Preview에서 390/844/768/1024/1440 CSS px의 네 메뉴를 클릭하고 화면을 검토합니다.
+3. 실제 통과한 runtime 파일만 Production에 포함합니다. archive·테스트·보고서는 공개 배포 대상에서 제외합니다.
+4. Production READY, 공식 도메인, 파일 SHA와 이전 공유 주소를 확인합니다.
+5. HANDOFF와 배포·검증 보고서를 갱신하고 브랜치에 커밋합니다.
+
+색상 참고: https://www.skhynix.com/company/UI-FR-CP0402/ 및 https://skhynix-hackathon.com/ai-2026 . 로고·배경 이미지·상표 자산은 복제하지 않았습니다.

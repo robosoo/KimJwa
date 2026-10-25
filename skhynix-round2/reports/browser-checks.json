@@ -1,0 +1,72 @@
+{
+  "checked_at": "2026-10-25",
+  "preview_id": "dpl_AM95xt5xug4KLG2jgjbHdjKRu2kf",
+  "preview_url": "https://skhynix-ai-hackathon-round2-1qihf2yg3-ctpmfd42hf-8757.vercel.app/",
+  "method": "Cloud Chrome, Playwright locators; actual same-origin iframe CSS viewport widths. Not physical iPad/Safari testing.",
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844,
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "fourMenuTransitions": "PASS",
+      "screenshot": "captured and visually reviewed in tool session; binary not exported"
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "clientWidth": 829,
+      "scrollWidth": 829,
+      "fourMenuTransitions": "PASS",
+      "screenshot": "captured and visually reviewed in tool session; binary not exported"
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "clientWidth": 753,
+      "scrollWidth": 753,
+      "fourMenuTransitions": "PASS",
+      "screenshot": "captured and visually reviewed in tool session; binary not exported"
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "clientWidth": 1009,
+      "scrollWidth": 1009,
+      "fourMenuTransitions": "PASS",
+      "screenshot": "captured and visually reviewed in tool session; binary not exported"
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "clientWidth": 1425,
+      "scrollWidth": 1425,
+      "fourMenuTransitions": "PASS",
+      "screenshot": "captured and visually reviewed in tool session; binary not exported"
+    }
+  ],
+  "functional_checks": {
+    "search_and_type_filter": "PASS: Luka + participant filter = 2 items",
+    "all_original_sources": "36 learning items accessible; source metadata and original links present",
+    "mobile_article_scroll": "PASS: article top 11.72px at 390",
+    "tablet_article_scroll": "PASS: article top approx 20px at 768/1024",
+    "selected_toc_visibility": "PASS: Luka remains visible after selecting it at 1024",
+    "five_strategy_switches": "PASS",
+    "eight_case_switches": "PASS",
+    "case_documents": "PASS",
+    "solution_show_hide": "PASS on all 8 cases",
+    "four_decision_explanations": "PASS on all 8 cases",
+    "stakeholder_personas": "PASS for both prewritten fictional personas",
+    "quiz_all_12_keys": "PASS: correct, wrong styling, explanations, reset, related lesson",
+    "read_status_reload": "PASS on direct app URL",
+    "quiz_reload": "PASS on direct app URL",
+    "four_hour_timer": "PASS: 03:59:59 pause, 04:00:00 reset; 03:59:58 after direct-page reload",
+    "three_minute_timer": "PASS: start and pause at 02:59"
+  },
+  "console_scope": "Observed Chrome extension metadata errors were extension-origin, not application-origin. This is not a claim of exhaustive runtime monitoring.",
+  "limitations": [
+    "Standalone Chromium install returned an invalid download archive; browser-smoke.mjs is a reproducible runner, not the executed evidence for this session.",
+    "Physical devices, Safari/VoiceOver and device safe-area behavior remain untested.",
+    "Viewport harness itself can scroll in the outer host; overflow measurements above refer to the application iframe."
+  ]
+}
