@@ -1,0 +1,139 @@
+{
+  "checked_at": "2026-10-25",
+  "method": "HTTP GET with Range, timeout 12s; request success is not claim verification",
+  "results": [
+    {
+      "id": "official",
+      "url": "https://www.getcofa.com/ko/probe",
+      "http_status": 200,
+      "final_url": "https://www.getcofa.com/ko/probe",
+      "classification": "reachable"
+    },
+    {
+      "id": "video",
+      "url": "https://www.youtube.com/watch?v=CLpN3zl8noQ",
+      "http_status": 200,
+      "final_url": "https://www.youtube.com/watch?v=CLpN3zl8noQ",
+      "classification": "reachable"
+    },
+    {
+      "id": "josh",
+      "url": "https://maily.so/josh/posts/x1zg69d3rqg",
+      "http_status": 200,
+      "final_url": "https://maily.so/josh/posts/x1zg69d3rqg",
+      "classification": "reachable"
+    },
+    {
+      "id": "luka",
+      "url": "https://brunch.co.kr/@luma/5",
+      "http_status": 200,
+      "final_url": "https://brunch.co.kr/@luma/5",
+      "classification": "reachable"
+    },
+    {
+      "id": "seo",
+      "url": "https://www.linkedin.com/posts/jun1seo_krafton-cofathon-fde-activity-7488593824580136960-dXK-",
+      "http_status": 200,
+      "final_url": "https://www.linkedin.com/posts/jun1seo_krafton-cofathon-fde-activity-7488593824580136960-dXK-",
+      "classification": "reachable"
+    },
+    {
+      "id": "choi",
+      "url": "https://www.etnews.com/20260813000385",
+      "http_status": 200,
+      "final_url": "https://www.etnews.com/20260813000385",
+      "classification": "reachable"
+    },
+    {
+      "id": "giran",
+      "url": "https://5giran.com/writing/cofaton-2026/",
+      "http_status": 200,
+      "final_url": "https://5giran.com/writing/cofaton-2026/",
+      "classification": "reachable"
+    },
+    {
+      "id": "jiypark",
+      "url": "https://kr.linkedin.com/posts/jiypark_%ED%81%AC%EB%9E%98%ED%94%84%ED%86%A4%EA%B3%BC-cj%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81%EC%9D%B4-%EA%B3%B5%EB%8F%99-%EA%B0%9C%EC%B5%9C%ED%95%9C-ai-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%ED%95%B4%EC%BB%A4%ED%86%A4%EC%9D%B8-%EC%BD%94%ED%8C%8C%ED%86%A4cofathon-activity-7488596302063161344-dJun",
+      "http_status": 200,
+      "final_url": "https://kr.linkedin.com/posts/jiypark_%ED%81%AC%EB%9E%98%ED%94%84%ED%86%A4%EA%B3%BC-cj%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81%EC%9D%B4-%EA%B3%B5%EB%8F%99-%EA%B0%9C%EC%B5%9C%ED%95%9C-ai-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%ED%95%B4%EC%BB%A4%ED%86%A4%EC%9D%B8-%EC%BD%94%ED%8C%8C%ED%86%A4cofathon-activity-7488596302063161344-dJun",
+      "classification": "reachable"
+    },
+    {
+      "id": "honam",
+      "url": "https://kr.linkedin.com/posts/honam-kang_ai%EA%B0%80-%EC%BD%94%EB%93%9C%EB%A5%BC-%EB%8B%A4-%EC%A7%9C%EA%B2%8C-%EB%90%98%EB%A9%B4-%EB%AD%90%EA%B0%80-%EB%82%A8%EC%9D%84%EA%B9%8C-cofathon-%EC%B0%B8%EC%97%AC-%ED%9B%84%EA%B8%B0-activity-7488901089950375936-312n",
+      "http_status": 200,
+      "final_url": "https://kr.linkedin.com/posts/honam-kang_ai%EA%B0%80-%EC%BD%94%EB%93%9C%EB%A5%BC-%EB%8B%A4-%EC%A7%9C%EA%B2%8C-%EB%90%98%EB%A9%B4-%EB%AD%90%EA%B0%80-%EB%82%A8%EC%9D%84%EA%B9%8C-cofathon-%EC%B0%B8%EC%97%AC-%ED%9B%84%EA%B8%B0-activity-7488901089950375936-312n",
+      "classification": "reachable"
+    },
+    {
+      "id": "dongje",
+      "url": "https://kr.linkedin.com/posts/jaya1997_cofathon-cj%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81-%ED%81%AC%EB%9E%98%ED%94%84%ED%86%A4-activity-7489542362981933056-1yav",
+      "http_status": 200,
+      "final_url": "https://kr.linkedin.com/posts/jaya1997_cofathon-cj%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81-%ED%81%AC%EB%9E%98%ED%94%84%ED%86%A4-activity-7489542362981933056-1yav",
+      "classification": "reachable"
+    },
+    {
+      "id": "johnny",
+      "url": "https://www.jbaehova.com/detail/cofathon-2026",
+      "http_status": 206,
+      "final_url": "https://www.jbaehova.com/detail/cofathon-2026",
+      "classification": "reachable"
+    },
+    {
+      "id": "junho-post",
+      "url": "https://kr.linkedin.com/posts/junho-baek-88609336a_%ED%81%AC%EB%9E%98%ED%94%84%ED%86%A4%EA%B3%BC-%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81%EC%9D%B4-%ED%95%A8%EA%BB%98-%EA%B0%9C%EC%B5%9C%ED%95%9C-ai-%ED%95%B4%EC%BB%A4%ED%86%A4-cofathon%EC%97%90-%EB%8B%A4%EB%85%80%EC%99%94%EC%8A%B5%EB%8B%88%EB%8B%A4-activity-7488597247987744768-K9Aw",
+      "http_status": 200,
+      "final_url": "https://kr.linkedin.com/posts/junho-baek-88609336a_%ED%81%AC%EB%9E%98%ED%94%84%ED%86%A4%EA%B3%BC-%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81%EC%9D%B4-%ED%95%A8%EA%BB%98-%EA%B0%9C%EC%B5%9C%ED%95%9C-ai-%ED%95%B4%EC%BB%A4%ED%86%A4-cofathon%EC%97%90-%EB%8B%A4%EB%85%80%EC%99%94%EC%8A%B5%EB%8B%88%EB%8B%A4-activity-7488597247987744768-K9Aw",
+      "classification": "reachable"
+    },
+    {
+      "id": "junho",
+      "url": "https://kr.linkedin.com/in/junho-baek-88609336a",
+      "http_status": 999,
+      "detail": "Unknown",
+      "classification": "access_restricted"
+    },
+    {
+      "id": "meta",
+      "url": "https://www.mt.co.kr/tech/2026/08/28/2026082810491742468",
+      "http_status": 200,
+      "final_url": "https://www.mt.co.kr/tech/2026/08/28/2026082810491742468",
+      "classification": "reachable"
+    },
+    {
+      "id": "cjofficial",
+      "url": "https://cjnews.cj.net/?p=78218",
+      "http_status": 200,
+      "final_url": "https://cjnews.cj.net/?p=78218",
+      "classification": "reachable"
+    },
+    {
+      "id": "cofathon",
+      "url": "https://cofathon.getcofa.com/",
+      "http_status": 200,
+      "final_url": "https://cofathon.getcofa.com/",
+      "classification": "reachable"
+    },
+    {
+      "id": "usecase",
+      "url": "https://www.getcofa.com/ko/usecase",
+      "http_status": 200,
+      "final_url": "https://www.getcofa.com/ko/usecase",
+      "classification": "reachable"
+    },
+    {
+      "id": "console",
+      "url": "https://cofa-probe-console.krafton.ai/",
+      "http_status": 200,
+      "final_url": "https://cofa-probe-console.krafton.ai/",
+      "classification": "reachable"
+    },
+    {
+      "id": "gist",
+      "url": "https://gist.github.com/df12fds/69cee98573db490bab829331beed5af6",
+      "http_status": 206,
+      "final_url": "https://gist.github.com/df12fds/69cee98573db490bab829331beed5af6",
+      "classification": "reachable"
+    }
+  ]
+}

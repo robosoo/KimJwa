@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-25",
+  "kind": "Node VM functional checks; not a visual-browser test",
+  "passed": 22,
+  "checks": [
+    {
+      "name": "Byte-exact original backup: cofa-chapters.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Byte-exact original backup: portal-content.json",
+      "status": "PASS"
+    },
+    {
+      "name": "JavaScript syntax",
+      "status": "PASS"
+    },
+    {
+      "name": "Complete live inventory: 36 distinct articles",
+      "status": "PASS"
+    },
+    {
+      "name": "All 19 original sources remain accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "Four canonical menus and direct URL routes",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy hash and query URL compatibility",
+      "status": "PASS"
+    },
+    {
+      "name": "Malformed route does not crash",
+      "status": "PASS"
+    },
+    {
+      "name": "Every article renders without missing placeholders",
+      "status": "PASS"
+    },
+    {
+      "name": "Three strategy comparisons restored",
+      "status": "PASS"
+    },
+    {
+      "name": "Eight case selectors, raw files and solution toggles",
+      "status": "PASS"
+    },
+    {
+      "name": "Lot correction distinguishes source error and inference",
+      "status": "PASS"
+    },
+    {
+      "name": "Fictional stakeholder questions preserve both personas",
+      "status": "PASS"
+    },
+    {
+      "name": "12 questions grade correct and incorrect choices",
+      "status": "PASS"
+    },
+    {
+      "name": "Quiz answer is immutable until explicit reset",
+      "status": "PASS"
+    },
+    {
+      "name": "Read progress persists and stays within inventory",
+      "status": "PASS"
+    },
+    {
+      "name": "Article selection keeps active source filter and search",
+      "status": "PASS"
+    },
+    {
+      "name": "3-minute speaking timer start/pause/reset",
+      "status": "PASS"
+    },
+    {
+      "name": "4-hour timer persists start/pause/reset and expiry",
+      "status": "PASS"
+    },
+    {
+      "name": "No fake AI chat or answer inputs",
+      "status": "PASS"
+    },
+    {
+      "name": "Source URL safety and inventory uniqueness",
+      "status": "PASS"
+    },
+    {
+      "name": "Legacy pages route into the unified center",
+      "status": "PASS"
+    }
+  ]
+}
