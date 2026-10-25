@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-25 · Asia/Seoul",
+  "source_commit": "54cc1ec4669a1ff7dae3f9a83bbe6295f401a344",
+  "preview": "dpl_D29FfBQ3RFG5NGyAQ8VmnmQZAxtQ",
+  "method": "Cloud Chrome, Playwright locator API, actual iframe CSS viewport; operator-simulated learner paths",
+  "viewports": [
+    {
+      "width": 390,
+      "menu": "start",
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "menu": "sources",
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "menu": "practice",
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "menu": "assessment",
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "status": "PASS"
+    },
+    {
+      "width": 844,
+      "menu": "start",
+      "clientWidth": 829,
+      "scrollWidth": 829,
+      "status": "PASS"
+    },
+    {
+      "width": 844,
+      "menu": "sources",
+      "clientWidth": 829,
+      "scrollWidth": 829,
+      "status": "PASS"
+    },
+    {
+      "width": 844,
+      "menu": "practice",
+      "clientWidth": 829,
+      "scrollWidth": 829,
+      "status": "PASS"
+    },
+    {
+      "width": 844,
+      "menu": "assessment",
+      "clientWidth": 829,
+      "scrollWidth": 829,
+      "status": "PASS"
+    },
+    {
+      "width": 768,
+      "menu": "start",
+      "clientWidth": 753,
+      "scrollWidth": 753,
+      "status": "PASS"
+    },
+    {
+      "width": 768,
+      "menu": "sources",
+      "clientWidth": 753,
+      "scrollWidth": 753,
+      "status": "PASS"
+    },
+    {
+      "width": 768,
+      "menu": "practice",
+      "clientWidth": 753,
+      "scrollWidth": 753,
+      "status": "PASS"
+    },
+    {
+      "width": 768,
+      "menu": "assessment",
+      "clientWidth": 753,
+      "scrollWidth": 753,
+      "status": "PASS"
+    },
+    {
+      "width": 1024,
+      "menu": "start",
+      "clientWidth": 1009,
+      "scrollWidth": 1009,
+      "status": "PASS"
+    },
+    {
+      "width": 1024,
+      "menu": "sources",
+      "clientWidth": 1009,
+      "scrollWidth": 1009,
+      "status": "PASS"
+    },
+    {
+      "width": 1024,
+      "menu": "practice",
+      "clientWidth": 1009,
+      "scrollWidth": 1009,
+      "status": "PASS"
+    },
+    {
+      "width": 1024,
+      "menu": "assessment",
+      "clientWidth": 1009,
+      "scrollWidth": 1009,
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "menu": "start",
+      "clientWidth": 1425,
+      "scrollWidth": 1425,
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "menu": "sources",
+      "clientWidth": 1425,
+      "scrollWidth": 1425,
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "menu": "practice",
+      "clientWidth": 1425,
+      "scrollWidth": 1425,
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "menu": "assessment",
+      "clientWidth": 1425,
+      "scrollWidth": 1425,
+      "status": "PASS"
+    }
+  ],
+  "actual_observations": [
+    "39 reading items and six-layer deep concept article",
+    "12 scenario statements; all 12 correct choices graded and explained",
+    "Wrong choice, option-specific rationale, wrong-only filter, isolated retry and resolved empty state",
+    "8-step guided practice including duplicate/missing handling, boundary 5%, observed-vs-causal conclusion and transfer 6%",
+    "Wrong guided choice blocks next; retry, answer and next activated with keyboard Enter",
+    "Reload restores step 2 and a saved case answer; home resumes guided practice",
+    "Source selection top 11.71875px at 390 in earlier candidate and 20.109375px at 768 in final preview",
+    "6-day proposal opens, explicitly separates unknown exam settings and unperformed rehearsals",
+    "Fixed final report marked as explanation rather than user output or actual AI work",
+    "Five screenshots saved in reports/screenshots/quality-final-*.jpg"
+  ],
+  "limits": [
+    "No independent 10-person evaluation or learning-effect study",
+    "Not physical iPad/iPhone or Safari/VoiceOver",
+    "No live AI, editable workspace, terminal, official evaluation or full external-work rehearsal",
+    "Standalone Playwright runner not executed in this session"
+  ]
+}

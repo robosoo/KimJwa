@@ -1,139 +1,158 @@
 {
-  "date": "2026-10-25",
-  "source_commit": "faf6f9efa285c0b6fc0057635232784f64325049",
+  "date": "2026-10-25 · Asia/Seoul",
+  "source_commit": "54cc1ec4669a1ff7dae3f9a83bbe6295f401a344",
   "branch": "skhynix-round2-unified-20261025",
   "preview": {
-    "id": "dpl_EaNQ5CUTq6AGdqVqfvNwYSqVmHNX",
-    "url": "https://skhynix-ai-hackathon-round2-png2cw8o5-ctpmfd42hf-8757.vercel.app",
+    "id": "dpl_D29FfBQ3RFG5NGyAQ8VmnmQZAxtQ",
+    "url": "https://skhynix-ai-hackathon-round2-3570rm3al-ctpmfd42hf-8757.vercel.app",
     "state": "READY"
   },
   "production": {
-    "id": "dpl_9gxtpr6UyMhMBr13hXLAxTMZziLx",
+    "id": "dpl_HvfMXZ5B7XjRQLButT8F8QDx6bmC",
     "url": "https://skhynix-ai-hackathon-round2-lab.vercel.app",
     "state": "READY",
     "target": "production",
     "alias_verified": true
   },
-  "previous_production": "dpl_79rfL1iS2kxiDxdm4QirQLcepHFV",
+  "previous_production": "dpl_9gxtpr6UyMhMBr13hXLAxTMZziLx",
   "original_restore_commit": "6d17af15cdbd11e5cbaef5bb9ca9522fe422cfd6",
-  "runtime_file_count": 16,
-  "runtime_uid_match_verified": true,
-  "functional_pass": 25,
-  "data_pass": 54,
+  "runtime_file_count": 18,
+  "functional_pass": 40,
+  "data_pass": 62,
   "http_body_checks": [
     {
       "file": "index.html",
       "status": 200,
-      "body_matches": true,
-      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+      "matches": true,
+      "sha256": "e0cd1d8ff25e264d1629b4790ba2448b82210a5c9dd0aa336e3d7461defab8bd"
     },
     {
       "file": "app.js",
       "status": 200,
-      "body_matches": true,
-      "sha1": "bbd4db37ecd6c841af2312e17432e39241713e06"
+      "matches": true,
+      "sha256": "58c16a4129a1209620b2932782a0a0df83c83acc444716f58d1e8c49f76c572c"
     },
     {
       "file": "style.css",
       "status": 200,
-      "body_matches": true,
-      "sha1": "adb930cb0f500b6698598ca70956a91e838c2fb1"
+      "matches": true,
+      "sha256": "96313681ff5f62ab6b21ce23bf0b2e9910bfdab35815f1535b84f7ba0bbd821b"
     },
     {
       "file": "brand.css",
       "status": 200,
-      "body_matches": true,
-      "sha1": "04c7033426f27f8c19eca527dffd5bc75dcdcaf1"
+      "matches": true,
+      "sha256": "1af6f7089c8b7a0032086282a6c9212853d9c4130c4c665ec8e33726e503981b"
     },
     {
       "file": "content.json",
       "status": 200,
-      "body_matches": true,
-      "sha1": "6c7dce71239c80f3f57693c0a8dcdc787d792093"
+      "matches": true,
+      "sha256": "69a8ec29cb94cb3f7ad3867d0c51eea03c0860feca513304b4806d0198644fda"
     },
     {
       "file": "luka-deep.json",
       "status": 200,
-      "body_matches": true,
-      "sha1": "813c0396cfa7cacee60eba50b5106bd05c31b52e"
+      "matches": true,
+      "sha256": "a1acc170259761598f077dfe915917c6404f6c4cf795cb136b1ba29dfc6987f8"
     },
     {
       "file": "cofa-chapters.json",
       "status": 200,
-      "body_matches": true,
-      "sha1": "a35a50f9efa83e515ca9c21b33b45b762036b3a0"
+      "matches": true,
+      "sha256": "86f19d85f433f42e65108c0570b669f019f66601ec3b7efce377f76f6277b4fd"
     },
     {
       "file": "portal-content.json",
       "status": 200,
-      "body_matches": true,
-      "sha1": "ff4c79003ca3564b037b77ac52728b0c3234fedc"
+      "matches": true,
+      "sha256": "58e529cb339246f85705f7680f471a425abde83f7097a88622f6891e50dd1546"
     },
     {
       "file": "source-manifest.json",
       "status": 200,
-      "body_matches": true,
-      "sha1": "1ae00cc35a9a26cf08b98d0278298fd3111d3537"
+      "matches": true,
+      "sha256": "b1c1cb44b0f7d67f521be9e6848fd5b9dc6a813ee5aafa0333db2431b47a4f70"
     },
     {
       "file": "learning-guide.json",
       "status": 200,
-      "body_matches": true,
-      "sha1": "3b9c52eeb3cbf34eeb89cb1d42a3b3c774f3597f"
+      "matches": true,
+      "sha256": "73f123aaaca94eee17cb56f1687c9cd893d096b151e64c734624369758c1fc02"
     },
     {
       "file": "beginner-guide.json",
       "status": 200,
-      "body_matches": true,
-      "sha1": "1a043d4eb0c631a5e81c624dfd5e3e0265a1a5dc"
+      "matches": true,
+      "sha256": "43da2ff313cbe90cd4df3f1aa5a5a7e14223978f38dccf8fd1c1e62cefae4f22"
+    },
+    {
+      "file": "learning-path.json",
+      "status": 200,
+      "matches": true,
+      "sha256": "c5ea2ff7e111f3a4ecf672c4572e864196fdc20ec5202de2c776534c93262a63"
+    },
+    {
+      "file": "deep-analysis.json",
+      "status": 200,
+      "matches": true,
+      "sha256": "f07ade8ae235ee84b38a701b71ad86bc8ec61eac5837c585d7d764a423536133"
     }
   ],
   "legacy_redirects": [
     {
       "path": "/cofa-probe.html",
       "status": 307,
-      "location": "/?tab=library"
+      "destination": "/?tab=library"
     },
     {
       "path": "/cofa-luka.html",
       "status": 307,
-      "location": "/?tab=library&id=luka-depth"
+      "destination": "/?tab=library&id=luka-depth"
     },
     {
       "path": "/cofa-luka-deep.html",
       "status": 307,
-      "location": "/?tab=library&id=luka-depth"
+      "destination": "/?tab=library&id=luka-depth"
     },
     {
       "path": "/cofa-sim.html",
       "status": 307,
-      "location": "/?tab=practice"
+      "destination": "/?tab=practice"
     },
     {
       "path": "/old-round2-data.html",
       "status": 307,
-      "location": "/?tab=practice"
+      "destination": "/?tab=practice"
     },
     {
       "path": "/old-cofa-case.html",
       "status": 307,
-      "location": "/?tab=practice"
+      "destination": "/?tab=practice"
     },
     {
       "path": "/old-cofa-luka.html",
       "status": 307,
-      "location": "/?tab=library&id=luka-depth"
+      "destination": "/?tab=library&id=luka-depth"
     }
   ],
-  "browser_report": "nondeveloper-browser-checks.json",
-  "source_audits": [
-    "cofa-official-research.md",
-    "interview-kit-audit.json",
-    "supplemental-links.json"
+  "browser_report": "quality-browser-checks.json",
+  "human_panel": {
+    "status": "NOT_RUN",
+    "participants": 0,
+    "score": null
+  },
+  "limitations": [
+    "No independent 10-person evaluation or learning-effect study",
+    "Not physical iPad/iPhone or Safari/VoiceOver",
+    "No live AI, editable workspace, terminal, official evaluation or full external-work rehearsal",
+    "Standalone Playwright runner not executed in this session"
   ],
-  "remaining": [
-    "No live AI/editor/terminal or official scoring in study site",
-    "No verified universal executable starter or two full rehearsals",
-    "Physical Safari accessibility tests not performed"
+  "runtime_uid_match_verified": true,
+  "production_browser_checks": [
+    "Four menus render expected headings",
+    "12 fictional case stimuli present",
+    "39 readings and six-layer deep article render",
+    "Final live screenshot saved"
   ]
 }

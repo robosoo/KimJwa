@@ -12,70 +12,90 @@
       "perspective": "초심자",
       "path": "시작하기→입문→필수 용어→풀이 따라하기",
       "question": "목적·기능·다음 행동을 알 수 있는가",
-      "browser_status": "NOT_RUN"
+      "browser_status": "PASS_OPERATOR_SIMULATION",
+      "observation": "Entry explains purpose/capabilities; 39 readings; selected source moves to body.",
+      "evidence_scope": "Core paths exercised across candidates 70964c8/59c75b6 and final 54cc1ec; final scenario assessment and five viewport menus rechecked."
     },
     {
       "id": "J02",
       "perspective": "비개발 직군",
       "path": "완성 예시→원자료 표→첫 판단",
       "question": "개발 도구 설치 없이 학습 가능한가",
-      "browser_status": "NOT_RUN"
+      "browser_status": "PASS_OPERATOR_SIMULATION",
+      "observation": "Worked example 11/300=3.67%, 6-row table and missing marker visible.",
+      "evidence_scope": "Core paths exercised across candidates 70964c8/59c75b6 and final 54cc1ec; final scenario assessment and five viewport menus rechecked."
     },
     {
       "id": "J03",
       "perspective": "근거 검토자",
       "path": "심층 분석→정정→원문·범위 확인",
       "question": "인과·의견·제품 설명을 구분하는가",
-      "browser_status": "NOT_RUN"
+      "browser_status": "PASS_OPERATOR_SIMULATION",
+      "observation": "15 topics, six layers, source roles and correction ledger in Production.",
+      "evidence_scope": "Core paths exercised across candidates 70964c8/59c75b6 and final 54cc1ec; final scenario assessment and five viewport menus rechecked."
     },
     {
       "id": "J04",
       "perspective": "수치 검토자",
       "path": "분모·중복 단계→경계값→다른 숫자",
       "question": "157/3500·5% 초과·30/500을 대조하는가",
-      "browser_status": "NOT_RUN"
+      "browser_status": "PASS_OPERATOR_SIMULATION",
+      "observation": "157/3500≈4.49%, strict 5% boundary and 30/500=6% transfer.",
+      "evidence_scope": "Core paths exercised across candidates 70964c8/59c75b6 and final 54cc1ec; final scenario assessment and five viewport menus rechecked."
     },
     {
       "id": "J05",
       "perspective": "오답 학습자",
       "path": "잘못 선택→진행 차단→이유→같은 단계 재시도",
       "question": "실패의 원인을 고치고 진행할 수 있는가",
-      "browser_status": "NOT_RUN"
+      "browser_status": "PASS_OPERATOR_SIMULATION",
+      "observation": "Wrong choice blocks next, reason displayed, retry and correct selection unlock next.",
+      "evidence_scope": "Core paths exercised across candidates 70964c8/59c75b6 and final 54cc1ec; final scenario assessment and five viewport menus rechecked."
     },
     {
       "id": "J06",
       "perspective": "복습자",
       "path": "퀴즈 오답→오답 목록→단일 문항 재시도",
       "question": "다른 답안과 읽음 기록을 보존하는가",
-      "browser_status": "NOT_RUN"
+      "browser_status": "PASS_OPERATOR_SIMULATION",
+      "observation": "Wrong-only list and isolated retry resolve wrong item; other answers preserved in prior candidate/browser and fresh VM checks.",
+      "evidence_scope": "Core paths exercised across candidates 70964c8/59c75b6 and final 54cc1ec; final scenario assessment and five viewport menus rechecked."
     },
     {
       "id": "J07",
       "perspective": "복귀 학습자",
       "path": "풀이 진행→새로고침→이어가기",
       "question": "저장한 단계와 선택을 복원하는가",
-      "browser_status": "NOT_RUN"
+      "browser_status": "PASS_OPERATOR_SIMULATION",
+      "observation": "Reload restores guided step and selected case answer.",
+      "evidence_scope": "Core paths exercised across candidates 70964c8/59c75b6 and final 54cc1ec; final scenario assessment and five viewport menus rechecked."
     },
     {
       "id": "J08",
       "perspective": "태블릿 독자",
       "path": "목차 선택→본문·표·긴 용어 열람",
       "question": "768/1024px에서 현재 본문이 보이는가",
-      "browser_status": "NOT_RUN"
+      "browser_status": "PASS_OPERATOR_SIMULATION",
+      "observation": "768px body top 20.109375, 20 menu/viewport combinations without overflow.",
+      "evidence_scope": "Core paths exercised across candidates 70964c8/59c75b6 and final 54cc1ec; final scenario assessment and five viewport menus rechecked."
     },
     {
       "id": "J09",
       "perspective": "키보드 사용자",
       "path": "키보드로 선택→다음 단계→오답 재시도",
       "question": "선택·포커스·다음 행동이 가능한가",
-      "browser_status": "NOT_RUN"
+      "browser_status": "PASS_OPERATOR_SIMULATION",
+      "observation": "Enter activates retry, choice and next; no full assistive-technology certification.",
+      "evidence_scope": "Core paths exercised across candidates 70964c8/59c75b6 and final 54cc1ec; final scenario assessment and five viewport menus rechecked."
     },
     {
       "id": "J10",
       "perspective": "응용 학습자",
       "path": "8단계→보고 예시→다른 과제",
       "question": "고정 예시와 자신의 산출물을 구분하는가",
-      "browser_status": "NOT_RUN"
+      "browser_status": "PASS_OPERATOR_SIMULATION",
+      "observation": "8/8 reaches fixed report explanation and another-case action.",
+      "evidence_scope": "Core paths exercised across candidates 70964c8/59c75b6 and final 54cc1ec; final scenario assessment and five viewport menus rechecked."
     }
   ]
 }

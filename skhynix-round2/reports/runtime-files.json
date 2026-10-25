@@ -1,66 +1,92 @@
 {
   "index.html": {
-    "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb",
+    "sha1": "e0b0869f698660d7b35329afbb7f35d6eb889d0c",
+    "sha256": "e0cd1d8ff25e264d1629b4790ba2448b82210a5c9dd0aa336e3d7461defab8bd",
     "bytes": 3603
   },
   "app.js": {
-    "sha1": "bbd4db37ecd6c841af2312e17432e39241713e06",
-    "bytes": 58752
+    "sha1": "1fb495bb6d84f4df74d7c8c6fba1e31ed92e989c",
+    "sha256": "58c16a4129a1209620b2932782a0a0df83c83acc444716f58d1e8c49f76c572c",
+    "bytes": 75319
   },
   "style.css": {
     "sha1": "adb930cb0f500b6698598ca70956a91e838c2fb1",
+    "sha256": "96313681ff5f62ab6b21ce23bf0b2e9910bfdab35815f1535b84f7ba0bbd821b",
     "bytes": 26766
   },
   "brand.css": {
-    "sha1": "04c7033426f27f8c19eca527dffd5bc75dcdcaf1",
-    "bytes": 5419
+    "sha1": "8846049d93d498d95e480d0c2ce2fff681eab214",
+    "sha256": "1af6f7089c8b7a0032086282a6c9212853d9c4130c4c665ec8e33726e503981b",
+    "bytes": 8123
   },
   "content.json": {
     "sha1": "6c7dce71239c80f3f57693c0a8dcdc787d792093",
+    "sha256": "69a8ec29cb94cb3f7ad3867d0c51eea03c0860feca513304b4806d0198644fda",
     "bytes": 26888
   },
   "luka-deep.json": {
     "sha1": "813c0396cfa7cacee60eba50b5106bd05c31b52e",
+    "sha256": "a1acc170259761598f077dfe915917c6404f6c4cf795cb136b1ba29dfc6987f8",
     "bytes": 9623
   },
   "cofa-chapters.json": {
     "sha1": "a35a50f9efa83e515ca9c21b33b45b762036b3a0",
+    "sha256": "86f19d85f433f42e65108c0570b669f019f66601ec3b7efce377f76f6277b4fd",
     "bytes": 34427
   },
   "portal-content.json": {
     "sha1": "ff4c79003ca3564b037b77ac52728b0c3234fedc",
+    "sha256": "58e529cb339246f85705f7680f471a425abde83f7097a88622f6891e50dd1546",
     "bytes": 27614
   },
   "source-manifest.json": {
-    "sha1": "1ae00cc35a9a26cf08b98d0278298fd3111d3537",
-    "bytes": 47310
+    "sha1": "d81df80d5fffe37249431f97e6fc2fa75904faed",
+    "sha256": "b1c1cb44b0f7d67f521be9e6848fd5b9dc6a813ee5aafa0333db2431b47a4f70",
+    "bytes": 51338
   },
   "learning-guide.json": {
     "sha1": "3b9c52eeb3cbf34eeb89cb1d42a3b3c774f3597f",
+    "sha256": "73f123aaaca94eee17cb56f1687c9cd893d096b151e64c734624369758c1fc02",
     "bytes": 16274
   },
   "beginner-guide.json": {
-    "sha1": "1a043d4eb0c631a5e81c624dfd5e3e0265a1a5dc",
-    "bytes": 26381
+    "sha1": "876337425be0a716eabf25da0225a77ccc5eac53",
+    "sha256": "43da2ff313cbe90cd4df3f1aa5a5a7e14223978f38dccf8fd1c1e62cefae4f22",
+    "bytes": 27691
+  },
+  "learning-path.json": {
+    "sha1": "b3277d7b038391f836a53f0ff177487dd0f1decb",
+    "sha256": "c5ea2ff7e111f3a4ecf672c4572e864196fdc20ec5202de2c776534c93262a63",
+    "bytes": 28292
+  },
+  "deep-analysis.json": {
+    "sha1": "91e8e87d179ff395ac14ca342261324ed5003155",
+    "sha256": "f07ade8ae235ee84b38a701b71ad86bc8ec61eac5837c585d7d764a423536133",
+    "bytes": 22046
   },
   "vercel.json": {
     "sha1": "09fdd40850961aa8c6a13b753f778b7c773f4c44",
+    "sha256": "daf3b17f190954c124d5f7dd552f9a4a7031cdc1a4729ba47310b8e42e623b6c",
     "bytes": 928
   },
   "cofa-luka.html": {
     "sha1": "051f6756c3394eaf69b30c3d12d036d5b49a61fa",
+    "sha256": "cbc50267d23d3bec5b26515bd99be57ac6526034bde52528765809de09f612c1",
     "bytes": 341
   },
   "cofa-luka-deep.html": {
     "sha1": "051f6756c3394eaf69b30c3d12d036d5b49a61fa",
+    "sha256": "cbc50267d23d3bec5b26515bd99be57ac6526034bde52528765809de09f612c1",
     "bytes": 341
   },
   "cofa-probe.html": {
     "sha1": "272e5aab8523f780e180deb696709d52cce8b6c9",
+    "sha256": "49b4d7e77fdda5755592a9278b34131b224f506cdfa3fe224d06f322ad156536",
     "bytes": 347
   },
   "cofa-sim.html": {
     "sha1": "4d1a6080b52605e670da9238e24dd6b07b265d1a",
+    "sha256": "7e49154a4e9522e74639c1da48ba8afb68f4b140ee84beb29a7709889e9e64c6",
     "bytes": 335
   }
 }
