@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-25",
+  "deployment": "dpl_EaNQ5CUTq6AGdqVqfvNwYSqVmHNX",
+  "method": "Actual Cloud Chrome, Playwright locator API, preview-only iframe with CSS viewport",
+  "menu_geometry": [
+    {
+      "width": 390,
+      "menu": "시작하기",
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "menu": "후기·근거",
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "menu": "전략·실습",
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "menu": "이해도 확인",
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "status": "PASS"
+    },
+    {
+      "width": 844,
+      "menu": "시작하기",
+      "clientWidth": 829,
+      "scrollWidth": 829,
+      "status": "PASS"
+    },
+    {
+      "width": 844,
+      "menu": "후기·근거",
+      "clientWidth": 829,
+      "scrollWidth": 829,
+      "status": "PASS"
+    },
+    {
+      "width": 844,
+      "menu": "전략·실습",
+      "clientWidth": 829,
+      "scrollWidth": 829,
+      "status": "PASS"
+    },
+    {
+      "width": 844,
+      "menu": "이해도 확인",
+      "clientWidth": 829,
+      "scrollWidth": 829,
+      "status": "PASS"
+    },
+    {
+      "width": 768,
+      "menu": "시작하기",
+      "clientWidth": 753,
+      "scrollWidth": 753,
+      "status": "PASS"
+    },
+    {
+      "width": 768,
+      "menu": "후기·근거",
+      "clientWidth": 753,
+      "scrollWidth": 753,
+      "status": "PASS"
+    },
+    {
+      "width": 768,
+      "menu": "전략·실습",
+      "clientWidth": 753,
+      "scrollWidth": 753,
+      "status": "PASS"
+    },
+    {
+      "width": 768,
+      "menu": "이해도 확인",
+      "clientWidth": 753,
+      "scrollWidth": 753,
+      "status": "PASS"
+    },
+    {
+      "width": 1024,
+      "menu": "시작하기",
+      "clientWidth": 1009,
+      "scrollWidth": 1009,
+      "status": "PASS"
+    },
+    {
+      "width": 1024,
+      "menu": "후기·근거",
+      "clientWidth": 1009,
+      "scrollWidth": 1009,
+      "status": "PASS"
+    },
+    {
+      "width": 1024,
+      "menu": "전략·실습",
+      "clientWidth": 1009,
+      "scrollWidth": 1009,
+      "status": "PASS"
+    },
+    {
+      "width": 1024,
+      "menu": "이해도 확인",
+      "clientWidth": 1009,
+      "scrollWidth": 1009,
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "menu": "시작하기",
+      "clientWidth": 1425,
+      "scrollWidth": 1425,
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "menu": "후기·근거",
+      "clientWidth": 1425,
+      "scrollWidth": 1425,
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "menu": "전략·실습",
+      "clientWidth": 1425,
+      "scrollWidth": 1425,
+      "status": "PASS"
+    },
+    {
+      "width": 1440,
+      "menu": "이해도 확인",
+      "clientWidth": 1425,
+      "scrollWidth": 1425,
+      "status": "PASS"
+    }
+  ],
+  "observed": [
+    "Screenshots generated and reviewed at all five widths",
+    "38 source options loaded",
+    "390px selected article top 11.71875px; 768px selected kit review top 20.109375px",
+    "Luka search returns two topic-named articles and persists with participant filter",
+    "Participant reading has seven guided steps; README and agreement sections expanded",
+    "New nondeveloper persona has five questions; first opens fictional answer and explanation",
+    "All eight cases select, show attachments, reveal/hide solution and four decision explanations",
+    "All five strategy comparisons select",
+    "12 correct answers produce 12 explanations and no incorrect marks",
+    "Quiz reset and a wrong answer produce one incorrect mark; related learning opens basics",
+    "Read mark and saved wrong answer persist across actual reload",
+    "Preparation tab reports document-only starter, no verified executable kit, no rehearsal records",
+    "4h start/pause buttons exercised; 5 explanation cases present",
+    "Production four menus, 38 articles and kit review checked"
+  ],
+  "limitations": [
+    "Chrome viewport test, not physical iPad/iPhone or Safari",
+    "Five viewport screenshots reviewed in conversation; final production screenshot exported to reports/screenshots/nondeveloper-production.jpg",
+    "Standalone Playwright runner not executed because local Chromium download failed"
+  ]
+}

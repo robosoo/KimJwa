@@ -1,128 +1,139 @@
 {
-  "checked_at": "2026-10-25",
-  "deploymentId": "dpl_79rfL1iS2kxiDxdm4QirQLcepHFV",
-  "sourceCommit": "afd4baa3546345bed2aaebef6c4ba7ea8fd552f9",
-  "target": "production",
-  "state": "READY",
-  "url": "https://skhynix-ai-hackathon-round2-lab.vercel.app/",
-  "verifiedPreview": "dpl_AM95xt5xug4KLG2jgjbHdjKRu2kf",
-  "runtimeFileCount": 15,
-  "httpChecks": [
+  "date": "2026-10-25",
+  "source_commit": "faf6f9efa285c0b6fc0057635232784f64325049",
+  "branch": "skhynix-round2-unified-20261025",
+  "preview": {
+    "id": "dpl_EaNQ5CUTq6AGdqVqfvNwYSqVmHNX",
+    "url": "https://skhynix-ai-hackathon-round2-png2cw8o5-ctpmfd42hf-8757.vercel.app",
+    "state": "READY"
+  },
+  "production": {
+    "id": "dpl_9gxtpr6UyMhMBr13hXLAxTMZziLx",
+    "url": "https://skhynix-ai-hackathon-round2-lab.vercel.app",
+    "state": "READY",
+    "target": "production",
+    "alias_verified": true
+  },
+  "previous_production": "dpl_79rfL1iS2kxiDxdm4QirQLcepHFV",
+  "original_restore_commit": "6d17af15cdbd11e5cbaef5bb9ca9522fe422cfd6",
+  "runtime_file_count": 16,
+  "runtime_uid_match_verified": true,
+  "functional_pass": 25,
+  "data_pass": 54,
+  "http_body_checks": [
     {
-      "path": "/",
+      "file": "index.html",
       "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/",
-      "bytes": 3603,
+      "body_matches": true,
       "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
     },
     {
-      "path": "/cofa-probe.html",
+      "file": "app.js",
       "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=library",
-      "bytes": 3603,
-      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+      "body_matches": true,
+      "sha1": "bbd4db37ecd6c841af2312e17432e39241713e06"
+    },
+    {
+      "file": "style.css",
+      "status": 200,
+      "body_matches": true,
+      "sha1": "adb930cb0f500b6698598ca70956a91e838c2fb1"
+    },
+    {
+      "file": "brand.css",
+      "status": 200,
+      "body_matches": true,
+      "sha1": "04c7033426f27f8c19eca527dffd5bc75dcdcaf1"
+    },
+    {
+      "file": "content.json",
+      "status": 200,
+      "body_matches": true,
+      "sha1": "6c7dce71239c80f3f57693c0a8dcdc787d792093"
+    },
+    {
+      "file": "luka-deep.json",
+      "status": 200,
+      "body_matches": true,
+      "sha1": "813c0396cfa7cacee60eba50b5106bd05c31b52e"
+    },
+    {
+      "file": "cofa-chapters.json",
+      "status": 200,
+      "body_matches": true,
+      "sha1": "a35a50f9efa83e515ca9c21b33b45b762036b3a0"
+    },
+    {
+      "file": "portal-content.json",
+      "status": 200,
+      "body_matches": true,
+      "sha1": "ff4c79003ca3564b037b77ac52728b0c3234fedc"
+    },
+    {
+      "file": "source-manifest.json",
+      "status": 200,
+      "body_matches": true,
+      "sha1": "1ae00cc35a9a26cf08b98d0278298fd3111d3537"
+    },
+    {
+      "file": "learning-guide.json",
+      "status": 200,
+      "body_matches": true,
+      "sha1": "3b9c52eeb3cbf34eeb89cb1d42a3b3c774f3597f"
+    },
+    {
+      "file": "beginner-guide.json",
+      "status": 200,
+      "body_matches": true,
+      "sha1": "1a043d4eb0c631a5e81c624dfd5e3e0265a1a5dc"
+    }
+  ],
+  "legacy_redirects": [
+    {
+      "path": "/cofa-probe.html",
+      "status": 307,
+      "location": "/?tab=library"
     },
     {
       "path": "/cofa-luka.html",
-      "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=library&id=luka-depth",
-      "bytes": 3603,
-      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+      "status": 307,
+      "location": "/?tab=library&id=luka-depth"
     },
     {
       "path": "/cofa-luka-deep.html",
-      "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=library&id=luka-depth",
-      "bytes": 3603,
-      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+      "status": 307,
+      "location": "/?tab=library&id=luka-depth"
     },
     {
       "path": "/cofa-sim.html",
-      "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=practice",
-      "bytes": 3603,
-      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+      "status": 307,
+      "location": "/?tab=practice"
     },
     {
       "path": "/old-round2-data.html",
-      "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=practice",
-      "bytes": 3603,
-      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+      "status": 307,
+      "location": "/?tab=practice"
     },
     {
       "path": "/old-cofa-case.html",
-      "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=practice",
-      "bytes": 3603,
-      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+      "status": 307,
+      "location": "/?tab=practice"
     },
     {
       "path": "/old-cofa-luka.html",
-      "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=library&id=luka-depth",
-      "bytes": 3603,
-      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
-    },
-    {
-      "path": "/cofa-chapters.json",
-      "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/cofa-chapters.json",
-      "bytes": 34427,
-      "sha1": "a35a50f9efa83e515ca9c21b33b45b762036b3a0",
-      "matchesGitHubSource": true
-    },
-    {
-      "path": "/portal-content.json",
-      "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/portal-content.json",
-      "bytes": 27614,
-      "sha1": "ff4c79003ca3564b037b77ac52728b0c3234fedc",
-      "matchesGitHubSource": true
-    },
-    {
-      "path": "/app.js",
-      "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/app.js",
-      "bytes": 48000,
-      "sha1": "d01afe2c89daba83399423d893056a5057c6ef67",
-      "matchesGitHubSource": true
-    },
-    {
-      "path": "/brand.css",
-      "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/brand.css",
-      "bytes": 4566,
-      "sha1": "24d5be15af4fcde5b056a60a7ea2038005eb2df7",
-      "matchesGitHubSource": true
-    },
-    {
-      "path": "/source-manifest.json",
-      "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/source-manifest.json",
-      "bytes": 42948,
-      "sha1": "2a174b67e70187606fca220feccae5ec533acdfb",
-      "matchesGitHubSource": true
-    },
-    {
-      "path": "/learning-guide.json",
-      "status": 200,
-      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/learning-guide.json",
-      "bytes": 16274,
-      "sha1": "3b9c52eeb3cbf34eeb89cb1d42a3b3c774f3597f",
-      "matchesGitHubSource": true
+      "status": 307,
+      "location": "/?tab=library&id=luka-depth"
     }
   ],
-  "tests": {
-    "functional": 22,
-    "data": 51,
-    "cssViewportWidths": [
-      390,
-      844,
-      768,
-      1024,
-      1440
-    ]
-  },
-  "rollbackCommit": "6d17af15cdbd11e5cbaef5bb9ca9522fe422cfd6"
+  "browser_report": "nondeveloper-browser-checks.json",
+  "source_audits": [
+    "cofa-official-research.md",
+    "interview-kit-audit.json",
+    "supplemental-links.json"
+  ],
+  "remaining": [
+    "No live AI/editor/terminal or official scoring in study site",
+    "No verified universal executable starter or two full rehearsals",
+    "Physical Safari accessibility tests not performed"
+  ]
 }

@@ -25,7 +25,7 @@ vm.createContext(ctx);vm.runInContext(source,ctx);await ctx.ready;
 const {state}=ctx.test;
 function click(action,values={}){listeners.click({target:{closest:()=>({dataset:{action,...values},classList:{toggle(){}},textContent:''})}})}
 check('Complete live inventory: 38 distinct articles',()=>{assert.equal(state.items.length,38);assert.equal(new Set(state.items.map(x=>x.id)).size,38)});
-check('All 19 original sources remain accessible',()=>{for(const r of data['/source-manifest.json'].sourceRecords)assert.ok(state.items.some(x=>x.source===r.url),r.id)});
+check('All 19 original source references retained',()=>{for(const r of data['/source-manifest.json'].sourceRecords)assert.ok(state.items.some(x=>x.source===r.url),r.id)});
 check('Four canonical menus and direct URL routes',()=>{for(const [tab,hash]of [['learn','#start'],['library','#learn/probe-basics'],['practice','#practice/cases'],['review','#quiz']]){ctx.test.route(tab);assert.equal(location.hash,hash);assert.ok(node('#screen').innerHTML.length>100)}});
 check('Legacy hash and query URL compatibility',()=>{location.hash='#learn/luka';ctx.test.routeFromUrl();assert.equal(state.selected,'luka-depth');location.hash='';location.search='?tab=library&id=old-official';ctx.test.routeFromUrl();assert.equal(state.selected,'old-official');assert.equal(state.tab,'library');location.search=''});
 check('Malformed route does not crash',()=>{location.hash='#learn/%ZZ';ctx.test.routeFromUrl();assert.equal(state.tab,'learn')});
