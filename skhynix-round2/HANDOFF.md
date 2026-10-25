@@ -76,3 +76,19 @@ Other contrasting firsthand cases:
 ## User preference
 
 Extensive logical, textbook-level prose. Human reasoning before AI output. Preserve English technical terms where natural. Link original public sources instead of long verbatim copyrighted copies. Expose what is uncertain rather than inventing exact grading.
+
+
+## 2026-10-25 PRODUCTION RELEASE VERIFIED
+
+- Deployment: `dpl_5YgvHsU5DBrUJQj9CJKFR3JuAdVs`.
+- Status verified via Vercel API: `READY`, target `production`.
+- Production alias verified: `skhynix-ai-hackathon-round2-lab.vercel.app`.
+- No password or SSO protection configured on the project.
+- Production has 8 source files: index.html, study-app.js, cofa-chapters.json, portal-content.json, and 4 backward-compatibility redirect HTML files.
+- Deployed application JS SHA1: `f229b318a30f18048b2b8fa21ff831b4768b28ad`.
+- Deployed index HTML SHA1: `03a49abbe3e88487f13a41d37f0f2e695aeb9c80`.
+- Latest GitHub code change: `5e426b24bc729390d8dbc2e5dbc3e4ee88b7000b`; includes mobile source selection scrolling into article and explicit home lesson headings.
+- Mocked runtime smoke test passed: menu rendering, mobile focus, reading completion state, next-article routing, cross-source comparisons, eight case tiles, solution reveal, twelve quiz items, quiz grading, timer reset. One older assertion tested for the word "Top" inside a fake fixture named "Source luka" and was an invalid test assertion rather than a production application defect.
+- No genuine third-party interactive browser or screenshot QA was possible here; UX may still need manual device verification. Do not call it pixel-perfect without actually checking.
+- Direct legacy paths were converted to quick redirects to hash-routed locations of the unified app.
+- GitHub `source-manifest.json` stores 19 public source URLs with evidence categories, while the two long-form JSON data bodies remain stored in Vercel by SHA rather than mirrored byte-for-byte into GitHub.
