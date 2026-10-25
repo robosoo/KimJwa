@@ -16,7 +16,7 @@ Consolidate all user-supplied and found Cofa Probe learning evidence into a poli
 - Dense-but-readable editorial card layout, balanced whitespace, clear typography and neutral navy/teal, touch targets ≥44 px.
 - No fake AI input. Quiz selections only, optionally local checked progress.
 - Source deep links are optional, and only explicit original source buttons open external pages.
-- Preserve total source base: 14 existing chapters + 6 additional case studies + full 15-section developer interview.
+- Preserve total source base: 14 existing source chapters (including Luka short entry) + 5 additional case studies + full 15-section interview + standalone expanded Luka chapter; displayed unique library items: 34.
 - Lesson navigation must support keyboard, mobile and iPad.
 
 ## Operational checks
