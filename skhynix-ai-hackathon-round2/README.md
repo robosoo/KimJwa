@@ -31,3 +31,14 @@ The older Round 1 study materials remain in the separate historical branch `arch
 
 ## Software
 Static HTML, CSS and vanilla JS. No API keys. Browser-only progress via `localStorage` (not account sync). Mobile bottom navigation, desktop side navigation, accessible buttons and details, no click-through page proliferation.
+
+
+## Published production (2026-10-25)
+- Live: https://skhynix-ai-hackathon-round2-lab.vercel.app/
+- GitHub main source of truth: this folder (`index.html`, `style.css`, `app.js`, and all four study JSON files).
+- Current production uses Vercel deployment `dpl_7h9HuP4wmmjiXK8ikCkUMkNipawR` (READY) with eight source files including `vercel.json`; earlier verified equivalent release `dpl_6p9ahFETfeDA3dgA6KFFf6hemiFB`.
+- Study materials: 15 developer-interview sections; 11 sections in Luka deep-dive; 14 general study chapters; 5 supplementary firsthand/official source chapters; 3 comparisons; 8 exercises; 12 questions.
+- **Four visible destinations:** 학습 로드맵, 심층 자료실, 실전 연습, 이해도 점검. No first-round menu.
+- Legacy separate page addresses now redirect to the unified app (see `vercel.json` / corresponding compatibility HTML files).
+- The July Cofathon firsthand accounts are not official rules for the October SK hynix 2nd round.
+- No real AI backend, no nonfunctional text entry, and no claim of automatic Cofa grading.
