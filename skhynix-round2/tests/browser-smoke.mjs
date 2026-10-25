@@ -1,7 +1,7 @@
 // Reproducible standalone runner. The 2026-10-25 run used Cloud Chrome's
 // Playwright locator API because Chromium download was unavailable locally.
 import {createRequire} from 'node:module';
-import {mkdirSync,writeFileSync} from 'node:fs';
+import {mkdirSync,writeFileSync,readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
@@ -26,7 +26,7 @@ try{
  await page.locator(`${nav} [data-nav="practice"]`).click();await page.getByRole('button',{name:'전략 비교',exact:true}).click();assert.equal(await page.locator('[data-action="choose-comparison"]').count(),5);
  await page.getByRole('button',{name:'자료 분석',exact:true}).click();assert.equal(await page.locator('[data-action="choose-case"]').count(),8);
  for(let i=0;i<8;i++){await page.locator('[data-action="choose-case"]').nth(i).click();await page.getByRole('button',{name:'해설 보기',exact:true}).click();assert.equal(await page.locator('.decision-study details').count(),4);await page.getByRole('button',{name:'해설 접기',exact:true}).click()}
- await page.locator(`${nav} [data-nav="review"]`).click();const keys=[1,1,2,1,1,1,1,1,1,1,1,1];for(let i=0;i<12;i++)await page.locator(`#question-${i} .option`).nth(keys[i]).click();assert.equal(await page.locator('.feedback').count(),12);assert.equal(errors.length,0);
+ await page.locator(`${nav} [data-nav="review"]`).click();const keys=JSON.parse(readFileSync(path.join(root,'learning-path.json'),'utf8')).assessment.map(q=>q[2]);for(let i=0;i<12;i++)await page.locator(`#question-${i} .option`).nth(keys[i]).click();assert.equal(await page.locator('.feedback').count(),12);assert.equal(errors.length,0);
  results.push({width,height,status:'PASS'});await context.close();
  }
  writeFileSync(path.join(root,'reports/standalone-browser-result.json'),JSON.stringify({base,results},null,2));console.log(results);

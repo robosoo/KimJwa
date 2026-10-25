@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "passed": 59,
+  "passed": 62,
   "checks": [
     {
       "name": "14 core chapters",
@@ -220,6 +220,18 @@
     },
     {
       "name": "Six layers and source correction ledger",
+      "status": "PASS"
+    },
+    {
+      "name": "Twelve applied scenarios replace the active recall quiz",
+      "status": "PASS"
+    },
+    {
+      "name": "New assessment weighted rate and conditional exclusions",
+      "status": "PASS"
+    },
+    {
+      "name": "Six-day plan is a proposal with explicit unknown exam settings",
       "status": "PASS"
     },
     {

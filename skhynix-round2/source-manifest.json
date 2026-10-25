@@ -787,5 +787,31 @@
       "note": "Storey 원문에서 인지 부채의 팀/시간 차원과 의도 부채의 목표·이유 기록을 확인했다. 개념 제안과 점수 실증을 구분한다.",
       "source": "https://arxiv.org/abs/2603.22106v4"
     }
+  ],
+  "activeAssessmentType": "12 fictional case-based decision questions",
+  "legacyQuizPolicy": "Original portal-content.drill retained byte-for-byte; not the active quiz",
+  "reportIntakeReferences": [
+    {
+      "id": "oliveyoung-corporate",
+      "title": "CJ올리브영 AI 과제 채용 공식 발표",
+      "url": "https://corp.oliveyoung.com/ko/newsroom/press/134",
+      "evidence_type": "official",
+      "author_or_publisher": "CJ올리브영",
+      "published_at": "2026-07-21",
+      "event_date": null,
+      "scope": "개발 직군 채용과 7월 행사. 하이닉스 2차 규정과 구분.",
+      "study_summary": "문제 정의·AI 활용·개선·검증의 과정 평가."
+    },
+    {
+      "id": "josh-repost",
+      "title": "제품 담당자 인터뷰 재게시",
+      "url": "https://eopla.net/magazines/48041",
+      "evidence_type": "reported-interview",
+      "author_or_publisher": "Josh / EO Planet",
+      "published_at": "2026-10-16",
+      "event_date": null,
+      "scope": "maily 원문 재게시. 독립된 두 인터뷰로 중복 계산하지 않음.",
+      "study_summary": "동일 대담의 공개 재게시 경로."
+    }
   ]
 }

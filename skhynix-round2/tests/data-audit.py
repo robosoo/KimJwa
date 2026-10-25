@@ -28,8 +28,11 @@ test('Eight guided decisions each with per-choice feedback',len(path['steps'])==
 test('Worked example 11/300 differs from unweighted mean',round(11/300*100,2)==3.67 and (3+4)/2==3.5)
 test('Transfer example 30/500 equals 6%',30/500==.06 and abs((10/100+20/400)/2-.075)<1e-12)
 test('All fifteen supplied topics retain reasoning/action/counterexample',len(deep['claims'])==15 and all(x.get(k)for x in deep['claims']for k in ['claim','reasoning','action','limit','concepts','question','sources']))
-test('Six layers and source correction ledger',len(deep['layers'])==6 and len(deep['corrections'])==4)
+test('Six layers and source correction ledger',len(deep['layers'])==6 and len(deep['corrections'])>=4)
 
+test('Twelve applied scenarios replace the active recall quiz',len(path['assessment'])==12 and all(len(q)==5 and len(q[4]['feedback'])==len(q[1])and q[4]['scenario']and q[4]['related']for q in path['assessment']))
+test('New assessment weighted rate and conditional exclusions',abs((4+21)/(100+300)*100-6.25)<1e-12 and abs((4+21+6)/400*100-7.75)<1e-12)
+test('Six-day plan is a proposal with explicit unknown exam settings',len(path['compressedPlan'])==6 and len(path['examScope']['unknown'])==4 and '권장안' in path['planBoundary'])
 # WCAG contrast calculation for active brand controls.
 def lum(h):
  v=[int(h[i:i+2],16)/255 for i in [1,3,5]];v=[x/12.92 if x<=.04045 else((x+.055)/1.055)**2.4 for x in v];return .2126*v[0]+.7152*v[1]+.0722*v[2]

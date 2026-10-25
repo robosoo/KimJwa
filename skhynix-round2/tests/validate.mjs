@@ -9,7 +9,7 @@ const json=f=>JSON.parse(readFileSync(path.join(root,f),'utf8'));
 const htmlText=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const records=[];
 function check(name,fn){fn();records.push({name,status:'PASS'})}
-for(const [f,sha]of Object.entries({'cofa-chapters.json':'a35a50f9efa83e515ca9c21b33b45b762036b3a0','portal-content.json':'ff4c79003ca3564b037b77ac52728b0c3234fedc'}))check('Byte-exact original backup: '+f,()=>assert.equal(createHash('sha1').update(readFileSync(path.join(root,f))).digest('hex'),sha));
+for(const [f,sha]of Object.entries({'content.json':'6c7dce71239c80f3f57693c0a8dcdc787d792093','luka-deep.json':'813c0396cfa7cacee60eba50b5106bd05c31b52e','cofa-chapters.json':'a35a50f9efa83e515ca9c21b33b45b762036b3a0','portal-content.json':'ff4c79003ca3564b037b77ac52728b0c3234fedc'}))check('Byte-exact original backup: '+f,()=>assert.equal(createHash('sha1').update(readFileSync(path.join(root,f))).digest('hex'),sha));
 const files=['content.json','luka-deep.json','cofa-chapters.json','portal-content.json','source-manifest.json','learning-guide.json','beginner-guide.json','learning-path.json','deep-analysis.json'];
 const data=Object.fromEntries(files.map(f=>['/'+f,json(f)]));
 const listeners={},storage=new Map(),nodes=new Map();
@@ -57,12 +57,15 @@ check('Deep analysis maps every supplied section to reasoning and counterexample
 check('Reading labels do not claim mastery',()=>{const html=ctx.test.renderArticle(state.items[0]);assert.ok(html.includes('읽음으로 표시'));assert.ok(html.includes('이해 여부는 직접 설명'));assert.ok(!html.includes('학습 완료 ✓'))});
 check('Manifest counts and source references agree with rendered inventory',()=>assert.equal(state.manifest.activeArticleCount,state.items.length));
 
+check('Active questions require supplied case context and preserve real lesson links',()=>{const questions=ctx.test.quizQuestions();assert.equal(questions.length,12);assert.notEqual(questions[1][0],state.portal.drill[1][0]);for(const q of questions){assert.ok(q[4].scenario);assert.equal(q[4].feedback.length,q[1].length);assert.ok(state.items.some(x=>x.id===q[4].related))}});
 // A fresh VM shares browser storage but no previous in-memory state.
 click('guided-reset');click('guided-answer',{option:'1'});click('guided-next');click('guided-answer',{option:'0'});location.hash='#practice/guided';
 const restored={...ctx};delete restored.test;delete restored.ready;vm.createContext(restored);vm.runInContext(source,restored);await restored.ready;
 check('Fresh page restores guided progress including a wrong choice',()=>{assert.equal(restored.test.state.practiceMode,'guided');assert.equal(restored.test.state.guided.step,1);assert.equal(restored.test.state.guided.answers[0],1);assert.equal(restored.test.state.guided.answers[1],0);assert.equal(restored.test.guidedLimit(),1)});
 storage.set('cofa-study-v3:guided-v1',JSON.stringify({step:999,answers:{0:999,7:1}}));const damaged={...ctx};delete damaged.test;delete damaged.ready;vm.createContext(damaged);vm.runInContext(source,damaged);await damaged.ready;
 check('Corrupt stored progression cannot unlock unlearned steps',()=>{assert.equal(damaged.test.state.guided.step,0);assert.equal(Object.keys(damaged.test.state.guided.answers).length,0)});
+storage.set('cofa-study-v3:scenario-quiz-v1','false');storage.set('cofa-study-v3:answers',JSON.stringify({0:1}));storage.set('cofa-study-v3:guided-v1',JSON.stringify({step:0,answers:{0:1}}));const migrated={...ctx};delete migrated.test;delete migrated.ready;vm.createContext(migrated);vm.runInContext(source,migrated);await migrated.ready;
+check('Replacing recall questions resets only quiz answers, not reading or guided records',()=>{assert.equal(Object.keys(migrated.test.state.answers).length,0);assert.equal(migrated.test.state.guided.answers[0],1);assert.ok(migrated.test.state.done.has('video-1'))});
 const report={date:'2026-10-25',kind:'Node VM functional checks; not a visual-browser test',passed:records.length,checks:records};
 writeFileSync(path.join(root,'reports/validation.json'),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({passed:records.length,failed:0,scope:report.kind}));

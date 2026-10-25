@@ -1,8 +1,16 @@
 {
   "date": "2026-10-25",
   "kind": "Node VM functional checks; not a visual-browser test",
-  "passed": 36,
+  "passed": 40,
   "checks": [
+    {
+      "name": "Byte-exact original backup: content.json",
+      "status": "PASS"
+    },
+    {
+      "name": "Byte-exact original backup: luka-deep.json",
+      "status": "PASS"
+    },
     {
       "name": "Byte-exact original backup: cofa-chapters.json",
       "status": "PASS"
@@ -140,11 +148,19 @@
       "status": "PASS"
     },
     {
+      "name": "Active questions require supplied case context and preserve real lesson links",
+      "status": "PASS"
+    },
+    {
       "name": "Fresh page restores guided progress including a wrong choice",
       "status": "PASS"
     },
     {
       "name": "Corrupt stored progression cannot unlock unlearned steps",
+      "status": "PASS"
+    },
+    {
+      "name": "Replacing recall questions resets only quiz answers, not reading or guided records",
       "status": "PASS"
     }
   ]
