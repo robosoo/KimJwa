@@ -1,7 +1,7 @@
 {
   "date": "2026-10-25",
   "kind": "Node VM functional checks; not a visual-browser test",
-  "passed": 22,
+  "passed": 25,
   "checks": [
     {
       "name": "Byte-exact original backup: cofa-chapters.json",
@@ -16,7 +16,7 @@
       "status": "PASS"
     },
     {
-      "name": "Complete live inventory: 36 distinct articles",
+      "name": "Complete live inventory: 38 distinct articles",
       "status": "PASS"
     },
     {
@@ -85,6 +85,18 @@
     },
     {
       "name": "Source URL safety and inventory uniqueness",
+      "status": "PASS"
+    },
+    {
+      "name": "Beginner learning reflects nondeveloper work without implying live AI",
+      "status": "PASS"
+    },
+    {
+      "name": "Preparation route distinguishes plans from completed execution",
+      "status": "PASS"
+    },
+    {
+      "name": "External kit review preserves test scope",
       "status": "PASS"
     },
     {

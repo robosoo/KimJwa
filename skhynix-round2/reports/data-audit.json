@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "passed": 51,
+  "passed": 54,
   "checks": [
     {
       "name": "14 core chapters",
@@ -188,6 +188,18 @@
     },
     {
       "name": "Luka required topic: Communication",
+      "status": "PASS"
+    },
+    {
+      "name": "Nondeveloper axes and seven workflow steps",
+      "status": "PASS"
+    },
+    {
+      "name": "Preparation statuses remain unexecuted",
+      "status": "PASS"
+    },
+    {
+      "name": "Effective quiz keys and related IDs",
       "status": "PASS"
     },
     {

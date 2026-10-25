@@ -1,0 +1,105 @@
+{
+  "url": "https://interview-ai-native-ko.vercel.app/?file=README.md",
+  "checked_at": "2026-10-25",
+  "access": "HTTPS 200, HTML FILES statically parsed; no website JavaScript executed",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2926,
+      "sha256": "07e792aa06e343a28c4d4b615ba70caddfc032aadaf6e4e186a50f01ff108232"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 2230,
+      "sha256": "b7bbb1039c50bd2b2804ffb355d0d58ae262594689fdf173d707d8b989d62412"
+    },
+    {
+      "path": "REQUIREMENTS.md",
+      "bytes": 3148,
+      "sha256": "cf29e40ed7bd34241bccc066e6342780a63ac4a097d76ed65e6f49873e49cc13"
+    },
+    {
+      "path": "DECISIONS.md",
+      "bytes": 1385,
+      "sha256": "be07f81967bcedb47c79fce99163532b5b92e8b510ee8b26e27c24a07c79aca1"
+    },
+    {
+      "path": "ACCEPTANCE.md",
+      "bytes": 2623,
+      "sha256": "fb1ac672fb93ef967d717259d68a8f2afb836efc350a517760067cc03a2a7720"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "bytes": 1787,
+      "sha256": "3b8bee8699b5fabc1310aced552a5a74e7763006c5b00a290eb50294222378e5"
+    },
+    {
+      "path": ".agents/skills/requirements-to-spec/SKILL.md",
+      "bytes": 1674,
+      "sha256": "9805637cacb54f11896ce2e9f902884783e338831bb06796fb5ec89c74e851c1"
+    },
+    {
+      "path": ".agents/skills/evidence-analysis/SKILL.md",
+      "bytes": 2049,
+      "sha256": "9b7920b408bebaad9879379e32be673b869f73bda90523e5091fea255e6ebe73"
+    },
+    {
+      "path": ".agents/skills/evidence-analysis/references/analysis-contract.md",
+      "bytes": 1532,
+      "sha256": "540f70e7f7fa2578598bb8e0790a568f49b27efc53d06cca9582921f88a285ec"
+    },
+    {
+      "path": ".agents/skills/mvp-verifier/SKILL.md",
+      "bytes": 1287,
+      "sha256": "8158f84f8a505eec64df6a04346ba706ac218a2f5fcf3e73a1a24d0a579c5087"
+    },
+    {
+      "path": "fixtures/interviews.json",
+      "bytes": 2472,
+      "sha256": "1d7ee54877e426c0f654c11ade39eb579e39cba2d6a02bc59426043c457caaad"
+    },
+    {
+      "path": "fixtures/expected-results.json",
+      "bytes": 379,
+      "sha256": "6332c92a12e236dee1255eee7d61e9667c2a9c02d83b9fefb0a23c386e1b641a"
+    },
+    {
+      "path": "scripts/check_fixtures.py",
+      "bytes": 1259,
+      "sha256": "26d4d0f178d7079fd3c3063da852c58a46d49745b9232bb4a5f621586d3fea4e"
+    }
+  ],
+  "execution": {
+    "script": "scripts/check_fixtures.py",
+    "exit_code": 0,
+    "stdout": "PASS: 5 synthetic approved interviews, initial 3/5, revised 2/5, unique IDs",
+    "separate_arithmetic": {
+      "before": 0.6,
+      "after": 0.4
+    }
+  },
+  "not_run": [
+    "No completed application present in these 13 files",
+    "No app CRUD, storage, approval, evidence-navigation or export tests",
+    "No actual Probe evaluation",
+    "No complete rehearsal performed"
+  ],
+  "review": [
+    [
+      "실제로 확인",
+      "문서 13개를 읽음. 검사 스크립트 종료 코드 0. 제시된 수정 전후 비율을 별도 계산해 일치 확인."
+    ],
+    [
+      "아직 입증되지 않음",
+      "실제 앱의 입력·보존·검토·승인·수정 반영·내보내기. 인수 조건을 적어 둔 것과 실행해 통과한 것은 다릅니다."
+    ],
+    [
+      "검사 범위의 빈틈",
+      "검사 코드는 정해진 인터뷰 목록을 확인합니다. 한 사람이 여러 인터뷰에 참여하는 일반 경우의 고유 인원 집계를 입증하지 않습니다. 비율 필드 자체의 검증도 별도로 필요합니다."
+    ],
+    [
+      "추가로 확인할 조건",
+      "빈 집계, 승인 취소, 서로 다른 날짜의 같은 참여자, 발언 정정, 잘못 연결된 근거, CSV에서 쉼표·줄바꿈이 포함된 값 등을 실제 결과로 확인해야 합니다."
+    ]
+  ]
+}

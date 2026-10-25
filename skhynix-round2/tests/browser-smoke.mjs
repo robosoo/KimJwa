@@ -20,13 +20,13 @@ try{
   await page.locator(`${nav} [data-nav="${tab}"]`).click();
   const geometry=await page.evaluate(()=>({client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));assert.equal(geometry.client,geometry.scroll);
  }
- await page.locator(`${nav} [data-nav="library"]`).click();assert.equal(await page.locator('.source-option').count(),36);
+ await page.locator(`${nav} [data-nav="library"]`).click();assert.equal(await page.locator('.source-option').count(),38);
  await page.locator('.source-option[data-id="creator-guide"]').click();assert.ok(await page.locator('.library-main').evaluate(x=>x.getBoundingClientRect().top)<30);
  await page.screenshot({path:path.join(root,`reports/screenshots/library-${width}.png`),fullPage:false});
  await page.locator(`${nav} [data-nav="practice"]`).click();await page.getByRole('button',{name:'전략 비교',exact:true}).click();assert.equal(await page.locator('[data-action="choose-comparison"]').count(),5);
  await page.getByRole('button',{name:'자료 분석',exact:true}).click();assert.equal(await page.locator('[data-action="choose-case"]').count(),8);
  for(let i=0;i<8;i++){await page.locator('[data-action="choose-case"]').nth(i).click();await page.getByRole('button',{name:'해설 보기',exact:true}).click();assert.equal(await page.locator('.decision-study details').count(),4);await page.getByRole('button',{name:'해설 접기',exact:true}).click()}
- await page.locator(`${nav} [data-nav="review"]`).click();const keys=[1,0,2,1,1,1,1,1,1,1,1,1];for(let i=0;i<12;i++)await page.locator(`#question-${i} .option`).nth(keys[i]).click();assert.equal(await page.locator('.feedback').count(),12);assert.equal(errors.length,0);
+ await page.locator(`${nav} [data-nav="review"]`).click();const keys=[1,1,2,1,1,1,1,1,1,1,1,1];for(let i=0;i<12;i++)await page.locator(`#question-${i} .option`).nth(keys[i]).click();assert.equal(await page.locator('.feedback').count(),12);assert.equal(errors.length,0);
  results.push({width,height,status:'PASS'});await context.close();
  }
  writeFileSync(path.join(root,'reports/standalone-browser-result.json'),JSON.stringify({base,results},null,2));console.log(results);

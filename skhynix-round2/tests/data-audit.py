@@ -19,6 +19,10 @@ test('Five comparison sections with sources',len(db['compare'])+len(guide['addit
 test('Every quiz has valid key and explanation',all(len(q)==4 and isinstance(q[2],int)and 0<=q[2]<len(q[1])and q[3]for q in db['drill']))
 luka=json.loads((p/'luka-deep.json').read_text());text=json.dumps(luka,ensure_ascii=False)
 for token in ['225','README','INTERVIEW.md','CLAUDE.md','STATE','Codex','Compact','Handoff','Technique','Intent','Cognition','Communication']:test('Luka required topic: '+token,token.lower()in text.lower())
+b=json.loads((p/'beginner-guide.json').read_text())
+test('Nondeveloper axes and seven workflow steps',len(b['nondevAxes'])==3 and len(b['workflow'])==7)
+test('Preparation statuses remain unexecuted',all(x['status']in ['미준비','실행 기록 없음','문서 틀 있음 · 실행 키트 미확인']for x in b['readiness']))
+test('Effective quiz keys and related IDs',all(len(q)==4 and 0<=q[2]<len(q[1])and q[3]for q in b['quizOverrides'].values()))
 # WCAG contrast calculation for active brand controls.
 def lum(h):
  v=[int(h[i:i+2],16)/255 for i in [1,3,5]];v=[x/12.92 if x<=.04045 else((x+.055)/1.055)**2.4 for x in v];return .2126*v[0]+.7152*v[1]+.0722*v[2]
