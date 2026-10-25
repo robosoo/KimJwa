@@ -11,7 +11,8 @@
 - 시작 시 Production: dpl_7h9HuP4wmmjiXK8ikCkUMkNipawR, READY 확인.
 - 최종 검증 Preview: dpl_AM95xt5xug4KLG2jgjbHdjKRu2kf, 동일 프로젝트의 정적 앱.
 - Preview: https://skhynix-ai-hackathon-round2-1qihf2yg3-ctpmfd42hf-8757.vercel.app/
-- Production 교체 전 점검 완료. 아래 Production 결과 절은 배포 후 갱신한다.
+- Production 배포 완료: dpl_79rfL1iS2kxiDxdm4QirQLcepHFV, READY / production. 공식 운영 도메인 연결까지 확인했다.
+- 배포 소스 커밋: afd4baa3546345bed2aaebef6c4ba7ea8fd552f9. 문서만 갱신하는 후속 커밋은 runtime 배포 내용과 구분한다.
 
 ## 완료한 작업
 
@@ -60,3 +61,13 @@
 - 8b24ca5: 출처 메타데이터·개발자 핵심 교재·판단 훈련
 - b9177a1: 네 메뉴·읽기 체계·전략 복구·기능 회귀 검사
 - 이후 수정·테마 및 배포 결과는 현재 브랜치 log와 release.json에 기록한다.
+
+## 최종 Production 확인
+
+- 배포 ID: dpl_79rfL1iS2kxiDxdm4QirQLcepHFV
+- READY 및 target production 확인. 공식 URL https://skhynix-ai-hackathon-round2-lab.vercel.app/ 가 동일 배포를 가리킨다.
+- 15개 runtime 파일의 Vercel UID와 소스 SHA를 기록했다. Preview 전용 화면은 Production에 포함하지 않았다.
+- 운영 도메인에서 네 메뉴를 실제로 클릭해 올바른 본문 제목을 확인했다. 기존 cofa-luka.html이 #learn/luka-depth로 이동하고 Luka 본문을 여는 것을 확인했다.
+- reports/release.json: HTTP·공유 URL·파일 일치 확인. reports/runtime-files.json: runtime 파일별 raw SHA-1 및 크기.
+- 테스트 상태: 기능 22 + 데이터·계산·필수 주제·주요 대비 51 PASS. Chrome 실제 다섯 viewport와 20개 메뉴/크기 조합 점검. 실물 Safari 미검증은 그대로 남긴다.
+- 이후 개선 우선순위는 위 미검증 범위에 한정한다. 이미 통과한 검사를 이유 없이 반복하거나 기존 콘텐츠를 다시 만들지 않는다.

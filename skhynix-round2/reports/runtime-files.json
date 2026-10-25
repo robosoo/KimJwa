@@ -1,0 +1,62 @@
+{
+  "index.html": {
+    "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb",
+    "bytes": 3603
+  },
+  "app.js": {
+    "sha1": "d01afe2c89daba83399423d893056a5057c6ef67",
+    "bytes": 48000
+  },
+  "style.css": {
+    "sha1": "adb930cb0f500b6698598ca70956a91e838c2fb1",
+    "bytes": 26766
+  },
+  "brand.css": {
+    "sha1": "24d5be15af4fcde5b056a60a7ea2038005eb2df7",
+    "bytes": 4566
+  },
+  "content.json": {
+    "sha1": "6c7dce71239c80f3f57693c0a8dcdc787d792093",
+    "bytes": 26888
+  },
+  "luka-deep.json": {
+    "sha1": "813c0396cfa7cacee60eba50b5106bd05c31b52e",
+    "bytes": 9623
+  },
+  "cofa-chapters.json": {
+    "sha1": "a35a50f9efa83e515ca9c21b33b45b762036b3a0",
+    "bytes": 34427
+  },
+  "portal-content.json": {
+    "sha1": "ff4c79003ca3564b037b77ac52728b0c3234fedc",
+    "bytes": 27614
+  },
+  "source-manifest.json": {
+    "sha1": "2a174b67e70187606fca220feccae5ec533acdfb",
+    "bytes": 42948
+  },
+  "learning-guide.json": {
+    "sha1": "3b9c52eeb3cbf34eeb89cb1d42a3b3c774f3597f",
+    "bytes": 16274
+  },
+  "vercel.json": {
+    "sha1": "09fdd40850961aa8c6a13b753f778b7c773f4c44",
+    "bytes": 928
+  },
+  "cofa-probe.html": {
+    "sha1": "272e5aab8523f780e180deb696709d52cce8b6c9",
+    "bytes": 347
+  },
+  "cofa-luka.html": {
+    "sha1": "051f6756c3394eaf69b30c3d12d036d5b49a61fa",
+    "bytes": 341
+  },
+  "cofa-luka-deep.html": {
+    "sha1": "051f6756c3394eaf69b30c3d12d036d5b49a61fa",
+    "bytes": 341
+  },
+  "cofa-sim.html": {
+    "sha1": "4d1a6080b52605e670da9238e24dd6b07b265d1a",
+    "bytes": 335
+  }
+}

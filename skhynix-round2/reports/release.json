@@ -1,0 +1,128 @@
+{
+  "checked_at": "2026-10-25",
+  "deploymentId": "dpl_79rfL1iS2kxiDxdm4QirQLcepHFV",
+  "sourceCommit": "afd4baa3546345bed2aaebef6c4ba7ea8fd552f9",
+  "target": "production",
+  "state": "READY",
+  "url": "https://skhynix-ai-hackathon-round2-lab.vercel.app/",
+  "verifiedPreview": "dpl_AM95xt5xug4KLG2jgjbHdjKRu2kf",
+  "runtimeFileCount": 15,
+  "httpChecks": [
+    {
+      "path": "/",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/",
+      "bytes": 3603,
+      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+    },
+    {
+      "path": "/cofa-probe.html",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=library",
+      "bytes": 3603,
+      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+    },
+    {
+      "path": "/cofa-luka.html",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=library&id=luka-depth",
+      "bytes": 3603,
+      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+    },
+    {
+      "path": "/cofa-luka-deep.html",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=library&id=luka-depth",
+      "bytes": 3603,
+      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+    },
+    {
+      "path": "/cofa-sim.html",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=practice",
+      "bytes": 3603,
+      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+    },
+    {
+      "path": "/old-round2-data.html",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=practice",
+      "bytes": 3603,
+      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+    },
+    {
+      "path": "/old-cofa-case.html",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=practice",
+      "bytes": 3603,
+      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+    },
+    {
+      "path": "/old-cofa-luka.html",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/?tab=library&id=luka-depth",
+      "bytes": 3603,
+      "sha1": "fc71a75c5a2074ea1f53d169e9e530bde8cf37cb"
+    },
+    {
+      "path": "/cofa-chapters.json",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/cofa-chapters.json",
+      "bytes": 34427,
+      "sha1": "a35a50f9efa83e515ca9c21b33b45b762036b3a0",
+      "matchesGitHubSource": true
+    },
+    {
+      "path": "/portal-content.json",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/portal-content.json",
+      "bytes": 27614,
+      "sha1": "ff4c79003ca3564b037b77ac52728b0c3234fedc",
+      "matchesGitHubSource": true
+    },
+    {
+      "path": "/app.js",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/app.js",
+      "bytes": 48000,
+      "sha1": "d01afe2c89daba83399423d893056a5057c6ef67",
+      "matchesGitHubSource": true
+    },
+    {
+      "path": "/brand.css",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/brand.css",
+      "bytes": 4566,
+      "sha1": "24d5be15af4fcde5b056a60a7ea2038005eb2df7",
+      "matchesGitHubSource": true
+    },
+    {
+      "path": "/source-manifest.json",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/source-manifest.json",
+      "bytes": 42948,
+      "sha1": "2a174b67e70187606fca220feccae5ec533acdfb",
+      "matchesGitHubSource": true
+    },
+    {
+      "path": "/learning-guide.json",
+      "status": 200,
+      "finalUrl": "https://skhynix-ai-hackathon-round2-lab.vercel.app/learning-guide.json",
+      "bytes": 16274,
+      "sha1": "3b9c52eeb3cbf34eeb89cb1d42a3b3c774f3597f",
+      "matchesGitHubSource": true
+    }
+  ],
+  "tests": {
+    "functional": 22,
+    "data": 51,
+    "cssViewportWidths": [
+      390,
+      844,
+      768,
+      1024,
+      1440
+    ]
+  },
+  "rollbackCommit": "6d17af15cdbd11e5cbaef5bb9ca9522fe422cfd6"
+}

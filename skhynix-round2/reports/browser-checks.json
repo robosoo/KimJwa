@@ -61,12 +61,19 @@
     "read_status_reload": "PASS on direct app URL",
     "quiz_reload": "PASS on direct app URL",
     "four_hour_timer": "PASS: 03:59:59 pause, 04:00:00 reset; 03:59:58 after direct-page reload",
-    "three_minute_timer": "PASS: start and pause at 02:59"
+    "three_minute_timer": "PASS: start and pause at 02:59",
+    "external_original_link": "PASS: https://www.getcofa.com/ko/probe, target=_blank, new tab created"
   },
   "console_scope": "Observed Chrome extension metadata errors were extension-origin, not application-origin. This is not a claim of exhaustive runtime monitoring.",
   "limitations": [
     "Standalone Chromium install returned an invalid download archive; browser-smoke.mjs is a reproducible runner, not the executed evidence for this session.",
     "Physical devices, Safari/VoiceOver and device safe-area behavior remain untested.",
     "Viewport harness itself can scroll in the outer host; overflow measurements above refer to the application iframe."
-  ]
+  ],
+  "production": {
+    "id": "dpl_79rfL1iS2kxiDxdm4QirQLcepHFV",
+    "status": "READY",
+    "fourMenus": "PASS: correct h1 on official domain",
+    "legacyLuka": "PASS: /cofa-luka.html → /#learn/luka-depth"
+  }
 }
