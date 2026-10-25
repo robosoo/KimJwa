@@ -14,7 +14,7 @@ mkdirSync(path.join(root,'reports/screenshots'),{recursive:true});
 try{
  for(const [width,height]of sizes){
  const context=await browser.newContext({viewport:{width,height}}),page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto(base);await page.locator('.roadmap-step').first().waitFor();
+ await page.goto(base);await page.locator('.study-plan').first().waitFor();
  const nav=width<=930?'#mobileNav':'#desktopNav';
  for(const tab of ['learn','library','practice','review']){
   await page.locator(`${nav} [data-nav="${tab}"]`).click();

@@ -1,0 +1,42 @@
+[
+  {
+    "url": "https://www.getcofa.com/ko",
+    "status": 200,
+    "classification": "reachable"
+  },
+  {
+    "url": "https://www.getcofa.com/ko/about",
+    "status": 200,
+    "classification": "reachable"
+  },
+  {
+    "url": "https://www.getcofa.com/ko/probe",
+    "status": 200,
+    "classification": "reachable"
+  },
+  {
+    "url": "https://www.getcofa.com/ko/usecase",
+    "status": 200,
+    "classification": "reachable"
+  },
+  {
+    "url": "https://www.getcofa.com/ko/sourcer",
+    "status": 200,
+    "classification": "reachable"
+  },
+  {
+    "url": "https://www.getcofa.com/ko/contents?collection=news",
+    "status": 200,
+    "classification": "reachable"
+  },
+  {
+    "url": "https://www.getcofa.com/ko/contact",
+    "status": 200,
+    "classification": "reachable"
+  },
+  {
+    "url": "https://interview-ai-native-ko.vercel.app/?file=README.md",
+    "status": 200,
+    "classification": "reachable"
+  }
+]

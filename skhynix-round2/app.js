@@ -70,23 +70,17 @@ renderProgress();
 }
 function renderLearn(){
 const next=state.items.find(x=>x.id===readLocal('selected','probe-basics')&&!state.done.has(x.id))||state.items.find(x=>!state.done.has(x.id))||state.items[0];
-const videoCount=state.content.sections.length,participantCount=state.manifest.sourceRecords.filter(x=>x.evidence_type==='firsthand').length;
-return '<div class="section-margin">'+hero('선택의 이유까지,\n직접 설명하는 준비.','SK HYNIX · 2차 준비','비개발 직군을 위한 준비입니다. 자료를 읽고 AI와 업무 결과물을 만든 뒤, 숫자·출처·예외를 검증하고 자신의 판단을 설명하는 연습을 합니다.')+'</div>'+
-'<section class="surface content-card section-margin"><h2>처음 오셨나요?</h2><p>Cofa Probe는 AI와 실무 과제를 해결하는 역량을 평가하는 제품입니다. 공식 설명은 개발자와 비개발자의 작업 환경을 구분합니다. 비개발 직군은 문서·AI 도구·업무 서비스를 활용하는 환경이 소개돼 있습니다.</p><p>이곳은 비공식 학습센터입니다. 자료와 해설을 읽고 판단을 연습할 수 있습니다. 실제 AI 대화·파일 편집·공식 평가는 제공하지 않습니다.</p><button class="button primary" data-action="open-source" data-id="probe-basics">Probe와 공부 방법부터 알아보기 →</button></section>'+
-'<section class="surface hero-card section-margin"><div class="tiny-circle"></div><span class="pill teal">다음 학습</span><h2>문제를 정의하고, AI에 맡기고,<br>결과를 끝까지 설명하기.</h2><p>처음에는 입문 안내부터, 읽던 자료가 있으면 해당 글부터 이어집니다. 보고서와 계산표도 자신의 판단과 검증을 설명할 수 있어야 합니다.</p><div class="inline-actions"><button class="button primary" data-action="open-source" data-id="'+E(next?.id||'video-1')+'">이어서 공부하기 <span aria-hidden="true">→</span></button><button class="button" data-action="navigate" data-tab="practice">실전 사례로 이동</button></div></section>'+
-renderStudyPlan()+
-'<div class="metric-grid section-margin">'+cardStat(videoCount+'장','개발자 인터뷰')+cardStat(participantCount+'개','직접 후기 출처')+cardStat((state.portal?.cases||[]).length+'종','검증 실전 과제')+'</div>'+
-'<div class="subhead-row"><h2>학습 순서</h2><span class="pill">아래에서 차례로 진행</span></div><div class="roadmap section-margin">'+
-[
-{num:'01',title:'Probe와 비개발자 공부 방법 이해',desc:'무엇을 하는 시험인지, 여기서 무엇을 연습할지',id:'probe-basics'},
-{num:'02',title:'평가 설계자의 세 가지 역량',desc:'목적·결과 품질·자기 이해를 각각 증명하기',id:'creator-guide'},
-{num:'03',title:'실제 코파톤 참가자의 수행 복기',desc:'안내문 읽기·필요한 질문·검증·자기 설명',id:'luka-depth'},
-{num:'04',title:'상반된 전략의 조건 비교',desc:'다섯 비교에서 선택과 기각의 이유 찾기',tab:'practice',mode:'compare'},
-{num:'05',title:'가상 사례 문제로 직접 판단하기',desc:'데이터·예외·안전조건을 체크한 뒤 해설 확인',tab:'practice'},
-{num:'06',title:'개념과 함정 12문항 점검',desc:'틀리기 쉬운 경계조건 위주로 회귀 연습',tab:'review'}
-].map(c=>'<button class="roadmap-step" data-action="'+(c.tab?'navigate':'open-source')+'" '+(c.tab?'data-tab="'+c.tab+'"'+(c.mode?' data-mode="'+c.mode+'"':''):'data-id="'+c.id+'"')+'"><span class="num">'+c.num+'</span><span><strong>'+E(c.title)+'</strong><small>'+E(c.desc)+'</small></span><span class="go">›</span></button>').join('')+'</div>'+
-'<div class="subhead-row"><h2>읽기 전에 기억할 두 가지</h2></div><div class="insight-grid"><div class="surface insight-card"><span class="icon-circle">◎</span><h3>과정과 결과를 함께 확인</h3><p>AI가 ‘완료’라고 말해도 검증이 끝난 것은 아닙니다. 보고서의 숫자·출처와 예외 조건을 원자료와 대조합니다.</p></div><div class="surface insight-card"><span class="icon-circle">⌘</span><h3>다른 행사의 규칙은 구분</h3><p>7월 코파톤에서 사용한 모델·배점·질문 수를 10월 SK하이닉스 2차의 확정 규정으로 옮기지 않습니다.</p></div></div>'+
-'<div class="source-note"><strong>SK하이닉스 공식 2차 안내</strong><p>2차 예선은 10월 31일~11월 1일 중 1일, 온라인 AI Native 역량 검증으로 안내되어 있습니다. 개인별 응시시간과 허용 도구는 주최측 개별 안내를 확인하세요.</p><div class="inline-actions">'+sourceLink('https://skhynix-hackathon.com/ai-2026','대회 공식 안내 ↗')+sourceLink('https://talent.skhynix.com/hub/ko/company/story/237','SK하이닉스 공식 설명 ↗')+'</div></div><p class="footer-meta">자료: KRAFTON Cofa 공식 소개, 개발자 인터뷰 영상, 코파톤 공개 참가자 회고, 사용자 제공 정리문. 실제 출제문항과 무관한 학습용 사례는 별도로 표시합니다.</p>';
+return '<div class="section-margin">'+hero('AI와 만든 결과,\n내 판단으로 설명하기.','SK HYNIX · 2차 준비','비개발 직군을 위한 학습센터입니다. 자료를 읽고 AI와 업무 결과물을 만든 뒤, 숫자·출처·예외를 검증하고 선택 이유를 설명하는 연습을 합니다.')+'</div>'+
+'<section class="surface content-card section-margin"><h2>처음 오셨나요?</h2><p>Cofa Probe는 AI와 실무 과제를 해결하는 역량을 평가하는 제품입니다. 비개발자는 문서·AI 도구·업무 서비스를 사용하는 환경이 소개돼 있습니다.</p><p class="small muted">이곳에서는 자료·해설과 가상 문제로 판단을 연습합니다. 실제 AI 대화·파일 편집·공식 평가는 제공하지 않습니다.</p><button class="button primary" data-action="open-source" data-id="probe-basics">Probe와 공부 방법부터 알아보기 →</button></section>'+
+'<section class="resume-line section-margin"><div><span class="eyebrow">이어서 읽을 자료</span><p>'+E(next.title)+'</p></div><button class="button" data-action="open-source" data-id="'+E(next.id)+'">이어서 공부하기 →</button></section>'+renderStudyPlan()+
+'<details class="surface content-card section-margin"><summary>더 깊게 읽기 · 필요한 주제만 선택</summary><div class="roadmap">'+[
+{title:'평가 설계자의 세 가지 역량',desc:'목표·결과 품질·자기 이해를 각각 증명',id:'creator-guide'},
+{title:'공식 제품 설명과 평가 근거',desc:'산출물·작업 기록·사후 설명의 관계',id:'old-official'},
+{title:'실제 참가자의 수행 과정',desc:'과제 문서·필요한 질문·합의·검증·인수인계',id:'luka-depth'},
+{title:'상반된 전략의 조건 비교',desc:'선택과 기각의 이유, 실패 조건',mode:'compare'},
+{title:'준비물과 전체 리허설 계획',desc:'문서 틀·실행 키트·실행 기록을 구분',mode:'preparation'}
+].map((x,i)=>'<button class="roadmap-step" data-action="'+(x.id?'open-source':'navigate')+'" '+(x.id?'data-id="'+x.id+'"':'data-tab="practice" data-mode="'+x.mode+'"')+'><span class="num">'+String(i+1).padStart(2,'0')+'</span><span><strong>'+E(x.title)+'</strong><small>'+E(x.desc)+'</small></span><span class="go">›</span></button>').join('')+'</div></details>'+
+'<div class="source-note"><strong>시험 규정은 해당 안내로 확인</strong><p>개발자의 제품 설명은 평가 목적의 우선 근거입니다. 과거 코파톤의 225분·모델·배점·질문 수를 이번 시험의 규정으로 옮기지 않습니다. SK하이닉스 공식 안내의 2차 일정은 10월 31일~11월 1일 중 1일이며 개인별 시간과 허용 도구는 개별 안내가 우선합니다.</p><div class="inline-actions">'+sourceLink('https://skhynix-hackathon.com/ai-2026','대회 공식 안내 ↗')+sourceLink('https://talent.skhynix.com/hub/ko/company/story/237','SK하이닉스 공식 설명 ↗')+'</div></div>';
 }
 function renderStudyPlan(){
 return '<div class="subhead-row"><h2>가장 적게 읽고, 직접 확인하는 순서</h2></div><p class="muted">전 자료를 먼저 완독할 필요는 없습니다. 한 문제에서 막히는 개념을 찾아 읽고 다시 적용하세요. 아래는 권장 학습법이며 공식 평가 절차가 아닙니다.</p><div class="study-plan section-margin">'+state.beginner.studyPlan.map((x,i)=>'<section class="surface content-card"><span class="eyebrow">'+String(i+1).padStart(2,'0')+'</span><h3>'+E(x.title)+'</h3><p>'+E(x.body)+'</p><p><strong>남길 결과</strong><br>'+E(x.output)+'</p><p class="small muted">점검 · '+E(x.check)+'</p><button class="button" data-action="'+(x.action==='source'?'open-source':'navigate')+'" '+(x.action==='source'?'data-id="'+x.id+'"':'data-tab="'+(x.action==='quiz'?'review':'practice')+'"'+(x.action==='practice'?' data-mode="'+x.id+'"':''))+'>'+E(x.label)+' →</button></section>').join('')+'</div>';
@@ -104,7 +98,7 @@ function articleHeader(item,summary,kind,caution){
  const types={official:'공식 발표',firsthand:'참가자 직접 후기','reported-interview':'언론 인터뷰','first-party-interview':'개발자 직접 설명','reported-first-party':'기업 발표 기반 보도','official-access-point':'공식 접속 주소',unverified:'공식성 미확인',profile:'보조 프로필','educational-sample':'학습용 가상 자료'};
  const badge=item.kind==='basics'?'공식 근거 · 비개발자 학습 해석':item.kind==='synthesis'?'사용자 분석 · 학습 해석':item.kind==='video'?'사용자 제공 영상 정리':types[record?.evidence_type]||'출처 확인 필요';
  const metadata=record?'<details class="source-metadata"><summary>출처와 확인 범위</summary><dl><dt>원문 제목</dt><dd>'+E(record.original_title||'정확한 제목 미확인 · 학습 목차 제목과 구분')+'</dd><dt>작성자·기관</dt><dd>'+E(record.author_or_publisher)+'</dd><dt>작성일 / 사건일</dt><dd>'+E(record.published_at||'미확인')+' / '+E(record.event_date||'미확인')+'</dd><dt>확인 상태</dt><dd>'+E(record.verification.status)+' · '+E(record.verification.note)+'</dd></dl></details>':'';
- return '<div class="library-header"><div class="row">'+badges([badge,'약 '+item.minutes+'분'])+(state.done.has(item.id)?'<span class="pill teal">학습 완료 ✓</span>':'')+'</div><h2>'+E(item.title)+'</h2><p>'+E(summary||item.subtitle)+'</p>'+(caution?'<div class="source-note warn">'+E(caution)+'</div>':'')+metadata+(record?.editorial_note?'<div class="source-note warn">'+E(record.editorial_note)+'</div>':'')+'<div class="inline-actions">'+sourceLink(item.source,'원문 확인 ↗')+'</div></div>';
+ return '<div class="library-header"><div class="row">'+badges([badge,'약 '+item.minutes+'분'])+(state.done.has(item.id)?'<span class="pill teal">학습 완료 ✓</span>':'')+'</div><h2>'+E(item.title)+'</h2><p>'+E(summary||item.subtitle)+'</p>'+(caution?'<div class="source-note warn">'+E(caution)+'</div>':'')+metadata+(record?.editorial_note&&item.kind==='legacy'?'<div class="source-note warn">'+E(record.editorial_note)+'</div>':'')+'<div class="inline-actions">'+sourceLink(item.source,'원문 확인 ↗')+'</div></div>';
 }
 function articleFooter(item){
  const i=state.items.findIndex(x=>x.id===item.id),prev=state.items[i-1],next=state.items[i+1];
@@ -128,7 +122,7 @@ return renderLegacy(item);
 }
 function renderBasics(item){
 const b=state.beginner;
-return articleHeader(item,b.overview,'official',b.scope)+'<div class="article-body">'+
+return articleHeader(item,'무엇을 하는 평가인지부터 이해하고, 자료·AI·검증·설명을 연결하는 공부 방법을 익힙니다.','official','')+'<div class="article-body">'+
 articleSection('이 사이트로 무엇을 공부하나요?','<p>'+E(b.purpose)+'</p>')+
 articleSection('비개발자 환경은 개발자 IDE와 다릅니다','<p>'+E(b.officialEnvironment)+'</p><div class="source-note">공식 홈페이지에서 Probe의 비개발자 탭을 눌러 확인할 수 있습니다. 예시 화면의 남은 시간·모델명·자료를 실제 시험 조건으로 외우지 마세요.</div>')+
 articleSection('비개발자에게 세 역량은 어떻게 드러날까?',b.nondevAxes.map(x=>'<section class="axis-study"><h4>'+E(x[0])+'</h4><p>'+E(x[1])+'</p><p><strong>가상 예</strong> '+E(x[2])+'</p></section>').join(''))+
@@ -139,7 +133,7 @@ articleSection('HW 경험을 어떻게 활용할까?','<p>'+E(b.fieldTransfer)+'
 articleSection('과정 기록은 무엇을 뜻하나요?','<p>'+E(b.recording)+'</p>')+
 articleSection('공식 사이트에서 골라 읽을 내용',b.officialFindings.map(x=>'<section class="axis-study"><h4>'+E(x[0])+'</h4><p>'+E(x[1])+'</p>'+sourceLink(x[2])+'</section>').join(''))+
 articleSection('실전 연습 사이트는 따로 있나요?','<p>'+E(b.practiceAccess)+'</p><div class="inline-actions"><button class="button primary" data-action="navigate" data-tab="practice" data-mode="cases">가상 자료로 판단 연습 →</button><button class="button" data-action="navigate" data-tab="practice" data-mode="preparation">준비물·리허설 계획 →</button></div>')+
-articleSection('개발자 화면 설명이 궁금할 때','<details class="quiz-disclosure"><summary>파일 탐색기 · 코드 편집기 · Bash · 대화창의 뜻</summary><div class="answer">'+logicHtml(b.workspace.map(x=>[x.name+' · '+x.location,x.meaning+' 예: '+x.example]))+'</div></details>')+
+articleSection('개발자 화면 설명이 궁금할 때','<p class="small muted">'+E(b.scope)+'</p><details class="quiz-disclosure"><summary>파일 탐색기 · 코드 편집기 · Bash · 대화창의 뜻</summary><div class="answer">'+logicHtml(b.workspace.map(x=>[x.name+' · '+x.location,x.meaning+' 예: '+x.example]))+'</div></details>')+
 articleSection('처음 보는 용어',b.glossary.map(x=>'<details class="quiz-disclosure"><summary>'+E(x[0])+'</summary><div class="answer">'+E(x[1])+'</div></details>').join(''))+articleFooter(item)+'</div>';
 }
 function renderKit(item){

@@ -12,3 +12,5 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 /* Learning sequence: one purpose, artifact and check per step. */
 .study-plan{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.study-plan h3{font-size:20px;line-height:1.5}.study-plan p{line-height:1.8}.study-plan .content-card{display:flex;flex-direction:column;align-items:flex-start;min-width:0}.study-plan .button{margin-top:auto}.table-scroll{max-width:100%;overflow-x:auto}.table-scroll th,.table-scroll td{overflow-wrap:anywhere}
 @media(max-width:1100px){.study-plan{grid-template-columns:1fr}.study-plan .button{margin-top:4px}}
+
+.resume-line{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 0;border-block:1px solid var(--border,#e0dedb)}.resume-line p{margin:5px 0 0}.resume-line .button{flex-shrink:0}@media(max-width:600px){.resume-line{align-items:flex-start;flex-direction:column}}
