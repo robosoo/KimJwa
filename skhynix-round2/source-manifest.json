@@ -1,0 +1,150 @@
+{
+  "title": "2026 SK hynix Round2 Cofa Probe Source Manifest",
+  "updated": "2026-10-25",
+  "sourceCount": 19,
+  "accuracyPolicy": "Conclusions specific to 2026-07 Cofathon must not be represented as binding SK hynix 2026-10-31 round2 rules. User practice is separate from actual Probe scoring.",
+  "navigation": [
+    "시작하기",
+    "후기·근거",
+    "전략·실습",
+    "이해도"
+  ],
+  "sourceRecords": [
+    {
+      "id": "official",
+      "title": "Cofa Probe 공식 제품·평가 설명",
+      "url": "https://www.getcofa.com/ko/probe",
+      "evidence_type": "official",
+      "study_summary": "브라우저 IDE, AI 협업 과정 기록, 결과물과 사후 설명 결합"
+    },
+    {
+      "id": "video",
+      "title": "Builder Josh × 구한모·조정석 원본 영상",
+      "url": "https://www.youtube.com/watch?v=CLpN3zl8noQ",
+      "evidence_type": "first-party-interview",
+      "study_summary": "약 48분, 실제 Cofa IDE와 인터뷰·평가 시연"
+    },
+    {
+      "id": "josh",
+      "title": "개발자 인터뷰 원문 뉴스레터",
+      "url": "https://maily.so/josh/posts/x1zg69d3rqg",
+      "evidence_type": "first-party-interview",
+      "study_summary": "AI Native와 문제 정의, 과설계 판단"
+    },
+    {
+      "id": "luka",
+      "title": "Luka FDE Top 6 상세 후기",
+      "url": "https://brunch.co.kr/@luma/5",
+      "evidence_type": "firsthand",
+      "study_summary": "225분 빌드, README, INTERVIEW.md, CLAUDE.md, STATE, Q&A 및 3+1축 관찰"
+    },
+    {
+      "id": "seo",
+      "title": "서준원 FDE 1위 직접 회고",
+      "url": "https://www.linkedin.com/posts/jun1seo_krafton-cofathon-fde-activity-7488593824580136960-dXK-",
+      "evidence_type": "firsthand",
+      "study_summary": "Ask→작은 사용자 기능 구현→자동검증→실제 UI 검증"
+    },
+    {
+      "id": "choi",
+      "title": "올리브영 우승 최원준 인터뷰",
+      "url": "https://www.etnews.com/20260813000385",
+      "evidence_type": "reported-interview",
+      "study_summary": "매장 경험과 광고 표현 안전성 판단, 기획 시간 투자"
+    },
+    {
+      "id": "giran",
+      "title": "오기란 참가 후기",
+      "url": "https://5giran.com/writing/cofaton-2026/",
+      "evidence_type": "firsthand",
+      "study_summary": "준비한 하네스 설치·적용 비용이 과제 수행을 방해한 사례"
+    },
+    {
+      "id": "jiypark",
+      "title": "올리브영 Top 6 참가 후기",
+      "url": "https://kr.linkedin.com/posts/jiypark_%ED%81%AC%EB%9E%98%ED%94%84%ED%86%A4%EA%B3%BC-cj%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81%EC%9D%B4-%EA%B3%B5%EB%8F%99-%EA%B0%9C%EC%B5%9C%ED%95%9C-ai-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%ED%95%B4%EC%BB%A4%ED%86%A4%EC%9D%B8-%EC%BD%94%ED%8C%8C%ED%86%A4cofathon-activity-7488596302063161344-dJun",
+      "evidence_type": "firsthand",
+      "study_summary": "하네스 환경 오류로 20~30분 지연, MVP 범위 전환"
+    },
+    {
+      "id": "honam",
+      "title": "강호남 비개발 참가자 회고",
+      "url": "https://kr.linkedin.com/posts/honam-kang_ai%EA%B0%80-%EC%BD%94%EB%93%9C%EB%A5%BC-%EB%8B%A4-%EC%A7%9C%EA%B2%8C-%EB%90%98%EB%A9%B4-%EB%AD%90%EA%B0%80-%EB%82%A8%EC%9D%84%EA%B9%8C-cofathon-%EC%B0%B8%EC%97%AC-%ED%9B%84%EA%B8%B0-activity-7488901089950375936-312n",
+      "evidence_type": "firsthand",
+      "study_summary": "Intent 강점 대비 실제 코드 이해 및 사후 Q&A 약점"
+    },
+    {
+      "id": "dongje",
+      "title": "이동제 올리브영 실전 QA 실패 회고",
+      "url": "https://kr.linkedin.com/posts/jaya1997_cofathon-cj%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81-%ED%81%AC%EB%9E%98%ED%94%84%ED%86%A4-activity-7489542362981933056-1yav",
+      "evidence_type": "firsthand",
+      "study_summary": "부분 문자열 상품 오인식, 미승인 반응 저장, 외부 어댑터 예외"
+    },
+    {
+      "id": "johnny",
+      "title": "FDE Top 6 음성 인터뷰 앱 복기",
+      "url": "https://www.jbaehova.com/detail/cofathon-2026",
+      "evidence_type": "firsthand",
+      "study_summary": "음성 입력→전사→처리→출력 단계별 검증"
+    },
+    {
+      "id": "junho-post",
+      "title": "Junho Baek 올리브영 Top 3 직접 후기",
+      "url": "https://kr.linkedin.com/posts/junho-baek-88609336a_%ED%81%AC%EB%9E%98%ED%94%84%ED%86%A4%EA%B3%BC-%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81%EC%9D%B4-%ED%95%A8%EA%BB%98-%EA%B0%9C%EC%B5%9C%ED%95%9C-ai-%ED%95%B4%EC%BB%A4%ED%86%A4-cofathon%EC%97%90-%EB%8B%A4%EB%85%80%EC%99%94%EC%8A%B5%EB%8B%88%EB%8B%A4-activity-7488597247987744768-K9Aw",
+      "evidence_type": "firsthand",
+      "study_summary": "RSS 트렌드·상품 큐레이션·카피 생성, 피드백 루프 미완료"
+    },
+    {
+      "id": "junho",
+      "title": "Junho Baek 공개 프로필",
+      "url": "https://kr.linkedin.com/in/junho-baek-88609336a",
+      "evidence_type": "firsthand",
+      "study_summary": "위 Top 3 후기의 보조 연결점"
+    },
+    {
+      "id": "meta",
+      "title": "Cofa Meta Harness 평가 일관성 보도",
+      "url": "https://www.mt.co.kr/tech/2026/08/28/2026082810491742468",
+      "evidence_type": "reported-first-party",
+      "study_summary": "같은 제출물 재평가 안정성·변별력에 관한 기업 설명"
+    },
+    {
+      "id": "cjofficial",
+      "title": "CJ올리브영 Cofa 채용 도입 공식 발표",
+      "url": "https://cjnews.cj.net/?p=78218",
+      "evidence_type": "official",
+      "study_summary": "라이브 코딩 대체, 2026년 7~8월 AI-First 개발자 채용"
+    },
+    {
+      "id": "cofathon",
+      "title": "2026 Cofathon 공식 사이트",
+      "url": "https://cofathon.getcofa.com/",
+      "evidence_type": "official",
+      "study_summary": "크래프톤 주최, CJ올리브영 도메인 파트너, OpenAI 기술 파트너"
+    },
+    {
+      "id": "usecase",
+      "title": "Cofa 사용 사례 공식 자료",
+      "url": "https://www.getcofa.com/ko/usecase",
+      "evidence_type": "official",
+      "study_summary": "크래프톤 채용·행사 운영 사례"
+    },
+    {
+      "id": "console",
+      "title": "Cofa Probe 콘솔",
+      "url": "https://cofa-probe-console.krafton.ai/",
+      "evidence_type": "official-access-point",
+      "study_summary": "콘솔 접근 링크일 뿐 무료 공개연습 확인은 아님"
+    },
+    {
+      "id": "gist",
+      "title": "개인 Gist 매뉴얼",
+      "url": "https://gist.github.com/df12fds/69cee98573db490bab829331beed5af6",
+      "evidence_type": "unverified",
+      "study_summary": "공식성·행사 최신성 미확인; 시험 규정의 근거로 사용 금지"
+    }
+  ],
+  "caseCount": 8,
+  "quizCount": 12,
+  "legacyRound1": "Preserved separately in earlier study directory; removed from Round2 navigation."
+}
