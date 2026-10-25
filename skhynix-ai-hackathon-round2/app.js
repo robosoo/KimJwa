@@ -7,7 +7,7 @@ const E=s=>String(s??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt
 const key='cofa-study-v3';
 function readLocal(name,def){try{const x=localStorage.getItem(key+':'+name);return x===null?def:JSON.parse(x)}catch(_){return def}}
 function setLocal(name,value){try{localStorage.setItem(key+':'+name,JSON.stringify(value))}catch(_){}}
-const state={tab:'learn',selected:'video-1',sourceFilter:'all',search:'',done:new Set(readLocal('done',[])),answers:{},practiceMode:'cases',caseId:'lot',reveal:false,persona:'fde',questions:new Set(),expandedLuka:new Set(),threeMinutes:180,clockActive:false,clockUntil:0,clockHandle:null,content:null,legacy:null,portal:null,luka:null,items:[],loading:true};
+const state={tab:'learn',selected:'video-1',sourceFilter:'all',search:'',done:new Set(readLocal('done',[])),answers:readLocal('answers',{}),practiceMode:'cases',caseId:'lot',reveal:false,persona:'fde',questions:new Set(),expandedLuka:new Set(),threeMinutes:180,clockActive:false,clockUntil:0,clockHandle:null,content:null,legacy:null,portal:null,luka:null,items:[],loading:true};
 function toast(msg){const el=$('#toast');if(!el)return;el.textContent=msg;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),2000)}
 function saveDone(){setLocal('done',[...state.done]);renderProgress()}
 function renderProgress(){const all=state.items.length||1,pct=Math.round(state.done.size/all*100);const side=$('#sideProgress'),fill=$('#sideProgressFill');if(side)side.textContent=pct+'%';if(fill)fill.style.width=Math.max(0,Math.min(100,pct))+'%'}
@@ -155,7 +155,7 @@ if(!c)return '<p>기존 과제 자료를 불러오지 못했습니다.</p>';
 const selected=state.portal.cases.findIndex(x=>x.id===c.id);
 return '<div class="eyebrow">실무형 가상 자료 · '+state.portal.cases.length+'개</div><h2 class="subheading" style="margin-top:8px">상황을 읽고, 무엇을 증명할지 결정하세요.</h2><div class="case-selector">'+state.portal.cases.map((x,i)=>'<button class="case-choice '+(c.id===x.id?'active':'')+'" data-action="choose-case" data-id="'+E(x.id)+'"><span class="pill">'+E(x.tag||x.type||'CASE')+'</span><strong>'+E(x.title)+'</strong><small>CASE '+String(i+1).padStart(2,'0')+' / '+state.portal.cases.length+'</small></button>').join('')+'</div><hr class="thin-rule"><span class="eyebrow">현재 과제 · '+String(selected+1).padStart(2,'0')+'</span><h2 class="subheading" style="margin-top:6px">'+E(c.title)+'</h2><p class="mock-brief">'+E(c.brief)+'</p><div class="source-note warn">이 문제의 이름·자료·정답은 교육용 가상 내용이며 SK하이닉스 또는 크래프톤의 실제 기출이 아닙니다.</div>'+
 '<h3 class="subheading">01. 제공된 자료 읽기</h3>'+(c.files||[]).map(f=>'<details class="source-file"><summary>'+E(f[0])+' <span class="muted small">내용 보기</span></summary><pre>'+E(f[1])+'</pre></details>').join('')+
-'<h3 class="subheading">02. 반드시 검증할 조건</h3><ul class="check-list">'+(c.checks||[]).map(q=>'<li>'+E(q)+'</li>').join('')+'</ul>'+
+'<h3 class="subheading">02. 반드시 검증할 조건</h3><ul class="check-list">'+(c.checks||c.tests||[]).map(q=>'<li>'+E(q)+'</li>').join('')+'</ul>'+
 '<h3 class="subheading">03. 풀이와 검증 기준</h3><button class="button '+(state.reveal?'soft':'primary')+'" data-action="reveal-solution">'+(state.reveal?'해설 접기':'해설 보기')+'</button>'+(state.reveal?'<div class="solution" style="margin-top:12px">'+E(c.reference||c.solution||'')+'</div>':'')+
 '<div class="source-note">AI가 “테스트 통과”라고 출력한 것만으로는 실제 시험을 수행한 증거가 아닙니다. 자료의 예상값과 실제 실행을 대응시켜야 합니다.</div>';
 }
@@ -205,8 +205,8 @@ if(ac==='choose-case'){state.caseId=btn.dataset.id;state.reveal=false;render();r
 if(ac==='reveal-solution'){state.reveal=!state.reveal;render();return}
 if(ac==='choose-persona'){state.persona=btn.dataset.id;state.questions.clear();render();return}
 if(ac==='toggle-question'){const i=Number(btn.dataset.index);state.questions.has(i)?state.questions.delete(i):state.questions.add(i);render();return}
-if(ac==='answer'){const i=Number(btn.dataset.index),j=Number(btn.dataset.option);if(state.answers[i]!==undefined)return;state.answers[i]=j;render();const node=$('#question-'+i);if(node)node.scrollIntoView({block:'nearest',behavior:'instant'});return}
-if(ac==='reset-quiz'){state.answers={};render();return}
+if(ac==='answer'){const i=Number(btn.dataset.index),j=Number(btn.dataset.option);if(state.answers[i]!==undefined)return;state.answers[i]=j;setLocal('answers',state.answers);render();const node=$('#question-'+i);if(node)node.scrollIntoView({block:'nearest',behavior:'instant'});return}
+if(ac==='reset-quiz'){state.answers={};setLocal('answers',state.answers);render();return}
 if(ac==='timer-start'){if(state.clockActive||state.threeMinutes===0)return;state.clockActive=true;state.clockUntil=Date.now()+state.threeMinutes*1000;state.clockHandle=setInterval(tick,400);tick();return}
 if(ac==='timer-pause'){tick();stopTimer();return}
 if(ac==='timer-reset'){stopTimer();state.threeMinutes=180;timerDisplay();return}
