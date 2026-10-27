@@ -61,3 +61,10 @@
 1. iPad Safari 가로/세로에서 단계 선택→이전/다음→상단 스크롤이 자연스러운지.
 2. 공식 7단계 중 하나로 링크한 친구가 바로 해당 단계 내용만 보는지.
 3. 시험 전에 사용자에게 'README→업무 담당자→Codex→Browser 검증→저장→제출→서술형 직접 작성'을 기억하기 충분한지.
+
+## 추가 회귀 수정 및 최종 운영 배포
+- 모의 제출 순서에서 비활성 '뒤로 가기' 이벤트가 프로그램 방식으로 호출돼도 되돌아가지 않도록 핸들러에서도 차단.
+- 제출 미리보기 → 확정 직전 확인 → 최종 확정 → 질문 준비 → 답변 개념 → 완료, 최종 확정 이후 뒤로 불가.
+- 후속 Preview dpl_Bhi1cUxrU4aXhUADoK52LMcGgJsX READY.
+- 최종 Production dpl_GEbdXNo5a3ryFRSVT3LH3giEMP7u READY, 운영 도메인 alias 재확인.
+- Preview/Production 소스 31개 파일 UID 전부 일치, api/tutor.mjs 포함.
