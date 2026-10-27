@@ -360,9 +360,9 @@ async function init(){
  const old=JSON.parse(localStorage.getItem(oldKey+'done')||'[]');if(Array.isArray(old))old.forEach(id=>{if(state.items.some(x=>x.id==='old-'+id))state.done.add('old-'+id)});
  }catch(_){}
  const t=readLocal(timerKey,{});state.sessionRemain=Number.isFinite(t.remain)?Math.max(0,Math.min(14400,t.remain)):14400;state.sessionUntil=Number.isFinite(t.until)&&t.until>Date.now()?t.until:0;if(t.until&&t.until<=Date.now())state.sessionRemain=0;if(state.sessionUntil){sessionTick();state.sessionHandle=setInterval(sessionTick,500)}
+ const jump=new URLSearchParams(location.search).get('guide');
  state.loading=false;render();syncUrl();
  // Deep links from legacy official-guide.html preserve the intended section on the unified home.
- const jump=new URLSearchParams(location.search).get('guide');
  if(state.tab==='learn'&&/^step[1-7]$/.test(jump||'')){
    requestAnimationFrame(()=>{const target=document.getElementById(jump);if(target)target.scrollIntoView({block:'start',behavior:'instant'});});
  }
