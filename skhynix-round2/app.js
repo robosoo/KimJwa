@@ -65,9 +65,14 @@ function buildItems(){
 }
 function navUI(){$$('[data-nav]').forEach(x=>{const yes=x.dataset.nav===state.tab;x.classList.toggle('active',yes);if(yes)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current')});const b=$('#crumb');if(b)b.textContent=labelFor(state.tab)}
 function render(){
-navUI();const out=$('#screen');if(!out)return;
+navUI();
+const guide=$('#examGuide'),out=$('#dynamicContent');if(!out)return;
+const learningHome=state.tab==='learn';
+if(guide)guide.hidden=!learningHome;
+out.hidden=learningHome;
+if(learningHome){renderProgress();return}
 if(state.loading){out.innerHTML='<section class="loading-view"><div class="skeleton title-skeleton"></div><div class="skeleton line-skeleton"></div><div class="skeleton card-skeleton"></div></section>';return}
-out.innerHTML=state.tab==='learn'?renderLearn():state.tab==='library'?renderLibrary():state.tab==='practice'?renderPractice():renderReview();
+out.innerHTML=state.tab==='library'?renderLibrary():state.tab==='practice'?renderPractice():renderReview();
 renderProgress();
 }
 function renderLearn(){
@@ -356,8 +361,15 @@ async function init(){
  }catch(_){}
  const t=readLocal(timerKey,{});state.sessionRemain=Number.isFinite(t.remain)?Math.max(0,Math.min(14400,t.remain)):14400;state.sessionUntil=Number.isFinite(t.until)&&t.until>Date.now()?t.until:0;if(t.until&&t.until<=Date.now())state.sessionRemain=0;if(state.sessionUntil){sessionTick();state.sessionHandle=setInterval(sessionTick,500)}
  state.loading=false;render();syncUrl();
+ // Deep links from legacy official-guide.html preserve the intended section on the unified home.
+ const jump=new URLSearchParams(location.search).get('guide');
+ if(state.tab==='learn'&&/^step[1-7]$/.test(jump||'')){
+   requestAnimationFrame(()=>{const target=document.getElementById(jump);if(target)target.scrollIntoView({block:'start',behavior:'instant'});});
+ }
  }catch(error){
- state.loading=false;$('#screen').innerHTML='<section class="surface content-card"><h1>학습 자료를 불러오지 못했습니다.</h1><p>'+E(error.message)+'</p><p>자료가 일부 빠진 상태로 진행하지 않습니다. 연결을 확인한 뒤 다시 불러오세요.</p><button class="button primary" data-action="reload">다시 불러오기</button></section>';
+ state.loading=false;render();
+ const out=$('#dynamicContent');
+ if(out)out.innerHTML='<section class="surface content-card"><h1>학습 자료를 불러오지 못했습니다.</h1><p>'+E(error.message)+'</p><p>자료가 일부 빠진 상태로 진행하지 않습니다. 연결을 확인한 뒤 다시 불러오세요.</p><button class="button primary" data-action="reload">다시 불러오기</button></section>';
  }
 }
 
