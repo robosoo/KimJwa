@@ -223,7 +223,7 @@ const stages=[
 ];
 function drawSubmission(){msg.textContent=stages[submission][0];forward.textContent=stages[submission][1];forward.disabled=submission===5;back.disabled=!(submission===1||submission===2)}
 forward.addEventListener('click',()=>{submission=Math.min(5,submission+1);drawSubmission()});
-back.addEventListener('click',()=>{submission=submission===2?1:0;drawSubmission()});
+back.addEventListener('click',()=>{if(submission!==1&&submission!==2)return;submission=submission===2?1:0;drawSubmission()});
 document.getElementById('submissionReset').addEventListener('click',()=>{submission=0;drawSubmission()});drawSubmission();
 })();
 </script>
