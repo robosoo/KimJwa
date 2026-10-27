@@ -44,3 +44,10 @@
 - 위 검사는 정적 구조·구문 검사. 실제 브라우저에서 클릭, 키보드, 화면 크기, 로컬 저장이 동작하는지 실측한 것은 아님.
 - 원본 PDF 2종에 제공되지 않은 시험 문제·개별 MCP 실행 가용성·채점 알고리즘을 확인한 것은 아님.
 - 모델이 자신이 만든 교재를 검토한 것이라 독립적 패널 평가, 실제 사용자 검증, 공식 인증과는 다름.
+
+
+## 배포 검증 추가
+- Vercel Preview: dpl_2BBc7yMYM8CTJ6LUiuS38GHtfNQf, READY, 21개 파일.
+- Vercel Production: dpl_GZ3s3HEmjyHpiU9VsGd3qJGrwUZt, READY, 공식 도메인 alias 확인.
+- Preview와 Production의 21개 파일별 UID가 전부 동일하므로 파일 수준으로 동일한 배포 산출물임을 확인.
+- 실제 공개 URL을 다른 웹 조회 도구로 열어 보았으나 액세스 불가; 실물 브라우저 터치·클릭 검증을 진행했다고 주장하지 않는다.
