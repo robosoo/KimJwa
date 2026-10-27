@@ -36,3 +36,12 @@ SK하이닉스 AI 해커톤 2차 예선 시험 **전** 학습센터의 7단계 �
 - 클릭·iPad Safari UX, 실제 인증 성공 경로, 비용·속도, 모델 지원 계정 연결은 미검증.
 - 이 상태를 GPT 연동 '활성화 완료' 또는 사용 가능하다고 주장하지 않음.
 - 공개로 다수에게 제공할 경우 별도 사용자 인증, 서버 측 분산 rate limit, 비용 상한, 보안 감사를 추가해야 함.
+
+## 2차 자체 피드백 및 최종 배포
+- 후속 질문 때 긴 AI 답변(1,000자 초과)을 대화 문맥에서 아예 제외하던 문제 발견 → 길이를 1,000자로 잘라 문맥을 유지하도록 수정.
+- 수정 API 코드 정적 구문 검사 PASS.
+- 최종 Preview dpl_D4CoH3fFdWGmFU9nDfjYoKjJmbuC, READY.
+- 최종 Production dpl_9V1LuCKWckUMD6eWuisLmsSJh74f, READY.
+- 최종 Preview/Production 소스 파일 31개 모두 UID 일치, out/api/tutor 서버 함수 빌드 확인.
+- 환경변수 0개: 실제 GPT 텍스트 응답 **여전히 미활성화**. 서버 배포 성공과 API 인증 성공은 별개.
+- 외부 툴의 웹 fetch는 Vercel 프로젝트 읽기 권한 403으로 차단됐으므로 실제 HTTP GET·POST는 미검증.
