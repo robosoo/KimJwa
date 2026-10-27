@@ -15,7 +15,7 @@
 1. 시간·진행 흐름 — GitHub 반영 및 Vercel Production READY 확인 (2026-10-27): 09:40 접속 권장, 10~14시, 과제 180분, 질문 준비 약 5분과 최대 10분 화면 예시, 6문항×5분, 재접속·타이머, 14시 종료, 4문항 퀴즈, 체크리스트. 출처 A p1, B pp1-5.
 2. 감독·환경·사전체험 — 상세 교재 구현·정적 검증 완료, 배포 최종 검증 별도:  모니터 1대, PC/휴대폰 카메라, 설치 QR vs 연결 QR, 권장 스마트폰 사양, 충전과 네트워크, 개인정보 가림 범위, 안경·신분증 촬영 절차, 실제 체험 1회 15분, 감독 알림. 출처 A p1, B pp1-2.
 3. 웹 IDE·Codex — 상세 교재 구현 및 Vercel Production READY 확인: README, 파일 탐색기·에디터·터미널·Browser·메신저 구조, codex 실행, /status, /model, 승인 대기/실행/완료, Cofa Helper와 현업 담당자 구분, CPU/RAM. 출처 B pp2-3.
-4. GitHub·Skill·MCP — 미구현: 공개된 GitHub·코드·자료·Skill/MCP/Plugin 조건부 사용, Clone 허용 vs Push 금지, 개인 업로드 불가, 별도 AI 연결·외부 전송·Computer Use·우회 금지, 상황별 허용/금지 판단 연습. 출처 A p1, B pp3,5.
+4. GitHub·Skill·MCP — 상세 교재·검증·Production 반영 완료 (2026-10-27): 공개된 GitHub·코드·자료·Skill/MCP/Plugin 조건부 사용, Clone 허용 vs Push 금지, 개인 업로드 불가, 별도 AI 연결·외부 전송·Computer Use·우회 금지, 상황별 허용/금지 판단 연습. 출처 A p1, B pp3,5.
 5. 구현·검증·저장 — 미구현: README와 담당자 질의, 파일 작성·자동 저장·충돌 복구, 서버 포트/0.0.0.0, 내장 Browser의 버튼·입력·이동 실제 동작 검증, 명령 종료 시 서버 중단. 출처 B pp2-3.
 6. 제출·후속 서술형 — 미구현: 미리보기와 최종 확정 차이, 확정 후 파일 잠금, 질문 준비 대기, 본인 직접 작성 6문항×5분, AI/복붙 금지, 앞 문항 이동 금지, 완료 ID/시각/파일 수 확인. B p4 조작 안내 '5개'는 실제 6개와 구별. 출처 A p1, B pp3-5.
 7. 장애·종합 리허설 — 미구현: 영역 다시 불러오기, 세션 재접속, 웹캠/화면공유/휴대폰 복구, 문제 신고, 타이머 지속, 부정행위 확정과 경고 구분, 180분 모의 수행 시나리오. 출처 A p1, B pp3-5.
@@ -57,3 +57,14 @@
 - Vercel Production dpl_J3hupVaVWv4xW5rSdM3HU1iDKxwt = READY / 운영 도메인 alias 확인.
 - Production 파일 트리 19개, 기존 앱 및 데이터 파일 포함 확인.
 - 미검증: 실제 사이트 브라우저 클릭 테스트, iPad/Safari 터치 및 반응형 실사용. 배포 READY만으로 이들의 성공을 주장하지 않음.
+
+
+### 2026-10-27 4단계 완료 내역
+- GitHub / Skill / MCP 개념 비교 및 선택형 상세 설명, Clone vs Push 비교, 공식 허용·금지·미확인 표, 모의 Codex 프롬프트 3종.
+- 규정 판단 연습 12문항(조건부 가능 4 / 금지 7 / 미확인 1), 각 문항의 출처 페이지와 해설, 학습 체크리스트 10개.
+- 자체 QA: 좁은 화면의 비교 카드 배치 수정, 키보드 포커스/disabled 표시 강화, 공개 도구가 모두 자동 허용된다는 오해 방지.
+- QA 보고서: reports/official-guide-stage4-self-review-20261027.md.
+- Vercel Preview dpl_2BBc7yMYM8CTJ6LUiuS38GHtfNQf: READY.
+- Vercel Production dpl_GZ3s3HEmjyHpiU9VsGd3qJGrwUZt: READY, 공식 alias 적용.
+- Preview/Production 파일 21개 UID 전체 일치. 기존 정적 앱 및 학습 데이터 파일 포함.
+- 실제 공개 URL 내용 조회는 도구 접근 제한으로 실패; 실제 클릭·Safari 검증 완료를 주장하지 않음.
