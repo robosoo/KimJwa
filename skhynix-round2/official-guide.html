@@ -87,6 +87,7 @@ details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:
 </style>
 <link rel="stylesheet" href="/official-guide-step4.css">
 <link rel="stylesheet" href="/official-guide-step5.css">
+<link rel="stylesheet" href="/official-guide-step6.css">
 </head>
 <body>
 <div class="shell">
@@ -556,7 +557,141 @@ Browser에서 확인할 버튼·입력·이동 조건을 알려 줘.
 <div class="s5-checks" id="s5-checks"><label><input type="checkbox">README의 필수 기능·제출물·파일명을 확인했다</label><label><input type="checkbox">업무 담당자에게 물어볼 불명확한 조건을 적었다</label><label><input type="checkbox">Codex가 생성·수정한 파일을 직접 확인했다</label><label><input type="checkbox">터미널에 표시된 실제 PORT를 읽을 수 있다</label><label><input type="checkbox">서버를 0.0.0.0에 바인딩하는 이유를 안다</label><label><input type="checkbox">Browser PORT·URL 경로를 입력하고 새로고침할 수 있다</label><label><input type="checkbox">입력·버튼·페이지 이동을 직접 테스트하는 이유를 안다</label><label><input type="checkbox">미리보기 중 서버 터미널을 유지한다</label><label><input type="checkbox">저장됨·저장 실패·외부 변경 감지를 구분한다</label><label><input type="checkbox">충돌 시 에디터와 디스크 내용을 비교한다</label><label><input type="checkbox">충돌 처리 후 저장 상태를 다시 확인한다</label><label><input type="checkbox">실제로 검증한 것과 미검증한 것을 구분해 보고할 수 있다</label></div><p class="s5-progress" id="s5-check-count" role="status">준비 점검 0 / 12</p>
 <p class="footnote">출처: 「3_사전_체험_및_응시환경_상세_가이드.pdf」 2~3쪽. Browser 연결, 파일 저장·충돌은 3쪽. 위 4173 서버·가상 앱과 파일은 화면 조작 학습용 예시야.</p>
 </section>
-<section id="step6" class="panel"><div class="section-kicker">STEP 06 · 다음 작업</div><h2>제출과 후속 서술형</h2><p class="muted">미리보기·최종 확정의 차이, 서술형 자동 생성·타이머·답안 수정 제한·완료 화면을 다룰 거야.</p><div class="todo">원본 출처: 브리프 1쪽, 상세 가이드 3~4쪽.</div></section>
+
+<section id="step6" class="panel" aria-labelledby="s6-title">
+<div class="section-kicker">STEP 06 · 과제 제출과 후속 서술형 · 공식 브리프 1쪽 / 상세 3~4쪽</div>
+<h2 id="s6-title">언제부터 수정할 수 없을까? 제출부터 6문항까지</h2>
+<p>이 단계는 시험에서 가장 실수하면 안 되는 구간을 배우는 거야. <strong>미리보기는 취소할 수 있지만, 제출물 확정은 되돌릴 수 없어.</strong> 그 뒤에는 제출물과 작업 기록을 바탕으로 준비된 질문에 <strong>AI 없이 본인이 직접 답해야 해.</strong></p>
+<div class="s6-alert"><strong>공식 PDF의 수량 주의:</strong> 주최 측 필수 안내와 상세 FAQ는 후속 서술형 <strong>6문항·문항당 5분</strong>으로 명시해. 상세 가이드 4쪽의 화면 예시에 보이는 ‘확인 문제 5개’는 조작 설명용 캡처야. 실제 응시 화면에 표시되는 문항 수와 시간을 확인해야 해.</div>
+
+<h3>1. 제출과 질문이 진행되는 다섯 구간</h3>
+<div class="s6-process">
+<div><strong>① 작업·미리보기</strong><span>README·필수 파일·저장 상태 확인, 수정 가능</span></div>
+<div><strong>② 제출물 확정</strong><span>한번 확정하면 파일 수정 불가</span></div>
+<div><strong>③ 질문 준비</strong><span>예상 최대 10분 안내·재시도 가능</span></div>
+<div><strong>④ 서술형</strong><span>6문항, 각 5분, 직접 답변</span></div>
+<div><strong>⑤ 최종 완료</strong><span>제출 ID·시각·파일 수·크기 확인</span></div>
+</div>
+<p class="s6-small">공식 안내: 상세 가이드 3쪽의 ‘시간과 제출’, 4쪽의 ‘후속 서술형 문제’. <strong>② 제출물 확정 ≠ ⑤ 최종 제출 완료</strong>야.</p>
+
+<h3>2. 두 제출 버튼은 역할이 완전히 달라</h3>
+<div class="s6-table"><table><thead><tr><th>화면 버튼</th><th>누르면 일어나는 일</th><th>수정 가능 여부</th></tr></thead><tbody>
+<tr><td><strong>제출하고 문제풀기</strong></td><td>제출 미리보기 열기. 화면에는 결과물 파일 일부만 표시될 수 있어.</td><td>미리보기를 닫고 작업 화면으로 돌아가서 수정 가능</td></tr>
+<tr><td><strong>제출물 확정하고 문제풀기</strong></td><td>파일을 최종 고정하고 후속 서술형 질문 준비 단계로 이동</td><td><strong>확정 후 파일 수정 불가</strong></td></tr>
+</tbody></table></div>
+<div class="s6-alert"><strong>제출 미리보기 함정:</strong> 숨김 파일·내부 도구 폴더가 생략될 수 있어. 미리보기 화면에 표시된 목록을 실제 제출 파일 전체라고 단정하면 안 돼. 파일 경로와 저장 상태는 확정하기 전에 직접 확인해야 해. <span class="term">[공식 · 상세 3쪽]</span></div>
+
+<h3>3. 실제 순서를 클릭해 보는 제출 시뮬레이터</h3>
+<p>이것은 <strong>학습 사이트 안에서만 움직이는 모의 화면</strong>이야. 실제 과제 제출, AI 호출, 파일 잠금, 질문 생성, 녹화는 전혀 일어나지 않아. 연습 중 입력한 서술형 문장은 서버나 로컬 저장소에 보관하지 않아.</p>
+<div class="s6-lab" id="s6-simulator">
+<div class="s6-header"><strong>COFA STYLE · 제출 순서 모의실습</strong><span id="s6-phase-info">과제 작업 중(모의)</span></div>
+<div class="s6-labbody">
+<div class="s6-stage" id="s6-phase-work">
+<div class="s6-step"><strong>현재: 작업 화면</strong>실제 시험에서는 README 요구사항·필수 파일 경로·저장됨 표시를 먼저 확인해.</div>
+<h4>작업 파일 상태 · 가상 예시</h4>
+<div class="s6-preview"><strong>파일 탐색기</strong><ul><li>README.md · 설명서</li><li>src/app.js · 저장됨</li><li>notes/decision.md · 저장됨</li></ul><small>파일명은 시험 공식 제출물이 아니라 학습용 예시야.</small></div>
+<div class="s6-actions"><button class="s6-btn primary" type="button" id="s6-open-preview">제출하고 문제풀기 → 미리보기 열기</button></div>
+</div>
+<div class="s6-stage" id="s6-phase-preview" hidden>
+<div class="s6-step"><strong>현재: 제출 미리보기</strong>아직 수정할 수 있어. 화면에 보이는 파일 목록은 실제 제출 파일 전체가 아닐 수 있어.</div>
+<div class="s6-preview"><strong>미리보기 파일 (일부만 표시되는 가상 예시)</strong><ul><li>src/app.js</li><li>notes/decision.md</li></ul><small>README·숨김 파일·내부 도구 폴더 등은 이 가상 목록에서 생략됐어. 실제 제출 제외를 뜻하지 않아.</small></div>
+<div class="s6-actions"><button class="s6-btn" type="button" id="s6-back-edit">미리보기 닫기 · 작업으로 돌아가기</button><button class="s6-btn primary" type="button" id="s6-preview-confirm">제출물 확정하고 문제풀기</button></div>
+</div>
+<div class="s6-stage" id="s6-phase-confirm" hidden>
+<div class="s6-danger"><strong>되돌릴 수 없는 단계 · 모의 확인</strong><p>여기서 확정하면 실제 시험에서는 파일을 다시 수정할 수 없어. 필수 파일·저장 상태·검증 결과를 먼저 확인했니?</p></div>
+<div class="s6-actions"><button class="s6-btn" type="button" id="s6-confirm-cancel">취소 · 미리보기로</button><button class="s6-btn primary" type="button" id="s6-confirm-yes">모의 확정 · 파일 고정 체험</button></div>
+</div>
+<div class="s6-stage" id="s6-phase-preparing" hidden>
+<div class="s6-step"><strong>현재: 질문 생성 대기</strong>제출물은 고정됐지만 답변 타이머는 시작되지 않았어. 실제 질문은 제출물과 작업 기록을 바탕으로 준비돼.</div>
+<h4>질문 생성 진행 화면 · 모의</h4>
+<p id="s6-prepare-message">질문을 준비하는 중이야.</p>
+<div class="s6-counter"><span>진행 시간: <b>예시 01:22</b></span><span>화면 예상 최대 <b>10:00</b></span></div>
+<p class="s6-small">공식 문서의 일반 안내는 약 5분이지만, 상세 화면에는 최대 10분 예상과 자동 재시도 가능성이 있어. 자동 재시도 시 준비 시간이 다시 시작될 수 있어. 이 학습 화면에서 실제로 대기하지는 않아.</p>
+<p id="s6-retries" class="s6-small" role="status">재시도 0회</p>
+<div class="s6-actions"><button class="s6-btn" type="button" id="s6-retry">재시도 상황 시연</button><button class="s6-btn primary" type="button" id="s6-prepared">질문 준비 완료 시연</button></div>
+</div>
+<div class="s6-stage" id="s6-phase-ready" hidden>
+<div class="s6-step"><strong>현재: 서술형 시작 전</strong>실제 시험에서는 준비된 전체 문항 수와 문항당 5분 표시를 확인하고 <strong>‘문제 풀기’를 눌러야 첫 문항 타이머가 시작돼.</strong></div>
+<h4>모의 확인 질문 6개가 준비됐어</h4>
+<p class="s6-small">공식 실제 문항을 복원한 게 아니야. 아래의 여섯 질문은 가상의 프로젝트를 가정한 연습용 내용이야.</p>
+<div class="s6-actions"><button class="s6-btn primary" type="button" id="s6-start-questions">문제 풀기 · 1번 문항 시작</button></div>
+</div>
+<div class="s6-stage" id="s6-phase-writing" hidden>
+<div class="s6-counter"><strong id="s6-question-number">문항 1 / 6</strong><span class="s6-timer" id="s6-answer-progress">문항별 05:00 · 실제 타이머 아님</span></div>
+<div class="s6-step"><strong>중요 · 모의 답변 규칙</strong>실제 시험 후속 서술형에서는 AI·복사·붙여넣기 금지. 입력한 답변은 제출 전 현재 문항에서만 수정할 수 있고, 확정 뒤 이전 문항으로 돌아갈 수 없어.</div>
+<h4 id="s6-question-text">연습용 질문이 표시돼.</h4>
+<label for="s6-answer"><strong>내 답변 · 연습용 직접 입력</strong></label>
+<textarea id="s6-answer" rows="5" placeholder="여기에 직접 타이핑해 봐. 학습 사이트는 답변을 저장·전송하지 않아."></textarea>
+<p class="s6-feedback" id="s6-question-feedback" role="status"></p>
+<div class="s6-actions"><button class="s6-btn primary" type="button" id="s6-question-submit">답안 제출하고 다음 문제 (모의)</button><button class="s6-btn" type="button" id="s6-timeout">시간 만료 시연 · 자동 확정</button></div>
+<p class="s6-small">이 모의실습에서는 5분이 실제로 흐르지 않아. '시간 만료 시연'은 입력한 내용이 자동 확정되는 개념만 보여줘. 문항이 넘어가면 이전 답변을 다시 볼 수 없게 만들었어.</p>
+</div>
+<div class="s6-stage" id="s6-phase-done" hidden>
+<div class="s6-step"><strong>모의실습 종료 · 실제 제출 아님</strong>여섯 문항의 답변 흐름 연습을 끝냈어. 실제 시험에서는 마지막 답안 제출 후 자료 처리와 녹화 업로드가 끝날 때까지 기다려야 해.</div>
+<h4>실제 완료 화면에서는 반드시 확인할 4가지</h4>
+<div class="s6-preview"><p id="s6-done-count">6 / 6문항 완료</p><ul><li>제출 ID</li><li>제출 시각</li><li>제출 파일 수</li><li>제출 데이터 크기</li></ul><small>이 학습 화면은 실제 제출 번호나 제출 시각을 발급하지 않아.</small></div>
+<p><strong>‘과제가 잘 제출됐어요.’</strong> 완료 안내를 확인한 후 브라우저를 닫으면 돼. 정상 완료 후 Proctor 녹화도 자동 종료되고, 14:00까지 기다릴 필요는 없어.</p>
+</div>
+<div class="s6-actions"><button class="s6-btn" type="button" id="s6-restart-sim">모의실습 처음부터 다시</button></div>
+</div>
+</div>
+<h3>4. 서술형에서 시간과 금지사항, 정확하게 구별하기</h3>
+<div class="s6-table"><table><thead><tr><th>항목</th><th>공식 기준</th></tr></thead><tbody>
+<tr><td>질문 준비 대기</td><td>약 5분 일반 안내. 상세 화면에는 예상 최대 10분 표시, 지연 시 자동 재시도 가능.</td></tr>
+<tr><td>첫 문항 5분 시작</td><td><strong>‘문제 풀기’ 클릭 순간</strong></td></tr>
+<tr><td>2번째 이후 시작</td><td><strong>직전 답안을 제출하는 순간</strong> 다음 문제 제한 시간 시작</td></tr>
+<tr><td>문항 자동 확정</td><td>시간 만료 시 그때까지 입력한 내용이 자동 확정되어 다음 단계 진행</td></tr>
+<tr><td>수동으로 다음 문항 이동</td><td>답변을 입력한 뒤 ‘답안 제출하고 다음 문제’ 클릭</td></tr>
+<tr><td>최종 문항 버튼</td><td>‘답안 제출하고 마치기’로 표시</td></tr>
+<tr><td>수정·뒤로 가기</td><td>확정 전 현재 문항 수정만 가능. <strong>확정한 답안 수정·이전 문항 이동 불가</strong></td></tr>
+<tr><td>사용 가능한 도구</td><td><strong>서술형에 AI 사용 금지</strong> (외부 브라우저·다른 기기 AI 포함). 복사·붙여넣기 불가. 본인 직접 작성.</td></tr>
+<tr><td>전체 종료</td><td><strong>14:00 모든 단계 종료</strong>. 개별 제한시간과 전체 종료 시점 중 빠른 시점까지 입력한 내용만 반영.</td></tr>
+</tbody></table></div>
+<p class="s6-small">공식 상세 가이드 4쪽에서는 질문의 전제가 실제 구현과 다르면 <strong>차이를 밝히고 본인의 실제 작업을 설명</strong>하라고 안내해. 모르는 기능을 구현했다고 답하면 안 돼.</p>
+<h3>5. 실전에서 자주 놓칠 예외 조건</h3>
+<details><summary>문항의 전제가 사실과 다르면 어떻게 답할까?</summary><div>문항이 실제 구현한 내용과 맞지 않는다면 차이를 밝히고 본인이 한 실제 작업을 설명해. 반복 오류나 전제 오류의 발생 시각·단계·문항 번호를 기록하고 안내된 신고 절차를 따라. <span class="term">[공식 · 상세 4·5쪽]</span></div></details>
+<details><summary>질문 생성 시간이 예상 최대 10분보다 길어졌다면?</summary><div>상세 가이드는 자동 재시도 시 '예상 최대 10분' 준비 시간이 다시 시작될 수 있다고 설명해. 이 시간은 서술형 답변 타이머가 아니고, 계속 실패하면 문제 신고 지침을 따라. <span class="term">[공식 · 상세 4쪽]</span></div></details>
+<details><summary>서술형 중 오류가 나면 바로 신고할 수 있나?</summary><div>서술형 답변 화면에는 별도의 신고 버튼이 없다고 안내돼 있어. 상단 기능에 접근하기 어렵다면 발생 내용을 기록해 두고, 오류가 반복되면 가능한 신고 방법을 따라야 해. 문의만으로 타이머가 정지하거나 연장되지는 않아. <span class="term">[공식 · 상세 5쪽]</span></div></details>
+<details><summary>시험을 다 끝내지 못한 채 14시가 되면?</summary><div>모든 응시는 14:00에 끝나며, 개별 제한 시간과 종료 시점 중 먼저 도달한 시점까지 입력한 내용만 반영된다고 안내돼 있어. <span class="term">[공식 · 상세 3·5쪽]</span></div></details>
+<details><summary>서술형을 ChatGPT나 Codex에게 미리 대신 작성시킬 수 있나?</summary><div>실제 후속 서술형은 AI 사용이 금지돼. 질문을 받은 이후 외부 AI나 다른 기기 AI도 사용할 수 없으며 본인이 직접 입력해야 해. 시험 전 일반적인 개념을 공부하는 것과 시험 중 답변을 대리 작성하게 하는 것은 구별해야 해. <span class="term">[공식 · 상세 4쪽]</span></div></details>
+
+<h3>6. 공식 안내 기반 확인 문제 12개</h3>
+<p class="s6-small">이 문제들은 학습용 판단 문항이며 실제 시험 문제나 답안을 재현한 것이 아니야.</p>
+<div id="s6-quiz"><div class="s6-quiz-question" data-answer="n" data-reason="미리보기를 보는 동안에도 작업 타이머는 계속 흐르며 수정할 수 있어." data-page="3"><p>1. 제출 미리보기를 열면 과제 작업 타이머도 일시정지된다.</p><div class="s6-actions"><button class="s6-btn" type="button" data-s6-choice="y">맞다</button><button class="s6-btn" type="button" data-s6-choice="n">아니다</button></div><div class="s6-feedback" aria-live="polite">답을 골라 봐.</div></div>
+<div class="s6-quiz-question" data-answer="n" data-reason="이 버튼은 제출 미리보기로 들어가며, 닫고 파일을 수정할 수 있어." data-page="3"><p>2. &#39;제출하고 문제풀기&#39;는 수정 불가능한 최종 확정 버튼이다.</p><div class="s6-actions"><button class="s6-btn" type="button" data-s6-choice="y">맞다</button><button class="s6-btn" type="button" data-s6-choice="n">아니다</button></div><div class="s6-feedback" aria-live="polite">답을 골라 봐.</div></div>
+<div class="s6-quiz-question" data-answer="n" data-reason="파일이 확정되면 수정할 수 없어." data-page="3"><p>3. &#39;제출물 확정하고 문제풀기&#39; 이후에도 제출 파일을 고칠 수 있다.</p><div class="s6-actions"><button class="s6-btn" type="button" data-s6-choice="y">맞다</button><button class="s6-btn" type="button" data-s6-choice="n">아니다</button></div><div class="s6-feedback" aria-live="polite">답을 골라 봐.</div></div>
+<div class="s6-quiz-question" data-answer="n" data-reason="미리보기는 일부만 보여주므로 실제 제출 파일 목록 전체를 의미하지 않아." data-page="3"><p>4. 미리보기에 보이지 않은 숨김 파일은 실제 제출 파일에도 절대 포함되지 않는다.</p><div class="s6-actions"><button class="s6-btn" type="button" data-s6-choice="y">맞다</button><button class="s6-btn" type="button" data-s6-choice="n">아니다</button></div><div class="s6-feedback" aria-live="polite">답을 골라 봐.</div></div>
+<div class="s6-quiz-question" data-answer="y" data-reason="공식 문서는 최소 제출 시간이나 10분 전 강제 제출이 아니라 권장이라고 안내해." data-page="3"><p>5. 작업 시간 종료 약 10분 전 제출 시작은 권장 사항이다.</p><div class="s6-actions"><button class="s6-btn" type="button" data-s6-choice="y">맞다</button><button class="s6-btn" type="button" data-s6-choice="n">아니다</button></div><div class="s6-feedback" aria-live="polite">답을 골라 봐.</div></div>
+<div class="s6-quiz-question" data-answer="y" data-reason="제출물과 작업 기록을 바탕으로 문제를 준비한다고 명시돼 있어." data-page="4"><p>6. 후속 서술형 질문은 제출 결과물과 작업 기록을 바탕으로 준비된다.</p><div class="s6-actions"><button class="s6-btn" type="button" data-s6-choice="y">맞다</button><button class="s6-btn" type="button" data-s6-choice="n">아니다</button></div><div class="s6-feedback" aria-live="polite">답을 골라 봐.</div></div>
+<div class="s6-quiz-question" data-answer="n" data-reason="질문 생성 진행 시간과 실제 답변 타이머는 서로 다르며 자동 재시도도 가능해." data-page="4"><p>7. 질문 생성 화면의 &#39;최대 10분&#39; 표시가 문항별 5분 답변 타이머이다.</p><div class="s6-actions"><button class="s6-btn" type="button" data-s6-choice="y">맞다</button><button class="s6-btn" type="button" data-s6-choice="n">아니다</button></div><div class="s6-feedback" aria-live="polite">답을 골라 봐.</div></div>
+<div class="s6-quiz-question" data-answer="y" data-reason="첫 문항은 문제 풀기 버튼을 누를 때 시작한다고 명시돼 있어." data-page="4"><p>8. 첫 문항 타이머는 &#39;문제 풀기&#39; 버튼을 누르는 순간 시작된다.</p><div class="s6-actions"><button class="s6-btn" type="button" data-s6-choice="y">맞다</button><button class="s6-btn" type="button" data-s6-choice="n">아니다</button></div><div class="s6-feedback" aria-live="polite">답을 골라 봐.</div></div>
+<div class="s6-quiz-question" data-answer="y" data-reason="다음 문제는 직전 답안 제출 순간부터 5분을 계산해." data-page="4"><p>9. 두 번째 문항 타이머는 첫 답안 제출 순간부터 시작된다.</p><div class="s6-actions"><button class="s6-btn" type="button" data-s6-choice="y">맞다</button><button class="s6-btn" type="button" data-s6-choice="n">아니다</button></div><div class="s6-feedback" aria-live="polite">답을 골라 봐.</div></div>
+<div class="s6-quiz-question" data-answer="n" data-reason="AI 사용과 복사·붙여넣기는 금지야. 다른 기기의 AI도 사용할 수 없어." data-page="4"><p>10. 서술형 중 AI나 붙여넣기를 사용해도 되는가?</p><div class="s6-actions"><button class="s6-btn" type="button" data-s6-choice="y">맞다</button><button class="s6-btn" type="button" data-s6-choice="n">아니다</button></div><div class="s6-feedback" aria-live="polite">답을 골라 봐.</div></div>
+<div class="s6-quiz-question" data-answer="y" data-reason="시간이 끝나면 현재 답안이 자동 확정돼 다음 단계로 진행한다고 명시돼 있어." data-page="4"><p>11. 문항 시간이 끝나면 현재까지 입력한 내용이 자동 확정될 수 있다.</p><div class="s6-actions"><button class="s6-btn" type="button" data-s6-choice="y">맞다</button><button class="s6-btn" type="button" data-s6-choice="n">아니다</button></div><div class="s6-feedback" aria-live="polite">답을 골라 봐.</div></div>
+<div class="s6-quiz-question" data-answer="y" data-reason="최종 완료 화면에서 제출 ID·시각·파일 수·크기를 확인해야 해." data-page="4"><p>12. 모든 6문항을 끝냈다면 &#39;과제가 잘 제출됐어요&#39; 완료 화면과 제출 정보를 확인해야 한다.</p><div class="s6-actions"><button class="s6-btn" type="button" data-s6-choice="y">맞다</button><button class="s6-btn" type="button" data-s6-choice="n">아니다</button></div><div class="s6-feedback" aria-live="polite">답을 골라 봐.</div></div></div>
+<div class="s6-actions"><button class="s6-btn" type="button" id="s6-quiz-reset">12문항 다시 풀기</button></div>
+<p class="s6-score" id="s6-score" role="status">확인 0 / 12 · 정답 0개</p>
+
+<h3>7. 실제 제출 직전 확인할 것들</h3>
+<div class="s6-checks" id="s6-checks"><label><input type="checkbox">필수 파일의 실제 경로와 저장됨 상태를 확인할 수 있다</label>
+<label><input type="checkbox">미리보기 목록이 전체 제출 파일 목록을 뜻하지 않음을 안다</label>
+<label><input type="checkbox">&#39;제출하고 문제풀기&#39;는 미리보기 진입이라는 점을 안다</label>
+<label><input type="checkbox">&#39;제출물 확정하고 문제풀기&#39; 뒤에는 파일 수정이 불가능함을 안다</label>
+<label><input type="checkbox">과제 미리보기 중에도 작업 타이머는 계속 흐른다는 점을 안다</label>
+<label><input type="checkbox">작업 종료 10분 전 제출 시작은 권장사항이라는 점을 안다</label>
+<label><input type="checkbox">질문 생성 진행 시간과 문항별 5분 타이머를 구분한다</label>
+<label><input type="checkbox">질문 생성 대기 중 예상 최대 10분 표시와 재시도 가능성을 안다</label>
+<label><input type="checkbox">첫 문항은 &#39;문제 풀기&#39;를 누를 때 시작함을 안다</label>
+<label><input type="checkbox">다음 문항은 직전 답안 제출 직후 타이머가 시작함을 안다</label>
+<label><input type="checkbox">후속 서술형 AI 사용·복사·붙여넣기 금지를 숙지했다</label>
+<label><input type="checkbox">이전 답안 수정·이전 문항 이동이 불가능함을 안다</label>
+<label><input type="checkbox">14시에는 모든 단계가 종료되며 입력한 내용만 반영됨을 안다</label>
+<label><input type="checkbox">마지막 문항에서 &#39;답안 제출하고 마치기&#39;를 확인할 수 있다</label>
+<label><input type="checkbox">최종 완료 화면의 제출 ID·시각·파일 수·크기를 확인할 계획이다</label></div>
+<p class="s6-score" id="s6-check-progress" role="status">점검 0 / 15</p>
+<p class="s6-small">체크 여부만 이 브라우저의 로컬 저장소에 기록돼. 모의 서술형에 입력한 문장은 로컬 저장소에도 저장되지 않고 외부로 전송되지 않아.</p>
+<p class="footnote">출처 A 「시험 필수확인사항 브리프」 1쪽(6문항·AI 사용 금지·전체 종료), B 「사전 체험 및 응시환경 상세 가이드」 3쪽(시간·미리보기·제출 순서), 4쪽(후속 문항 준비·답변·완료), 5쪽(오류 신고와 시간 기준). 버튼과 질문 내용은 연습용 예시이며 공식 시험 UI를 그대로 복제한 것이 아니야.</p>
+</section>
 <section id="step7" class="panel"><div class="section-kicker">STEP 07 · 다음 작업</div><h2>오류 대처·전체 리허설</h2><p class="muted">감독 경고와 탈락 구분, 화면 멈춤, 터미널·미리보기 장애, 저장 실패, 재접속과 신고를 실제 상황으로 연습해.</p><div class="todo">원본 출처: 상세 가이드 5쪽.</div></section>
 <p class="footnote">본 사이트는 개인이 작성한 비공식 학습 자료이며, 시험 문제·답안·감독 기록을 수집하지 않습니다. 응시 당일에는 주최 측 개인 안내 및 공식 규정을 우선하세요.</p>
 </main></div></div>
@@ -680,4 +815,5 @@ try{if(!navigator.clipboard?.writeText){throw Error('clipboard unavailable')}awa
 </script>
 <script src="/official-guide-step4.js" defer></script>
 <script src="/official-guide-step5.js" defer></script>
+<script src="/official-guide-step6.js" defer></script>
 </body></html>
