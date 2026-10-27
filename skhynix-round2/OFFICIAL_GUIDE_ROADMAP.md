@@ -12,7 +12,7 @@
 - 실제 Cofa Probe UI라고 주장하지 않으며, 실제 시험 문제·답안·개인 데이터의 외부 전송을 유도하지 않음.
 
 ## 단계별 계획과 확인 상태
-1. 시간·진행 흐름 — 구현됨 / 배포 확인 필요: 09:40 접속 권장, 10~14시, 과제 180분, 질문 준비 약 5분과 최대 10분 화면 예시, 6문항×5분, 재접속·타이머, 14시 종료, 4문항 퀴즈, 체크리스트. 출처 A p1, B pp1-5.
+1. 시간·진행 흐름 — GitHub 반영 및 Vercel Production READY 확인 (2026-10-27): 09:40 접속 권장, 10~14시, 과제 180분, 질문 준비 약 5분과 최대 10분 화면 예시, 6문항×5분, 재접속·타이머, 14시 종료, 4문항 퀴즈, 체크리스트. 출처 A p1, B pp1-5.
 2. 감독·환경·사전체험 — 미구현: 모니터 1대, PC/휴대폰 카메라, 설치 QR vs 연결 QR, 권장 스마트폰 사양, 충전과 네트워크, 개인정보 가림 범위, 안경·신분증 촬영 절차, 실제 체험 1회 15분, 감독 알림. 출처 A p1, B pp1-2.
 3. 웹 IDE·Codex — 미구현: README, 파일 탐색기·에디터·터미널·Browser·메신저 구조, codex 실행, /status, /model, 승인 대기/실행/완료, Cofa Helper와 현업 담당자 구분, CPU/RAM. 출처 B pp2-3.
 4. GitHub·Skill·MCP — 미구현: 공개된 GitHub·코드·자료·Skill/MCP/Plugin 조건부 사용, Clone 허용 vs Push 금지, 개인 업로드 불가, 별도 AI 연결·외부 전송·Computer Use·우회 금지, 상황별 허용/금지 판단 연습. 출처 A p1, B pp3,5.
@@ -26,3 +26,12 @@
 - 기존 네 메뉴 정상과 이전 URL 보존.
 - GitHub 커밋만으로 Vercel 반영 완료 주장 금지. Preview/Production 배포 READY 및 실제 사이트 접속을 별도 확인.
 - 시험은 2026-10-31. 일찍 준비할 수 있도록 모듈별 순차 배포.
+
+## 2026-10-27 1차 적용 결과
+- Vercel 운영 도메인: https://skhynix-ai-hackathon-round2-lab.vercel.app/
+- 새 페이지: https://skhynix-ai-hackathon-round2-lab.vercel.app/official-guide.html
+- Vercel Production deployment: dpl_BLdp7gAm2BTpHKd3hNY7xygpNxeC, READY. 공식 도메인 alias 포함.
+- 기존 runtime 18개 파일과 official-guide.html 1개(총 19개) 배포 파일 목록 확인. 기존 4개 메뉴 HTML 보존.
+- 사이트 1단계에는 설명·시간표·예외 5개·4문항 자기진단·5개 체크박스·7단계 목차가 있음.
+- 검증 한계: 외부 HTTP/실제 브라우저 페이지 열람은 연결/권한 제한으로 실패. Vercel API의 READY·alias·파일 목록과 GitHub 소스만 확인. 실물 Safari·iPad, 버튼 클릭 검사는 미실시.
+- 나머지 2~7단계는 현재 설명 카드와 목차만 있으며 상세 강의 및 상호작용은 미구현.
