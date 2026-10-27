@@ -216,13 +216,14 @@ const msg=document.getElementById('submissionMessage'),forward=document.getEleme
 const stages=[
 ['작업 중 · README 필수 경로와 저장됨 상태를 먼저 확인해.','제출하고 문제풀기 · 미리보기',false],
 ['제출 미리보기 · 아직 작업 화면으로 돌아가 수정할 수 있어. 표시된 파일이 전체 목록은 아닐 수 있어.','제출물 확정하고 문제풀기 · 최종 확정',true],
+['확정 직전 확인 · 모든 필수 파일이 저장됨인지, 검증과 제출 경로를 확인했는지 다시 살펴봐. 다음을 누르면 파일 수정이 불가능해.','최종 확정 · 모의 파일 고정',true],
 ['최종 확정됨 · 파일 수정 불가. 이제 제출물·작업 기록 기반의 질문 생성 대기 단계야.','문제 풀기 · 첫 답변 시작',false],
 ['첫 서술형 문항 · 문제 풀기를 누른 순간부터 5분. 답변은 본인이 직접 작성해야 해.','마지막 제출 이후 완료 확인',false],
 ['모의 종료 · 실제 시험에서는 6문항을 직접 작성한 뒤 제출 ID·시각·파일 수·크기를 확인해.','학습 완료',false]
 ];
-function drawSubmission(){msg.textContent=stages[submission][0];forward.textContent=stages[submission][1];forward.disabled=submission===4;back.disabled=submission!==1}
-forward.addEventListener('click',()=>{submission=Math.min(4,submission+1);drawSubmission()});
-back.addEventListener('click',()=>{submission=0;drawSubmission()});
+function drawSubmission(){msg.textContent=stages[submission][0];forward.textContent=stages[submission][1];forward.disabled=submission===5;back.disabled=!(submission===1||submission===2)}
+forward.addEventListener('click',()=>{submission=Math.min(5,submission+1);drawSubmission()});
+back.addEventListener('click',()=>{submission=submission===2?1:0;drawSubmission()});
 document.getElementById('submissionReset').addEventListener('click',()=>{submission=0;drawSubmission()});drawSubmission();
 })();
 </script>
