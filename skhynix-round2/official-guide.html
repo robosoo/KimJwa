@@ -473,7 +473,7 @@ const stages=[
 '[모의] 요청한 파일 읽기 명령을 승인했습니다.\n상태: 실행 중 · 결과 확인 전 동일 요청 반복하지 않기.',
 '[모의] 요청 처리 완료.\nREADME 분석 내용을 확인했어.\n이제 실제 파일·테스트·Browser를 검증해야 해. 제출은 아직 아냐.'
 ];
-function drawStage(){cli.textContent=stages[stage];document.querySelectorAll('#step3 [data-cli]').forEach(b=>{const a=b.dataset.cli;const order={start:1,status:2,model:3,prompt:4,approve:5,verify:6};b.disabled=a!=='reset'&&order[a]!==stage+1;});}
+function drawStage(){cli.textContent=stages[stage];document.querySelectorAll('#step3 [data-cli]').forEach(b=>{const a=b.dataset.cli;const order={start:1,status:2,model:3,prompt:4,approve:5,verify:6};b.disabled=a!=='reset'&&!(a==='reject'&&stage===4)&&order[a]!==stage+1;});}
 document.querySelectorAll('#step3 [data-cli]').forEach(b=>b.addEventListener('click',()=>{
 if(b.dataset.cli==='reset'){stage=0;drawStage();return}
 const order={start:1,status:2,model:3,prompt:4,approve:5,verify:6};
