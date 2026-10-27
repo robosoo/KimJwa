@@ -17,8 +17,8 @@
 3. 웹 IDE·Codex — 상세 교재 구현 및 Vercel Production READY 확인: README, 파일 탐색기·에디터·터미널·Browser·메신저 구조, codex 실행, /status, /model, 승인 대기/실행/완료, Cofa Helper와 현업 담당자 구분, CPU/RAM. 출처 B pp2-3.
 4. GitHub·Skill·MCP — 상세 교재·검증·Production 반영 완료 (2026-10-27): 공개된 GitHub·코드·자료·Skill/MCP/Plugin 조건부 사용, Clone 허용 vs Push 금지, 개인 업로드 불가, 별도 AI 연결·외부 전송·Computer Use·우회 금지, 상황별 허용/금지 판단 연습. 출처 A p1, B pp3,5.
 5. 구현·검증·저장 — 상세 학습·시뮬레이터 구현 및 Production READY 확인: README와 담당자 질의, 파일 작성·자동 저장·충돌 복구, 서버 포트/0.0.0.0, 내장 Browser의 버튼·입력·이동 실제 동작 검증, 명령 종료 시 서버 중단. 출처 B pp2-3.
-6. 제출·후속 서술형 — 미구현: 미리보기와 최종 확정 차이, 확정 후 파일 잠금, 질문 준비 대기, 본인 직접 작성 6문항×5분, AI/복붙 금지, 앞 문항 이동 금지, 완료 ID/시각/파일 수 확인. B p4 조작 안내 '5개'는 실제 6개와 구별. 출처 A p1, B pp3-5.
-7. 장애·종합 리허설 — 미구현: 영역 다시 불러오기, 세션 재접속, 웹캠/화면공유/휴대폰 복구, 문제 신고, 타이머 지속, 부정행위 확정과 경고 구분, 180분 모의 수행 시나리오. 출처 A p1, B pp3-5.
+6. 제출·후속 서술형 — 상세 교재·7화면 모의 시뮬레이터·Production READY (2026-10-27): 미리보기와 최종 확정 차이, 확정 후 파일 잠금, 질문 준비 대기, 본인 직접 작성 6문항×5분, AI/복붙 금지, 앞 문항 이동 금지, 완료 ID/시각/파일 수 확인. B p4 조작 안내 '5개'는 실제 6개와 구별. 출처 A p1, B pp3-5.
+7. 장애·종합 리허설 — 상세 교재·상황 판단 20문항·Production READY (2026-10-27): 영역 다시 불러오기, 세션 재접속, 웹캠/화면공유/휴대폰 복구, 문제 신고, 타이머 지속, 부정행위 확정과 경고 구분, 180분 모의 수행 시나리오. 출처 A p1, B pp3-5.
 
 ## 검증 조건
 - 단계별 출처 페이지 확인 및 공식/추론 레이블 검수.
@@ -76,3 +76,22 @@
 - QA 보고서: reports/official-guide-stage5-self-review-20261027.md.
 - Vercel Preview dpl_4vLSSPoiRpqv1tXPpXUngLnyM1ma READY; Production dpl_GCe8GdWaj5czUNrYYY4V3PQ3h39o READY. 23개 파일의 Preview/Production UID 일치.
 - 실제 공개 HTML URL을 웹 도구에서 확인하려 했으나 접근 불가. 실물 터치/브라우저 상호작용은 미검증.
+
+## 2026-10-27 · 6단계 완료
+- 제출물 미리보기와 확정 불가역, 질문 준비 대기·재시도, 6문항 5분 규정, AI/붙여넣기 금지, 14:00 전체 종료.
+- 7개 모의 화면, 선택형 설명 12문항, 준비 체크리스트 15개.
+- 모의 DOM에서 미리보기 취소, 확정, 질문 준비, 문항 이동/만료, 답안 삭제, 답변 붙여넣기 금지·6문항 종료·초기화 검증.
+- QA: reports/official-guide-stage6-self-review-20261027.md.
+- Preview dpl_7LoEBavGjPreq4A1pePowM7XeQC6, Production dpl_AojYGXUBAF5jP7H3yGsVVyeRnQfA — 모두 READY. 동일 25개 파일.
+- 실제 브라우저 Safari/iPad 클릭 검증 미완료.
+
+## 2026-10-27 · 7단계 완료 / 전체 개편 완료
+- 장애 대응: 화면 일부 멈춤, 웹캠·전체화면 공유·휴대폰 재연결, Codex 승인·실행 상태, 터미널·Browser·저장 충돌, 질문 전송 오류, 접속 복구, CPU/RAM·OOM.
+- 감독 규칙: 직접 확인된 제한 위반과 추가 사실관계 확인 사례 구별, 경고 자체가 탈락 확정이 아님.
+- 체험: 장애 대응 12문항, 감독 판단 8문항, 가상 신고 유형 5종, 가정 시작 시각별 시간 계획 3종, 최종 리허설 7구간, 체크리스트 15개.
+- 자체 피드백: 알림·비활성·시간 보상·구도 안내·서술형 신고·전체 새로고침 전 저장 확인 FAQ 추가.
+- QA: reports/official-guide-stage7-self-review-20261027.md.
+- Preview dpl_8DNpCeCcMgmwkzKHyPtd2VgtrCt3 / Production dpl_2pKriSfLLddphUzBkrgAuuvWShU4, 둘 다 READY, 동일 27개 파일.
+- 공식 alias: https://skhynix-ai-hackathon-round2-lab.vercel.app/official-guide.html
+- 원본 웹 IDE 학습센터 홈 메뉴 4개와 1~7단계 학습 콘텐츠 소스 보존.
+- 기술적 한계: web.open에서 실제 공개 HTML URL 접근 불가; 실물 iPad/Safari·스크린리더·크로스 브라우저 테스트는 아직 안 됨.
