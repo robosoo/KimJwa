@@ -1,0 +1,42 @@
+/* Stage 6: submission and self-written response rehearsal */
+#step6 .s6-process{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:16px 0}
+#step6 .s6-process>div{background:#f7f8fa;border:1px solid #e1e5eb;border-radius:10px;padding:10px;min-width:0}
+#step6 .s6-process strong{display:block;font-size:13px;line-height:1.5}
+#step6 .s6-process span{font-size:12px;color:#5e6979}
+#step6 .s6-lab{border:1px solid #d7dfe7;border-radius:13px;overflow:hidden;margin:18px 0;background:white}
+#step6 .s6-header{background:#252c35;color:#f3f6f8;padding:12px 16px;font-size:13px;font-weight:750;display:flex;gap:12px;align-items:center;justify-content:space-between}
+#step6 .s6-header span{color:#f5cfb7;font-weight:500;font-size:11px}
+#step6 .s6-labbody{padding:17px}
+#step6 .s6-step{background:#fff7ed;border:1px solid #eed4bd;border-radius:9px;padding:12px;font-size:13px;margin:8px 0 13px}
+#step6 .s6-step strong{display:block;margin-bottom:3px}
+#step6 .s6-stage{padding:7px 0}
+#step6 .s6-stage h4{font-size:16px;margin:4px 0 8px}
+#step6 .s6-stage p{font-size:14px;line-height:1.7}
+#step6 .s6-preview{background:#f8fafc;border:1px solid #dae1e8;border-radius:10px;padding:13px;margin:11px 0}
+#step6 .s6-preview ul{margin:7px 0;padding-left:20px;font-size:13px}
+#step6 .s6-preview small{font-size:12px;color:#596878}
+#step6 .s6-btn{display:inline-block;border:1px solid #ccd4dd;border-radius:9px;padding:9px 13px;background:white;color:#2c3744;cursor:pointer;font-weight:700;font-size:13px}
+#step6 .s6-btn.primary{background:#ab5a20;border-color:#ab5a20;color:#fff}
+#step6 .s6-btn:hover{border-color:#b65c24}
+#step6 .s6-btn:focus-visible,#step6 textarea:focus-visible{outline:3px solid #ab5a20;outline-offset:2px}
+#step6 .s6-btn:disabled{cursor:not-allowed;opacity:.45}
+#step6 .s6-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:13px 0 6px}
+#step6 .s6-danger{background:#fff2ee;border:1px solid #ebc2b5;border-radius:10px;padding:13px;margin:10px 0}
+#step6 .s6-danger strong{color:#933b20}
+#step6 .s6-counter{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-bottom:1px solid #dee3e9;padding-bottom:12px;margin-bottom:15px;font-size:13px}
+#step6 .s6-counter b{color:#813e12}
+#step6 .s6-timer{padding:5px 10px;background:#e8f2f0;color:#16654e;border-radius:7px}
+#step6 .s6-stage textarea{width:100%;min-height:125px;border:1px solid #cbd6df;border-radius:9px;padding:12px;resize:vertical;color:#222d3a;font:14px/1.65 inherit}
+#step6 .s6-feedback{font-size:13px;color:#4e5c6e;margin:10px 0;min-height:22px}
+#step6 .s6-alert{border-left:4px solid #e37c30;background:#fff7ef;padding:12px 14px;border-radius:8px;margin:13px 0;font-size:13px}
+#step6 .s6-quiz-question{border:1px solid #dce1e8;border-radius:11px;padding:15px;margin:11px 0}
+#step6 .s6-quiz-question>p{font-size:14px;font-weight:750;margin-bottom:10px}
+#step6 .s6-quiz-question [aria-pressed=true]{background:#fff1e5;color:#8b3d11;border-color:#ad4f1b}
+#step6 .s6-score{font-size:13px;color:#985019;font-weight:750}
+#step6 .s6-checks{display:grid;gap:8px;margin:14px 0}
+#step6 .s6-checks label{display:flex;gap:9px;font-size:14px;align-items:start}
+#step6 .s6-checks input{flex:0 0 17px;width:17px;height:17px;accent-color:#c86622;margin:4px 0 0}
+#step6 .s6-small{color:#5b6778;font-size:12px}
+#step6 .s6-table{overflow-x:auto}
+@media(max-width:800px){#step6 .s6-process{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:510px){#step6 .s6-process{grid-template-columns:1fr}#step6 .s6-labbody{padding:12px}#step6 .s6-header{flex-wrap:wrap}#step6 .s6-table table{min-width:460px}}
