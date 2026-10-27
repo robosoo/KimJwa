@@ -41,3 +41,10 @@
 - 실행 JS 두 블록 구문 검사 통과, 신분증 3종·단계 7개·보안 제한 정적 검사 통과.
 - 문제 발견 및 수정: 모바일 표 가독성, 체크리스트 복원 코드, 홈 진입문구 및 링크.
 - 자체 검토 기록: reports/official-guide-stage2-self-review-20261027.md. 실제 외부 전문가 패널이나 실물 브라우저 QA를 실시했다고 주장하지 않는다.
+
+### 2026-10-27 2단계 Production 반영 결과
+- Vercel Production dpl_DtYDghuS9iWsW5BtSDaVKDq3BC6V = READY.
+- alias https://skhynix-ai-hackathon-round2-lab.vercel.app/ 부여 확인.
+- runtime 총 19개 파일: 기존 18개 + official-guide.html 1개. 원본 네 메뉴 파일 유지.
+- 2단계 본문 및 8문항·10체크박스·신분증 3종·QR 안내 포함. 동일 페이지 #step2.
+- 실제 운영 URL의 HTML 요청은 Vercel connector의 read_protection_bypass 403과 웹 뷰어 접근 제한으로 테스트하지 못함. READY·alias·파일 목록은 Vercel API 검증.
