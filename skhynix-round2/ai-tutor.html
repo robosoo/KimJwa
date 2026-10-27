@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f9fafc">
+<meta name="description" content="SK하이닉스 AI 해커톤 2차 예선 학습 전용 GPT 튜터. 시험 중 사용 금지.">
+<title>GPT 학습 튜터 · SK하이닉스 AI 해커톤 2차</title>
+<style>
+:root{--orange:#de6724;--ink:#1f2731;--muted:#607080;--line:#dce2e9;--bg:#f9fafc}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;line-height:1.7}
+main{max-width:940px;margin:0 auto;padding:20px 19px 90px}
+a{color:inherit}.back{font-size:13px;text-decoration:none;border:1px solid var(--line);padding:9px 13px;background:#fff;border-radius:9px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 0 20px;border-bottom:1px solid var(--line)}
+.brand{font-weight:800;font-size:15px}.brand b{color:var(--orange)}
+.hero{padding:28px 0 18px}h1{font-size:clamp(26px,4vw,38px);line-height:1.3;letter-spacing:-1.1px;margin:7px 0 10px}h2{font-size:20px;letter-spacing:-.4px;margin:8px 0 17px}.eyebrow{font-size:12px;letter-spacing:.06em;color:#ae4a18;font-weight:800}.muted{font-size:14px;color:var(--muted)}
+.alert{background:#fff2e8;border:1px solid #f2cfb4;border-radius:12px;padding:14px 17px;margin:16px 0;font-size:13px}
+.alert strong{display:block;margin-bottom:4px}.alert p{margin:0}
+.two{display:grid;grid-template-columns:280px minmax(0,1fr);gap:17px;align-items:start}
+.card{border:1px solid var(--line);background:#fff;border-radius:15px;padding:20px;min-width:0}
+label{display:block;font-weight:750;font-size:13px;margin:11px 0 5px}
+input,select,textarea{font:inherit;color:var(--ink);border:1px solid #cbd4df;border-radius:9px;padding:10px 12px;background:#fff;width:100%}
+textarea{min-height:112px;resize:vertical;font-size:14px;line-height:1.6}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #b05c24;outline-offset:2px}
+.btn{font:inherit;font-size:13px;line-height:1.4;border-radius:9px;padding:10px 13px;cursor:pointer;border:1px solid #ccd3dc;background:#fff;color:#344252;font-weight:750}
+.btn.primary{background:#b9541e;color:#fff;border-color:#b9541e}
+.btn:disabled{cursor:not-allowed;opacity:.45}
+.btn:hover{border-color:#c06e33}
+.pills{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.prompt{border:1px solid var(--line);border-radius:9px;padding:9px 11px;text-align:left;background:#fff;font-size:12px;line-height:1.55;cursor:pointer;color:#405061}
+.prompt:hover{background:#fff8f2;border-color:#e6b18d}
+.status{font-size:12px;color:var(--muted);margin:11px 0;padding:10px;background:#f5f7f9;border-radius:8px;word-break:break-word}
+.chat{height:min(53vh,470px);min-height:270px;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:5px 4px 18px}
+.bubble{padding:12px 14px;border-radius:12px;max-width:94%;white-space:pre-wrap;word-break:break-word;font-size:14px}
+.bubble.user{align-self:flex-end;background:#fff0e4;border:1px solid #f0d2bd}
+.bubble.assistant{align-self:flex-start;background:#f2f5f8;border:1px solid #e2e8ee}
+.bubble small{display:block;font-size:11px;color:#59697b;font-weight:750;margin-bottom:4px}
+.row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}
+.tiny{font-size:12px;color:#6a7786}
+.hint{font-size:12px;color:#ac5320;font-weight:700;margin:6px 0}
+code{background:#f0f3f7;padding:2px 5px;border-radius:5px;font-size:12px}
+.instructions{font-size:13px}.instructions h3{font-size:15px;margin:13px 0 6px}.instructions p{margin:6px 0}
+[hidden]{display:none!important}
+@media(max-width:760px){.two{grid-template-columns:1fr}.card{padding:17px}.chat{min-height:220px;height:36vh}.top{flex-wrap:wrap}}
+</style>
+</head>
+<body><main>
+<header class="top"><div class="brand"><b>SK hynix</b> · AI 해커톤 2차 학습센터</div><a class="back" href="/official-guide.html">← 공식 학습 가이드</a></header>
+<section class="hero"><div class="eyebrow">GPT AI TUTOR · 사전 연습 전용</div><h1>모르는 걸 바로 물어보고<br>나만의 학습 문제를 풀어봐.</h1><p class="muted">7단계 시험 가이드에서 이해되지 않는 내용을 질문하거나 가상 과제를 만들고 피드백받는 학습 공간이야.</p></section>
+<div class="alert"><strong>실제 해커톤 응시 중 사용 금지</strong><p>이 페이지는 <b>시험 전 공부용</b>이야. 후속 서술형 시험에서는 외부 AI 사용 및 복사·붙여넣기가 금지돼. 실제 시험 문제, 응시 링크, 개인정보, 비공개 자료나 결과물을 이곳에 입력하지 마.</p></div>
+<div class="two">
+<aside class="card">
+<h2>학습 설정</h2>
+<label for="topic">학습할 단계</label>
+<select id="topic"><option value="1">1 · 시험 시간과 흐름</option><option value="2">2 · 감독과 사전 체험</option><option value="3" selected>3 · 웹 IDE와 Codex</option><option value="4">4 · GitHub·Skill·MCP</option><option value="5">5 · 실행·Browser·검증</option><option value="6">6 · 제출·서술형 연습</option><option value="7">7 · 장애와 전체 리허설</option></select>
+<label for="code">학습실 접속 코드</label>
+<input id="code" type="password" autocomplete="off" spellcheck="false" placeholder="Vercel에 설정한 접속 코드" maxlength="128">
+<p class="tiny">이 코드는 브라우저 저장소에 기록하지 않아. OpenAI API 키를 이 칸에 넣으면 안 돼.</p>
+<div class="status" id="service-status" role="status">서버 연결 상태 확인 중…</div>
+<h3 style="font-size:14px;margin:17px 0 8px">이렇게 질문해 봐</h3>
+<div class="pills" id="suggestions"><button class="prompt" type="button" data-prompt="터미널과 Codex가 뭔지 쉬운 비유로 설명해 줘.">터미널과 Codex가 뭐야?</button><button class="prompt" type="button" data-prompt="승인 대기 상태에서 어떤 명령을 거절해야 하는지 가상 사례 한 개를 만들어 줘.">승인 대기 연습</button><button class="prompt" type="button" data-prompt="README를 보고 어떤 조건을 확인해야 하는지 가상 과제를 1개 내 줘.">README 읽기 연습</button><button class="prompt" type="button" data-prompt="실제 기출이 아닌 가상의 5분 서술형 연습 질문을 한 개 내 줘. 내가 답하면 스스로 한 일과 검증 증거를 기준으로 피드백해 줘.">가상 서술형 연습</button><button class="prompt" type="button" data-prompt="Git Clone과 Git Push 차이를 설명하고 허용·금지 판단문제를 하나 내 줘.">도구 허용 범위 연습</button></div>
+</aside>
+<section class="card" aria-label="GPT 학습 대화">
+<div class="row" style="margin:0 0 8px"><h2 style="margin:0">GPT와 학습하기</h2><button class="btn" type="button" id="clear">새 대화</button></div>
+<div id="chat" class="chat" role="log" aria-live="polite" aria-relevant="additions text">
+<div class="bubble assistant"><small>학습 튜터</small>안녕! 먼저 학습 단계를 고르고, 궁금한 내용을 입력해 줘. 공식 가이드에 없는 내용은 추측하지 않도록 주의할게.</div>
+</div>
+<form id="form">
+<label for="question">질문 또는 내가 쓴 연습 답변</label>
+<textarea id="question" maxlength="1800" placeholder="예: Codex가 만들었다고 한 프로그램이 진짜 작동하는지는 어떻게 확인해?"></textarea>
+<div class="row"><span id="chars" class="tiny">0 / 1,800자</span><div style="display:flex;gap:7px"><button class="btn primary" id="send" type="submit">GPT에게 질문하기</button></div></div>
+<p id="feedback" class="hint" role="status"></p>
+</form>
+</section>
+</div>
+<section class="card instructions" id="setup" hidden style="margin-top:17px">
+<h2>GPT API 연결을 위한 마지막 설정</h2>
+<p>현재 Vercel 프로젝트에 서버 비밀키가 아직 설정되지 않았어. 사이트 코드는 준비돼 있고, <strong>Vercel 환경 변수 두 개</strong>를 프로젝트 관리자만 추가해야 실제 GPT 응답이 활성화돼.</p>
+<p><b>OPENAI_API_KEY</b> · OpenAI API 계정의 비밀키. 절대로 HTML·GitHub·학습 채팅창에 붙여넣지 말고 Vercel의 환경 변수에 설정해.</p>
+<p><b>TUTOR_ACCESS_CODE</b> · 외부에서 유료 API를 마음대로 호출하지 못하도록 보호하는 학습실 접속 코드. 충분히 긴 임의의 값을 직접 설정한 뒤 위 입력칸에 입력해.</p>
+<p><b>OPENAI_MODEL</b> · (선택) 기본값 <code>gpt-5-mini</code>. 계정에서 지원하는 모델로 변경 가능.</p>
+<p>Vercel 프로젝트 <b>skhynix-ai-hackathon-round2-lab</b> → Settings → Environment Variables → Production을 선택하고 저장한 뒤 재배포하면 돼. API 사용량·결제 한도는 OpenAI 플랫폼에서 별도 관리해야 해.</p>
+<p>설정 전에는 GPT 답변이 나오지 않아. 학습 가이드와 기존 문제 풀이는 정상적으로 사용할 수 있어.</p>
+</section>
+<p class="tiny" style="margin-top:20px">비공식 개인 학습 프로젝트 · 실제 주최 측 공식 시험 시스템과 연결되지 않음 · 시험 전 연습 전용 · 대화 내용은 브라우저 탭을 닫으면 사라짐</p>
+</main>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id),chat=$('chat'),question=$('question'),form=$('form'),status=$('service-status'),setup=$('setup'),send=$('send'),feedback=$('feedback');
+let available=false,busy=false;let history=[];
+const insert=(who,msg)=>{const d=document.createElement('div');d.className='bubble '+(who==='user'?'user':'assistant');const small=document.createElement('small');small.textContent=who==='user'?'나':'GPT 학습 튜터';d.append(small,document.createTextNode(msg));chat.append(d);chat.scrollTop=chat.scrollHeight};
+const refresh=()=>{$('chars').textContent=question.value.length+' / 1,800자';send.disabled=busy||!available||!question.value.trim()};question.addEventListener('input',refresh);
+$('suggestions').querySelectorAll('[data-prompt]').forEach(btn=>btn.addEventListener('click',()=>{question.value=btn.dataset.prompt;refresh();question.focus()}));
+$('clear').addEventListener('click',()=>{history=[];chat.replaceChildren();insert('assistant','새 학습 대화를 시작했어. 지금까지 입력한 대화 내용은 이 탭에서 지웠어.');question.value='';feedback.textContent='';refresh()});
+$('topic').addEventListener('change',()=>{history=[];chat.replaceChildren();insert('assistant','학습 단계를 바꿨어. 이제 이 주제로 질문해 줘.');feedback.textContent=''});
+async function health(){
+  try{const r=await fetch('/api/tutor',{cache:'no-store'});const j=await r.json();available=!!j.available;status.textContent=available?'GPT API 연결 준비 완료 · 학습실 코드 입력 필요':'GPT API 미설정 · 아래 연결 안내 확인';setup.hidden=available;}
+  catch(e){available=false;status.textContent='GPT 서버 연결을 확인하지 못했어. 사이트를 새로고침해 줘.';setup.hidden=false}
+  refresh();
+}
+form.addEventListener('submit',async ev=>{
+  ev.preventDefault();const text=question.value.trim(),access=$('code').value;
+  if(busy||!available||!text)return;if(!access){feedback.textContent='학습실 접속 코드를 먼저 입력해 줘.';$('code').focus();return}
+  busy=true;feedback.textContent='GPT 답변을 요청하는 중이야…';refresh();
+  const outHistory=history.slice(-8);insert('user',text);question.value='';refresh();
+  try{
+    const r=await fetch('/api/tutor',{method:'POST',headers:{'Content-Type':'application/json','X-Tutor-Access':access},body:JSON.stringify({topic:$('topic').value,question:text,history:outHistory}),cache:'no-store'});
+    const data=await r.json();
+    if(!r.ok)throw new Error(data.error||'GPT 요청에 실패했어.');
+    insert('assistant',String(data.answer||'답변이 비어 있어.'));
+    history.push({role:'user',text},{role:'assistant',text:String(data.answer||'')});history=history.slice(-8);
+    feedback.textContent='학습 답변을 받았어. 다음 질문을 해도 돼.';
+  }catch(e){insert('assistant','응답 오류: '+String(e.message||'다시 시도해 줘.'));feedback.textContent='실제 답변이 생성되지 않았어. 연결 설정을 확인해 줘.';}
+  finally{busy=false;refresh()}
+});
+refresh();health();
+})();
+</script>
+</body></html>
