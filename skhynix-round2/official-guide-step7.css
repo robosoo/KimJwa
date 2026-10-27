@@ -1,0 +1,45 @@
+
+/* 7단계: 공식 문제대응·감독 경고·종합 리허설 */
+#step7 .s7-intro{border:1px solid #f1d8c3;background:#fff7ef;border-radius:11px;padding:14px;margin:15px 0;font-size:14px}
+#step7 .s7-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:18px 0}
+#step7 .s7-flow>div{border:1px solid #dfe4eb;border-radius:11px;padding:12px;background:#fafbfc}
+#step7 .s7-flow strong{display:block;font-size:14px}
+#step7 .s7-flow p{font-size:12px;color:#596679;margin:6px 0 0}
+#step7 .s7-lab{border:1px solid #d7dfe9;border-radius:13px;overflow:hidden;margin:15px 0;background:#fff}
+#step7 .s7-labbar{background:#282f39;color:#f2f6f9;padding:12px 15px;font-size:13px;font-weight:800}
+#step7 .s7-labbody{padding:16px}
+#step7 .s7-btn{display:inline-block;cursor:pointer;background:#fff;color:#263547;border:1px solid #cbd4df;padding:9px 13px;border-radius:9px;font-size:13px;font-weight:700;white-space:normal;text-align:left}
+#step7 .s7-btn:hover{border-color:#bd5b25}
+#step7 .s7-btn[aria-pressed=true]{border-color:#a8511c;background:#fff0e5;color:#914414}
+#step7 .s7-btn:disabled{cursor:not-allowed;opacity:.45}
+#step7 .s7-btn:focus-visible,#step7 input:focus-visible,#step7 textarea:focus-visible,#step7 select:focus-visible{outline:3px solid #b26020;outline-offset:2px}
+#step7 .s7-btn.primary{background:#a4531e;border-color:#a4531e;color:#fff}
+#step7 .s7-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+#step7 .s7-state{font-size:12px;color:#9d4b17;font-weight:800}
+#step7 .s7-question{font-size:15px;font-weight:800;margin:12px 0;line-height:1.7}
+#step7 .s7-result{border:1px solid #d9e0e7;border-radius:10px;padding:14px;background:#f8fafb;font-size:14px;min-height:50px;margin:12px 0}
+#step7 .s7-result.good{border-color:#a9d8c4;color:#0e6446;background:#f3faf7}
+#step7 .s7-result.bad{border-color:#f1bbae;color:#973826;background:#fff7f2}
+#step7 .s7-result strong{display:block;margin-bottom:4px}
+#step7 .s7-result p{font-size:13px;margin:4px 0 0}
+#step7 .s7-progress{font-size:13px;color:#914918;font-weight:800}
+#step7 .s7-table{overflow-x:auto}
+#step7 .s7-table table{width:100%}
+#step7 .s7-mini{color:#647082;font-size:12px}
+#step7 .s7-incident select,#step7 .s7-incident textarea{display:block;width:100%;border:1px solid #cbd3dd;border-radius:9px;padding:11px;color:#283545;background:#fff;font:14px/1.65 inherit;margin-top:6px}
+#step7 .s7-incident textarea{min-height:114px;resize:vertical}
+#step7 .s7-field{font-size:13px;font-weight:750;display:block;margin:12px 0}
+#step7 .s7-report{white-space:pre-wrap;word-break:break-word;background:#f7f9fb;border:1px solid #dae0e9;border-radius:10px;padding:13px;line-height:1.7;font-size:13px}
+#step7 .s7-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:13px 0}
+#step7 .s7-compare>div{border:1px solid #dce2e9;padding:14px;border-radius:10px;background:#fafbfc}
+#step7 .s7-compare strong{display:block;font-size:14px}
+#step7 .s7-compare p{font-size:13px;color:#5a6678;margin:5px 0 0}
+#step7 .s7-checklist{display:grid;gap:9px;margin:14px 0}
+#step7 .s7-checklist label{display:flex;gap:9px;align-items:start;font-size:14px}
+#step7 .s7-checklist input{margin:4px 0 0;width:17px;height:17px;flex:0 0 17px;accent-color:#cc6826}
+#step7 .s7-rehearsal label{font-size:13px;display:flex;align-items:start;gap:9px;margin:9px 0}
+#step7 .s7-rehearsal input{accent-color:#c76624;width:17px;height:17px;flex:0 0 17px;margin-top:4px}
+#step7 .s7-timing-card{border:1px solid #e6d2bf;background:#fff8f1;border-radius:10px;padding:14px;margin:12px 0;font-size:14px}
+#step7 .s7-timing-card p{font-size:13px;margin:6px 0 0}
+@media(max-width:730px){#step7 .s7-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){#step7 .s7-flow,#step7 .s7-compare{grid-template-columns:1fr}#step7 .s7-labbody{padding:12px}#step7 .s7-table table{min-width:540px}}
