@@ -38,5 +38,10 @@
       "destination": "/?tab=library&id=luka-depth",
       "permanent": false
     }
-  ]
+  ],
+  "functions": {
+    "api/tutor.mjs": {
+      "maxDuration": 30
+    }
+  }
 }
