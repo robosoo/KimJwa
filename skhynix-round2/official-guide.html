@@ -476,6 +476,7 @@ const stages=[
 function drawStage(){cli.textContent=stages[stage];document.querySelectorAll('#step3 [data-cli]').forEach(b=>{const a=b.dataset.cli;const order={start:1,status:2,model:3,prompt:4,approve:5,verify:6};b.disabled=a!=='reset'&&!(a==='reject'&&stage===4)&&order[a]!==stage+1;});}
 document.querySelectorAll('#step3 [data-cli]').forEach(b=>b.addEventListener('click',()=>{
 if(b.dataset.cli==='reset'){stage=0;drawStage();return}
+if(b.dataset.cli==='reject'&&stage===4){cli.textContent='[모의] 요청을 거절했습니다.\n명령의 목적을 확인하고 다른 방법을 요청할 수도 있어.\n계속하려면 다음 버튼을 선택하거나 처음부터 다시 시작해.';return;}
 const order={start:1,status:2,model:3,prompt:4,approve:5,verify:6};
 if(order[b.dataset.cli]!==stage+1)return;stage++;drawStage();
 }));
