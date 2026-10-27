@@ -54,7 +54,7 @@ code{background:#f0f3f7;padding:2px 5px;border-radius:5px;font-size:12px}
 <select id="topic"><option value="1">1 · 시험 시간과 흐름</option><option value="2">2 · 감독과 사전 체험</option><option value="3" selected>3 · 웹 IDE와 Codex</option><option value="4">4 · GitHub·Skill·MCP</option><option value="5">5 · 실행·Browser·검증</option><option value="6">6 · 제출·서술형 연습</option><option value="7">7 · 장애와 전체 리허설</option></select>
 <label for="code">학습실 접속 코드</label>
 <input id="code" type="password" autocomplete="off" spellcheck="false" placeholder="Vercel에 설정한 접속 코드" maxlength="128">
-<p class="tiny">이 코드는 브라우저 저장소에 기록하지 않아. OpenAI API 키를 이 칸에 넣으면 안 돼.</p>
+<p class="tiny">이 코드는 브라우저 저장소에 기록하지 않아. OpenAI API 키를 이 칸에 넣으면 안 돼.</p><p class="tiny">질문을 보내면 GPT 답변을 생성하기 위해 텍스트가 Vercel 서버를 거쳐 OpenAI API로 전달돼. 실제 시험 자료와 개인정보는 입력하지 마.</p>
 <div class="status" id="service-status" role="status">서버 연결 상태 확인 중…</div>
 <h3 style="font-size:14px;margin:17px 0 8px">이렇게 질문해 봐</h3>
 <div class="pills" id="suggestions"><button class="prompt" type="button" data-prompt="터미널과 Codex가 뭔지 쉬운 비유로 설명해 줘.">터미널과 Codex가 뭐야?</button><button class="prompt" type="button" data-prompt="승인 대기 상태에서 어떤 명령을 거절해야 하는지 가상 사례 한 개를 만들어 줘.">승인 대기 연습</button><button class="prompt" type="button" data-prompt="README를 보고 어떤 조건을 확인해야 하는지 가상 과제를 1개 내 줘.">README 읽기 연습</button><button class="prompt" type="button" data-prompt="실제 기출이 아닌 가상의 5분 서술형 연습 질문을 한 개 내 줘. 내가 답하면 스스로 한 일과 검증 증거를 기준으로 피드백해 줘.">가상 서술형 연습</button><button class="prompt" type="button" data-prompt="Git Clone과 Git Push 차이를 설명하고 허용·금지 판단문제를 하나 내 줘.">도구 허용 범위 연습</button></div>
@@ -81,7 +81,7 @@ code{background:#f0f3f7;padding:2px 5px;border-radius:5px;font-size:12px}
 <p>Vercel 프로젝트 <b>skhynix-ai-hackathon-round2-lab</b> → Settings → Environment Variables → Production을 선택하고 저장한 뒤 재배포하면 돼. API 사용량·결제 한도는 OpenAI 플랫폼에서 별도 관리해야 해.</p>
 <p>설정 전에는 GPT 답변이 나오지 않아. 학습 가이드와 기존 문제 풀이는 정상적으로 사용할 수 있어.</p>
 </section>
-<p class="tiny" style="margin-top:20px">비공식 개인 학습 프로젝트 · 실제 주최 측 공식 시험 시스템과 연결되지 않음 · 시험 전 연습 전용 · 대화 내용은 브라우저 탭을 닫으면 사라짐</p>
+<p class="tiny" style="margin-top:20px">비공식 개인 학습 프로젝트 · 실제 주최 측 공식 시험 시스템과 연결되지 않음 · 시험 전 연습 전용 · 이 사이트는 대화를 영구 저장하지 않지만, 답변 생성을 위해 질문이 OpenAI API로 전송됨</p>
 </main>
 <script>
 (()=>{'use strict';
