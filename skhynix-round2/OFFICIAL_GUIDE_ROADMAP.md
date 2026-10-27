@@ -14,7 +14,7 @@
 ## 단계별 계획과 확인 상태
 1. 시간·진행 흐름 — GitHub 반영 및 Vercel Production READY 확인 (2026-10-27): 09:40 접속 권장, 10~14시, 과제 180분, 질문 준비 약 5분과 최대 10분 화면 예시, 6문항×5분, 재접속·타이머, 14시 종료, 4문항 퀴즈, 체크리스트. 출처 A p1, B pp1-5.
 2. 감독·환경·사전체험 — 상세 교재 구현·정적 검증 완료, 배포 최종 검증 별도:  모니터 1대, PC/휴대폰 카메라, 설치 QR vs 연결 QR, 권장 스마트폰 사양, 충전과 네트워크, 개인정보 가림 범위, 안경·신분증 촬영 절차, 실제 체험 1회 15분, 감독 알림. 출처 A p1, B pp1-2.
-3. 웹 IDE·Codex — 미구현: README, 파일 탐색기·에디터·터미널·Browser·메신저 구조, codex 실행, /status, /model, 승인 대기/실행/완료, Cofa Helper와 현업 담당자 구분, CPU/RAM. 출처 B pp2-3.
+3. 웹 IDE·Codex — 상세 교재 구현 및 Vercel Production READY 확인: README, 파일 탐색기·에디터·터미널·Browser·메신저 구조, codex 실행, /status, /model, 승인 대기/실행/완료, Cofa Helper와 현업 담당자 구분, CPU/RAM. 출처 B pp2-3.
 4. GitHub·Skill·MCP — 미구현: 공개된 GitHub·코드·자료·Skill/MCP/Plugin 조건부 사용, Clone 허용 vs Push 금지, 개인 업로드 불가, 별도 AI 연결·외부 전송·Computer Use·우회 금지, 상황별 허용/금지 판단 연습. 출처 A p1, B pp3,5.
 5. 구현·검증·저장 — 미구현: README와 담당자 질의, 파일 작성·자동 저장·충돌 복구, 서버 포트/0.0.0.0, 내장 Browser의 버튼·입력·이동 실제 동작 검증, 명령 종료 시 서버 중단. 출처 B pp2-3.
 6. 제출·후속 서술형 — 미구현: 미리보기와 최종 확정 차이, 확정 후 파일 잠금, 질문 준비 대기, 본인 직접 작성 6문항×5분, AI/복붙 금지, 앞 문항 이동 금지, 완료 ID/시각/파일 수 확인. B p4 조작 안내 '5개'는 실제 6개와 구별. 출처 A p1, B pp3-5.
@@ -48,3 +48,12 @@
 - runtime 총 19개 파일: 기존 18개 + official-guide.html 1개. 원본 네 메뉴 파일 유지.
 - 2단계 본문 및 8문항·10체크박스·신분증 3종·QR 안내 포함. 동일 페이지 #step2.
 - 실제 운영 URL의 HTML 요청은 Vercel connector의 read_protection_bypass 403과 웹 뷰어 접근 제한으로 테스트하지 못함. READY·alias·파일 목록은 Vercel API 검증.
+
+### 2026-10-27 3단계 적용·배포
+- 범위: IDE 6영역, 지원 창 3종, codex/status/model, 승인·거절, 실행 상태 판별, Browser·터미널 기본, 이해도 10문항·체크리스트 10개.
+- 자체 검토: 승인 강요 위험, 문의 대상 혼동, 모델 명령 표기 차이, 모의실습/실제 시스템 구분, 모바일 컴포넌트 점검 후 수정.
+- QA 기록: reports/official-guide-stage3-self-review-20261027.md.
+- Vercel Preview dpl_5khhvXxZ5WWnY8FET787sMg8dJ2m = READY.
+- Vercel Production dpl_J3hupVaVWv4xW5rSdM3HU1iDKxwt = READY / 운영 도메인 alias 확인.
+- Production 파일 트리 19개, 기존 앱 및 데이터 파일 포함 확인.
+- 미검증: 실제 사이트 브라우저 클릭 테스트, iPad/Safari 터치 및 반응형 실사용. 배포 READY만으로 이들의 성공을 주장하지 않음.
