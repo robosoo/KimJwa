@@ -47,7 +47,7 @@ details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:
 #step2 .question .feedback{margin-top:8px}
 #step2 .question .choices button{min-width:78px}
 #stage2-id-guide strong{font-size:14px}
-@media(max-width:520px){#step2 .stage2-qrgrid{grid-template-columns:1fr!important}#step2 table{font-size:12.5px}#step2 th,#step2 td{padding:9px 6px}}
+@media(max-width:520px){#step2 .stage2-qrgrid{grid-template-columns:1fr!important}#step2 table{font-size:12.5px}#step2 th,#step2 td{padding:9px 6px}#step2 table{display:block;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}}
 </style>
 </head>
 <body>
@@ -58,7 +58,7 @@ details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:
 <div class="layout">
 <nav class="sticky" aria-label="7단계 학습 목차">
 <a href="#step1" class="step-link active"><span class="n">01</span> 시간·진행</a>
-<a href="#step2" class="step-link"><span class="n">02</span> 감독·사전 체험</a>
+<a href="#step2" class="step-link" aria-label="2단계 감독·사전 체험 상세 학습"><span class="n">02</span> 감독·사전 체험</a>
 <a href="#step3" class="step-link"><span class="n">03</span> IDE·Codex</a>
 <a href="#step4" class="step-link"><span class="n">04</span> GitHub·Skill·MCP</a>
 <a href="#step5" class="step-link"><span class="n">05</span> 구현·검증</a>
@@ -209,7 +209,7 @@ details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:
 <label class="checkrow"><input type="checkbox">실물 신분증의 종류별 가림 위치를 준비했다</label>
 <label class="checkrow"><input type="checkbox">설치 QR(기본 카메라)과 연결 QR(Proctor 앱)을 구별한다</label>
 <label class="checkrow"><input type="checkbox">전체 화면 공유와 '과제 시작' 후 녹화·본인 확인 순서를 이해했다</label>
-<label class="checkrow"><input type="checkbox">사전 체험 1회·15분의 점검 항목을 숙지했다</label>
+<label class="checkrow"><input type="checkbox">사전 체험 1회·15분을 어디에 사용할지 결정했다</label>
 <label class="checkrow"><input type="checkbox">메신저·외부 AI·원격 접속 앱과 알림을 종료할 계획이다</label>
 </div>
 <p class="checkline" id="stage2-preflight-status" role="status">준비 점검 0 / 10</p>
@@ -263,7 +263,7 @@ showScore();
 showScore();
 const storageKey='skhynix-round2-official-stage2-checklist-v1';
 const checks=[...document.querySelectorAll('#stage2-preflight input[type="checkbox"]')];
-try{const saved=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isArray(saved))checks.forEach((c,i)=>c.checked===!!saved[i]||(c.checked=!!saved[i]));}catch(_){}
+try{const saved=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isArray(saved))checks.forEach((c,i)=>c.checked=!!saved[i]);}catch(_){}
 function refreshChecks(){const status=document.getElementById('stage2-preflight-status');status.textContent='준비 점검 '+checks.filter(c=>c.checked).length+' / '+checks.length;try{localStorage.setItem(storageKey,JSON.stringify(checks.map(c=>c.checked)))}catch(_){}}
 checks.forEach(c=>c.addEventListener('change',refreshChecks));refreshChecks();
 })();
