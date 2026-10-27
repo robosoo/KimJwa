@@ -42,19 +42,4 @@ one('#s6-question-submit').addEventListener('click',()=>advance(false));
 one('#s6-timeout').addEventListener('click',()=>advance(true));
 one('#s6-restart-sim').addEventListener('click',()=>{idx=0;finished=0;retries=0;one('#s6-prepare-message').textContent='질문을 준비하는 중이야.';one('#s6-retries').textContent='재시도 0회';display('work')});
 display('work');
-const qs=many('#s6-quiz .s6-quiz-question');
-function calc(){one('#s6-score').textContent='확인 '+qs.filter(x=>x.dataset.selected).length+' / '+qs.length+' · 정답 '+qs.filter(x=>x.dataset.selected===x.dataset.answer).length+'개'}
-qs.forEach(q=>[...q.querySelectorAll('[data-s6-choice]')].forEach(btn=>btn.addEventListener('click',()=>{
-q.dataset.selected=btn.dataset.s6Choice;
-[...q.querySelectorAll('[data-s6-choice]')].forEach(x=>x.setAttribute('aria-pressed',String(x===btn)));
-const ok=q.dataset.selected===q.dataset.answer,f=q.querySelector('.s6-feedback');
-f.className='s6-feedback '+(ok?'good':'bad');
-f.textContent=(ok?'정답 · ':'다시 확인 · ')+q.dataset.reason+' [공식 상세 '+q.dataset.page+'쪽]';
-calc();
-})));calc();
-one('#s6-quiz-reset').addEventListener('click',()=>{qs.forEach(q=>{delete q.dataset.selected;q.querySelectorAll('[data-s6-choice]').forEach(x=>x.removeAttribute('aria-pressed'));const f=q.querySelector('.s6-feedback');f.textContent='답을 골라 봐.';f.className='s6-feedback';});calc()});
-const boxes=many('#s6-checks input[type=checkbox]'),storage='skhynix-r2-stage6-checks-v1';
-try{const saved=JSON.parse(localStorage.getItem(storage)||'[]');if(Array.isArray(saved))boxes.forEach((x,i)=>x.checked=!!saved[i])}catch(e){}
-function update(){one('#s6-check-progress').textContent='점검 '+boxes.filter(x=>x.checked).length+' / '+boxes.length;try{localStorage.setItem(storage,JSON.stringify(boxes.map(x=>x.checked)))}catch(e){}}
-boxes.forEach(x=>x.addEventListener('change',update));update();
 })();
