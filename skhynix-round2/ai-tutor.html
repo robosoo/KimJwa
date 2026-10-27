@@ -56,8 +56,7 @@ code{background:#f0f3f7;padding:2px 5px;border-radius:5px;font-size:12px}
 <input id="code" type="password" autocomplete="off" spellcheck="false" placeholder="Vercel에 설정한 접속 코드" maxlength="128">
 <p class="tiny">이 코드는 브라우저 저장소에 기록하지 않아. OpenAI API 키를 이 칸에 넣으면 안 돼.</p><p class="tiny">질문을 보내면 GPT 답변을 생성하기 위해 텍스트가 Vercel 서버를 거쳐 OpenAI API로 전달돼. 실제 시험 자료와 개인정보는 입력하지 마.</p>
 <div class="status" id="service-status" role="status">서버 연결 상태 확인 중…</div>
-<h3 style="font-size:14px;margin:17px 0 8px">이렇게 질문해 봐</h3>
-<div class="pills" id="suggestions"><button class="prompt" type="button" data-prompt="터미널과 Codex가 뭔지 쉬운 비유로 설명해 줘.">터미널과 Codex가 뭐야?</button><button class="prompt" type="button" data-prompt="승인 대기 상태에서 어떤 명령을 거절해야 하는지 가상 사례 한 개를 만들어 줘.">승인 대기 연습</button><button class="prompt" type="button" data-prompt="README를 보고 어떤 조건을 확인해야 하는지 가상 과제를 1개 내 줘.">README 읽기 연습</button><button class="prompt" type="button" data-prompt="실제 기출이 아닌 가상의 5분 서술형 연습 질문을 한 개 내 줘. 내가 답하면 스스로 한 일과 검증 증거를 기준으로 피드백해 줘.">가상 서술형 연습</button><button class="prompt" type="button" data-prompt="Git Clone과 Git Push 차이를 설명하고 허용·금지 판단문제를 하나 내 줘.">도구 허용 범위 연습</button></div>
+<p class="tiny" style="margin-top:17px">질문 예시 목록 대신, 궁금한 내용을 오른쪽 입력창에 직접 적으면 돼. 고정 문제를 풀지 않아도 돼.</p>
 </aside>
 <section class="card" aria-label="GPT 학습 대화">
 <div class="row" style="margin:0 0 8px"><h2 style="margin:0">GPT와 학습하기</h2><button class="btn" type="button" id="clear">새 대화</button></div>
@@ -89,7 +88,7 @@ const $=id=>document.getElementById(id),chat=$('chat'),question=$('question'),fo
 let available=false,busy=false;let history=[];
 const insert=(who,msg)=>{const d=document.createElement('div');d.className='bubble '+(who==='user'?'user':'assistant');const small=document.createElement('small');small.textContent=who==='user'?'나':'GPT 학습 튜터';d.append(small,document.createTextNode(msg));chat.append(d);chat.scrollTop=chat.scrollHeight};
 const refresh=()=>{$('chars').textContent=question.value.length+' / 1,800자';send.disabled=busy||!available||!question.value.trim()};question.addEventListener('input',refresh);
-$('suggestions').querySelectorAll('[data-prompt]').forEach(btn=>btn.addEventListener('click',()=>{question.value=btn.dataset.prompt;refresh();question.focus()}));
+
 $('clear').addEventListener('click',()=>{history=[];chat.replaceChildren();insert('assistant','새 학습 대화를 시작했어. 지금까지 입력한 대화 내용은 이 탭에서 지웠어.');question.value='';feedback.textContent='';refresh()});
 $('topic').addEventListener('change',()=>{history=[];chat.replaceChildren();insert('assistant','학습 단계를 바꿨어. 이제 이 주제로 질문해 줘.');feedback.textContent=''});
 async function health(){
