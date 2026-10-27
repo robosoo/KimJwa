@@ -85,6 +85,7 @@ details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:
 #step3 table th,#step3 table td{padding:9px 6px;font-size:12.5px}
 }
 </style>
+<link rel="stylesheet" href="/official-guide-step4.css">
 </head>
 <body>
 <div class="shell">
@@ -380,7 +381,86 @@ details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:
 <p class="checkline" id="stage3-preflight-status" role="status">준비 점검 0 / 10</p>
 <p class="footnote">근거: 「사전 체험 및 응시환경 상세 가이드」 2쪽(웹 IDE·Codex·메신저·단축키·승인 상태), 3쪽(Browser·MCP·파일 저장), 5쪽(허용 모델·장애·FAQ). 실습용 Codex 화면과 프롬프트는 실제 시험 과제가 아니라 학습용으로 작성했어.</p>
 </section>
-<section id="step4" class="panel"><div class="section-kicker">STEP 04 · 다음 작업</div><h2>GitHub·Skill·MCP</h2><p class="muted">공개 자료 가져오기와 Git Push 금지, 개인 파일 업로드 제한, 외부 AI 연결 금지를 사례별로 판별해.</p><div class="todo">원본 출처: 브리프 1쪽, 상세 가이드 3·5쪽.</div></section>
+
+<section id="step4" class="panel" aria-labelledby="s4-title">
+<div class="section-kicker">STEP 04 · 공개 도구 활용 규정 · 공식 브리프 1쪽 / 상세 3·5쪽</div>
+<h2 id="s4-title">GitHub·Skill·MCP, 어디까지 사용해도 될까?</h2>
+<p>처음 보는 업무 문제를 받았을 때 <strong>공개된 기존 도구를 가져와 활용할 수 있어.</strong> 다만 공식 가이드에서는 <strong>외부로 자료를 보내는 행동, 별도 AI 모델 연결, 개인 파일 업로드</strong> 등을 제한하고 있어. 이 단계에서는 용어를 이해하고 실제 사례를 분류하는 연습을 해.</p>
+<div class="s4-note"><strong>판단 원칙</strong> · [공식] 공개 자료·Skill·MCP 활용은 과제 목적과 제한을 지키는 범위에서 가능해. [미공개] 어떤 GitHub 프로젝트나 MCP가 실제 시험에서 설치되고 정상 작동할지는 공개되지 않았어. 어떤 목록도 '하이닉스가 사전 승인한 도구'라고 표현하지 않아.</div>
+<h3>1. 세 가지 도구, 각각 무슨 뜻이야?</h3>
+<div class="s4-grid">
+<div class="s4-box"><strong>GitHub</strong><p>완성된 코드나 프로그램을 보관하는 공개 창고.</p></div>
+<div class="s4-box"><strong>Skill</strong><p>AI에게 업무를 어떤 순서·기준으로 처리할지 알려주는 작업 매뉴얼.</p></div>
+<div class="s4-box"><strong>MCP</strong><p>Codex가 다른 도구의 기능을 사용할 수 있도록 연결하는 방식.</p></div>
+</div>
+<p><strong>용어별 설명을 눌러봐.</strong> 각각의 사용법과 주의사항이 달라.</p>
+<div class="s4-actions" role="group" aria-label="GitHub Skill MCP 개념 선택">
+<button class="s4-btn" type="button" data-s4-tab="github" aria-pressed="true">GitHub 설명</button>
+<button class="s4-btn" type="button" data-s4-tab="skill" aria-pressed="false">Skill 설명</button>
+<button class="s4-btn" type="button" data-s4-tab="mcp" aria-pressed="false">MCP 설명</button>
+</div><div class="s4-answer" id="s4-term-explanation" aria-live="polite"><strong>GitHub</strong><p>공개 코드를 보관하는 곳이야.</p></div>
+<h3>2. Clone과 Push, 딱 반대 방향이야</h3>
+<div class="s4-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+<div class="s4-box"><strong>Git Clone · 가져오기</strong><p>공개 저장소의 코드를 시험 환경 안으로 복사. 과제 목적에 적합하고 제한을 준수하면 사용 가능.</p></div>
+<div class="s4-box"><strong>Git Push · 내보내기</strong><p>현재 작업한 코드를 외부 원격 저장소로 보냄. 이번 시험에서는 금지.</p></div>
+</div>
+<div class="s4-code" aria-label="설명용 Git 명령 예시"># 아래 주소는 실제 프로젝트가 아닌 형식 설명이야.
+git clone https://github.com/OWNER/REPO.git
+
+# Git Push는 이번 시험에서 사용하면 안 돼.</div>
+<p class="small">실제 공개 저장소를 선택·검증하는 작업은 시험 플랫폼 <strong>내부에서 제공되는 AI</strong>를 통해 진행해. 시험 밖 Chrome 탭이나 휴대폰 웹 브라우저를 이용한 직접 검색은 제한돼. <span class="term">[공식 · B 5쪽]</span></p>
+<h3>3. 세 가지 상황을 비교해 보자</h3>
+<table><thead><tr><th>행동</th><th>공식 안내상 판단</th><th>시험에서 주의할 점</th></tr></thead><tbody>
+<tr><td>일반 공개 Skill 활용</td><td>조건부 허용</td><td>적용 방법은 제공된 시험 환경 안내에 따르기. 비공개 Skill 업로드 금지.</td></tr>
+<tr><td>공개 GitHub·알고리즘 활용</td><td>조건부 허용</td><td>과제 목적에 맞는 부분만 선택, 문제·파일 외부 전송 금지.</td></tr>
+<tr><td>MCP·Plugin 활용</td><td>조건부 허용</td><td>필요한 경우 MCP 탭에서 서버 설정 JSON 편집. 실제 연결과 도구 권한 확인 필요.</td></tr>
+<tr><td>Git Push</td><td>금지</td><td>결과물의 외부 전송 불가. Clone과 혼동하지 않기.</td></tr>
+<tr><td>개인 PC 파일 업로드</td><td>불가</td><td>제공된 에디터·터미널 작업 공간 안에서 작성·저장하기.</td></tr>
+<tr><td>별도 AI 모델 연결</td><td>금지</td><td>시험 환경의 Codex만 사용. Claude Code 등 별도 AI 서비스 연결 금지.</td></tr>
+<tr><td>Computer Use / 자동 조작</td><td>금지</td><td>화면을 자동으로 클릭하는 방식은 시험 전 단계에서 금지.</td></tr>
+<tr><td>특정 MCP가 설치되어 있는지</td><td>미공개</td><td>시험 환경의 설정·도구 목록에서 직접 확인하기.</td></tr>
+</tbody></table>
+<div class="s4-note"><strong>MCP가 공개되어 있다고 바로 연결하지는 마.</strong> 해당 MCP가 외부 서비스로 전송하는 데이터, 요구 권한, 인증 키 필요 여부를 먼저 확인해야 해. 시험 문제·파일·작업 결과물이 밖으로 나가면 도구 종류와 관계없이 규정 위반이야. 특정 MCP의 안전성과 호환성은 문서에서 보장하지 않아. <span class="term">[공식 · B 3·5쪽, 실제 선별 과정은 학습 권장]</span></div>
+<h3>4. 시험에서 실제로 사용하는 순서</h3>
+<div class="s4-flow">
+<div><strong>① README를 먼저 읽는다</strong><small>제출물과 필수 기능을 확인하고, 무엇이 부족한지 파악해. 아직 저장소나 도구를 설치하지 않아.</small></div>
+<div><strong>② Codex에게 기존 도구가 필요한지 검토하게 한다</strong><small>처음부터 직접 만드는 것과 공개 라이브러리를 활용하는 것 중 적합한 방법을 비교해.</small></div>
+<div><strong>③ 후보 도구의 위험을 확인한다</strong><small>출처, 요구 권한, 설정 방법, 외부 통신, 기존 파일 수정 여부, 라이선스 등은 실전에서 점검하도록 권장하는 항목이야.</small></div>
+<div><strong>④ 필요한 것만 시험 환경 안으로 가져온다</strong><small>사용 제한을 지킨 공개 자료를 활용한다. 개인 PC 파일 업로드나 금지된 외부 전송을 시도하지 않아.</small></div>
+<div><strong>⑤ 직접 실행·검증한 뒤 이유를 설명한다</strong><small>내가 무엇을 선택했고 어떤 기능이 제대로 작동하는지 확인해야 해. Codex의 완료 보고만으로 검증됐다고 판단하지 않아.</small></div>
+</div>
+<p class="small">위 5단계는 [학습 권장] 작업 순서야. 공식 PDF는 특정 오픈소스 선택 알고리즘이나 의무 설치 개수를 제시하지 않아.</p>
+<h3>5. 상황별로 규정 판단하기 · 12문항</h3>
+<p>각 상황을 보고 <strong>조건부 활용 가능 / 명시적 금지 / 현재 자료로 미확인</strong> 중 하나를 선택해. 정답과 근거 페이지를 바로 보여줄게. 공식 기출문제는 아니야.</p>
+<div hidden data-s4-case data-question="공개 GitHub 저장소가 과제에 적합한지 Codex로 검토하고, 필요할 때 시험 작업 공간으로 Git Clone하여 활용한다." data-answer="possible" data-reason="공개 GitHub 코드와 Clone은 과제 목적과 제한을 지키면 활용 가능해." data-source="B 5쪽"></div>
+<div hidden data-s4-case data-question="시험에서 만든 문제 풀이 파일을 내 GitHub 저장소로 Git Push해 백업한다." data-answer="forbidden" data-reason="문제·파일·작업 결과물의 외부 전송이 금지되고, Git Push는 불가능하다고 명시돼 있어." data-source="B 5쪽"></div>
+<div hidden data-s4-case data-question="공개 Skill을 Codex가 읽고 요구사항 확인 절차에 활용한다. 시험 환경의 사용 지침과 제한도 준수한다." data-answer="possible" data-reason="일반적으로 공개된 Skill 활용은 허용 범위야. 다만 제공 환경 안내를 따라야 해." data-source="B 5쪽"></div>
+<div hidden data-s4-case data-question="내 노트북에 미리 저장해 둔 비공개 Skill 파일을 시험 환경으로 직접 업로드한다." data-answer="forbidden" data-reason="개인 PC의 비공개 Skill·파일 업로드가 제한돼." data-source="B 5쪽"></div>
+<div hidden data-s4-case data-question="MCP 탭에서 필요한 서버 설정 JSON을 검토하고, 과제에 필요한 허용 기능에 한해 저장한다." data-answer="possible" data-reason="가이드에는 MCP 설정 JSON 편집·저장 기능과 목적에 맞는 MCP·Plugin 활용이 나와 있어." data-source="B 3·5쪽"></div>
+<div hidden data-s4-case data-question="내가 인터넷에서 발견한 특정 MCP 서버가 시험장에도 반드시 설치되어 작동한다고 전제한다." data-answer="unknown" data-reason="특정 서버의 기본 제공 여부·인증·실제 실행 성공 여부는 자료에 없으므로 확인이 필요해." data-source="B 3·5쪽"></div>
+<div hidden data-s4-case data-question="MCP를 이용해 시험 문제나 제출 파일을 외부 서비스로 전송한다." data-answer="forbidden" data-reason="어떤 도구를 쓰든 문제·파일·결과물의 외부 전송은 금지돼." data-source="B 5쪽"></div>
+<div hidden data-s4-case data-question="시험 내 Codex 외에 별도의 AI 모델을 연결하여 답변을 생성한다." data-answer="forbidden" data-reason="별도 AI 모델 연결은 제한되고 허용되지 않은 도구를 이용한 답안 반입도 제한돼." data-source="A 1쪽 / B 5쪽"></div>
+<div hidden data-s4-case data-question="과제 중 시험 플랫폼 바깥의 웹 브라우저로 직접 GitHub 사이트에 접속해 자료를 찾는다." data-answer="forbidden" data-reason="공개 자료는 플랫폼 안에서 AI를 통해 습득·활용해야 하며 외부 브라우저 직접 접근은 제한돼." data-source="B 5쪽"></div>
+<div hidden data-s4-case data-question="개인 PC의 이미 만들어 둔 결과물 파일을 시험 화면에 업로드해 제출한다." data-answer="forbidden" data-reason="개인 PC 파일 업로드가 지원되지 않으며 작업 공간 안에서 파일을 만들어야 해." data-source="B 3·5쪽"></div>
+<div hidden data-s4-case data-question="Codex에게 공개 코드의 출처·의존성·네트워크 사용을 먼저 점검시키고 필요 부분만 활용한다." data-answer="possible" data-reason="공개 코드 활용은 조건부 허용이고 검토 절차는 합리적인 학습 권장 방법이야. 모든 코드가 공식 승인됐다는 뜻은 아니야." data-source="B 5쪽 / 학습 권장"></div>
+<div hidden data-s4-case data-question="AI에 컴퓨터 화면 자동 조작 기능을 연결해 과제 화면을 대신 클릭하게 한다." data-answer="forbidden" data-reason="공식 브리프에는 Computer Use 방식의 자동 조작이 전 단계 금지라고 명시돼 있어." data-source="A 1쪽"></div>
+<div class="s4-quiz" id="s4-question" aria-label="상황별 판단 문제"></div>
+<div class="s4-actions">
+<button class="s4-btn" type="button" id="s4-prev">이전 문제</button>
+<button class="s4-btn" type="button" id="s4-next">다음 문제</button>
+<button class="s4-btn" type="button" id="s4-reset">다시 풀기</button>
+</div><p class="s4-progress" id="s4-score" role="status">확인 0 / 12 · 정답 0개</p>
+<h3>6. Codex에 전달할 첫 요청을 골라보기</h3>
+<p>다음 프롬프트는 [학습 권장] 가상 문장이야. 반드시 따라야 하는 공식 응시 문구는 아니야.</p>
+<select id="s4-prompt-kind" aria-label="프롬프트 주제 선택"><option value="github">GitHub 공개 저장소 검토</option><option value="skill">공개 Skill 검토</option><option value="mcp">MCP 연결 필요성 검토</option></select>
+<div id="s4-prompt" aria-live="polite">프롬프트를 불러오는 중이야.</div>
+<div class="s4-actions"><button class="s4-btn" type="button" id="s4-copy">연습 프롬프트 복사</button><span class="small" id="s4-copy-status" role="status"></span></div>
+<h3>7. 시험 전에 기억할 체크리스트</h3>
+<div id="s4-checks" class="s4-checks"><label><input type="checkbox"> GitHub(공개 코드), Skill(작업 지침), MCP(도구 연결)의 차이를 말할 수 있다</label><label><input type="checkbox"> Git Clone(자료 가져오기)과 Git Push(원격으로 전송)의 차이를 안다</label><label><input type="checkbox"> 공개 자료라고 전부 시험에서 승인된 도구는 아니라는 점을 이해한다</label><label><input type="checkbox"> 개인 PC의 비공개 파일·Skill을 업로드할 수 없음을 안다</label><label><input type="checkbox"> 시험 문제·파일·작업 결과물을 외부로 전송하지 않는다</label><label><input type="checkbox"> 시험 밖 브라우저 직접 접근, 별도 AI 모델 연결, Computer Use가 제한됨을 안다</label><label><input type="checkbox"> 특정 MCP는 설치·작동 여부와 통신 대상을 추가 확인해야 한다</label><label><input type="checkbox"> 불필요한 오픈소스·MCP를 무리해서 사용하지 않기로 했다</label><label><input type="checkbox"> Codex가 고른 도구의 필요성·안전성·검증 결과를 본인이 설명할 수 있다</label><label><input type="checkbox"> 후속 서술형에 대비해 사용한 도구·판단·테스트 근거를 기억한다</label></div>
+<p class="s4-progress" id="s4-check-progress" role="status">점검 0 / 10</p>
+<p class="s4-caption">체크 여부는 현재 브라우저의 로컬 저장소에만 기록돼. 과제 파일과 신분증, 시험 정답은 입력하거나 외부로 전송하지 않아.</p>
+<p class="footnote"><strong>근거 페이지</strong> · A 「시험 필수확인사항 브리프」 1쪽(허용 AI, Computer Use 금지), B 「사전 체험 및 응시환경 상세 가이드」 3쪽(MCP 설정), 5쪽(도구·자료 허용 범위, 외부 전송·파일 업로드 제한). 개념 설명과 사용 순서는 학습을 돕기 위한 추가 설명이야.</p>
+</section>
 <section id="step5" class="panel"><div class="section-kicker">STEP 05 · 다음 작업</div><h2>실제 작업·검증·저장</h2><p class="muted">담당자 질문→Codex 위임→서버 실행→Browser 포트·경로 확인→버튼 테스트→저장 충돌 복구를 배우는 단원이야.</p><div class="todo">원본 출처: 상세 가이드 2~3쪽.</div></section>
 <section id="step6" class="panel"><div class="section-kicker">STEP 06 · 다음 작업</div><h2>제출과 후속 서술형</h2><p class="muted">미리보기·최종 확정의 차이, 서술형 자동 생성·타이머·답안 수정 제한·완료 화면을 다룰 거야.</p><div class="todo">원본 출처: 브리프 1쪽, 상세 가이드 3~4쪽.</div></section>
 <section id="step7" class="panel"><div class="section-kicker">STEP 07 · 다음 작업</div><h2>오류 대처·전체 리허설</h2><p class="muted">감독 경고와 탈락 구분, 화면 멈춤, 터미널·미리보기 장애, 저장 실패, 재접속과 신고를 실제 상황으로 연습해.</p><div class="todo">원본 출처: 상세 가이드 5쪽.</div></section>
@@ -504,4 +584,5 @@ try{if(!navigator.clipboard?.writeText){throw Error('clipboard unavailable')}awa
 })();
 
 </script>
+<script src="/official-guide-step4.js" defer></script>
 </body></html>
