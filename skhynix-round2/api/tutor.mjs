@@ -66,8 +66,8 @@ export async function POST(request){
   if(typeof question!=='string'||!question.trim()||question.length>1800)return reply({error:'질문은 1~1800자 이내로 입력해 줘.'},400);
   const topic=topics[String(value.topic)]||topics['3'];
   const history=Array.isArray(value.history)?value.history.slice(-8):[];
-  const acceptedHistory=history.filter(h=>(h?.role==='user'||h?.role==='assistant')&&typeof h?.text==='string'&&h.text.length>0&&h.text.length<=1000)
-    .map(h=>({role:h.role,content:h.text}));
+  const acceptedHistory=history.filter(h=>(h?.role==='user'||h?.role==='assistant')&&typeof h?.text==='string'&&h.text.length>0)
+    .map(h=>({role:h.role,content:h.text.slice(0,1000)}));
   const input=[...acceptedHistory,{role:'user',content:'학습 주제: '+topic+'\n학생 질문: '+question.trim()}];
   const controller=new AbortController();
   const timeout=setTimeout(()=>controller.abort(),23000);
