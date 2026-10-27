@@ -16,7 +16,7 @@
 2. 감독·환경·사전체험 — 상세 교재 구현·정적 검증 완료, 배포 최종 검증 별도:  모니터 1대, PC/휴대폰 카메라, 설치 QR vs 연결 QR, 권장 스마트폰 사양, 충전과 네트워크, 개인정보 가림 범위, 안경·신분증 촬영 절차, 실제 체험 1회 15분, 감독 알림. 출처 A p1, B pp1-2.
 3. 웹 IDE·Codex — 상세 교재 구현 및 Vercel Production READY 확인: README, 파일 탐색기·에디터·터미널·Browser·메신저 구조, codex 실행, /status, /model, 승인 대기/실행/완료, Cofa Helper와 현업 담당자 구분, CPU/RAM. 출처 B pp2-3.
 4. GitHub·Skill·MCP — 상세 교재·검증·Production 반영 완료 (2026-10-27): 공개된 GitHub·코드·자료·Skill/MCP/Plugin 조건부 사용, Clone 허용 vs Push 금지, 개인 업로드 불가, 별도 AI 연결·외부 전송·Computer Use·우회 금지, 상황별 허용/금지 판단 연습. 출처 A p1, B pp3,5.
-5. 구현·검증·저장 — 미구현: README와 담당자 질의, 파일 작성·자동 저장·충돌 복구, 서버 포트/0.0.0.0, 내장 Browser의 버튼·입력·이동 실제 동작 검증, 명령 종료 시 서버 중단. 출처 B pp2-3.
+5. 구현·검증·저장 — 상세 학습·시뮬레이터 구현 및 Production READY 확인: README와 담당자 질의, 파일 작성·자동 저장·충돌 복구, 서버 포트/0.0.0.0, 내장 Browser의 버튼·입력·이동 실제 동작 검증, 명령 종료 시 서버 중단. 출처 B pp2-3.
 6. 제출·후속 서술형 — 미구현: 미리보기와 최종 확정 차이, 확정 후 파일 잠금, 질문 준비 대기, 본인 직접 작성 6문항×5분, AI/복붙 금지, 앞 문항 이동 금지, 완료 ID/시각/파일 수 확인. B p4 조작 안내 '5개'는 실제 6개와 구별. 출처 A p1, B pp3-5.
 7. 장애·종합 리허설 — 미구현: 영역 다시 불러오기, 세션 재접속, 웹캠/화면공유/휴대폰 복구, 문제 신고, 타이머 지속, 부정행위 확정과 경고 구분, 180분 모의 수행 시나리오. 출처 A p1, B pp3-5.
 
@@ -68,3 +68,11 @@
 - Vercel Production dpl_GZ3s3HEmjyHpiU9VsGd3qJGrwUZt: READY, 공식 alias 적용.
 - Preview/Production 파일 21개 UID 전체 일치. 기존 정적 앱 및 학습 데이터 파일 포함.
 - 실제 공개 URL 내용 조회는 도구 접근 제한으로 실패; 실제 클릭·Safari 검증 완료를 주장하지 않음.
+
+### 2026-10-27 5단계 구현·배포
+- 상세 교재: 서버·Browser 실제 PORT/URL/0.0.0.0 연결, 모의 실패와 복구, 입력·버튼 테스트, 저장/충돌/삭제 상태, 증거 구분.
+- 연습: 시뮬레이션 2개, 상황판단 12문항, 체크리스트 12개(브라우저 로컬 저장).
+- 자체 피드백·수정: 3000 고정 오해, 삭제파일 자동복원 암시, 불필요 이벤트 중첩 제거, 작은 화면 1열 카드.
+- QA 보고서: reports/official-guide-stage5-self-review-20261027.md.
+- Vercel Preview dpl_4vLSSPoiRpqv1tXPpXUngLnyM1ma READY; Production dpl_GCe8GdWaj5czUNrYYY4V3PQ3h39o READY. 23개 파일의 Preview/Production UID 일치.
+- 실제 공개 HTML URL을 웹 도구에서 확인하려 했으나 접근 불가. 실물 터치/브라우저 상호작용은 미검증.
