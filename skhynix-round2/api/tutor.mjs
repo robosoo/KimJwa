@@ -67,8 +67,8 @@ export async function POST(request){
   const topic=topics[String(value.topic)]||topics['3'];
   const history=Array.isArray(value.history)?value.history.slice(-8):[];
   const acceptedHistory=history.filter(h=>(h?.role==='user'||h?.role==='assistant')&&typeof h?.text==='string'&&h.text.length>0&&h.text.length<=1000)
-    .map(h=>({role:h.role,content:[{type:'input_text',text:h.text}]}));
-  const input=[...acceptedHistory,{role:'user',content:[{type:'input_text',text:'학습 주제: '+topic+'\n학생 질문: '+question.trim()}]}];
+    .map(h=>({role:h.role,content:h.text}));
+  const input=[...acceptedHistory,{role:'user',content:'학습 주제: '+topic+'\n학생 질문: '+question.trim()}];
   const controller=new AbortController();
   const timeout=setTimeout(()=>controller.abort(),23000);
   try{
