@@ -38,3 +38,9 @@ Source A: user-supplied 1-page exam brief. Source B: user-supplied 5-page detail
 
 ## Exit gate
 Source mapping and static syntax passed; deploy 19 runtime files and verify Vercel status and file list separately.
+## Production evidence
+- Commit sequence: a6f7e03 (detailed stage), 0e59fcdb (UX feedback fix), a0560f57 (homepage linking).
+- Vercel staging dpl_2zjuFwjhhPzMozffZ4VGTfQRxBsw: READY.
+- Vercel production dpl_DtYDghuS9iWsW5BtSDaVKDq3BC6V: READY; production domain alias confirmed.
+- Deployment file tree: 19 files including official-guide.html, index.html, app.js, style.css, brand.css.
+- Live HTML interaction test: NOT RUN; Vercel web fetch returned 403 at read_protection_bypass. Do not treat deployment READY as confirmation of quiz/button UX.
