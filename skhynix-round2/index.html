@@ -8,17 +8,38 @@
 <title>SK하이닉스 AI 해커톤 2차 · 학습센터</title>
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/brand.css">
-</head>
-<body>
-<a class="skip-link" data-action="skip-main" href="#screen">본문으로 바로 가기</a>
-<div class="app-shell" id="appShell">
-<aside class="sidebar" aria-label="메인 탐색">
-  <div class="brand">
-    <div class="brand-mark" aria-hidden="true">C<span class="brand-dot">·</span></div>
-    <div><strong>AI 해커톤</strong><span>SK hynix · Round 2</span></div>
-  </div>
-  <nav class="primary-nav" id="desktopNav" aria-label="주요 메뉴">
-    <button class="nav-item" data-nav="learn" type="button"><span class="nav-icon" aria-hidden="true">◈</span><span>시작하기</span></button>
+<style>
+/* First-screen exam map, distinct from the legacy four-menu practice shell. */
+.exam-map{margin:14px 18px 0;padding:18px 20px;border:1px solid #dfe5eb;border-radius:14px;background:#fff;color:#24303b}
+.exam-map *{box-sizing:border-box}
+.exam-map .exam-eyebrow{display:block;color:#97501d;font-size:12px;font-weight:850}
+.exam-map h1{margin:5px 0 4px;font-size:22px;line-height:1.32;font-weight:850;letter-spacing:-.5px}
+.exam-map .exam-sub{font-size:12px;color:#5f6b79;margin:0 0 11px}
+.exam-map .exam-facts{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:#586575;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #edf0f3}
+.exam-map .exam-facts strong{font-size:15px;color:#273440}
+.exam-map ol{padding:0;margin:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px 10px}
+.exam-map li{font-size:12px;line-height:1.45;padding:7px 5px;display:flex;align-items:start;gap:7px;color:#566273}
+.exam-map li strong{display:block;font-size:12.5px;color:#273441}
+.exam-map li .exam-n{font-size:11px;line-height:22px;flex:0 0 22px;border-radius:99px;background:#edf1f5;text-align:center;color:#495767;font-weight:800}
+.exam-map .exam-alerts{border-top:1px solid #edf0f3;margin:9px 0 0;padding-top:9px;display:flex;gap:7px 14px;flex-wrap:wrap;font-size:11px;font-weight:750;color:#87501f}
+.exam-map .exam-cta{display:inline-block;border:0;border-radius:9px;color:#fff;background:#a6501e;padding:9px 13px;text-decoration:none;font-size:12px;font-weight:800;margin-top:12px}
+@media(max-width:950px){.exam-map ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.exam-map{padding:14px 13px;margin:10px 10px 0}.exam-map h1{font-size:19px}.exam-map<section class="exam-map" aria-label="시험 전체 흐름 한눈에 보기">
+<span class="exam-eyebrow">10월 31일 · 시험 전 전체 안내</span>
+<h1>시험은 이렇게 진행돼</h1>
+<p class="exam-sub">첫 화면에서 흐름부터 확인하고, 아래 학습센터에서 필요한 내용을 익혀.</p>
+<div class="exam-facts"><span><strong>09:40</strong> 접속 권장</span><span><strong>180분</strong> 과제 최대</span><span><strong>14:00</strong> 전체 종료</span></div>
+<ol aria-label="응시 순서">
+<li><span class="exam-n">1</span><span><strong>응시 준비</strong>PC·Proctor 연결</span></li>
+<li><span class="exam-n">2</span><span><strong>문제 파악</strong>README·업무 담당자</span></li>
+<li><span class="exam-n">3</span><span><strong>AI로 구현</strong>Codex·파일 작성</span></li>
+<li><span class="exam-n">4</span><span><strong>직접 검증</strong>서버·Browser 실행</span></li>
+<li><span class="exam-n">5</span><span><strong>제출 확정</strong>미리보기·최종 고정</span></li>
+<li><span class="exam-n">6</span><span><strong>서술형 · 완료</strong>6문항 직접 작성</span></li>
+</ol>
+<div class="exam-alerts"><span>14:00 전체 종료</span><span>확정 후 파일 수정 불가</span><span>서술형 AI 사용 금지</span></div>
+<a class="exam-cta" href="/official-guide.html">전체 흐름과 상세 가이드 읽기</a>
+</section>v-item" data-nav="learn" type="button"><span class="nav-icon" aria-hidden="true">◈</span><span>시작하기</span></button>
     <button class="nav-item" data-nav="library" type="button"><span class="nav-icon" aria-hidden="true">▤</span><span>후기·근거</span></button>
     <button class="nav-item" data-nav="practice" type="button"><span class="nav-icon" aria-hidden="true">⌘</span><span>전략·실습</span></button>
     <button class="nav-item" data-nav="review" type="button"><span class="nav-icon" aria-hidden="true">◎</span><span>이해도 확인</span></button>
