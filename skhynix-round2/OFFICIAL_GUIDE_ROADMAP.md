@@ -95,3 +95,16 @@
 - 공식 alias: https://skhynix-ai-hackathon-round2-lab.vercel.app/official-guide.html
 - 원본 웹 IDE 학습센터 홈 메뉴 4개와 1~7단계 학습 콘텐츠 소스 보존.
 - 기술적 한계: web.open에서 실제 공개 HTML URL 접근 불가; 실물 iPad/Safari·스크린리더·크로스 브라우저 테스트는 아직 안 됨.
+
+## 2026-10-27 · Overview-first UX 재구성 (실제 시험 순서 중심)
+- 기존 제작 단위 7개와 실제 시험의 작업 순서를 구별. 구판 7단계 deep link #step1~#step7 유지.
+- 실제 진행의 첫 화면 지도 6개: 응시 준비 → 문제 파악 → AI 구현 → Browser 검증 → 제출 확정 → 서술형/완료.
+- 기존 페이지 내 단계 선택/다음/이전·소량 설명 접기·펼치기를 없애고, 스크롤 기반 상세 가이드로 통합.
+- GitHub/Skill/MCP는 과제 필요 시 사용하는 참고 A, 장애 복구는 필요할 때 찾는 참고 B로 별도 배치.
+- 실제 조작 학습인 Codex 명령 순서·Browser 포트/바인딩·제출 확정 시뮬레이션은 유지.
+- 메인 홈에서도 여섯 단계·시험시각·14:00 종료·확정 뒤 수정 불가·서술형 AI 금지를 즉시 표시하고 '전체 흐름과 상세 가이드 읽기' 링크 한 개를 둠.
+- 재검증: Codex 시작/완료/초기화, Browser 실패·성공, 제출 미리보기 복귀·확정 후 이전 차단·초기화 — 코드 기반 모의 이벤트 PASS.
+- 상세 페이지: 여섯 단계 지도 + 여섯 실전 설명 + 두 참고 부록; 접기/펼치기 0, 지식 O/X 퀴즈 0, 실습 버튼만 유지.
+- GitHub: official-guide.html commit 334356ec97f65f10e8f3a86144ccc255acfd5926, markup fix 16ab94994f2a1aaaded28f23160289178640c4b4; index.html commit 9c0521531d0a89d7938e0058d9d4cc86eeca82fb.
+- Vercel Preview dpl_HZ9b2vVvoaYWjwQRef3XkT8QjEtK READY; Production dpl_EkvgYUfv8ErkmukfdM1GERfkZ5Ne READY; 31개 배포 파일 동일 UID 확인. 운영 alias skhynix-ai-hackathon-round2-lab.vercel.app.
+- 검증 범위: GitHub 소스·스크립트 구문·모의 DOM 이벤트·Vercel 배포 파일 수준. 실제 iPad Safari 및 외부 HTTP 렌더링 테스트는 접근 제한으로 미실시.
