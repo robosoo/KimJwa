@@ -1,230 +1,313 @@
-<!doctype html>
-<html lang="ko">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f8f9fb">
-<meta name="description" content="SK하이닉스 AI 해커톤 2차 예선: 공식 PDF 근거 7단계 실전 학습. 한 번에 한 단계, 불필요한 퀴즈 없는 학습 동선.">
-<title>시험 전 실전 가이드 · SK하이닉스 AI 해커톤 2차</title>
-<style>
-:root{color-scheme:light;--ink:#222b35;--muted:#596779;--border:#dce3e9;--accent:#ae531c;--background:#f8f9fb}
-*{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;background:var(--background);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;font-size:15px;line-height:1.75}
-a{color:#97501e}button,select,input{font:inherit}
-button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.43}
-:focus-visible{outline:3px solid #c87836;outline-offset:3px}
-.shell{max-width:990px;margin:0 auto;padding:16px 18px 90px}
-.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 17px;border-bottom:1px solid var(--border)}
-.brand{font-weight:800;font-size:14px}.brand b{color:var(--accent)}
-.home{border:1px solid var(--border);border-radius:9px;background:#fff;padding:7px 10px;font-size:13px;text-decoration:none}
-header.lead{margin:32px 0 22px}
-.kicker{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.03em}
-h1{font-size:clamp(25px,4vw,36px);line-height:1.3;letter-spacing:-.9px;margin:8px 0 10px}
-h2{font-size:clamp(22px,3.5vw,28px);line-height:1.4;letter-spacing:-.7px;margin:5px 0 15px}
-h3{font-size:17px;margin:25px 0 9px}p{margin:0 0 11px}
-.muted,.hint{color:var(--muted)}.hint{font-size:13px}.source{font-size:12px;color:#707b88;margin-top:16px}
-.lesson{background:white;border:1px solid var(--border);border-radius:15px;padding:clamp(18px,3vw,29px);min-height:320px}
-.lesson[hidden]{display:none!important}
-.navbar{display:flex;align-items:center;flex-wrap:wrap;justify-content:space-between;gap:13px;background:white;border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:14px}
-.navbar label{font-size:13px;font-weight:800;display:flex;flex-direction:column;gap:4px}
-.navbar select{border:1px solid #bfcbd4;border-radius:8px;background:#fff;color:var(--ink);padding:7px 11px;max-width:100%;font-size:14px}
-.progress{font-size:13px;color:var(--accent);font-weight:800}
-.meter{width:136px;height:5px;background:#eceff3;border-radius:10px;overflow:hidden;margin-top:5px}.meter span{display:block;height:100%;background:var(--accent);width:14.28%;transition:width .2s}
-.step-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:16px 0 24px}
-.btn{background:#fff;border:1px solid #cad3dc;border-radius:9px;padding:11px 14px;font-size:13px;font-weight:750;color:#354050}
-.btn.primary{background:#ab531b;color:white;border-color:#ab531b}
-.callout{background:#fff7ef;border:1px solid #eed4be;border-radius:10px;padding:12px 15px;margin:13px 0;font-size:14px}
-.statgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}
-.stat{padding:15px;border:1px solid #e0e5eb;border-radius:10px;background:#fafbfd}.stat strong{display:block;font-size:22px;line-height:1.25}.stat span{display:block;font-size:12px;color:var(--muted);margin-top:5px}
-ol.steps{padding-left:21px;margin:13px 0}ol.steps li{margin:0 0 13px;padding-left:5px}ol.steps strong{display:block}
-details{border-bottom:1px solid var(--border);padding:9px 0}
-summary{cursor:pointer;font-size:14px;font-weight:750;color:#334354}
-details p,details ul{font-size:14px;color:#4f5c6c;padding:7px 4px 3px;margin:0}
-table{border-collapse:collapse;width:100%;font-size:13px}
-th,td{border-bottom:1px solid var(--border);padding:10px 8px;vertical-align:top;text-align:left}
-th{background:#f7f9fa;font-weight:800}
-.table-scroll{max-width:100%;overflow-x:auto}
-.table-scroll table{min-width:490px}
-.sim{border:1px solid #d6e0e8;border-radius:11px;background:#fafbfd;padding:15px;margin:17px 0}
-.sim strong{font-size:14px}.sim .actions{display:flex;flex-wrap:wrap;gap:8px;margin:11px 0}
-.sim input,.sim select{border:1px solid #bec9d4;border-radius:7px;background:#fff;padding:8px 10px;width:100%;font-size:14px}
-.sim label{font-size:13px;display:block;font-weight:750;margin-top:10px}
-.sim-output{background:white;border:1px solid #e0e6ed;border-radius:8px;padding:12px;font-size:13px;margin-top:10px;min-height:42px}
-.code{background:#222831;color:#f6f6f6;border-radius:9px;padding:14px;white-space:pre-wrap;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;line-height:1.75}
-.term{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.91em;background:#f0f3f6;border-radius:5px;padding:2px 5px}
-.minilist{margin:12px 0;padding-left:21px}.minilist li{margin:6px 0}
-.footer{font-size:12px;color:var(--muted);margin-top:22px}
-@media(max-width:580px){.shell{padding:10px 12px 70px}header.lead{margin:23px 0}.statgrid{grid-template-columns:1fr}.navbar{align-items:stretch}.navbar select{width:100%}.meter{width:100%}.lesson{padding:17px}.step-actions .btn{padding:10px 12px}}
-</style>
-</head>
-<body><div class="shell">
-<div class="top"><span class="brand"><b>SK hynix</b> · AI 해커톤 2차 학습센터</span><a class="home" href="/">학습센터 홈</a></div>
-<header class="lead"><span class="kicker">2026.10.31 · 공식 PDF 2종 기반 · 비공식 학습 교재</span><h1>시험 전 실전 가이드</h1><p class="muted">한 번에 한 단계만 읽어. 버튼을 직접 눌러야 익히는 기능은 남기고, 본문을 반복하는 객관식 문제와 체크리스트는 정리했어.</p></header>
-<nav class="navbar" aria-label="단계 이동">
-<label for="stageSelect">학습할 단계
-<select id="stageSelect">
-<option value="1">1. 시험 시간과 순서</option><option value="2">2. 감독·사전 체험</option>
-<option value="3">3. IDE·Codex 시작</option><option value="4">4. GitHub·Skill·MCP</option>
-<option value="5">5. 실행·Browser·저장</option><option value="6">6. 제출·서술형</option>
-<option value="7">7. 장애·최종 리허설</option>
-</select></label>
-<div><div class="progress" id="stageProgress" aria-live="polite">1 / 7단계</div><div class="meter" aria-hidden="true"><span id="progressFill"></span></div></div>
-</nav>
-<main id="guide" tabindex="-1">
-<section class="lesson" id="step1" aria-labelledby="title1">
-<span class="kicker">STEP 01 · 시험 전체 흐름</span><h2 id="title1">10시부터 14시까지, 무엇이 진행될까?</h2>
-<p>먼저 <strong>과제 작업 180분</strong>과 <strong>서술형 6문항 × 5분</strong>이 다른 단계라는 것만 이해하면 돼. 질문 생성 대기 시간까지 포함해 14:00 이전에 끝내야 해.</p>
-<div class="statgrid"><div class="stat"><strong>09:40</strong><span>권고 접속 시각 (입장 마감 아님)</span></div><div class="stat"><strong>180분</strong><span>과제 풀이 최대</span></div><div class="stat"><strong>14:00</strong><span>모든 단계 종료</span></div></div>
-<ol class="steps">
-<li><strong>개인 링크 접속·규정 동의·감독 연결</strong>웹캠·전체 화면 공유·Proctor 연결을 먼저 준비해.</li>
-<li><strong>‘과제 시작’ 클릭 → 타이머·녹화 시작</strong>그 뒤 신분증과 안경 확인을 진행해.</li>
-<li><strong>README 읽기 → Codex 개발 → 직접 검증</strong>최대 180분. 제출 미리보기 중에도 시간은 흐른다.</li>
-<li><strong>제출 확정 → 질문 생성 대기</strong>일반 안내 약 5분, 상세 화면에는 예상 최대 10분·재시도 가능성이 있다.</li>
-<li><strong>서술형 6문항 직접 작성 → 완료 확인</strong>각 5분, AI·복사 붙여넣기 금지. 14:00에 전체 종료.</li>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f8fa"><meta name="description" content="SK하이닉스 AI 해커톤 2차 예선 시험 전체 흐름 6단계와 공식 PDF 기반 상세 가이드"><title>시험 전체 흐름 한눈에 · SK하이닉스 AI 해커톤 2차</title><style>
+:root{--ink:#202a35;--muted:#596779;--line:#dfe5eb;--accent:#a8511e;--paper:#fff;--bg:#f6f8fa}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.72 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;word-break:keep-all}
+a{color:#874317}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #d08b4c;outline-offset:3px}
+button,input,select{font:inherit}
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px 80px}
+.skip{position:absolute;left:-9999px;top:0;background:#fff;padding:10px}.skip:focus{left:12px;z-index:9}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding:15px 0}
+.brand{font-size:13px;font-weight:800}.brand em{font-style:normal;color:var(--accent)}
+.top a{font-size:12px;text-decoration:none;padding:6px 10px;border:1px solid var(--line);border-radius:8px}
+.hero{padding:27px 0 0}
+.eyebrow{font-size:12px;letter-spacing:.02em;color:var(--accent);font-weight:850}
+h1{font-size:clamp(24px,3.8vw,36px);line-height:1.3;letter-spacing:-.8px;margin:6px 0 9px}
+h2{font-size:clamp(21px,2.8vw,26px);line-height:1.4;letter-spacing:-.5px;margin:8px 0 15px}
+h3{font-size:17px;line-height:1.5;margin:22px 0 8px}
+h4{font-size:14px;margin:14px 0 3px}
+p{margin:0 0 12px}
+.lede{color:var(--muted);font-size:14px;max-width:780px}
+.facts{display:flex;gap:17px;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:18px 0 16px;padding:12px 0}
+.fact{display:flex;align-items:baseline;gap:7px;font-size:12px;color:var(--muted)}
+.fact b{font-size:20px;color:var(--ink);letter-spacing:-.3px}
+.overview{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 22px 16px;box-shadow:0 4px 24px #15283b06}
+.overview-header{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:11px}
+.overview-header strong{font-size:17px}
+.overview-header span{font-size:12px;color:var(--muted)}
+.journey{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 13px}
+.journey-item{display:flex;gap:11px;align-items:flex-start;padding:11px 8px;border-bottom:1px solid #edf0f4;min-width:0}
+.journey-item:nth-last-child(-n+3){border-bottom:0}
+.journey-num{flex:0 0 24px;width:24px;height:24px;background:#f0f3f6;border-radius:99px;display:grid;place-items:center;font-size:12px;font-weight:800;color:#5b6878}
+.journey-item:nth-child(5) .journey-num{background:#f4decf;color:#844218}
+.journey-item b{font-size:13px;display:block;line-height:1.45}
+.journey-item p{font-size:11.5px;line-height:1.5;color:var(--muted);margin:3px 0}
+.guardrails{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:15px 0 1px;margin-top:10px;border-top:1px solid var(--line)}
+.guardrail{display:flex;gap:7px;align-items:flex-start;font-size:12px;font-weight:700;line-height:1.55;color:#3a424b}
+.guardrail .dot{height:7px;width:7px;flex:0 0 7px;border-radius:50%;margin-top:6px;background:#be672e}
+.scrollhint{text-align:center;font-size:12px;color:#6e7885;margin:15px 0 26px}
+.content{display:grid;gap:17px}
+.chapter{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:clamp(20px,3vw,30px)}
+.chapter-header{display:flex;gap:12px;align-items:center;margin-bottom:4px}
+.chapter-num{display:grid;place-items:center;width:31px;height:31px;flex:0 0 31px;background:#edf1f5;color:#475565;border-radius:9px;font-size:13px;font-weight:800}
+.chapter-lede{font-size:14px;color:var(--muted)}
+.plain-steps{padding:0;margin:14px 0 15px;list-style:none;counter-reset:item}
+.plain-steps li{counter-increment:item;position:relative;padding:0 0 13px 35px;font-size:14px}
+.plain-steps li:before{content:counter(item);position:absolute;left:0;top:2px;background:#edf1f5;border-radius:7px;width:23px;height:23px;display:grid;place-items:center;font-size:12px;font-weight:800;color:#556474}
+.plain-steps strong{display:block;font-size:14px}
+.note{border-left:3px solid #e9bd99;padding:7px 13px;margin:14px 0;color:#4e5a68;font-size:13px;background:#fbfcfd}
+.note strong{color:#34465a}
+.note p{margin:3px 0}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.cols>div{background:#fafbfc;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13px}
+.cols strong{display:block}
+.tablewrap{overflow-x:auto;max-width:100%}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;vertical-align:top;border-bottom:1px solid var(--line);padding:9px 8px}
+th{background:#f7f9fa}
+.source{font-size:12px;color:#718092;margin-top:17px}
+code,.mono{font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;background:#f0f3f6;padding:1px 5px;border-radius:5px;word-break:break-all}
+.lab{margin:16px 0;padding:16px;border:1px solid #dfe5eb;background:#fafbfc;border-radius:12px}
+.lab-title{font-weight:800;font-size:14px;margin-bottom:4px}
+.lab-desc{font-size:12px;color:var(--muted)}
+.lab-output{padding:12px;margin:10px 0;background:#fff;border:1px solid var(--line);border-radius:8px;font-size:13px;white-space:pre-wrap;min-height:46px;line-height:1.65}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+button{border:1px solid #c9d2dc;background:#fff;color:#2f3b48;border-radius:9px;padding:9px 13px;font-size:13px;cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:800}
+button:disabled{opacity:.45;cursor:not-allowed}
+.lab label{font-size:12px;display:block;margin:9px 0;font-weight:700}
+.lab input,.lab select{background:#fff;width:100%;border:1px solid #c9d2dc;border-radius:8px;padding:9px;margin-top:4px}
+.references{margin:20px 0 0}
+.references .chapter{margin-top:15px}
+.footer{font-size:12px;color:#6e7986;margin-top:24px;padding:14px 0;border-top:1px solid var(--line)}
+.anchor{scroll-margin-top:18px}
+@media(max-width:850px){.journey{grid-template-columns:repeat(2,minmax(0,1fr))}.journey-item:nth-last-child(-n+3){border-bottom:1px solid #edf0f4}.journey-item:nth-last-child(-n+2){border-bottom:0}}
+@media(max-width:580px){.wrap{padding:0 13px 70px}.hero{padding-top:19px}.lede{font-size:13px}.overview{padding:15px 15px 10px}.overview-header strong{font-size:15px}.overview-header span{font-size:11px}.journey{grid-template-columns:1fr;gap:0}.journey-item{padding:7px 3px;gap:9px}.journey-item:nth-last-child(-n+2){border-bottom:1px solid #edf0f4}.journey-item:last-child{border:0}.journey-item b{font-size:13px}.journey-item p{font-size:11px;margin:1px 0}.journey-num{width:21px;height:21px;flex-basis:21px;font-size:11px}.guardrails{grid-template-columns:1fr;gap:7px;padding-top:11px}.guardrail{font-size:11px}.facts{gap:8px;justify-content:space-between}.fact{flex-direction:column;gap:0}.fact b{font-size:18px}.chapter{padding:18px 16px}.cols{grid-template-columns:1fr}.tablewrap table{min-width:490px}.scrollhint{margin:12px 0 17px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<a class="skip" href="#main">본문으로 바로가기</a>
+<div class="wrap">
+<header class="top"><span class="brand"><em>SK hynix</em> · AI 해커톤 2차 학습센터</span><a href="/">학습센터 홈</a></header>
+<section class="hero" aria-labelledby="page-title">
+<div class="eyebrow">2026.10.31 · 시험 전 준비 · 공식 안내 PDF 기반 비공식 교재</div>
+<h1 id="page-title">시험 전체 흐름, 한눈에 보기</h1>
+<p class="lede">무엇부터 시작하고 어디서 끝나는지 먼저 확인해. 아래에 실제 순서대로 자세한 설명이 이어지고, GitHub·MCP와 오류 대응은 맨 아래 참고 자료로 분리했어.</p>
+<div class="facts">
+<div class="fact"><b>09:40</b><span>접속 권장</span></div>
+<div class="fact"><b>최대 180분</b><span>과제 작업</span></div>
+<div class="fact"><b>14:00</b><span>전체 종료</span></div>
+</div>
+<div class="overview" aria-labelledby="overview-title">
+<div class="overview-header"><strong id="overview-title">실제 시험에서 하는 일 · 6가지</strong><span>순서대로 읽기</span></div>
+<div class="journey" aria-label="실제 시험 순서">
+<div class="journey-item"><span class="journey-num">1</span><div><b>응시 준비</b><p>접속 · 웹캠 · Proctor</p></div></div>
+<div class="journey-item"><span class="journey-num">2</span><div><b>문제 파악</b><p>README · 업무 담당자</p></div></div>
+<div class="journey-item"><span class="journey-num">3</span><div><b>AI로 구현</b><p>Codex에 지시 · 파일 작성</p></div></div>
+<div class="journey-item"><span class="journey-num">4</span><div><b>직접 검증</b><p>서버 실행 · Browser 확인</p></div></div>
+<div class="journey-item"><span class="journey-num">5</span><div><b>제출 확정</b><p>저장 · 미리보기 · 최종 확정</p></div></div>
+<div class="journey-item"><span class="journey-num">6</span><div><b>서술형 · 완료</b><p>6문항 직접 작성 · 기록 확인</p></div></div>
+</div>
+<div class="guardrails">
+<div class="guardrail"><span class="dot" aria-hidden="true"></span><span>14:00에 모든 단계 종료</span></div>
+<div class="guardrail"><span class="dot" aria-hidden="true"></span><span>제출 확정 후 파일 수정 불가</span></div>
+<div class="guardrail"><span class="dot" aria-hidden="true"></span><span>서술형은 AI 없이 직접 작성</span></div>
+</div>
+</div>
+<p class="scrollhint">↓ 아래에서 실제 진행 순서의 설명을 확인</p>
+</section>
+<main id="main">
+<div class="content" aria-label="시험 진행 순서별 상세 가이드">
+<section class="chapter anchor" id="step1" aria-labelledby="prep-title">
+<span id="step2" class="anchor" aria-hidden="true"></span>
+<div class="chapter-header"><span class="chapter-num">01</span><span class="eyebrow">응시 준비</span></div>
+<h2 id="prep-title">시험 시작 전, 감독 환경부터 연결해</h2>
+<p class="chapter-lede">09:40은 미리 접속하라는 권고 시각이야. 10:00~14:00 전체 시험 시간은 별도이며 접속이 늦어져도 14:00 종료가 연장되지는 않아.</p>
+<ol class="plain-steps">
+<li><strong>PC에서 개인 응시 링크 열기</strong>규정을 끝까지 읽고 동의해. 최신 Chrome/Edge, PC 한 대와 모니터 한 대, 웹캠을 준비해.</li>
+<li><strong>PC 웹캠과 전체 화면 공유 설정</strong>얼굴 전체와 양쪽 귀가 보이는지 확인해. 브라우저의 ‘탭’이나 ‘창’이 아닌 <strong>전체 화면</strong>을 선택해.</li>
+<li><strong>휴대폰 Cofa Proctor 연결</strong>설치 QR은 스마트폰 기본 카메라로, 시험 세션 연결 QR은 Proctor 앱 안에서 스캔해. PC에서 연결 완료 상태를 확인해.</li>
+<li><strong>‘과제 시작’ 누른 후 녹화·본인 확인</strong>휴대폰을 세로 거치하고 실물 신분증을 얼굴 옆에 들어 확인받아. 안경 착용 시 안경 앞면과 양쪽 다리를 확인하는 절차가 안내돼 있어.</li>
 </ol>
-<details><summary>09:40에 늦으면 입장할 수 없나?</summary><p>09:40은 미리 접속해 준비하라는 권고 시각이야. 늦게 접속하더라도 14:00 종료 시각은 바뀌지 않으므로 남은 전체 시간이 줄어들어.</p></details>
-<details><summary>180분 + 30분이면 13:30에 무조건 종료되나?</summary><p>아니야. 개인 시작 시각, 제출 시각, 질문 생성 대기에 따라 달라져. 10:00 시작→13:00에 과제 제출→5분 준비→13:05부터 30분 답변이라면 13:35 완료는 계산 예시일 뿐 보장된 종료 시각이 아니야.</p></details>
-<details><summary>식사·화장실·재접속은?</summary><p>식음료는 화면과 감독 카메라를 가리지 않는 조건을 확인해. 자리 이탈 규정은 당일 09:50 별도 이메일을 확인해야 해. 재접속·문의 중에도 타이머가 멈추지 않아.</p></details>
-<p class="source">공식 근거: 시험 필수확인사항 브리프 p.1 · 사전 체험·응시환경 상세 가이드 pp.1–5</p>
+<div class="note"><strong>15분 사전 체험</strong><p>1회 제공되는 사전 체험으로 README·터미널·Codex·Browser·메신저·감독 연결을 점검해. 체험 과제는 평가에 반영되지 않아.</p></div>
+<h3>미리 준비하면 좋은 조건</h3>
+<div class="cols"><div><strong>휴대폰 · 네트워크</strong>iPhone 11 이상/iOS 16 이상 또는 Android 11 이상/RAM 4GB 이상, 여유 1GB 이상 권장. 인터넷 다운로드·업로드 각각 5Mbps 이상 권장. 휴대폰 충전선을 연결해.</div>
+<div><strong>공간 · 구도</strong>혼자 있는 폐쇄 공간에서 충분한 조명을 확보해. 유리창·투명 문은 가려. 책상 옆 뻗은 팔의 손끝이 닿는 곳에 폰을 세로 거치하고 손·키보드·얼굴·모니터가 촬영되게 해.</div></div>
+<h3>실물 신분증: 무엇을 가려야 할까?</h3>
+<div class="tablewrap"><table><thead><tr><th>종류</th><th>가릴 부분</th><th>보여야 할 부분</th></tr></thead><tbody>
+<tr><td>주민등록증</td><td>주민번호 뒤 7자리, 주소</td><td>사진·이름·생년월일</td></tr>
+<tr><td>운전면허증</td><td>주민번호 뒤 7자리, 면허번호 전체, 주소, 암호일련번호</td><td>사진·이름·생년월일</td></tr>
+<tr><td>여권</td><td>여권번호, MRZ 두 줄, 기재된 경우 주민번호 뒤 7자리</td><td>사진·이름·생년월일·유효기간</td></tr>
+</tbody></table></div>
+<p class="note"><strong>유의:</strong> 모바일 신분증은 사용할 수 없어. 휴대폰 Proctor 연결 자체는 녹화 시작이 아니며, 과제 시작 버튼을 누르면 자동 녹화가 시작돼. 09:50 별도 메일의 자리 이탈 규정도 확인해.</p>
+<p class="source">공식 출처: 시험 필수확인사항 브리프 p.1 · 사전 체험·응시환경 상세 가이드 pp.1–2</p>
 </section>
-<section class="lesson" id="step2" aria-labelledby="title2" hidden>
-<span class="kicker">STEP 02 · 장비와 감독</span><h2 id="title2">감독 연결에서 가장 많이 헷갈리는 순서</h2>
-<p><strong>PC 웹캠</strong>과 <strong>휴대폰 Cofa Proctor</strong>는 다른 장치야. 한 장치로 서로 대신할 수 없어.</p>
-<ol class="steps"><li><strong>PC에서 개인 링크 → 규정 끝까지 읽고 동의</strong>최신 Chrome 또는 Edge, 컴퓨터·모니터 한 대, PC 웹캠 준비.</li>
-<li><strong>웹캠 권한 → 전체 화면 공유</strong>탭이나 창이 아닌 ‘전체 화면’을 공유. 얼굴 전체와 양쪽 귀가 보여야 해.</li>
-<li><strong>휴대폰 설치 QR → 연결 QR</strong>설치용은 휴대폰 기본 카메라, 응시 연결용은 Proctor 앱에서 스캔. PC에서 연결 완료 확인.</li>
-<li><strong>‘과제 시작’ 뒤 본인 확인</strong>녹화가 시작된 후 휴대폰을 세로 거치하고 실제 신분증·안경을 확인해.</li></ol>
-<div class="callout"><strong>15분 사전 체험</strong>은 1회 별도 제공돼. README 열기, 터미널에서 Codex 확인, Browser 연결, 감독 상태 및 서술형 전환을 우선 체험해. 실제 평가에는 반영되지 않아.</div>
-<details><summary>휴대폰 촬영 각도는 어떻게 잡을까?</summary><p>앉은 자세에서 한쪽 팔을 옆으로 뻗어 손끝이 닿는 책상 위에 세로로 거치해. 전면 카메라에 얼굴·손·키보드·모니터가 보이도록 높이와 각도를 확인하고 충전선을 연결해.</p></details>
-<details><summary>권장 휴대폰·인터넷 사양</summary><p>안내의 권장 사양은 iPhone 11 이상/iOS 16 이상, 또는 Android 11 이상/RAM 4GB 이상, 여유 공간 1GB 이상이야. 업로드·다운로드 각각 5Mbps 이상도 권장 속도이지 명시된 합격 커트라인은 아니야.</p></details>
-<details><summary>신분증에서 가려야 할 곳</summary><div class="table-scroll"><table><thead><tr><th>실물 신분증</th><th>가리기</th><th>보이기</th></tr></thead><tbody>
-<tr><td>주민등록증</td><td>번호 뒤 7자리, 주소</td><td>사진·이름·생년월일</td></tr>
-<tr><td>운전면허증</td><td>번호 뒤 7자리, 면허번호 전체, 주소, 암호일련번호</td><td>사진·이름·생년월일</td></tr>
-<tr><td>여권</td><td>여권번호, 하단 MRZ 두 줄, 기재된 주민번호 뒤 7자리</td><td>사진·이름·생년월일·유효기간</td></tr>
-</tbody></table></div><p>모바일 신분증은 사용할 수 없어. 개인 신분증 이미지는 이 사이트에 업로드하지 않아.</p></details>
-<details><summary>응시 공간과 촬영 규정</summary><p>혼자 있는 독립된 공간, 조명, 충전선, 알림 차단을 점검해. 투명한 문·유리벽·창문은 가려야 해. 앱 연결 자체가 녹화 시작은 아니며, 실제 과제 시작 버튼을 누르면 녹화가 시작돼.</p></details>
-<p class="source">공식 근거: 시험 필수확인사항 브리프 p.1 · 상세 가이드 pp.1–2</p>
+
+<section class="chapter anchor" id="requirements" aria-labelledby="requirements-title">
+<div class="chapter-header"><span class="chapter-num">02</span><span class="eyebrow">문제 파악</span></div>
+<h2 id="requirements-title">코딩보다 먼저 README와 요구사항</h2>
+<p class="chapter-lede">문제를 정확히 이해하지 못한 채 AI에게 “만들어 줘”부터 말하면, 작동해도 과제의 목적과 다를 수 있어.</p>
+<ol class="plain-steps">
+<li><strong>README.md와 관련 파일 읽기</strong>목적·필수 기능·제출 파일·제약조건을 따로 적어봐.</li>
+<li><strong>모호한 업무 조건은 ‘업무 담당자’에게 묻기</strong>이 프로그램을 누가 쓰는지, 가장 불편한 점은 무엇인지, 어떤 상태를 구분해야 하는지 질문해.</li>
+<li><strong>플랫폼 사용법은 ‘Cofa Helper’에게 묻기</strong>터미널·Browser·제출 버튼을 모르겠다면 업무 담당자가 아니라 Cofa Helper를 이용해.</li>
+<li><strong>요구사항과 검증 조건 구분하기</strong>필수 기능을 만들고 나서 무엇을 눌러 성공 여부를 판단할지 함께 정해.</li>
+</ol>
+<div class="note"><strong>연습용 Codex 첫 지시 예시</strong><p>“README.md를 읽고 필수 기능, 제출물, 불명확한 조건을 구분해 줘. 모호한 업무 요구는 질문으로 정리해 줘. 아직 코드를 수정하지 마.”</p></div>
+<p class="source">공식 출처: 상세 가이드 pp.2–3(IDE, README, 메신저). 작업을 정리하는 순서는 학습용 권장 방법이며 공식 채점표가 아니야.</p>
 </section>
-<section class="lesson" id="step3" aria-labelledby="title3" hidden>
-<span class="kicker">STEP 03 · 웹 IDE·Codex</span><h2 id="title3">README를 먼저 읽고, Codex를 켜기</h2>
-<p>시험에서 사용자의 일은 <strong>요구사항을 이해하고 AI가 만든 결과를 판단하는 것</strong>이야. Codex는 코드를 도와주지만 최종 확인은 직접 해야 해.</p>
-<div class="table-scroll"><table><thead><tr><th>화면 요소</th><th>기능</th></tr></thead><tbody>
-<tr><td>Explorer</td><td>README·파일 구조와 저장 상태 확인</td></tr><tr><td>Editor</td><td>파일 읽기·수정·저장</td></tr><tr><td>Terminal</td><td>Codex 실행·서버 실행·테스트 명령</td></tr><tr><td>Browser</td><td>실제 포트·경로로 실행 결과 검증</td></tr><tr><td>Cofa Helper</td><td>플랫폼 버튼·도구 사용법 질문</td></tr><tr><td>업무 담당자</td><td>업무 조건·목표·사용자 요구 질문</td></tr></tbody></table></div>
-<div class="sim"><strong>첫 실행 절차 · 버튼을 눌러 순서 확인</strong><div class="code" id="codexOutput">~/workspace $ ▍
-README를 먼저 읽은 뒤 다음 버튼을 눌러 봐.</div><div class="actions"><button type="button" class="btn primary" id="codexNext">다음 단계</button><button type="button" class="btn" id="codexReset">초기화</button></div><p class="hint">실제 명령 실행이나 AI 호출은 없는 순서 연습이야.</p></div>
-<details><summary>Codex에 처음 보낼 말</summary><p>“README.md를 읽고 해야 할 일, 필수 제출물, 예외조건, 모호한 업무 요구를 구분해 줘. 아직 코드는 수정하지 마.” 이는 시험 주최 측의 지정 프롬프트가 아니라 연습용 예시야.</p></details>
-<details><summary>승인 대기·실행 중·완료는 무엇이 다를까?</summary><p>승인 대기는 실행할 명령을 확인해 허용·거절해야 하는 상태, 실행 중은 결과를 기다리는 상태, 완료는 Codex 요청을 끝낸 상태야. <strong>‘완료’가 프로그램 검증이나 시험 제출 완료를 뜻하지 않아.</strong></p></details>
-<details><summary>서버 터미널을 종료하거나 Ctrl+C를 누르면?</summary><p>서버 프로세스가 종료될 수 있어. Browser에서 검증하는 동안 실행 서버가 있는 터미널은 유지해. /status로 모델·권한을 확인하고 /model은 실제 도구 메뉴가 제공하는 안내에 따라 이용해. 개인 API 키를 연결할 필요는 없어.</p></details>
-<p class="source">공식 근거: 상세 가이드 pp.2–3, p.5. 가상 단계는 실제 화면과 다를 수 있어.</p>
+
+<section class="chapter anchor" id="step3" aria-labelledby="codex-title">
+<div class="chapter-header"><span class="chapter-num">03</span><span class="eyebrow">AI로 구현</span></div>
+<h2 id="codex-title">터미널에서 Codex 실행하기</h2>
+<p>웹 IDE에서 Terminal을 열어 <code>codex</code>를 입력하고 Enter를 눌러. 개인 API 키나 유료 계정을 별도로 연결할 필요는 없어.</p>
+<div class="tablewrap"><table><thead><tr><th>화면 영역</th><th>무엇을 하는 곳?</th></tr></thead><tbody>
+<tr><td>Explorer / Editor</td><td>README·코드 열기, 파일 생성·수정·저장</td></tr>
+<tr><td>Terminal</td><td>Codex 실행, 테스트, 서버 시작</td></tr>
+<tr><td>Browser</td><td>실제 서버 PORT와 경로를 지정해 기능 검증</td></tr>
+<tr><td>Messenger</td><td>Cofa Helper(조작법) / 업무 담당자(업무 조건)</td></tr>
+<tr><td>상단 바</td><td>CPU·RAM·타이머·감독 연결·제출 상태</td></tr>
+</tbody></table></div>
+<p><code>/status</code>는 모델·권한을 확인하는 데 사용하고, <code>/model</code>은 제공 모델 선택 안내에 맞춰 사용해. AI가 명령 실행을 요청하면 실행 대상·외부 전송 여부를 확인한 뒤 승인하거나 거절해.</p>
+<div class="lab" id="codexLab">
+<div class="lab-title">Codex 실행 순서 · 조작 연습</div>
+<p class="lab-desc">실제 Codex 실행이 아닌 순서 시뮬레이션이야. 설명을 보려는 버튼이 아니라 명령 진행을 연습하는 버튼만 있어.</p>
+<div class="lab-output mono" id="codexOutput" role="status">~/workspace $  · 시작 전</div>
+<div class="btn-row"><button type="button" class="primary" id="codexNext">다음 명령 진행</button><button type="button" id="codexReset">초기화</button></div>
+</div>
+<div class="note"><strong>세 가지 상태 구별</strong><p><strong>승인 대기</strong>는 사용자가 허용·거절을 판단해야 하는 상태, <strong>실행 중</strong>은 작업 진행 중, <strong>완료</strong>는 AI 요청이 끝난 상태야. 완료만으로 프로그램 검증이나 시험 제출을 끝냈다는 뜻은 아니야.</p></div>
+<p>서버 프로세스가 실행 중인 터미널을 종료하거나 <code>Ctrl+C</code>를 누르면 서버가 중단될 수 있어.</p>
+<p class="source">공식 출처: 상세 가이드 pp.2–3, p.5. 모의 명령 결과와 문장은 학습 예시야.</p>
 </section>
-<section class="lesson" id="step4" aria-labelledby="title4" hidden>
-<span class="kicker">STEP 04 · 도구 사용 범위</span><h2 id="title4">GitHub·Skill·MCP는 도구일 뿐이야</h2>
-<p><strong>필요할 때만 사용하면 돼.</strong> 도구를 많이 연결하는 게 점수나 좋은 결과를 보장하지 않아.</p>
-<div class="statgrid"><div class="stat"><strong style="font-size:17px">GitHub</strong><span>공개 코드와 예제를 보관하는 저장소</span></div><div class="stat"><strong style="font-size:17px">Skill</strong><span>AI가 수행할 작업 순서·기준을 알려주는 지침</span></div><div class="stat"><strong style="font-size:17px">MCP</strong><span>AI가 도구를 사용할 수 있게 연결하는 규격</span></div></div>
-<div class="callout"><strong>Git Clone</strong>은 공개 코드를 가져오는 동작이고 <strong>Git Push</strong>는 작업물을 외부 저장소로 보내는 동작이야. 이번 시험에서는 공개 자료의 조건부 활용은 가능하지만 시험 결과물의 외부 전송과 Push는 금지돼.</div>
-<div class="table-scroll"><table><thead><tr><th>작업</th><th>공식 안내상 상태</th></tr></thead><tbody>
-<tr><td>공개 GitHub·Skill·MCP의 과제 관련 사용</td><td>조건부 가능</td></tr><tr><td>Git Push·시험 파일 외부 전송</td><td>금지</td></tr><tr><td>개인 PC의 비공개 파일 업로드</td><td>불가</td></tr><tr><td>별도 AI 모델 연결·Computer Use</td><td>금지</td></tr><tr><td>특정 MCP의 사전 설치·동작 여부</td><td>공식 자료로 확인 불가</td></tr></tbody></table></div>
-<details><summary>공개 GitHub 자료가 정말 필요할까?</summary><p>README 요구사항을 먼저 확인해. 자체 작업으로 충분하면 무리해서 Clone할 필요가 없어. 필요하면 공개 출처·라이선스·외부 통신 위험·과제 적합성을 확인하고, 시험 환경 안에서만 활용해야 해.</p></details>
-<details><summary>MCP를 추가하고 싶다면?</summary><p>가이드에는 MCP 탭의 설정 JSON을 변경·저장하는 기능이 소개돼 있지만, 특정 MCP가 작동한다는 보장은 없어. 데이터 전송 대상, 권한, 인증, 외부 AI 연결 여부를 점검해야 해.</p></details>
-<p class="source">공식 근거: 브리프 p.1 · 상세 가이드 pp.3·5</p>
+
+<section class="chapter anchor" id="step5" aria-labelledby="verify-title">
+<div class="chapter-header"><span class="chapter-num">04</span><span class="eyebrow">직접 검증</span></div>
+<h2 id="verify-title">프로그램이 보이는 것과 작동하는 건 달라</h2>
+<ol class="plain-steps">
+<li><strong>터미널에서 서버 실행 상태 확인</strong>실제 서버 로그에 표시된 PORT를 읽어.</li>
+<li><strong>Browser에 PORT·URL 경로 입력</strong><code>3000</code>은 가이드의 예시일 뿐 고정값이 아니야. 서버 바인딩은 <code>0.0.0.0</code>인지 확인해.</li>
+<li><strong>원형 새로고침 버튼으로 연결</strong>연결되지 않으면 서버 종료·PORT·바인딩·경로 순서로 좁혀가.</li>
+<li><strong>직접 눌러보고 입력하기</strong>목록·버튼·이동·예외 처리·수정 결과를 확인한 뒤 README 요구사항과 대조해.</li>
+</ol>
+<div class="lab" id="browserLab">
+<div class="lab-title">Browser 연결 · 실패 원인 찾는 연습</div>
+<p class="lab-desc">가상 서버는 PORT 4173, 경로 /를 사용한다고 가정해. 실제 네트워크 연결은 없어.</p>
+<label>Browser PORT <input id="browserPort" type="number" min="1" max="65535" value="3000" inputmode="numeric"></label>
+<label>서버 바인딩 <select id="browserHost"><option value="localhost">localhost</option><option value="0.0.0.0">0.0.0.0</option></select></label>
+<label>URL 경로 <input id="browserPath" value="/" type="text"></label>
+<div class="btn-row"><button class="primary" type="button" id="browserTry">연결 확인</button><button type="button" id="browserRestore">초기화</button></div>
+<div class="lab-output" id="browserOutput" role="status">어떤 설정이 실제 서버와 일치하는지 확인해 봐.</div>
+</div>
+<h3>마지막으로 파일 저장</h3>
+<p><strong>저장 중</strong>과 <strong>저장됨</strong>은 달라. Codex가 열려 있는 파일을 수정하면 ‘외부 변경 감지’가 표시될 수 있어. <strong>외부 변경 불러오기</strong>는 디스크 내용을 가져오고, <strong>현재 내용으로 저장</strong>은 에디터 수정 내용을 디스크에 반영해. 두 버전을 비교하고 선택해.</p>
+<div class="note"><strong>검증됐다는 근거</strong><p>서버 실행 로그, 입력→버튼 클릭→실제 결과, 요구한 파일 경로·저장 상태, 실패한 조건을 수정한 후 재시험한 기록을 확인해.</p></div>
+<p class="source">공식 출처: 상세 가이드 pp.2–3, p.5. 검증 증거 정리 방법은 학습용 권장.</p>
 </section>
-<section class="lesson" id="step5" aria-labelledby="title5" hidden>
-<span class="kicker">STEP 05 · 실행과 저장</span><h2 id="title5">Codex가 만들었다면, 이제 직접 작동시켜 보기</h2>
-<p>실제 과제에서 필요한 건 <strong>만들었다는 메시지가 아니라 직접 테스트한 증거</strong>야.</p>
-<ol class="steps"><li><strong>서버 실행</strong>터미널의 실제 포트를 읽고 서버가 계속 실행 중인지 확인.</li>
-<li><strong>Browser 연결</strong>PORT와 URL 경로를 입력하고 원형 화살표 새로고침. 서버는 <span class="term">0.0.0.0</span> 바인딩 확인.</li>
-<li><strong>핵심 기능 테스트</strong>입력·버튼·이동을 눌러 결과를 관찰하고 오류·예외도 확인.</li>
-<li><strong>파일 저장 확인</strong>저장 중/실패/외부 변경 감지와 저장됨을 구분하고 충돌 시 두 버전 비교.</li></ol>
-<div class="sim"><strong>가상 Browser 연결 확인</strong><p class="hint">예시 서버는 포트 4173이고 URL 경로는 /야. 실제 시험 포트는 정해진 값이 아니야.</p>
-<label for="browserPort">Browser PORT</label><input type="number" inputmode="numeric" id="browserPort" value="3000" min="1" max="65535">
-<label for="browserHost">서버 바인딩</label><select id="browserHost"><option value="localhost">localhost</option><option value="0.0.0.0">0.0.0.0</option></select>
-<label for="browserPath">URL 경로</label><input id="browserPath" type="text" value="/">
-<div class="actions"><button class="btn primary" type="button" id="browserTry">연결 확인</button><button class="btn" type="button" id="browserRestore">초기화</button></div>
-<div id="browserOutput" class="sim-output" role="status">가상 서버는 실행됐다고 가정해. PORT·바인딩·경로를 확인해 봐.</div></div>
-<details><summary>파일 저장 충돌을 어떻게 처리할까?</summary><p>AI나 터미널이 에디터에 열어 놓은 파일을 수정하면 ‘외부 변경 감지’가 뜰 수 있어. <strong>외부 변경 불러오기</strong>는 디스크 내용을 가져오는 것, <strong>현재 내용으로 저장</strong>은 에디터 버전을 반영하는 것이야. 둘 중 무조건 정답인 것은 없으니 양쪽 내용을 비교해.</p></details>
-<details><summary>파일 상태와 다른 오류</summary><p><strong>저장 중…</strong>은 저장됨이 아니야. <strong>디스크에서 삭제됨</strong> 상태도 자동 복원된다고 단정할 수 없어. Browser에 ‘응답 없음’이 뜨면 서버 종료·실제 PORT·0.0.0.0·URL 경로 순으로 확인해.</p></details>
-<p class="source">공식 근거: 상세 가이드 pp.2–3, p.5</p>
+
+<section class="chapter anchor" id="submit" aria-labelledby="submit-title">
+<span id="step6" class="anchor" aria-hidden="true"></span>
+<div class="chapter-header"><span class="chapter-num">05</span><span class="eyebrow">제출 확정</span></div>
+<h2 id="submit-title">미리보기와 최종 확정은 다르다</h2>
+<p><strong>‘제출하고 문제풀기’</strong>는 제출 미리보기 화면에 들어가는 동작이고, 미리보기를 닫으면 파일을 수정할 수 있어. 반면 <strong>‘제출물 확정하고 문제풀기’</strong>를 진행한 뒤에는 제출 파일을 수정할 수 없어.</p>
+<ol class="plain-steps">
+<li><strong>README 제출 파일·경로·저장됨 상태 확인</strong>미리보기에는 일부 파일만 표시될 수 있으므로 보이는 목록을 전체 제출물로 단정하지 마.</li>
+<li><strong>미리보기에서 마지막 확인</strong>수정할 점이 있으면 돌아가고, 확인이 끝났다면 최종 확정해.</li>
+<li><strong>질문 준비 대기</strong>제출물과 작업 기록을 바탕으로 질문이 만들어져. 일반 안내 약 5분, 상세 화면 예상 최대 10분 및 재시도 가능성이 있어.</li>
+</ol>
+<div class="lab" id="submissionLab"><div class="lab-title">제출 버튼의 되돌릴 수 없는 지점 · 조작 연습</div>
+<p class="lab-desc">가상 제출 화면만 바뀌며 실제 파일 제출·잠금·질문 생성은 없어.</p>
+<div class="lab-output" id="submissionOutput" role="status">작업 중 · 필수 파일과 저장 상태를 확인해.</div>
+<div class="btn-row"><button type="button" class="primary" id="submissionNext">제출 미리보기 열기</button><button type="button" id="submissionBack" disabled>돌아가기</button><button type="button" id="submissionReset">다시 시작</button></div>
+</div>
+<div class="note"><strong>기억할 함정</strong><p>제출 미리보기 중에도 작업 시간은 계속 흐르고, 14:00 전체 종료 시점은 그대로야. 약 10분 전에 제출을 시작하라는 건 학습·시간 관리상 권장이지 의무 제출 마감 시각이 아니야.</p></div>
+<p class="source">공식 출처: 상세 가이드 pp.3–4</p>
 </section>
-<section class="lesson" id="step6" aria-labelledby="title6" hidden>
-<span class="kicker">STEP 06 · 제출·서술형</span><h2 id="title6">어떤 버튼부터 되돌릴 수 없을까?</h2>
-<p><strong>‘제출하고 문제풀기’는 미리보기</strong>, <strong>‘제출물 확정하고 문제풀기’는 수정 불가능한 확정</strong>이야. 이 둘만은 반드시 구분해.</p>
-<div class="sim"><strong>제출 절차 모의실습</strong><p class="hint">실제 파일 업로드·제출이나 AI 질문 생성은 없고, 버튼 의미만 체험해.</p>
-<div id="submissionMessage" class="sim-output" aria-live="polite">작업 중 · README 필수 경로 및 저장 상태를 먼저 확인해.</div>
-<div class="actions"><button class="btn primary" type="button" id="submissionAdvance">제출하고 문제풀기 · 미리보기</button><button class="btn" type="button" id="submissionBack" disabled>작업으로 돌아가기</button><button class="btn" type="button" id="submissionReset">다시 시작</button></div></div>
-<ol class="steps"><li><strong>미리보기</strong>표시된 파일이 전체 제출 목록은 아닐 수 있어. 아직 돌아가 수정할 수 있어.</li><li><strong>제출물 확정</strong>이후 파일 수정 불가. 질문 준비 대기 시작(약 5분 일반 안내·상세 최대 10분 예상 및 재시도 가능).</li><li><strong>서술형 시작</strong>첫 문항은 ‘문제 풀기’ 클릭 순간부터 5분. 이후는 이전 답안 제출 즉시 다음 문항 5분 시작.</li><li><strong>마지막 확인</strong>6문항 이후 ‘과제가 잘 제출됐어요’ 화면의 제출 ID·시각·파일 수·크기 확인.</li></ol>
-<div class="callout"><strong>후속 서술형에서는 외부 AI 및 복사·붙여넣기 금지.</strong> 각 문항은 직접 작성하고 이미 확정한 답은 수정하거나 돌아갈 수 없어. 14:00에 전체가 종료돼. 여기에는 실제 문제나 답변란을 만들지 않았어.</div>
-<details><summary>질문이 실제 내 작업과 다른 가정을 한다면?</summary><p>질문에 담긴 전제가 틀렸다면 차이를 밝히고 본인이 실제 수행한 작업·검증 결과를 설명하면 돼. 구현하지 않은 기능을 했다고 주장하면 안 돼.</p></details>
-<p class="source">공식 근거: 브리프 p.1 · 상세 가이드 pp.3–5</p>
+
+<section class="chapter anchor" id="written" aria-labelledby="written-title">
+<div class="chapter-header"><span class="chapter-num">06</span><span class="eyebrow">후속 서술형 · 완료</span></div>
+<h2 id="written-title">6문항은 AI 없이 본인이 직접 작성</h2>
+<p>공식 안내 기준 <strong>6문항 × 문항당 5분</strong>이야. 질문은 제출한 작업물과 작업 기록을 바탕으로 만들어져. 답안은 직접 타이핑하고 AI 및 복사·붙여넣기를 사용할 수 없어.</p>
+<div class="tablewrap"><table><thead><tr><th>시점</th><th>일어나는 일</th></tr></thead><tbody>
+<tr><td>첫 문제 시작</td><td>‘문제 풀기’ 버튼을 누른 순간 첫 5분 시작</td></tr>
+<tr><td>두 번째 이후</td><td>직전 답안 제출 순간 다음 문항의 5분 시작</td></tr>
+<tr><td>시간이 끝남</td><td>현재까지 입력된 내용이 자동 확정돼 다음 단계 진행</td></tr>
+<tr><td>제출 후</td><td>이전 문항으로 돌아가거나 확정된 답변 수정 불가</td></tr>
+<tr><td>14:00 도달</td><td>전체 시험 종료 · 더 빨리 도달한 제한시간 우선</td></tr>
+</tbody></table></div>
+<p>실제 구현과 다른 전제를 가진 질문이 나오면 그 차이를 밝히고 <strong>실제로 수행한 작업과 검증한 결과</strong>를 설명해.</p>
+<div class="note"><strong>마지막 종료 화면 확인</strong><p>‘과제가 잘 제출됐어요’라는 완료 안내와 <strong>제출 ID·시각·파일 수·크기</strong>를 확인해. 정상 완료 후에는 14:00까지 기다릴 필요가 없어.</p></div>
+<p class="source">공식 출처: 시험 브리프 p.1 · 상세 가이드 pp.3–5. 4쪽의 ‘5개’ 화면 예시는 실제 공식 6문항 안내와 구별해야 해.</p>
 </section>
-<section class="lesson" id="step7" aria-labelledby="title7" hidden>
-<span class="kicker">STEP 07 · 장애·최종 확인</span><h2 id="title7">오류가 생겨도 바로 전체 새로고침하지 마</h2>
-<p>어떤 영역이 멈췄는지 먼저 찾고 <strong>그 영역만 복구</strong>하는 게 우선이야. 복구나 신고 중에도 타이머는 계속 흐를 수 있어.</p>
-<div class="table-scroll"><table><thead><tr><th>상황</th><th>우선 확인할 행동</th></tr></thead><tbody>
-<tr><td>IDE 영역 하나만 멈춤</td><td>‘이 영역 다시 불러오기’</td></tr><tr><td>웹캠 오류</td><td>감독 연결 → 연결 확인 → 카메라 권한·사용 앱 점검</td></tr><tr><td>화면 공유 끊김</td><td>추가 모니터 분리, 전체 화면 다시 공유</td></tr><tr><td>Proctor 연결 오류</td><td>앱에서 응시 연결 QR 재스캔</td></tr><tr><td>Codex 멈춤</td><td>승인 대기·실행 중·API 오류 구별</td></tr><tr><td>터미널 오류</td><td>터미널 다시 연결 또는 새 터미널</td></tr><tr><td>Browser 응답 없음</td><td>서버 로그 → 실제 PORT → 바인딩 → URL</td></tr><tr><td>에디터 충돌</td><td>버전 비교 후 저장 상태 확인</td></tr><tr><td>응시 탭 닫음</td><td>같은 개인 링크 재접속, 감독 연결 복구</td></tr><tr><td>오류 반복</td><td>문제 신고, 발생 시각·단계·직전 동작·오류 문구 기록</td></tr></tbody></table></div>
-<div class="callout"><strong>감독 경고 ≠ 즉시 탈락.</strong> 확인된 제한 위반과 추가 사실관계 확인이 필요한 정황을 구분해. 경고 확인 버튼을 눌러도 기존 녹화 기록은 삭제되지 않아.</div>
-<details><summary>문제 신고했으면 시험 시간이 보상될까?</summary><p>자동 보상은 없어. 신고만으로 타이머가 멈추거나 연장되지 않고, 플랫폼의 모델·API 장애에 대한 재응시 여부는 추후 공지 대상이야. 본인의 과도한 프로세스 사용에 따른 OOM은 구제 대상이 아니라고 안내돼 있어.</p></details>
-<details><summary>비활성·긴급 문자·서술형 오류</summary><p>비활성 안내는 ‘계속 작업’으로 복구하지만 타이머는 유지돼. 휴대폰 알림·연결 이상이 있으면 원래 거치 위치를 유지하며 장치를 점검해. 서술형 화면에는 별도 신고 버튼이 없을 수 있어 오류 발생 시각·문항 번호를 기록하고 공식 절차를 이용해.</p></details>
-<details><summary>마지막으로 기억할 단 하나의 순서</summary><p><strong>환경 확인 → README → 업무 담당자 질문 → Codex 작업 → Browser 검증 → 파일 저장 → 제출 확정 → 서술형 직접 작성 → 완료 화면 확인.</strong> 이 흐름을 익혔다면 별도의 반복 퀴즈를 풀지 않아도 돼.</p></details>
-<p class="source">공식 근거: 브리프 p.1 · 상세 가이드 pp.3–5</p>
+</div>
+
+<section class="references" aria-labelledby="reference-title">
+<div class="eyebrow">필요할 때 찾아보는 참고 자료</div>
+<h2 id="reference-title">도구 사용과 오류 대응은 시험 흐름 밖에</h2>
+<p class="lede">GitHub·Skill·MCP는 과제를 수행할 때 필요한 경우에만 쓰는 도구야. 장애 대응도 정해진 단계가 아니라 시험 중 언제든 필요한 참고 자료야.</p>
+<section class="chapter anchor" id="step4" aria-labelledby="tools-title">
+<h2 id="tools-title">참고 A · GitHub·Skill·MCP 허용 범위</h2>
+<div class="cols"><div><strong>GitHub</strong>공개 코드와 자료를 관리하는 저장소. Git Clone은 가져오기, Git Push는 외부 저장소에 보내기.</div>
+<div><strong>Skill / MCP</strong>Skill은 AI 작업 지침, MCP는 Codex가 다른 도구를 연결해 사용할 때의 규격이야.</div></div>
+<div class="tablewrap"><table><thead><tr><th>도구·행동</th><th>공식 안내 기준</th></tr></thead><tbody>
+<tr><td>공개 GitHub·Skill·MCP 활용</td><td>과제 목적과 제한을 지키는 조건부 가능</td></tr>
+<tr><td>Git Push, 시험 문제·파일·결과물 외부 전송</td><td>금지</td></tr>
+<tr><td>개인 PC 비공개 파일·Skill 업로드</td><td>불가</td></tr>
+<tr><td>시험 밖 브라우저 직접 접근, 별도 AI 모델 연결, Computer Use</td><td>금지·제한</td></tr>
+<tr><td>특정 MCP가 설치·인증돼 실행되는지</td><td>공식 자료로 미확인</td></tr>
+</tbody></table></div>
+<p class="note"><strong>실전 판단</strong><p>도구를 많이 쓰는 것이 목표가 아니야. README 요구사항을 해결하는 데 필요할 때만 공개 출처·권한·외부 통신 경로를 확인하고 사용해. 시험 자료를 밖으로 보내지 마.</p></p>
+<p class="source">공식 출처: 브리프 p.1 · 상세 가이드 pp.3·5</p>
+</section>
+<section class="chapter anchor" id="step7" aria-labelledby="error-title">
+<h2 id="error-title">참고 B · 장애 발생 시 우선 확인할 것</h2>
+<div class="tablewrap"><table><thead><tr><th>상황</th><th>우선 행동</th></tr></thead><tbody>
+<tr><td>IDE 한 영역만 멈춤</td><td>‘이 영역 다시 불러오기’</td></tr>
+<tr><td>웹캠 연결 중단</td><td>감독 연결 → 연결 확인 → 카메라 권한 점검·재연결</td></tr>
+<tr><td>화면 공유 중단</td><td>추가 모니터 분리 → 전체 화면 다시 공유</td></tr>
+<tr><td>휴대폰 Proctor 중단</td><td>Proctor 앱으로 응시 연결 QR 재스캔</td></tr>
+<tr><td>Codex 동작 불가</td><td>승인 대기/실행 중/모델 API 오류 구별</td></tr>
+<tr><td>터미널 연결 오류</td><td>다시 연결 또는 새 터미널</td></tr>
+<tr><td>Browser 응답 없음</td><td>서버 로그 → 실제 PORT → 0.0.0.0 → URL 경로</td></tr>
+<tr><td>파일 외부 변경</td><td>에디터와 디스크 두 버전 비교 → 저장됨 확인</td></tr>
+<tr><td>탭 종료·비활성 상태</td><td>동일 개인 링크로 재접속·감독 재연결 / ‘계속 작업’</td></tr>
+<tr><td>질문 준비·전송 오류 반복</td><td>화면 안내에 따른 재시도, 발생 시각·문항 번호 기록·신고</td></tr>
+</tbody></table></div>
+<div class="note"><strong>감독 경고는 곧바로 탈락 확정이 아니야.</strong><p>실제 확인된 제한 위반과 추가 조사가 필요한 정황을 구별해. ‘구도를 확인했어요’는 안내 확인일 뿐 녹화 기록을 지우지 않아.</p></div>
+<p>오류가 반복되면 상단 <strong>문제 신고</strong>에 발생 시각·단계·직전 동작·오류 문구를 적어. 키·토큰·비밀번호는 포함하지 마. 신고만으로 타이머가 정지하거나 연장되지 않고, 본인 프로세스의 과도한 OOM은 구제 대상이 아니야.</p>
+<p class="source">공식 출처: 상세 가이드 pp.3–5</p>
+</section>
 </section>
 </main>
-<div class="step-actions"><button type="button" class="btn" id="previousStep">이전 단계</button><button type="button" class="btn primary" id="nextStep">다음 단계</button></div>
-<div class="footer">주최 측 공식 시험 사이트가 아닌 사전 학습용 페이지야. 실제 응시 시에는 개인 안내와 공식 PDF가 우선하며, 시험 중 외부 AI는 사용하지 않아야 해.</div>
+<footer class="footer">개인이 작성한 비공식 학습 교재야. 실제 시험에서는 당일 공식 안내·README·응시 화면의 규정이 우선하고, 후속 서술형에는 외부 GPT/AI를 사용하면 안 돼. <a href="#page-title">맨 위로</a></footer>
 </div>
 <script>
 (()=>{'use strict';
-const total=7,select=document.getElementById('stageSelect'),progress=document.getElementById('stageProgress'),fill=document.getElementById('progressFill'),prev=document.getElementById('previousStep'),next=document.getElementById('nextStep');
-const panels=Array.from({length:total},(_,i)=>document.getElementById('step'+(i+1)));
-const readHash=()=>{const m=location.hash.match(/^#step([1-7])$/);return m?Number(m[1]):1};
-let current=readHash();
-function show(number,updateHash=true){
-current=Math.min(total,Math.max(1,number));
-panels.forEach((p,i)=>{p.hidden=i!==current-1});
-select.value=String(current);progress.textContent=current+' / '+total+'단계';fill.style.width=(100*current/total)+'%';
-prev.disabled=current===1;next.disabled=current===total;
-next.textContent=current===total?'학습 완료':'다음 단계';
-if(updateHash)history.replaceState(null,'','#step'+current);
-window.scrollTo({top:0,behavior:'instant'});
-}
-select.addEventListener('change',()=>show(Number(select.value)));
-prev.addEventListener('click',()=>show(current-1));
-next.addEventListener('click',()=>show(current+1));
-window.addEventListener('hashchange',()=>show(readHash(),false));
-show(current,false);
-const codexSteps=[
-'~/workspace $ codex\n[모의] Codex를 실행해.',
-'> /status\n[모의] 사용 모델·권한을 확인해.',
-'> /model\n[모의] 사용 가능한 모델을 확인해. 실제 시험의 안내가 우선이야.',
-'> README.md를 읽고 필수 기능과 불명확한 요구를 구분해 줘.\n[모의] AI의 파일 읽기 요청을 검토해.',
-'[모의] 명령 승인 여부를 판단하고 실행 결과를 확인해. 무조건 승인하지 않아.',
-'[모의] Codex 요청 완료.\n다음은 실제 파일·브라우저 기능을 직접 검증하는 순서야.'
+const codex=document.getElementById('codexOutput'),codexNext=document.getElementById('codexNext');
+const steps=[
+'~/workspace $ codex\n[모의] Codex 실행 및 작업 폴더 확인',
+'> /status\n[모의] 모델·권한 확인',
+'> /model\n[모의] 제공 모델 목록 확인. 실제 시험 화면 안내가 우선',
+'> README.md의 필수 기능·제출물·모호한 조건 정리\n[모의] AI가 파일 확인 명령을 요청',
+'[모의] 명령 내용·실행 대상·외부 전송 위험을 확인하고 승인 또는 거절 판단',
+'[모의] AI 작업 완료. 실제 파일·서버·Browser를 직접 검증해야 함'
 ];
-let codeIndex=-1;
-const codeOutput=document.getElementById('codexOutput'),codeNext=document.getElementById('codexNext');
-codeNext.addEventListener('click',()=>{codeIndex=Math.min(codeIndex+1,codexSteps.length-1);codeOutput.textContent=codexSteps[codeIndex];codeNext.disabled=codeIndex===codexSteps.length-1});
-document.getElementById('codexReset').addEventListener('click',()=>{codeIndex=-1;codeOutput.textContent='~/workspace $ ▍\nREADME를 먼저 읽은 뒤 다음 버튼을 눌러 봐.';codeNext.disabled=false});
-const p=document.getElementById('browserPort'),host=document.getElementById('browserHost'),path=document.getElementById('browserPath'),result=document.getElementById('browserOutput');
+let stage=-1;
+codexNext.addEventListener('click',()=>{stage=Math.min(steps.length-1,stage+1);codex.textContent=steps[stage];codexNext.disabled=stage===steps.length-1});
+document.getElementById('codexReset').addEventListener('click',()=>{stage=-1;codex.textContent='~/workspace $  · 시작 전';codexNext.disabled=false});
+const port=document.getElementById('browserPort'),host=document.getElementById('browserHost'),path=document.getElementById('browserPath'),browserOut=document.getElementById('browserOutput');
 document.getElementById('browserTry').addEventListener('click',()=>{
-const value=Number(p.value);
-if(!Number.isInteger(value)||value<1||value>65535)result.textContent='올바른 포트를 입력해.';
-else if(value!==4173)result.textContent='예제 실행 포트 4173과 다르네. 실제 시험에서도 터미널의 포트와 비교해야 해.';
-else if(host.value!=='0.0.0.0')result.textContent='localhost에만 연결돼 있어. 플랫폼 Browser에서 접근할 수 있도록 0.0.0.0 바인딩을 확인해.';
-else if(path.value.trim()!=='/')result.textContent='이 예시는 / 경로만 제공해. 실제 앱에서는 실행된 URL 경로를 확인해야 해.';
-else result.textContent='가상 Browser 연결 성공! 실제 시험에서는 화면 표시 후 버튼·입력·이동까지 눌러 검증해.';
+ const n=Number(port.value);
+ if(!port.value||!Number.isInteger(n)||n<1||n>65535)browserOut.textContent='유효한 포트를 입력해.';
+ else if(n!==4173)browserOut.textContent='예제 포트 4173과 다른 값이야. 실제 시험에서는 터미널 로그의 실제 포트를 입력해.';
+ else if(host.value!=='0.0.0.0')browserOut.textContent='localhost 전용 바인딩을 확인해. 공식 가이드는 0.0.0.0으로 실행하라고 안내해.';
+ else if(path.value.trim()!=='/')browserOut.textContent='연습용 서버에는 / 경로만 있다고 가정했어. 실제 앱의 경로를 확인해.';
+ else browserOut.textContent='가상 연결 성공. 다음에는 입력·버튼·페이지 이동 등 실제 기능을 직접 확인해야 해.';
 });
-document.getElementById('browserRestore').addEventListener('click',()=>{p.value=3000;host.value='localhost';path.value='/';result.textContent='가상 서버는 실행됐다고 가정해. PORT·바인딩·경로를 확인해 봐.'});
-let submission=0;
-const msg=document.getElementById('submissionMessage'),forward=document.getElementById('submissionAdvance'),back=document.getElementById('submissionBack');
-const stages=[
-['작업 중 · README 필수 경로와 저장됨 상태를 먼저 확인해.','제출하고 문제풀기 · 미리보기',false],
-['제출 미리보기 · 아직 작업 화면으로 돌아가 수정할 수 있어. 표시된 파일이 전체 목록은 아닐 수 있어.','제출물 확정하고 문제풀기 · 최종 확정',true],
-['확정 직전 확인 · 모든 필수 파일이 저장됨인지, 검증과 제출 경로를 확인했는지 다시 살펴봐. 다음을 누르면 파일 수정이 불가능해.','최종 확정 · 모의 파일 고정',true],
-['최종 확정됨 · 파일 수정 불가. 이제 제출물·작업 기록 기반의 질문 생성 대기 단계야.','문제 풀기 · 첫 답변 시작',false],
-['첫 서술형 문항 · 문제 풀기를 누른 순간부터 5분. 답변은 본인이 직접 작성해야 해.','마지막 제출 이후 완료 확인',false],
-['모의 종료 · 실제 시험에서는 6문항을 직접 작성한 뒤 제출 ID·시각·파일 수·크기를 확인해.','학습 완료',false]
+document.getElementById('browserRestore').addEventListener('click',()=>{port.value='3000';host.value='localhost';path.value='/';browserOut.textContent='어떤 설정이 실제 서버와 일치하는지 확인해 봐.'});
+const messages=[
+'작업 중 · 필수 파일과 저장 상태를 확인해.',
+'제출 미리보기 · 아직 작업 화면으로 돌아가 수정할 수 있어. 표시 목록이 전체 파일 목록이 아닐 수 있어.',
+'확정 직전 · 파일 저장·경로·검증을 마지막으로 확인해. 다음은 되돌릴 수 없어.',
+'최종 확정됨 · 파일 수정 불가. 이제 질문 생성 대기 단계로 이동해.',
+'질문 준비 완료 후 첫 ‘문제 풀기’에서 문항별 5분 시작. 다음 문항은 이전 답변 제출 즉시 시작.',
+'모의 완료 · 실제로는 6문항 작성 후 최종 제출 ID·시각·파일 수·크기 확인.'
 ];
-function drawSubmission(){msg.textContent=stages[submission][0];forward.textContent=stages[submission][1];forward.disabled=submission===5;back.disabled=!(submission===1||submission===2)}
-forward.addEventListener('click',()=>{submission=Math.min(5,submission+1);drawSubmission()});
-back.addEventListener('click',()=>{if(submission!==1&&submission!==2)return;submission=submission===2?1:0;drawSubmission()});
-document.getElementById('submissionReset').addEventListener('click',()=>{submission=0;drawSubmission()});drawSubmission();
+const labels=['제출 미리보기 열기','최종 확정 전 확인','확정하기(모의)','질문 준비 완료 시연','모의 완료 화면 보기','연습 완료'];
+let submit=0;
+const output=document.getElementById('submissionOutput'),forward=document.getElementById('submissionNext'),back=document.getElementById('submissionBack');
+function showSubmission(){output.textContent=messages[submit];forward.textContent=labels[submit];forward.disabled=submit===5;back.disabled=!(submit===1||submit===2)}
+forward.addEventListener('click',()=>{if(submit>=5)return;submit++;showSubmission()});
+back.addEventListener('click',()=>{if(submit!==1&&submit!==2)return;submit--;showSubmission()});
+document.getElementById('submissionReset').addEventListener('click',()=>{submit=0;showSubmission()});
+showSubmission();
 })();
-</script>
-</body></html>
+</script></body></html>
