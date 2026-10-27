@@ -39,6 +39,15 @@ details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:
 .footnote{font-size:12px;color:#687482;margin-top:20px}
 @media(max-width:820px){.layout{grid-template-columns:1fr}.sticky{position:static;display:flex;gap:6px;overflow-x:auto;padding:10px;white-space:nowrap}.step-link{flex:0 0 auto}.step-link .n{display:none}.grids{grid-template-columns:1fr 1fr}.top{align-items:center}.hero{padding:28px 0 15px}}
 @media(max-width:510px){.shell{padding:13px 13px 70px}.panel{padding:17px}.grids{grid-template-columns:1fr 1fr}.stat strong{font-size:21px}.top{gap:6px}.back{font-size:12px;padding:7px 9px}}
+
+/* 2단계 학습 UX: 작은 기기에서 2열 항목 자동 전환, 명확한 선택 상태 */
+#step2 .stat p{font-size:14px;color:var(--ink)}
+#step2 .stage2-qrgrid .stat span{display:block;line-height:1.6}
+#step2 .choice[aria-pressed="true"]{border-color:#bb5e21;background:#fff2e8;color:#77390b;font-weight:750}
+#step2 .question .feedback{margin-top:8px}
+#step2 .question .choices button{min-width:78px}
+#stage2-id-guide strong{font-size:14px}
+@media(max-width:520px){#step2 .stage2-qrgrid{grid-template-columns:1fr!important}#step2 table{font-size:12.5px}#step2 th,#step2 td{padding:9px 6px}}
 </style>
 </head>
 <body>
@@ -101,7 +110,111 @@ details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:
 <p class="checkline" id="checkprogress">준비 점검 0 / 5</p>
 <p class="footnote">출처: 「시험 필수 확인사항 브리프」 1쪽, 「사전 체험 및 응시환경 상세 가이드」 1·2·3·4·5쪽. 공식 자료의 표현과 학습 예시를 구분해서 작성했어.</p>
 </section>
-<section id="step2" class="panel"><div class="section-kicker">STEP 02 · 다음 작업</div><h2>응시 환경·감독·사전 체험</h2><p class="muted">PC 웹캠, 단일 모니터, 전체 화면 공유, 휴대폰 Proctor 연결, 신분증 가림 범위, 15분 사전 체험을 화면 순서대로 익히는 단원이야.</p><div class="todo"><strong>세부 교재 순차 적용 예정</strong><p>원본 출처: 상세 가이드 1~2쪽, 브리프 1쪽. 이 단계는 아직 상세 학습 화면으로 완성되지 않았어.</p></div></section>
+
+<section id="step2" class="panel" aria-labelledby="stage2-title">
+<div class="section-kicker">STEP 02 · 공식 PDF 1·2페이지 상세 학습</div>
+<h2 id="stage2-title">응시 환경·감독 연결·15분 사전 체험</h2>
+<p>이 단계에서는 <strong>시험에 들어가기 전에 무엇을 준비하고, 어떤 버튼을 어떤 순서로 누르는지</strong> 연습해. 설치 안내 QR과 응시 연결 QR을 혼동하거나, 녹화 시작 전에 신분증을 보여주는 실수를 방지하는 게 목표야.</p>
+<div class="notice"><strong>먼저 구별하기</strong><p style="margin:5px 0 0">① 입장 전·준비 단계: 카메라와 전체 화면 공유 및 휴대폰 <em>연결</em>.<br>② <strong>'과제 시작'</strong>을 누른 직후: 녹화가 자동 시작되며, 지정된 위치로 휴대폰을 거치하고 신분증·안경 확인 절차 진행.<br>연결 자체는 녹화 시작이 아니야. <span class="term">[공식 · A 1쪽 / B 1~2쪽]</span></p></div>
+<h3>1. 응시 전에 갖춰야 할 장비와 공간</h3>
+<table aria-label="응시 장비와 공간 조건"><thead><tr><th>항목</th><th>공식 조건·점검 방법</th><th>구분</th></tr></thead><tbody>
+<tr><td><strong>PC와 브라우저</strong></td><td>컴퓨터 한 대. 최신 Chrome 또는 Edge 설치. 개인 응시 링크는 PC에서 열기.</td><td>준비 사항</td></tr>
+<tr><td><strong>모니터</strong></td><td>1대만 사용. 2대 이상 감지되면 시험 시작이 제한될 수 있어.</td><td>제한</td></tr>
+<tr><td><strong>PC 웹캠</strong></td><td>컴퓨터 웹캠과 카메라 권한 필요. 얼굴 전체와 <strong>양쪽 귀</strong>가 보이게. 역광·모자·마스크·머리카락으로 가리지 않기. 휴대폰·태블릿을 PC 웹캠 대신 사용하지 않기.</td><td>필수 점검</td></tr>
+<tr><td><strong>휴대폰</strong></td><td>Cofa Proctor 앱 설치·연결용 휴대폰과 거치대 준비. 충전선 상시 연결.</td><td>필수 점검</td></tr>
+<tr><td><strong>휴대폰 사양</strong></td><td>iPhone 11 이상·iOS 16 이상, 또는 Android 11 이상·RAM 4GB 이상. 여유 저장 공간 1GB 이상.</td><td><strong>권장</strong> 사양</td></tr>
+<tr><td><strong>인터넷</strong></td><td>실제 시험 장소에서 다운로드와 업로드를 각각 측정. <strong>각각 5Mbps 이상 권장</strong>. PC와 촬영용 휴대폰을 함께 연결해 점검.</td><td><strong>권장</strong> 속도</td></tr>
+<tr><td><strong>응시 공간</strong></td><td>혼자 있는 독립된 폐쇄 공간, 충분한 조명과 정돈된 책상. 투명한 문·창문·유리벽은 투명 부분을 완전히 가리기. 카페·도서관 등의 공용 네트워크 피하기.</td><td>응시 환경</td></tr>
+<tr><td><strong>프로그램·알림</strong></td><td>비허용 앱·메신저·외부 AI·원격 접속·가상화 프로그램 종료, 응시와 무관한 창·알림 닫기. PC·휴대폰 방해금지 모드.</td><td>준비 사항</td></tr>
+<tr><td><strong>전원</strong></td><td>노트북 전원 어댑터, 휴대폰 충전선 연결을 응시 종료까지 유지.</td><td>필수 점검</td></tr>
+</tbody></table>
+<p class="small">가이드에서는 PC/휴대폰 모두 카메라 영상을 활용하되, <strong>PC 웹캠과 Cofa Proctor용 휴대폰은 서로 다른 역할</strong>을 한다고 안내해. 권장 사양을 미충족한 경우 실제 사용 가능 여부는 공식 가이드만으로 단정할 수 없어. <span class="term">[공식 · B 1쪽]</span></p>
+<h3>2. 개인 링크 접속부터 감독 연결까지</h3>
+<p class="small">아래 순서는 공식 상세 가이드 1페이지에서 제시한 감독 환경 설정 순서야.</p>
+<div class="timeline">
+<div class="event"><div class="time">입장 ①</div><strong>개인 접속 링크 열기 → '계속'</strong><p>접속 코드는 미리 입력되어 있어. 별도 입력을 요구하는 단계로 단정하면 안 돼.</p></div>
+<div class="event"><div class="time">입장 ②</div><strong>'응시 규정 확인'을 끝까지 스크롤 → 동의 → 다음</strong><p>스크롤을 완료해야 동의할 수 있는 화면이 안내돼 있어. 시험 규정을 실제로 확인한 후 동의해.</p></div>
+<div class="event"><div class="time">감독 ①</div><strong>감독 안내 동의</strong><p>감독 기록·카메라·전체 화면의 소리 없는 녹화와 저장에 관한 안내를 확인해.</p></div>
+<div class="event"><div class="time">감독 ②</div><strong>컴퓨터 웹캠 확인</strong><p>브라우저 카메라 권한을 허용하고 얼굴 전체와 양쪽 귀, 밝기·화각을 확인해.</p></div>
+<div class="event"><div class="time">감독 ③</div><strong>'전체 화면' 공유 선택</strong><p>브라우저의 선택창에서 '창'이나 '탭' 대신 <strong>전체 화면</strong>을 선택해야 연결이 완료돼.</p></div>
+<div class="event"><div class="time">감독 ④</div><strong>휴대폰 Cofa Proctor 설치·연결</strong><p>설치용 QR과 연결용 QR을 구분해 순서대로 연결하고 PC 화면에 연결 완료 표시가 나오는지 확인해.</p></div>
+</div>
+<div class="notice"><strong>영상 기록 세부사항</strong><p style="margin:5px 0 0">공식 가이드에는 컴퓨터 전체 화면과 카메라 영상이 <strong>소리 없이 녹화·저장</strong>되고, 녹화 영상이 60초 단위로 서버에 전송된다고 안내돼 있어. 실제 녹화 시작 시점은 '과제 시작' 버튼을 누른 순간이며, 사전 체험의 카메라 영상은 녹화 저장하지 않는다고 명시돼 있어. <span class="term">[공식 · B 1~2쪽]</span></p></div>
+<h3>3. 휴대폰 QR 두 개의 차이</h3>
+<div class="grids stage2-qrgrid" style="grid-template-columns:1fr 1fr">
+<div class="stat"><strong style="font-size:17px">① 설치용 QR</strong><span>휴대폰의 <strong>기본 카메라</strong>로 스캔 → Cofa Proctor 설치</span></div>
+<div class="stat"><strong style="font-size:17px">② 연결용 QR</strong><span><strong>Cofa Proctor 앱 안에서</strong> 스캔 → 해당 응시 세션 연결</span></div>
+</div>
+<p>실제 조작 순서: PC의 모바일 카메라 영역에서 <strong>'연결하기'</strong> → 휴대폰 기본 카메라로 설치 QR 스캔·설치 → PC에서 <strong>'설치했어요 · 연결하기'</strong> → 휴대폰 Proctor 앱으로 <strong>응시 연결 QR</strong> 스캔 → PC에 연결 완료가 표시되는지 확인.</p>
+<p class="small">여기에는 실제 QR 이미지를 넣지 않았어. 공식 PDF의 QR은 화면 설명용 예시이고 실제 설치·연결은 시험 화면에서 제시되는 QR로 해야 해. <span class="term">[공식 · B 1쪽]</span></p>
+<h3>4. '과제 시작' 이후에 해야 하는 본인 확인</h3>
+<div class="timeline">
+<div class="event"><div class="time">과제 시작 클릭 직후</div><strong>자동 녹화 시작</strong><p>별도 녹화 버튼을 누르는 게 아니야. 아래 본인 확인은 <strong>녹화가 시작된 후</strong> 진행해.</p></div>
+<div class="event"><div class="time">휴대폰 세로 거치</div><strong>옆으로 펼친 팔의 손끝이 닿는 책상 위에 거치</strong><p>응시 의자에 앉은 자세에서 한쪽 팔을 옆으로 펼쳐 위치를 잡아. 휴대폰 <strong>전면 카메라</strong>에 손·키보드·얼굴·모니터가 함께 보이도록 높이와 각도를 조절하고 충전선을 연결해.</p></div>
+<div class="event"><div class="time">실물 신분증 확인</div><strong>미리 개인정보를 가린 신분증을 얼굴 옆에 들어 Proctor 카메라에 제시</strong><p>주민등록증·운전면허증·여권 중 하나. 모바일 신분증은 사용할 수 없어. 다음 표에서 종류별 가림 범위를 확인해.</p></div>
+<div class="event"><div class="time">안경 착용자에 해당하는 경우</div><strong>안경 앞면, 양쪽 다리의 바깥쪽·안쪽을 보여준 뒤 재착용</strong><p>스마트 안경 여부 확인과 연관된 절차로 안내돼 있어. 공식 순서대로 확인해.</p></div>
+</div>
+<h3>5. 신분증 종류별 가림 범위 — 직접 선택해 확인</h3>
+<p class="small">신분증 사진이나 번호는 이 사이트에 입력·업로드하지 않아. 아래 안내만 보고 종이나 손가락으로 가릴 곳을 준비하면 돼.</p>
+<div class="choices" id="stage2-id-tabs" role="group" aria-label="신분증 종류 선택">
+<button class="choice" data-id-type="resident" type="button" aria-pressed="true">주민등록증</button>
+<button class="choice" data-id-type="license" type="button" aria-pressed="false">운전면허증</button>
+<button class="choice" data-id-type="passport" type="button" aria-pressed="false">여권</button>
+</div>
+<div class="stat" id="stage2-id-guide" style="margin:12px 0 14px" aria-live="polite"><strong style="font-size:16px">주민등록증</strong><p style="margin:7px 0"><strong>가리기:</strong> 주민등록번호 뒤 7자리와 주소</p><p style="margin:0"><strong>보이기:</strong> 사진, 이름, 주민등록번호 앞 6자리(생년월일)</p></div>
+<p class="small">개인정보면의 여러 곳을 가려야 하면 전부 가려야 해. 사진·이름 등 본인 확인 항목은 가리지 않도록 주의해. <span class="term">[공식 · B 2쪽]</span></p>
+<h3>6. 딱 한 번 제공되는 15분 사전 체험</h3>
+<p><strong>1회·15분</strong>. 개인 응시 링크를 받은 뒤부터 본 과제를 시작하기 전까지 대기 화면의 <strong>'사전 체험하기'</strong>를 눌러 시작해. 실제 응시 환경과 같은 도구·감독 설정을 사용하지만 문제는 연습용이고, 사전 체험 작업 및 예시 답변은 평가에 반영되지 않아. <span class="term">[공식 · B 2쪽]</span></p>
+<table aria-label="사전 체험 점검 목록"><thead><tr><th>영역</th><th>사전 체험에서 직접 확인할 것</th></tr></thead><tbody>
+<tr><td>접속·파일</td><td>과제명과 응시 기간, README 열기, 새 파일 만들기·저장 확인</td></tr>
+<tr><td>Codex·AI</td><td>짧은 자료 읽기 요청으로 실제 응답·권한·오류 점검. 터미널에서 <span class="term">node --version</span> 같은 짧은 명령 실행</td></tr>
+<tr><td>Browser</td><td>서버 실행 후 포트·경로, 화면·버튼 동작 확인</td></tr>
+<tr><td>메신저·MCP</td><td>Cofa Helper에 사용법 질문, 필요한 MCP 등 설정 점검</td></tr>
+<tr><td>감독</td><td>PC 웹캠·전체 화면 공유·Proctor 앱 연결·충전·촬영 구도 확인</td></tr>
+<tr><td>종료 흐름</td><td>'체험 종료' 후 예시 후속 서술형 풀어보기. 본 과제는 이후 별도로 시작</td></tr>
+</tbody></table>
+<details><summary>15분을 어떻게 써야 할까? — 학습용 권장 배분</summary>
+<div>위 점검은 공식 가이드에 나온 사항이지만, 다음 시간 배분은 <strong>공식 지정이 아닌 연습용 제안</strong>이야. 감독 설정이 늦어지면 장비 연결을 우선하고 시간표에 얽매이지 마.<br>
+① 연결과 README·파일 확인(4분) → ② Codex 짧은 명령·응답(3분) → ③ Browser·서버(3분) → ④ 메신저·MCP 해당 시 확인(2분) → ⑤ 체험 종료·서술형 흐름 확인(3분). 합계 15분. 사전 준비로 Proctor 설치 및 카메라 권한을 확보해 두는 게 좋아.</div></details>
+<h3>7. 가장 흔히 헷갈릴 상황을 미리 판단해 보기</h3>
+<div class="stage2-faq">
+<details><summary>휴대폰만 있으면 PC 웹캠은 없어도 되나?</summary><div>안 돼. 상세 가이드는 PC의 컴퓨터 웹캠과 휴대폰 Proctor를 각각 준비하도록 안내하고, 휴대폰·태블릿을 PC 웹캠 대신 사용하지 말라고 명시해. <span class="term">[공식 · B 1쪽]</span></div></details>
+<details><summary>화면 공유를 '브라우저 탭'으로 선택했는데 연결이 안 돼.</summary><div>탭·창이 아니라 <strong>전체 화면</strong>을 선택해야 해. 화면 공유가 끊기면 상단 '감독 연결' → '연결 확인'에서 '전체 화면 다시 공유'를 선택해. <span class="term">[공식 · B 1·5쪽]</span></div></details>
+<details><summary>폰은 연결했는데 녹화가 아직 시작되지 않았어.</summary><div>연결만으로 본시험 녹화가 시작되지는 않아. '과제 시작'을 누르는 순간 자동 녹화가 시작돼. 연결 상태는 PC에서 확인해. <span class="term">[공식 · B 1~2쪽]</span></div></details>
+<details><summary>시험 도중 Proctor가 끊겼어.</summary><div>상단 '감독 연결' → '연결 확인'에서 장치를 재연결해. 휴대폰은 Proctor 앱에서 실제 응시 화면의 <strong>연결 QR</strong>을 다시 스캔해. 복구 중에도 타이머는 진행되고, 장애 구간은 기록돼. 복구 실패 시 오류 문구·시간을 문제 신고로 남겨. <span class="term">[공식 · B 5쪽]</span></div></details>
+<details><summary>모니터를 한 대만 켰으니 다른 모니터가 연결되어 있어도 괜찮겠지?</summary><div>상세 가이드는 <strong>2대 이상의 모니터가 감지되면 시작할 수 없다</strong>고 설명해. 추가 모니터는 분리하고 전체 화면을 다시 공유하는 게 안전해. <span class="term">[공식 · B 1·5쪽]</span></div></details>
+</div>
+<h3>8. 실제 규정을 이해했는지 확인하기</h3>
+<p class="small">아래는 공식 기출이 아닌 학습용 문제야. 답을 선택하면 바로 근거와 설명이 나와.</p>
+<div id="stage2-quiz">
+<div class="question" data-answer="n" data-explain="PC 웹캠과 휴대폰 Proctor가 둘 다 필요해. 휴대폰·태블릿으로 PC 웹캠을 대신할 수 없어. (B 1쪽)"><p>1. 휴대폰으로 촬영하니까 PC 웹캠은 없어도 된다.</p><div class="choices"><button class="choice" data-pick="y">맞다</button><button class="choice" data-pick="n">아니다</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="question" data-answer="y" data-explain="PC 웹캠에는 얼굴 전체와 두 귀가 보이게 해. (B 1쪽)"><p>2. PC 웹캠에서는 얼굴 전체뿐 아니라 양쪽 귀도 보여야 한다.</p><div class="choices"><button class="choice" data-pick="y">맞다</button><button class="choice" data-pick="n">아니다</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="question" data-answer="n" data-explain="브라우저에서 선택해야 하는 건 '전체 화면'이지 창이나 탭이 아니야. (B 1쪽)"><p>3. 크롬에서 시험 탭만 공유하면 감독 연결이 완료된다.</p><div class="choices"><button class="choice" data-pick="y">맞다</button><button class="choice" data-pick="n">아니다</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="question" data-answer="n" data-explain="설치 QR은 휴대폰 기본 카메라, 응시 연결 QR은 Proctor 앱 안에서 스캔해. (B 1쪽)"><p>4. 설치용 QR과 응시 연결용 QR은 같은 QR이다.</p><div class="choices"><button class="choice" data-pick="y">맞다</button><button class="choice" data-pick="n">아니다</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="question" data-answer="n" data-explain="신분증·안경 검사는 과제 시작 이후, 즉 녹화가 시작된 다음에 진행해야 해. (B 2쪽)"><p>5. 과제 시작 버튼을 누르기 전에 신분증을 먼저 보여준다.</p><div class="choices"><button class="choice" data-pick="y">맞다</button><button class="choice" data-pick="n">아니다</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="question" data-answer="y" data-explain="사전 체험은 1회·15분이며 본시험에 평가 반영되지 않는 연습 문제야. (B 2쪽)"><p>6. 사전 체험 문제의 결과와 예시 답변은 평가에 반영되지 않는다.</p><div class="choices"><button class="choice" data-pick="y">맞다</button><button class="choice" data-pick="n">아니다</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="question" data-answer="n" data-explain="업로드와 다운로드 각각 5Mbps 이상은 '권장'이야. (A 1쪽 / B 1쪽)"><p>7. 다운로드·업로드 5Mbps 이상은 필수 합격 커트라인이라고 공식 명시됐다.</p><div class="choices"><button class="choice" data-pick="y">맞다</button><button class="choice" data-pick="n">아니다</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="question" data-answer="n" data-explain="주민등록증은 뒤 7자리와 주소를 가리고, 사진·이름·앞 6자리는 보여야 해. (B 2쪽)"><p>8. 주민등록증은 사진과 이름까지 모두 가린 뒤 제시한다.</p><div class="choices"><button class="choice" data-pick="y">맞다</button><button class="choice" data-pick="n">아니다</button></div><div class="feedback" aria-live="polite"></div></div>
+</div>
+<p class="checkline" id="stage2-quiz-progress" role="status">0 / 8문항 확인</p>
+<button type="button" class="choice" id="stage2-quiz-reset">8문항 다시 풀기</button>
+<h3 style="margin-top:25px">9. 응시 전 체크리스트</h3>
+<p class="small">선택 상태는 현재 기기에만 저장돼. 민감정보나 실제 신분증은 입력하지 않아.</p>
+<div class="checks" id="stage2-preflight">
+<label class="checkrow"><input type="checkbox">컴퓨터 한 대와 모니터 한 대만 사용하도록 정리했다</label>
+<label class="checkrow"><input type="checkbox">Chrome/Edge 최신 버전, 웹캠 권한과 얼굴·양쪽 귀 구도를 확인했다</label>
+<label class="checkrow"><input type="checkbox">혼자 있는 공간, 조명, 유리문·창문 가림을 점검했다</label>
+<label class="checkrow"><input type="checkbox">휴대폰 Proctor 설치, 거치대·충전선·노트북 전원을 준비했다</label>
+<label class="checkrow"><input type="checkbox">다운로드와 업로드 속도를 각각 점검했다</label>
+<label class="checkrow"><input type="checkbox">실물 신분증의 종류별 가림 위치를 준비했다</label>
+<label class="checkrow"><input type="checkbox">설치 QR(기본 카메라)과 연결 QR(Proctor 앱)을 구별한다</label>
+<label class="checkrow"><input type="checkbox">전체 화면 공유와 '과제 시작' 후 녹화·본인 확인 순서를 이해했다</label>
+<label class="checkrow"><input type="checkbox">사전 체험 1회·15분의 점검 항목을 숙지했다</label>
+<label class="checkrow"><input type="checkbox">메신저·외부 AI·원격 접속 앱과 알림을 종료할 계획이다</label>
+</div>
+<p class="checkline" id="stage2-preflight-status" role="status">준비 점검 0 / 10</p>
+<p class="footnote">원본 근거: 「시험 필수확인사항 브리프」 p.1, 「사전 체험 및 응시환경 상세 가이드」 pp.1–2 및 연결 복구 pp.5. 원본 PDF에는 별도의 Proctor 설치·촬영 안내 가이드를 확인하라는 문구도 있어. 이 페이지에 없는 상세 앱 설치 UI를 임의로 만들지 않았어.</p>
+</section>
 <section id="step3" class="panel"><div class="section-kicker">STEP 03 · 다음 작업</div><h2>웹 IDE와 Codex</h2><p class="muted">README, 업무 담당자 에이전트, Cofa Helper, 터미널에서 codex 실행, /status·/model, 승인 대기·실행·완료를 학습해.</p><div class="todo">원본 출처: 상세 가이드 2쪽.</div></section>
 <section id="step4" class="panel"><div class="section-kicker">STEP 04 · 다음 작업</div><h2>GitHub·Skill·MCP</h2><p class="muted">공개 자료 가져오기와 Git Push 금지, 개인 파일 업로드 제한, 외부 AI 연결 금지를 사례별로 판별해.</p><div class="todo">원본 출처: 브리프 1쪽, 상세 가이드 3·5쪽.</div></section>
 <section id="step5" class="panel"><div class="section-kicker">STEP 05 · 다음 작업</div><h2>실제 작업·검증·저장</h2><p class="muted">담당자 질문→Codex 위임→서버 실행→Browser 포트·경로 확인→버튼 테스트→저장 충돌 복구를 배우는 단원이야.</p><div class="todo">원본 출처: 상세 가이드 2~3쪽.</div></section>
@@ -122,5 +235,37 @@ try{const stored=JSON.parse(localStorage.getItem('official-guide-v1-checks')||'[
 function updateChecks(){document.getElementById('checkprogress').textContent='준비 점검 '+boxes.filter(b=>b.checked).length+' / 5';try{localStorage.setItem('official-guide-v1-checks',JSON.stringify(boxes.map(b=>b.checked)))}catch(e){}}
 boxes.forEach(b=>b.addEventListener('change',updateChecks));updateChecks();
 if('IntersectionObserver' in window){const links=[...document.querySelectorAll('.step-link')];const io=new IntersectionObserver(entries=>{entries.filter(e=>e.isIntersecting).forEach(e=>links.forEach(l=>l.classList.toggle('active',l.hash==='#'+e.target.id)))},{rootMargin:'-10% 0px -75% 0px'});document.querySelectorAll('main section[id]').forEach(s=>io.observe(s))}
+</script>
+<script>
+(function(){
+const types={
+ resident:{name:'주민등록증',hide:'주민등록번호 뒤 7자리와 주소',show:'사진, 이름, 주민등록번호 앞 6자리(생년월일)'},
+ license:{name:'운전면허증',hide:'주민등록번호 뒤 7자리, 운전면허번호 전체, 주소, 암호일련번호',show:'사진, 이름, 주민등록번호 앞 6자리(생년월일)'},
+ passport:{name:'여권',hide:'여권번호 전체, 개인정보면 하단 MRZ 두 줄, 주민등록번호가 기재된 경우 그 번호 뒤 7자리',show:'사진, 이름, 생년월일, 유효기간'}
+};
+const tabs=[...document.querySelectorAll('#stage2-id-tabs [data-id-type]')];
+const card=document.getElementById('stage2-id-guide');
+function renderId(t){const v=types[t]||types.resident;tabs.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.idType===t)));card.innerHTML='<strong style="font-size:16px">'+v.name+'</strong><p style="margin:7px 0"><strong>가리기:</strong> '+v.hide+'</p><p style="margin:0"><strong>보이기:</strong> '+v.show+'</p>';}
+tabs.forEach(b=>b.addEventListener('click',()=>renderId(b.dataset.idType)));
+renderId('resident');
+const questions=[...document.querySelectorAll('#stage2-quiz .question')];
+function showScore(){document.getElementById('stage2-quiz-progress').textContent='확인 '+questions.filter(x=>x.dataset.picked).length+' / '+questions.length+'문항 · 정답 '+questions.filter(x=>x.dataset.picked===x.dataset.answer).length+'개';}
+questions.forEach(q=>q.querySelectorAll('[data-pick]').forEach(b=>b.addEventListener('click',()=>{
+q.dataset.picked=b.dataset.pick;q.querySelectorAll('[data-pick]').forEach(x=>{x.setAttribute('aria-pressed',String(x===b));x.classList.toggle('active',x===b);});
+const yes=b.dataset.pick===q.dataset.answer;
+const feedback=q.querySelector('.feedback');feedback.textContent=(yes?'정답 · ':'오답 · ')+q.dataset.explain;feedback.className='feedback '+(yes?'right':'wrong');
+showScore();
+})));
+document.getElementById('stage2-quiz-reset').addEventListener('click',()=>{
+questions.forEach(q=>{delete q.dataset.picked;q.querySelectorAll('[data-pick]').forEach(b=>{b.removeAttribute('aria-pressed');b.classList.remove('active')});const f=q.querySelector('.feedback');f.textContent='';f.className='feedback';});
+showScore();
+});
+showScore();
+const storageKey='skhynix-round2-official-stage2-checklist-v1';
+const checks=[...document.querySelectorAll('#stage2-preflight input[type="checkbox"]')];
+try{const saved=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isArray(saved))checks.forEach((c,i)=>c.checked===!!saved[i]||(c.checked=!!saved[i]));}catch(_){}
+function refreshChecks(){const status=document.getElementById('stage2-preflight-status');status.textContent='준비 점검 '+checks.filter(c=>c.checked).length+' / '+checks.length;try{localStorage.setItem(storageKey,JSON.stringify(checks.map(c=>c.checked)))}catch(_){}}
+checks.forEach(c=>c.addEventListener('change',refreshChecks));refreshChecks();
+})();
 </script>
 </body></html>
