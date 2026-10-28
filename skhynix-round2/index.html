@@ -112,6 +112,36 @@
 @media(max-width:550px){#examGuide .research-full{margin:16px 10px 3px}#examGuide .research-full .r-hero,#examGuide .research-full .r-card{padding:16px 14px}#examGuide .research-full table{min-width:575px}}
 
 </style>
+<style>
+
+/* Hackathon Skills + Plugins field guide: informational, no redundant UI actions */
+#examGuide .skill-guide{margin:20px 18px 5px;scroll-margin-top:18px}
+#examGuide .skill-guide .sg-intro{border:1px solid #dce5ec;border-radius:14px;background:#f9fafb;padding:clamp(18px,3vw,25px)}
+#examGuide .skill-guide .sg-kicker{color:#a65520;font-size:12px;font-weight:800}
+#examGuide .skill-guide h2{font-size:clamp(21px,3vw,28px);line-height:1.42;margin:7px 0 12px}
+#examGuide .skill-guide h3{font-size:19px;line-height:1.45;margin:0 0 12px}
+#examGuide .skill-guide h4{font-size:15px;margin:17px 0 7px}
+#examGuide .skill-guide p,#examGuide .skill-guide li{font-size:14px;line-height:1.78}
+#examGuide .skill-guide .sg-panel{border:1px solid #e0e5ec;background:#fff;border-radius:13px;padding:clamp(18px,2.8vw,26px);margin-top:12px}
+#examGuide .skill-guide .sg-panel li{margin:8px 0}
+#examGuide .skill-guide ol,#examGuide .skill-guide ul{padding-left:22px;margin-top:9px;margin-bottom:11px}
+#examGuide .skill-guide .sg-table{width:100%;overflow-x:auto;margin:12px 0}
+#examGuide .skill-guide table{border-collapse:collapse;min-width:670px;width:100%;font-size:13px}
+#examGuide .skill-guide th,#examGuide .skill-guide td{text-align:left;vertical-align:top;border-bottom:1px solid #e0e5eb;padding:10px 9px}
+#examGuide .skill-guide th{background:#f6f8fa;font-weight:800}
+#examGuide .skill-guide a{color:#884319;overflow-wrap:anywhere;text-underline-offset:2px}
+#examGuide .skill-guide .sg-notice{background:#fff7ef;border-left:3px solid #d3a077;padding:12px 14px;margin:14px 0;font-size:13px;line-height:1.8}
+#examGuide .skill-guide .sg-rule{background:#f7f9fa;border-left:3px solid #b7c2cc;padding:11px 14px;margin:12px 0;font-size:13px}
+#examGuide .skill-guide .sg-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:13px 0}
+#examGuide .skill-guide .sg-three div{padding:13px;background:#fafbfc;border:1px solid #e1e6eb;border-radius:9px}
+#examGuide .skill-guide .sg-three strong{display:block;font-size:13px;line-height:1.5}
+#examGuide .skill-guide .sg-three p{font-size:12px;margin:5px 0 0;color:#596979}
+#examGuide .skill-guide .sg-small{font-size:12px;color:#627285}
+#examGuide .skill-guide .sg-prompt{white-space:pre-wrap;border:1px solid #dce2e9;border-radius:9px;background:#f8fafb;padding:13px 14px;font:13px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}
+#examGuide .skill-guide .sg-strong{font-weight:800;color:#8a491f}
+@media(max-width:650px){#examGuide .skill-guide{margin:15px 10px 5px}#examGuide .skill-guide .sg-three{grid-template-columns:1fr}#examGuide .skill-guide table{min-width:620px}}
+
+</style>
 </head>
 <body>
 <a class="skip-link" data-action="skip-main" href="#screen">본문으로 바로 가기</a>
@@ -151,7 +181,7 @@
 </ol>
 <div class="e-alerts"><span>14:00 전체 종료</span><span>제출 확정 후 수정 불가</span><span>서술형 AI 사용 금지</span></div>
 
-</section><p class="e-continuation">↓ 시험 순서별 상세 안내가 이어져 · <a href="#organizer-research">주최 측 단서·출제 유형 심층 분석은 아래에서 읽기</a></p><div class="exam-guide">
+</section><p class="e-continuation">↓ 시험 순서별 상세 안내가 이어져 · <a href="#organizer-research">주최 측 단서 분석</a> · <a href="#skills-plugin-recommendations">추천 Skill·Plugin</a></p><div class="exam-guide">
 <div class="content" aria-label="시험 진행 순서별 상세 가이드">
 <section class="chapter anchor" id="step1" aria-labelledby="prep-title">
 <span id="step2" class="anchor" aria-hidden="true"></span>
@@ -426,6 +456,119 @@
 <div class="r-callout"><strong>최종 결론:</strong> 2차 예선은 <strong>주어진 업무를 AI로 이해·구현·검증하고, AI 없이 설명하는 능력</strong>에 대비하는 것이 합리적이야. 웹서비스만 연습하지도, 프롬프트 퀴즈만 연습하지도 말자. 이 보고서는 공식 기출·유출 정보가 아닌 <strong>근거와 추론을 구분한 학습 노트</strong>야.</div>
 <p class="r-note">공개 정보 검토 기준: 2026-10-27. 실제 시험의 최신 개별 메일과 주최 측 안내가 우선.</p>
 </section></section>
+
+
+<section class="skill-guide" id="skills-plugin-recommendations" aria-labelledby="sg-title">
+<div class="sg-intro">
+<div class="sg-kicker">실전 도구 선택 가이드 · OpenAI 공개 저장소 확인 · 2026.10.28</div>
+<h2 id="sg-title">해커톤에서 쓸 만한 Plugin과 Skill — 무조건 많이 설치하지 않기</h2>
+<p><strong>결론:</strong> 이번 2차 예선은 180분이라는 시간 제한과 외부 도구 제한이 있어. 성능이 좋다는 이유만으로 많이 설치하는 것보다, <strong>완료 전 검증·오류 원인 추적·데이터 품질 확인</strong>처럼 문제 해결에 직접 도움이 되는 Skill을 골라 쓰는 편이 합리적이야.</p>
+<p>실제로 확인한 후보군은 <a href="https://github.com/openai/plugins" target="_blank" rel="noopener noreferrer">OpenAI Plugins 저장소</a>의 Plugin 디렉터리 62개와 <a href="https://github.com/openai/skills/tree/main/skills/.curated" target="_blank" rel="noopener noreferrer">기존 curated Skills</a> 39개야. 이 숫자는 <strong>공개 저장소 항목 수</strong>이지 <strong>Cofa 응시 환경에 설치되어 있는 개수</strong>가 아니야. 공개된 Skill과 Plugin이 실제 시험에서 설치·실행된다는 보장은 없어.</p>
+<div class="sg-notice"><strong>가장 중요한 경계:</strong> 이번 공식 가이드에서는 일반 공개 Skill, 공개 GitHub 코드와 일부 MCP를 과제 규정 안에서 활용할 수 있지만 <strong>개인 비공개 파일/Skill 업로드, Git Push·시험 결과물 외부 전송, 별도 AI 모델 연결, Computer Use</strong> 등을 제한해. 코드를 내려받거나 기능을 실행하기 전에 권한과 외부 통신부터 확인해야 해. 이 글의 추천 등급은 <strong>나의 실전 적합도 판단</strong>이지 주최 측 승인 목록이 아니야.</div>
+<p class="sg-small">출처 구분: [공식 시험 규정] 사용자가 받은 브리프·응시환경 상세 가이드 / [실제 공개 소스] GitHub SKILL.md·Plugin README / [추천] 과제별 효용과 사용 위험을 비교한 분석.</p>
+</div>
+
+<section class="sg-panel" aria-labelledby="sg-top7">
+<h3 id="sg-top7">1. 추천 Skill 7개 · 우선순위와 활용 순간</h3>
+<p>7개를 전부 설치하라는 뜻은 아니야. 각 Skill은 문제 종류가 맞을 때 사용하고, 없는 Skill은 같은 원칙을 Codex에게 직접 지시해도 돼.</p>
+<div class="sg-table"><table><thead><tr><th>순위 · 공개 Skill</th><th>언제 유용한가</th><th>추천 가치 및 조건</th></tr></thead><tbody>
+<tr><td><strong>1. <a href="https://github.com/openai/plugins/tree/main/plugins/superpowers/skills/verification-before-completion" target="_blank" rel="noopener noreferrer">verification-before-completion</a></strong></td><td>AI가 “완료”라고 할 때 테스트 결과·실제 파일·종료코드 확인</td><td class="sg-strong">매우 높음 · 대부분의 과제</td></tr>
+<tr><td><strong>2. <a href="https://github.com/openai/plugins/tree/main/plugins/superpowers/skills/systematic-debugging" target="_blank" rel="noopener noreferrer">systematic-debugging</a></strong></td><td>오류 재현 → 로그·변경점 조사 → 원인 수정 → 재검증</td><td class="sg-strong">매우 높음 · 코드/환경 오류</td></tr>
+<tr><td><strong>3. <a href="https://github.com/openai/plugins/tree/main/plugins/data-analytics/skills/analyze-data-quality" target="_blank" rel="noopener noreferrer">analyze-data-quality</a></strong></td><td>CSV·엑셀·데이터의 결측·중복·타입·이상값·신뢰성 점검</td><td class="sg-strong">매우 높음 · 데이터 과제인 경우</td></tr>
+<tr><td><strong>4. <a href="https://github.com/openai/plugins/tree/main/plugins/data-analytics/skills/validate-data" target="_blank" rel="noopener noreferrer">validate-data</a></strong></td><td>분석값·집계·시각화·보고서 결론의 근거 검토</td><td>높음 · 분석/보고서 과제</td></tr>
+<tr><td><strong>5. <a href="https://github.com/openai/skills/tree/main/skills/.curated/security-best-practices" target="_blank" rel="noopener noreferrer">security-best-practices</a></strong></td><td>Python·JavaScript·Go 코드의 보안 위험 점검</td><td>높음 · 해당 언어 코드를 만들 때</td></tr>
+<tr><td><strong>6. <a href="https://github.com/openai/skills/tree/main/skills/.curated/pdf" target="_blank" rel="noopener noreferrer">pdf</a></strong></td><td>PDF의 텍스트·표·레이아웃을 확인하거나 보고서 PDF 제작</td><td>중간 · PDF 입출력 과제일 때</td></tr>
+<tr><td><strong>7. <a href="https://github.com/openai/plugins/tree/main/plugins/build-web-apps/skills/frontend-testing-debugging" target="_blank" rel="noopener noreferrer">frontend-testing-debugging</a></strong></td><td>웹앱의 렌더링·버튼 동작·반응형 UI·콘솔 오류 점검</td><td>높음 · 웹서비스 과제일 때. 자동화 도구 제한 확인 필수</td></tr>
+</tbody></table></div>
+<h4>왜 앞의 두 가지가 특히 중요할까?</h4>
+<p><strong>verification-before-completion</strong>은 “완료했다”는 주장을 하기 전에 해당 주장을 증명할 명령을 고르고 <strong>실제로 실행한 최신 결과</strong>를 확인하도록 해. 실행하지 않은 테스트를 성공했다고 말하지 못하게 만드는 원칙이지.</p>
+<p><strong>systematic-debugging</strong>은 먼저 오류 메시지를 읽고 실패를 재현하며 최근 변경 사항을 확인해 <strong>원인을 찾은 뒤 수정</strong>하도록 안내해. 증상만 가리는 임시 패치나 무의미한 반복 시도를 줄일 수 있어.</p>
+<p>이 둘은 <a href="https://github.com/openai/plugins/tree/main/plugins/superpowers" target="_blank" rel="noopener noreferrer">Superpowers</a>의 공개 Skill이야. <strong>OpenAI 저장소에 배포돼 있지만 Superpowers 자체는 Jesse Vincent가 만든 도구</strong>라서 OpenAI가 직접 제작한 모든 Skill과 동일하게 표현하면 안 돼.</p>
+<p class="sg-small">검토 근거: Superpowers의 <a href="https://github.com/openai/plugins/blob/main/plugins/superpowers/skills/verification-before-completion/SKILL.md">완료 검증 지침</a>과 <a href="https://github.com/openai/plugins/blob/main/plugins/superpowers/skills/systematic-debugging/SKILL.md">체계적 디버깅 지침</a>, Data Analytics의 품질/분석 검증 Skill. 이전 openai/skills 저장소는 현재 Plugins 저장소와 구분되는 기존 자료야.</p>
+</section>
+
+<section class="sg-panel" aria-labelledby="sg-plugins">
+<h3 id="sg-plugins">2. 실제로 고려할 Plugin 4개</h3>
+<ol>
+<li><strong><a href="https://github.com/openai/plugins/tree/main/plugins/data-analytics" target="_blank" rel="noopener noreferrer">Data Analytics</a> — 1순위, 데이터 과제일 때.</strong> 결측·중복·스키마 품질 검증, 계산·비교·보고서·대시보드 검토에 유용해. 단, 외부 데이터웨어하우스나 개인 연결 계정을 요구한다면 시험용 파일을 보내면 안 돼. <strong>응시 작업 공간 내부에서 허용되는 방식인지 확인</strong>해야 해.</li>
+<li><strong><a href="https://github.com/openai/plugins/tree/main/plugins/superpowers" target="_blank" rel="noopener noreferrer">Superpowers</a> — 2순위, 개발 작업의 질 관리.</strong> 요구 파악·계획·테스트 주도 개발·원인 분석·완료 검증을 연결해. 그러나 전체 플러그인에는 설계 승인, 엄격한 TDD, 서브에이전트 실행 등 시간이 드는 흐름도 있어서 <strong>180분 실전에서는 과할 수 있어</strong>. 우선은 검증/디버깅 원칙만 활용하는 편을 추천해.</li>
+<li><strong><a href="https://github.com/openai/plugins/tree/main/plugins/build-web-apps" target="_blank" rel="noopener noreferrer">Build Web Apps</a> — 3순위, 웹서비스 과제일 때.</strong> <a href="https://github.com/openai/plugins/tree/main/plugins/build-web-apps/skills/frontend-app-builder">frontend-app-builder</a>·frontend-testing-debugging 등을 제공해. 일부 지침이 브라우저 자동화나 외부 도구를 이용하므로 <strong>시험 Computer Use 제한과 충돌하지 않는지 확인 전엔 실행 추천하지 않아</strong>.</li>
+<li><strong><a href="https://github.com/openai/plugins/tree/main/plugins/build-web-data-visualization" target="_blank" rel="noopener noreferrer">Build Web Data Visualization</a> — 4순위, 시각화가 필수일 때.</strong> 차트·대시보드·데이터 표시·검증 관련 전문 Skill을 제공해. 단순 파일 처리라면 생략하고, 읽기 쉬운 표만으로 요구사항이 충족되는 경우도 많아.</li>
+</ol>
+<div class="sg-rule"><strong>Plugin과 Skill 차이:</strong> Skill은 AI에 작업 방법을 알려주는 지침/도구 묶음, Plugin은 이러한 Skill과 관련 기능을 배포하는 패키지야. MCP는 AI가 다른 도구·데이터와 연결되는 인터페이스이고, 별도의 GPT 모델을 연결하는 것과는 구분돼.</div>
+<p class="sg-small">확인한 저장소: <a href="https://github.com/openai/plugins">openai/plugins</a> · <a href="https://github.com/openai/skills">openai/skills (기존 저장소)</a>.</p>
+</section>
+
+<section class="sg-panel" aria-labelledby="sg-avoid">
+<h3 id="sg-avoid">3. 이번 시험에서 우선 사용하지 않을 도구들</h3>
+<div class="sg-table"><table><thead><tr><th>후보</th><th>왜 조심해야 하나</th><th>권장 판단</th></tr></thead><tbody>
+<tr><td>OpenAI Developers · 외부 모델/API 연동</td><td>별도 AI·API 키 연결 기능은 시험 제한과 충돌 가능</td><td>실전에는 사용하지 않기</td></tr>
+<tr><td>Vercel · Netlify 외부 배포</td><td>시험 결과물·파일을 외부 서버로 전송할 위험</td><td>실전 배포 금지 범위 확인; 외부 전송 피하기</td></tr>
+<tr><td>Playwright · 브라우저 자동 조작</td><td>Computer Use 금지와 충돌할 수 있음. 일반 테스트 명령이 모두 동일하게 금지라는 뜻은 아님</td><td>자동 조작 실행 전 공식 허용 여부 확인</td></tr>
+<tr><td>GitHub Push·쓰기 연동</td><td>Git Clone 등 공개 자료 참고와 Git Push는 다름</td><td>Git Push 및 결과 외부 반출 금지</td></tr>
+<tr><td>Figma · Canva</td><td>디자인이 필수가 아니면 설치·사용 시간 대비 효용 낮음</td><td>과제에서 요구할 때만 검토</td></tr>
+<tr><td>다중 에이전트 Harness · 개인 Skill 반입</td><td>복잡한 설정·검증 비용, 개인 파일 업로드 불가·외부 AI 제한</td><td>실전에서는 선행 확인 없으면 회피</td></tr>
+</tbody></table></div>
+<p>이 도구들이 일반적으로 쓸모없다는 뜻은 아니야. <strong>시험 전 별도 연습</strong>과 <strong>Cofa 감독 환경의 실제 응시</strong>에서 허용되는 행동은 구별해야 해. 공개 Plugin이 있다고 해서 이번 시험의 허용 목록이 확정된 건 아니야.</p>
+</section>
+
+<section class="sg-panel" aria-labelledby="sg-routing">
+<h3 id="sg-routing">4. 실제 과제가 나오면 이렇게 고르기</h3>
+<div class="sg-table"><table><thead><tr><th>README의 실제 과제</th><th>후보 Skill</th><th>직접 확인할 결과</th></tr></thead><tbody>
+<tr><td>CSV·엑셀 등 데이터 분석</td><td>analyze-data-quality → validate-data</td><td>결측·중복·단위·집계·경계값, 잘못된 행에서 깨지지 않는지</td></tr>
+<tr><td>웹서비스·업무 도구</td><td>필요한 기능 구현 → 허용된 방법으로 frontend-testing-debugging</td><td>실제 서버 실행, 입력·버튼·이동, 잘못된 입력과 재시작</td></tr>
+<tr><td>PDF·결과 보고서</td><td>pdf → validate-data</td><td>텍스트·표·출처·수치, 페이지·표시 누락, 최종 파일</td></tr>
+<tr><td>원인 모를 코드·실행 오류</td><td>systematic-debugging</td><td>재현 방법·오류 메시지·원인·수정 후 동일 조건 재검증</td></tr>
+<tr><td><strong>모든 과제의 제출 직전</strong></td><td><strong>verification-before-completion</strong></td><td>실제 파일·저장 상태·실행 결과·실패 테스트·미검증 항목</td></tr>
+</tbody></table></div>
+<p class="sg-small">Skill을 설치할 수 없더라도 위 검증 동작은 일반 Codex 프롬프트와 터미널의 실제 테스트 명령으로 구현할 수 있어. 도구 설치보다 검증의 실행 흔적이 더 중요해.</p>
+</section>
+
+<section class="sg-panel" aria-labelledby="sg-final3">
+<h3 id="sg-final3">5. 최종 준비 세트 — 일단 세 개만 이해하기</h3>
+<div class="sg-three">
+<div><strong>① verification-before-completion</strong><p>완료 선언 전에 최신 실제 테스트 결과로 확인</p></div>
+<div><strong>② systematic-debugging</strong><p>실패를 재현하고 원인을 찾아 수정·재검증</p></div>
+<div><strong>③ analyze-data-quality</strong><p>데이터 과제에서 결측·중복·이상값을 먼저 확인</p></div>
+</div>
+<p>PDF Skill과 웹앱 빌더는 실제 과제에 필요한 경우에만 추가 후보로 두자. 이 중에도 <strong>확실하게 범용성이 높은 건 ①과 ②</strong>이고, ③은 데이터 과제가 나올 때 강해.</p>
+<h4>15분 사전 체험에서 확인할 순서</h4>
+<ol>
+<li>Codex의 <code>/status</code>와 도움말을 확인하고 설치된 Skill·Plugin 목록을 볼 방법이 있는지 확인한다.</li>
+<li><code>/plugins</code>, <code>/skills</code> 등 일반 Codex에서 알려진 명령을 무조건 지원한다고 가정하지 않는다. 실제 Cofa 환경의 메뉴·도움말을 우선한다.</li>
+<li>공개 Skill을 읽거나 설치할 권한, 외부 네트워크 접근, 스크립트·권한 변경 필요 여부를 먼저 점검한다.</li>
+<li>별도 AI 모델·개인 API 키·외부 계정·개인 Skill 반입은 시도하지 않는다.</li>
+<li>설치가 복잡하거나 작동 확인이 늦어지면 즉시 생략하고 직접 지시문으로 전환한다.</li>
+</ol>
+<h4>Skill이 없어도 그대로 적용할 수 있는 사전 연습 지시문</h4>
+<div class="sg-prompt">README의 필수 요구사항과 제출물을 먼저 확인해 줘.
+현재 환경의 보안 규칙을 변경하거나 외부로 파일을 보내지 마.
+
+1. 완료 조건과 정상·오류·예외 테스트를 정리해.
+2. 구현·수정은 작은 작업 단위로 제안해.
+3. 오류가 나면 로그·재현 절차·원인을 확인하고 수정해.
+4. 최종 완료 선언 전 실제 검증 명령을 실행하고 결과를 확인해.
+5. 실패·미완료·검증하지 못한 항목은 구분해 보고해.
+
+내가 허용하지 않은 외부 AI·MCP·계정 연결·Git Push는 진행하지 마.</div>
+<div class="sg-notice"><strong>시험 중 특히 중요:</strong> 후속 서술형 6문항에서는 AI 사용이 금지돼. 위 프롬프트는 시험 전 연습이나 허용된 과제 개발 단계의 작업 지원을 위한 것이며, 서술형 답변을 대신 작성하게 하면 안 돼.</div>
+</section>
+
+<section class="sg-panel" aria-labelledby="sg-sources">
+<h3 id="sg-sources">6. 출처 원문과 검증 한계</h3>
+<ul>
+<li><a href="https://github.com/openai/plugins" target="_blank" rel="noopener noreferrer">OpenAI Plugins 공개 저장소</a> — Plugin 디렉터리와 Skill 소스 목록을 확인.</li>
+<li><a href="https://github.com/openai/skills/tree/main/skills/.curated" target="_blank" rel="noopener noreferrer">OpenAI Codex 기존 curated Skills</a> — pdf·security-best-practices 등. 기존 저장소와 최신 Plugin 배포 방식 구분.</li>
+<li><a href="https://github.com/openai/plugins/blob/main/plugins/superpowers/README.md" target="_blank" rel="noopener noreferrer">Superpowers README</a> — 전체 개발 방법론과 Codex 사용/설치 흐름, 별도 제작자 표기.</li>
+<li><a href="https://github.com/openai/plugins/blob/main/plugins/data-analytics/README.md" target="_blank" rel="noopener noreferrer">Data Analytics README</a> — 검증·품질 분석·시각화·보고서 워크플로우.</li>
+<li><a href="https://github.com/openai/plugins/blob/main/plugins/build-web-apps/skills/frontend-testing-debugging/SKILL.md" target="_blank" rel="noopener noreferrer">Frontend Testing Debugging Skill</a> — 실제 렌더링·상호작용 검사 및 브라우저 자동화 관련 설정 확인.</li>
+<li><a href="https://github.com/openai/plugins/blob/main/plugins/build-web-data-visualization/skills/data-visualization/SKILL.md" target="_blank" rel="noopener noreferrer">Data Visualization Skill</a> — 차트·대시보드 설계와 검증 방법.</li>
+<li>사용자에게 제공된 <strong>SK하이닉스 시험 필수확인사항 브리프 및 사전 체험·응시환경 상세 가이드</strong> — 공개 Skill·MCP 조건부 사용, 외부 파일/AI/Push/자동화 제한. 개인 이메일·첨부 원본을 공개 사이트에 그대로 게시하지 않음.</li>
+</ul>
+<div class="sg-rule"><strong>확인된 사실:</strong> 위 Skill·Plugin은 공개 저장소에서 기능과 소스가 확인돼. <strong>아직 확인되지 않은 것:</strong> Cofa 시험용 Codex에서 특정 Plugin/Skill 설치·실행이 가능한지, 그 실행에 필요한 네트워크와 권한이 허용되는지, 이번 2차 채점에서 사용 자체가 가산점인지. 일반 Codex 설치·사용 설명은 Cofa 환경의 실제 지원을 보장하지 않아.</div>
+<p class="sg-small">공개 저장소 확인: 2026-10-28. 추천 적합도는 주최 측 공식 우선순위가 아닌 실전 대비용 분석이야.</p>
+</section>
+</section>
 
 </div></div><div id="dynamicContent" hidden><section class="loading-view"><div class="skeleton title-skeleton"></div><div class="skeleton line-skeleton"></div><div class="skeleton card-skeleton"></div></section></div></main>
   <footer class="footer">공식 Cofa 시험 시스템이 아닌 개인 학습용 자료입니다. 실제 응시 규정은 주최측 안내가 우선합니다.</footer>
